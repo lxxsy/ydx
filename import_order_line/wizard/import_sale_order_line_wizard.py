@@ -63,7 +63,7 @@ class import_sale_order_line_wizard(models.TransientModel):
 
     @api.multi
     def wizard_view(self):
-        view = self.env.ref('import_sale_order_line.form_import_sale_order_line_wizard')
+        view = self.env.ref('import_order_line.form_import_sale_order_line_wizard')
         return {'name': _(u'导入订单明细'),
                 'type': 'ir.actions.act_window',
                 'view_type': 'form',

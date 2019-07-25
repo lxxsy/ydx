@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+    <data>
+        <!--汇入订单明细 向导-->
+        <record id="form_import_stock_adjust_order_line_wizard" model="ir.ui.view">
+            <field name="name">import.stock.adjust.order.line.wizard.form</field>
+            <field name="model">import.stock.adjust.order.line.wizard</field>
+            <field name="arch" type="xml">
+                <form string="" version="7.0">
+                    <group col="2">
+                        <group>
+                            <field name="master_id" class="oe_inline" readonly="1"/>
+                            <field name="excel_file" filename="filename"/>
+                            <field name="filename" invisible="1"/>
+                        </group>
+                        <group>
+
+                        </group>
+
+                    </group>
+                    <group>
+                        <a href="/import_order_line/static/stock_adjust_order_line_template.xlsx">模版下载</a>
+                    </group>
+                    <footer>
+                        <button name="action_confirm" string="确认" type="object" class="oe_highlight" icon="fa-check"/>
+                        <button string="取消" style="margin-left: 20px;" class="oe_highlight" icon="fa-close"
+                                special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_import_stock_adjust_order_line_wizard" model="ir.actions.act_window">
+            <field name="name">open.import.stock.adjust.order.line.wizard</field>
+            <field name="res_model">import.stock.adjust.order.line.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="form_import_stock_adjust_order_line_wizard"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</openerp>

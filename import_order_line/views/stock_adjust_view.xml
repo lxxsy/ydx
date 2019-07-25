@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_inventory_form_inherit">
+            <field name="name">view.stock.inventory.form.inherit</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_form"/>
+            <field name="arch" type="xml">
+                <field name="line_ids" position="before">
+                   <button name="action_open_import_stock_adjust_order_line_wizard"
+                           string="导入订单明细" states="confirm"
+                           type="object" class="oe_highlight" icon="fa-check"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
