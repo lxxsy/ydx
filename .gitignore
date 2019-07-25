@@ -38,4 +38,5 @@ setup/win32/static/postgresql*.exe
 /man/
 /share/
 /src/
-.idea/
+*.idea/
+*.DS_Store
