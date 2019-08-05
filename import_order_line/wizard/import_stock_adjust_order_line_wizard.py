@@ -71,14 +71,14 @@ class import_stock_adjust_order_line_wizard(models.TransientModel):
                         u'{product_code}: 仓库位置 {product_cell}的位置不可为空,请确认!\n'.format(
                             product_code=product_cell,product_cell=product_cell))
 
-                key = product_cell+location_cell
+                key = str(product_cell)+str(location_cell)
                 if key in data_index:
                     err_list.append(
                             u'{product_code} {location_cell}：产品和位置重复,请确认!\n'.format(
                                 product_code=product_cell,location_cell=location_cell))
                 data_index.append(key)
                 product_qty = sh.cell(row, 2).value
-                if not product_qty:
+                if product_qty == '':
                     flag = 1
                     err_list.append(
                         u'{product_code}: 数量不可为空,请确认!\n'.format(
