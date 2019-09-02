@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            string="Sale Contract"
+            id="action_report_sale_contract"
+            model="sale.contract"
+            report_type="qweb-html"
+            name="ydx_sale.report_salecontract"
+            file="ydx_sale.report_salecontract"
+            print_report_name="
+                (object.state in ('draft') and '销售合同 - %s' % (object.name))"
+        />
+    </data>
+</odoo>

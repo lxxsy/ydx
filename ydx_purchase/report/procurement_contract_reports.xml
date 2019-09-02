@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            string="Preview Procurement Contract"
+            id="action_report_procurement_contract"
+            model="purchase.procurement.contract"
+            report_type="qweb-html"
+            name="ydx_purchase.report_procurementcontract"
+            file="ydx_purchase.report_procurementcontract"
+            print_report_name="
+                (object.state in ('draft') and '采购合同 - %s' % (object.name))"
+        />
+    </data>
+</odoo>

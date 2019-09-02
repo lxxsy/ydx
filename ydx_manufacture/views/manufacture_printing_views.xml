@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+        <!--<record id="ydx_mrp_production_cost_report" model="ir.actions.act_window">-->
+            <!--<field name="name">生产成本曲线图</field>-->
+            <!--<field name="model">mrp.production</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<graph string="生产成本曲线图" >-->
+                    <!--<field name="product_uom_qty" type="line"/>-->
+                    <!--&lt;!&ndash;<field name="product_cost_ydx" type="measure"/>&ndash;&gt;-->
+                <!--</graph>-->
+            <!--</field>-->
+        <!--</record>-->
+
+      <!--<record id="ydx_mrp_production_cost_report" model="ir.ui.view">-->
+          <!--<graph sting="生产成本曲线图" type="pivot">-->
+            <!--<field name="product_cost_ydx" type="row"/>-->
+            <!--<field name="product_uom_qty" type="col"/>-->
+            <!--<field name="search_default_last_year_mo_order" type="measure"/>-->
+        <!--</graph>-->
+      <!--</record>-->
+
+
+        <menuitem id="ydx_menu_mrp_production_report"
+          name="生产成本曲线图"
+          parent="mrp.menu_mrp_reporting"
+          action="mrp.mrp_production_report"
+          sequence="15"/>
+
+    </data>
+</odoo>

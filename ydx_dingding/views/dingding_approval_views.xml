@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+
+    <record id="dingding_ydx_work_record_template_form_view01" model="ir.ui.view">
+      <field name="name">修改_任务待办配置</field>
+      <field name="model">dindin.work.record.template</field>
+      <field name="inherit_id" ref="dindin_workrecord.dindin_work_record_template_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='hostip']" position="replace">
+           <field name="hostip" placeholder="model=mrp.workorder view_type=form00"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

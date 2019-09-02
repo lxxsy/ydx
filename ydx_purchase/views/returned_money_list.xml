@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+        <record id="inher_returned_money" model="ir.ui.view">
+            <field name="name">inher.returned.money</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_due']" position="after">
+                	<field name="purchase_return_id" string="Purchase Return Order"/>
+                </xpath>
+				<xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='currency_id']" position="after">
+					<field name="purchase_return_line_id" invisible="1"/>
+				</xpath>
+            </field>
+        </record>
+
+
+        <record id="action_purchase_returned_accout_invoice" model="ir.actions.act_window">
+			<field name="name">Return Money</field>
+			<field name="res_model">account.invoice</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','in_refund')]</field>
+            <field name="context">{'type':'in_refund', 'journal_type': 'purchase'}</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+						Click to create Product Template.
+					</p>
+			</field>
+		 </record>
+
+        <menuitem
+				id="purchase_returned_money_menu"
+				name="Returned Accout Invoice"
+				parent="ps_account_payable.menu_purchase_payable"
+				action="action_purchase_returned_accout_invoice"
+				/>
+    </data>
+</odoo>

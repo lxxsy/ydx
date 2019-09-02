@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_view_inherit" model="ir.ui.view">
+        <field name="name">purchase_order_form_inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group/field[@name='date_order']" position="after">
+           			<field name="product_template_id"/>
+            </xpath>
+            <xpath expr="//button[@name='action_view_invoice']" position="after">
+                <button name="action_create_procurement_contract" string="Create Procurement Contract" type="object" class="oe_highlight" context="{'no_create':True}" />
+                <button name="action_create_return" string="Create Return" type="object" class="oe_highlight" context="{'no_create':True}" attrs="{'invisible': [('state', 'not in', ['to approve','purchase','done'])]}"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button type="object"  name="action_view_contract"
+                    class="oe_stat_button"
+                    icon="fa-pencil-square-o" >
+                    <field name="purchase_contract_count" widget="statinfo" string="Purchase Contract Count"/>
+                    <field name='purchase_contract_ids' invisible="1"/>
+                </button>
+                <button type="object"  name="action_view_return"
+                    class="oe_stat_button"
+                    icon="fa-pencil-square-o" >
+                    <field name="purchase_return_count" widget="statinfo" string="Purchase Return Count"/>
+                    <field name='purchase_return_ids' invisible="1"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+<!--attrs="{'invisible':[('purchase_contract_count', '=', 0)]}"-->
+    <record id="purchase_order_tree_view_inherit" model="ir.ui.view">
+        <field name="name">purchase_order_tree_inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="purchase_contract_ids" widget="many2many_tags"/>
+                <field name="purchase_return_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

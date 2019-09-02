@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mrp_material_requirements,mrp.material.requirements,model_mrp_material_requirements,mrp.group_mrp_user,1,1,1,1
+access_mrp_material_requirements_line,mrp.material.requirements.line,model_mrp_material_requirements_line,mrp.group_mrp_user,1,1,1,1

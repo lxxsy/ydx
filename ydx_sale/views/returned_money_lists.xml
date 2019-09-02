@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--<record id="ydx_sale_view_picking_form" model="ir.ui.view">-->
+            <!--<field name="name">ydx.sale.stock.picking.form</field>-->
+            <!--<field name="model">stock.picking</field>-->
+            <!--<field name="inherit_id" ref="stock.view_picking_form"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<xpath expr="//field[@name='origin']" position="after">-->
+                    <!--<field name="sale_stock_id" string="退货单号"/>-->
+                <!--</xpath>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <record id="action_sale_returned_accout_invoice" model="ir.actions.act_window">
+            <field name="name">Return Money</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','out_refund')]</field>
+            <field name="context">{'type':'out_refund', 'journal_type': 'sale'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create Product Template.
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+                id="sale_returned_money_menu"
+                name="Sale Return Order"
+                parent="ps_account_receivable.menu_sales_receivable"
+                action="action_sale_returned_accout_invoice"
+        />
+    </data>
+</odoo>

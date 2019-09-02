@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_move_tree" model="ir.ui.view">
+        <field name="name">view.move.tree</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id"/>
+                <field name="name"/>
+                <field name="product_uom_qty"/>
+                <field name="product_qty"/>
+                <field name="reference"/>
+                <field name="date"/>
+                <field name="picking_partner_id" string="合作伙伴"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_move_outgoing_line" model="ir.actions.act_window">
+        <field name="name">交货单明细</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move</field>
+        <field name="domain">[('location_id.usage', 'in', ('internal', 'transit')), ('location_dest_id.usage', 'not in',
+            ('internal', 'transit'))]
+        </field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_move_tree"/>
+    </record>
+
+    <record id="action_move_incoming_line" model="ir.actions.act_window">
+        <field name="name">收货单明细</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move</field>
+        <field name="domain">[('location_id.usage', 'not in', ('internal', 'transit')), ('location_dest_id.usage', 'in',
+            ('internal', 'transit'))]
+        </field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_move_tree"/>
+    </record>
+
+    <menuitem id="menu_line"
+              name="明细"
+              parent="stock.menu_stock_root"
+              sequence="2"
+              action="action_move_incoming_line"/>
+    <menuitem id="menu_outgoing_line"
+              name="交货单明细"
+              parent="menu_line"
+              sequence="2"
+              action="action_move_outgoing_line"/>
+    <menuitem id="menu_incoming_line"
+              name="收货单明细"
+              parent="menu_line"
+              sequence="3"
+              action="action_move_incoming_line"/>
+</odoo>

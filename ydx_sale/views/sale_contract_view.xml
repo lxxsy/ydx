@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_contract_management_form" model="ir.ui.view">
+        <field name="name">sale.contract.form</field>
+        <field name="model">sale.contract</field>
+        <field name="arch" type="xml">
+            <form string="Sale Contract">
+            <header>
+                <button name="button_confirm" type="object" states="draft" string="Confirm Order" class="oe_highlight"/>
+                <button name="button_approve" type="object" states='to approve' string="Approve Order" class="oe_highlight" groups="sales_team.group_sale_manager"/>
+                <button name="button_draft" states="cancel" string="Set to Draft" type="object" />
+                <button name="button_cancel" states="to approve,done" string="Cancel" type="object" />
+                <field name="state" widget="statusbar" statusbar_visible="draft,to approve,cancel,done" readonly="1"/>
+            </header>
+            <sheet>
+                <div class="oe_title">
+                    <span class="o_form_label">Sale Contract</span>
+                </div>
+                <group>
+                    <group>
+                        <field name="name" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="date_order"/>
+                        <field name="sale_order_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    </group>
+                </group>
+                <separator/>
+                <group attrs="{'readonly': [('state', 'in', ('to approve','done', 'cancel'))]}">
+                    <group>
+                        <field name="company_id"/>
+                        <field name="company_legal_person" />
+                        <field name="company_address" />
+                        <field name="company_contact" />
+                        <field name="company_phone" />
+                        <field name="company_vat" />
+                        <field name="company_bank_num" />
+                        <field name="company_bank" />
+                    </group>
+                    <group>
+                        <field name="partner_id" widget="res_partner_many2one" context="{'search_default_supplier':0, 'default_supplier':0, 'default_customer':1, 'show_vat': True}" domain="[('customer','=',True)]"
+                            placeholder="Name, TIN, Email, or Reference"/>
+                        <field name="currency_id" groups="base.group_multi_currency"/>
+                        <field name="partner_legal_person" />
+                        <field name="partner_address" />
+                        <!--<field name="partner_contact" widget="many2many_tags" domain="[('active','=',True), ('type','=','contact'),('is_company','=',False), ('parent_id','=', partner_id)]"/>-->
+                        <field name="partner_contact" />
+                        <field name="partner_phone" />
+                        <field name="partner_vat" />
+                        <field name="partner_bank_num" />
+                        <field name="partner_bank" />
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Products">
+                        <field name="order_line" attrs="{'readonly': [('state', 'in', ('to approve','done', 'cancel'))]}">
+                             <tree string="Sale Order Lines" editable="bottom">
+                                <field name="currency_id" invisible="1"/>
+                                <field name="state" invisible="1"/>
+                                <field name="product_type" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <field name="product_id" attrs="{'readonly': [('state', 'in', ('to approve','done', 'cancel'))]}" context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty,'uom':product_uom, 'company_id': parent.company_id}" force_save="1"/>
+                                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                <field name="product_uom_qty"/>
+                                <field name="product_uom" groups="uom.group_uom" attrs="{'readonly': [('state', 'in', ('to approve', 'done', 'cancel'))]}" force_save="1"/>
+                                <field name="price_unit"/>
+                                <field name="tax_id" widget="many2many_tags" options="{'no_create': True}" context="{'search_view_ref': 'account.account_tax_view_search'}" domain="[('type_tax_use','=','sale'),('company_id','=',parent.company_id)]"/>
+                                <field name="price_total" widget="monetary"/>
+                                <field name="sale_line_id"  invisible="1"/>
+                            </tree>
+                        </field>
+                        <group class="oe_subtotal_footer">
+                            <group>
+                                <field name="voucher_moneyformat" />
+                            </group>
+                            <group>
+                                <field name="amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline">
+                                    <label for="amount_total"/>
+                                </div>
+                                <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                        </group>
+                        <div class="oe_clear"/>
+                    </page>
+                    <page string="Other Information">
+                        <group>
+                            <field name="date_planned" />
+                            <field name="signed_address"/>
+                            <field name="user_id"/>
+                            <field name="team_id"/>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_contract_management_tree" model="ir.ui.view">
+        <field name="name">sale.contract.tree</field>
+        <field name="model">sale.contract</field>
+        <field name="arch" type="xml">
+            <tree decoration-bf="message_unread==True" decoration-muted="state=='cancel'" decoration-info="state in ('to approve')" string="Sale Contract">
+                <field name="message_unread" invisible="1"/>
+                <field name="name" string="Reference"/>
+                <field name="date_order" />
+                <field name="partner_id"/>
+                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                <field name="user_id"/>
+                <field name="amount_untaxed" sum="Total Untaxed amount" string="Untaxed" widget="monetary"/>
+                <field name="amount_total" sum="Total amount" widget="monetary"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="state"/>
+                <field name="sale_order_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_contract_management_view" model="ir.actions.act_window">
+        <field name="name">Sale Contract</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.contract</field>
+         <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new sale contract
+          </p><p>
+            You must define a sale contract for everything you purchase,
+            whether it's a physical product, a consumable or services.
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_sale_contract_management" name="Sale Contract"
+            parent="sale.sale_order_menu"
+            action="ydx_sale.sale_contract_management_view" sequence="35"/>
+
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--<record id='procurement_contract_wizard_form' model='ir.ui.view'>-->
+    <!--<field name='name'>procurement contract wizard form view</field>-->
+    <!--<field name='model'>procurement.contract.wizard</field>-->
+    <!--<field name='arch' type='xml'>-->
+        <!--<form string="Borrow books">-->
+            <!--<sheet>-->
+                <!--<group>-->
+                    <!--<field name='purchase_order_ids' widget="many2many_tags" options="{'no_create': True}"/>-->
+                <!--</group>-->
+            <!--</sheet>-->
+            <!--<footer>-->
+                <!--<button string='Rent' name='add_procurement_contract' class='btn-primary' type='object'/>-->
+                <!--<button string='Cancel' class='btn-default' special='cancel'/>-->
+            <!--</footer>-->
+        <!--</form>-->
+    <!--</field>-->
+<!--</record>-->
+
+<!--<act_window id="action_wizard_procurement_contract" name="Create contract" res_model="procurement.contract.wizard" view_mode="form" target="new" />-->
+<!--<menuitem id="menu_wizard_procurement_contract" parent="purchase.menu_procurement_management" action="action_wizard_procurement_contract" sequence="20" />-->
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+    <!-- Multi - Company Rules -->
+
+    <record model="ir.rule" id="sale_contract_comp_rule">
+        <field name="name">Sales Contract multi-company</field>
+        <field name="model_id" ref="model_sale_contract"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record model="ir.rule" id="sale_contract_line_comp_rule">
+        <field name="name">Sales Contract Line multi-company</field>
+        <field name="model_id" ref="model_sale_contract_line"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <!-- Multi - Salesmen sales order assignation rules -->
+
+    <record id="sale_contract_personal_rule" model="ir.rule">
+        <field name="name">Personal Contracts</field>
+        <field ref="model_sale_contract" name="model_id"/>
+        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+    </record>
+    <record id="sale_contract_see_all" model="ir.rule">
+        <field name="name">All Orders</field>
+        <field ref="model_sale_contract" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+    </record>
+
+    <record id="sale_contract_line_personal_rule" model="ir.rule">
+        <field name="name">Personal Contract Lines</field>
+        <field ref="model_sale_contract_line" name="model_id"/>
+        <field name="domain_force">['|',('order_id.user_id','=',user.id),('order_id.user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+    </record>
+
+    <record id="sale_contract_line_see_all" model="ir.rule">
+        <field name="name">All Contracts Lines</field>
+        <field ref="model_sale_contract_line" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+    </record>
+
+    <!-- Multi - Company Rules -->
+
+    <record model="ir.rule" id="sale_return_comp_rule">
+        <field name="name">Sales Return multi-company</field>
+        <field name="model_id" ref="model_sale_return"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record model="ir.rule" id="sale_return_line_comp_rule">
+        <field name="name">Sales Return Line multi-company</field>
+        <field name="model_id" ref="model_sale_return_line"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <!-- Multi - Salesmen sales order assignation rules -->
+
+    <record id="sale_return_personal_rule" model="ir.rule">
+        <field name="name">Personal Returns</field>
+        <field ref="model_sale_return" name="model_id"/>
+        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+    </record>
+    <record id="sale_return_see_all" model="ir.rule">
+        <field name="name">All Returns</field>
+        <field ref="model_sale_return" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+    </record>
+
+    <record id="sale_return_line_personal_rule" model="ir.rule">
+        <field name="name">Personal Return Lines</field>
+        <field ref="model_sale_return_line" name="model_id"/>
+        <field name="domain_force">['|',('order_id.user_id','=',user.id),('order_id.user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+    </record>
+
+    <record id="sale_return_line_see_all" model="ir.rule">
+        <field name="name">All Returns Lines</field>
+        <field ref="model_sale_return_line" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+    </record>
+
+</data>
+</odoo>

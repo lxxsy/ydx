@@ -1,0 +1,2171 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ydx_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-28 08:05+0000\n"
+"PO-Revision-Date: 2019-08-28 17:16+0800\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: zh\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+msgid "<span class=\"o_form_label\">Sale Contract</span>"
+msgstr "<span class=\"o_form_label\">销售合同</span>"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "<strong>Amount</strong>"
+msgstr "<strong>数量</strong>"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>说明</strong>"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "<strong>Order Date:</strong>"
+msgstr "<strong>订购日期:</strong>"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "<strong>Our Order Reference:</strong>"
+msgstr "<strong>我们的订单参照:</strong>"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "<strong>Qty</strong>"
+msgstr "<strong>数量</strong>"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>小计</strong>"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>总计</strong>"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "<strong>Unit Price</strong>"
+msgstr "<strong>单价</strong>"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:821
+#, python-format
+msgid "A journal must be specified of the acquirer %s."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:814
+#, python-format
+msgid "A payment acquirer is required to create a transaction."
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract_line__product_type
+msgid ""
+"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A consumable product is a product for which stock is not managed.\n"
+"A service is a non-material product you provide."
+msgstr ""
+"可库存商品是指在库存中受存量管控的产品。 要使用此项目你必须安装库存模块。\n"
+"可消耗商品是指不受库存量管控的产品。\n"
+"服务是指你提供的非产品类服务业务。"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:790
+#, python-format
+msgid "A transaction can't be linked to sales orders having different partners."
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__access_warning
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__access_warning
+msgid "Access warning"
+msgstr "访问警告"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_line__qty_delivered_method
+msgid ""
+"According to product configuration, the delivered quantity can be automatically computed by mechanism :\n"
+"  - Manual: the quantity is set manually on the line\n"
+"  - Analytic From expenses: the quantity is the quantity sum from posted expenses\n"
+"  - Timesheet: the quantity is the sum of hours recorded on tasks linked to this sale line\n"
+"  - Stock Moves: the quantity comes from confirmed pickings\n"
+msgstr ""
+"根据产品配置，交货数量可以通过机制自动计算：\n"
+" - 手动：在线手动输入数量\n"
+" - 费用分析：数量是来自过帐费用的数量总和\n"
+" - 时间表：数量是与此销售线相关联的任务记录的时数\n"
+" - 库存变动：数量来自已确认的选择\n"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_advance_payment_inv__deposit_account_id
+msgid "Account used for deposits"
+msgstr "用于押金的科目"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_needaction
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_needaction
+msgid "Action Needed"
+msgstr "前置操作"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__activity_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__activity_ids
+msgid "Activities"
+msgstr "活动"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__activity_state
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__activity_state
+msgid "Activity State"
+msgstr "活动状态"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Add a note"
+msgstr "增加备注"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Add a product"
+msgstr "添加产品"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Add a section"
+msgstr "添加部分"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__company_state
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__partner_state
+msgid "Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr "管理国家/地区或地区的分类."
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:165
+#, python-format
+msgid "Advance: %s"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__amount_undiscounted
+msgid "Amount Before Discount"
+msgstr "折扣前金额"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__voucher_moneyformat
+msgid "Amount of capital"
+msgstr "金额大写"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__analytic_account_id
+msgid "Analytic Account"
+msgstr "分析账户"
+
+#. module: ydx_sale
+#: selection:sale.return.line,qty_delivered_method:0
+msgid "Analytic From Expenses"
+msgstr "分析费用"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__analytic_tag_ids
+msgid "Analytic Tags"
+msgstr "分析标签"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__analytic_line_ids
+msgid "Analytic lines"
+msgstr "分析明细行"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__date_approve
+msgid "Approval Date"
+msgstr "审批日期"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "Approve"
+msgstr "审批"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+msgid "Approve Order"
+msgstr "审批单"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Are you sure you want to void the authorized transaction? This action can't be undone."
+msgstr "请问您是否确定要取消授权交易吗？此操作经确定后无法撤消。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract_line__sale_id
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_line__sale_id
+msgid "Associated Sale Order. Filled in automatically when a SO is chosen on the contract."
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_attachment_count
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件数量"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__authorized_transaction_ids
+msgid "Authorized Transactions"
+msgstr "已授权的交易"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__product_updatable
+msgid "Can Edit Product"
+msgstr "允许编辑"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sale_return_advance_payment_inv
+msgid "Cancel"
+msgstr "取消"
+
+#. module: ydx_sale
+#: selection:sale.contract,state:0 selection:sale.order,state:0
+#: selection:sale.return,state:0
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "Cancelled Sale Contract #"
+msgstr "取消销售合同#"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_contract.py:118
+#: code:addons/ydx_sale/models/sale_contract.py:284
+#, python-format
+msgid "Cannot delete a sale order line which is in state '%s'."
+msgstr ""
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Capture Transaction"
+msgstr "捕捉交易"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_city
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_city
+msgid "City"
+msgstr "城市"
+
+#. module: ydx_sale
+#: model_terms:ir.actions.act_window,help:ydx_sale.action_sale_returned_accout_invoice
+msgid "Click to create Product Template."
+msgstr "单击以创建产品模板。"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_line_price_history_view_form
+msgid "Close"
+msgstr "关闭"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__commitment_date
+msgid "Commitment Date"
+msgstr "承诺日期"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__company_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__company_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_address
+msgid "Company Address"
+msgstr "公司地址"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__company_currency_id
+msgid "Company Currency"
+msgstr "公司币种"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_res_config_settings
+msgid "Config Settings"
+msgstr "配置设定"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Configure a product"
+msgstr "配置产品"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Confirm"
+msgstr "确认"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "Confirm Delivery"
+msgstr "确认交货"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "Confirm Order"
+msgstr "确认订单"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__confirmation_date
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_tree
+msgid "Confirmation Date"
+msgstr "确认日期"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_contact
+msgid "Contacts"
+msgstr "联系人"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line__contract_lines
+msgid "Contract Lines"
+msgstr "合同明细行"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__name
+msgid "Contract Reference"
+msgstr "合同参考"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_country
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_country
+msgid "Country"
+msgstr "国家/地区"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Create Invoice"
+msgstr "创建发票"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sale_return_advance_payment_inv
+msgid "Create Invoices"
+msgstr "创建发票"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "Create Sale Contract"
+msgstr "创建销售合同"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "Create Sale Return"
+msgstr "创建销售退货"
+
+#. module: ydx_sale
+#: model_terms:ir.actions.act_window,help:ydx_sale.action_return_orders
+msgid "Create a new quotation, the first step of a new sale!"
+msgstr "创建一个报价是新销售的第一步!"
+
+#. module: ydx_sale
+#: model_terms:ir.actions.act_window,help:ydx_sale.sale_contract_management_view
+msgid "Create a new sale contract"
+msgstr "创建新的销售合同"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sale_return_advance_payment_inv
+msgid "Create and View Invoices"
+msgstr "创建并查看发票"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__create_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__create_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__create_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__create_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__create_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__create_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__create_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__create_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__create_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__create_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__create_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__create_date
+msgid "Creation Date"
+msgstr "创建日期"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__currency_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__currency_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__currency_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__currency_id
+msgid "Currency"
+msgstr "币种"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__currency_rate
+msgid "Currency Rate"
+msgstr "汇率"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__partner_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__partner_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__order_partner_id
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_line_price_history_view_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "Customer"
+msgstr "客户"
+
+#. module: ydx_sale
+#: model:ir.actions.act_window,name:ydx_sale.sale_order_line_price_history_action
+msgid "Customer History Prices"
+msgstr "客户历史价格"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__access_url
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__access_url
+msgid "Customer Portal URL"
+msgstr "客户门户网址"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__client_order_ref
+msgid "Customer Reference"
+msgstr "客户参考"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__deposit_taxes_id
+msgid "Customer Taxes"
+msgstr "销项税"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__partner_id
+msgid "Customers"
+msgstr "客户"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__create_date
+msgid "Date on which sales return is created."
+msgstr "销售订单确认日期。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__confirmation_date
+msgid "Date on which the sales return is confirmed."
+msgstr "销售订单确认日期。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__picking_type_id
+msgid "Deliver To"
+msgstr "交货到"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__qty_delivered_manual
+msgid "Delivered Manually"
+msgstr "手动发货"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:1112
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__qty_delivered
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+#, python-format
+msgid "Delivered Quantity"
+msgstr "已交货数量"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__partner_shipping_id
+msgid "Delivery Address"
+msgstr "送货地址"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__customer_lead
+msgid "Delivery Lead Time"
+msgstr "交货提前时间"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__partner_shipping_id
+msgid "Delivery address for current sales return."
+msgstr "当前采购订单的交货地址。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__expected_date
+msgid "Delivery date you can promise to the customer, computed from product lead times and from the shipping policy of the order."
+msgstr "您可以向客户承诺的交货日期，根据产品交货时间和订单的运输政策计算。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__date_order
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract_line__date_order
+msgid "Depicts the date where the Quotation should be validated and converted into a sale order."
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__name
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__name
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Description"
+msgstr "说明"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__default_location_dest_id_usage
+msgid "Destination Location Type"
+msgstr "目标位置类型"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__discount
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__discount
+msgid "Discount (%)"
+msgstr "折扣(%)"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__display_name
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__display_name
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__display_name
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__display_name
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__display_name
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__display_name
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__display_type
+msgid "Display Type"
+msgstr "显示类型"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__date_planned
+msgid "Dlivery Date"
+msgstr "交货日期"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__date_planned
+msgid "Dlivery Date."
+msgstr "交货日期。"
+
+#. module: ydx_sale
+#: selection:sale.contract,state:0
+msgid "Done"
+msgstr "完成"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:87
+#, python-format
+msgid "Down Payment"
+msgstr "付款条款"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__amount
+msgid "Down Payment Amount"
+msgstr "预收定金总额"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__product_id
+msgid "Down Payment Product"
+msgstr "预收定金产品"
+
+#. module: ydx_sale
+#: selection:sale.return.advance.payment.inv,advance_payment_method:0
+msgid "Down payment (fixed amount)"
+msgstr "预收定金(固定总额)"
+
+#. module: ydx_sale
+#: selection:sale.return.advance.payment.inv,advance_payment_method:0
+msgid "Down payment (percentage)"
+msgstr "预收定金(百分比)"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:84
+#, python-format
+msgid "Down payment of %s%%"
+msgstr "付款条款 %s%%"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_line__is_downpayment
+msgid "Down payments are made when creating invoices from a sales order. They are not copied when duplicating a sales order."
+msgstr "从销售订单创建发票时，将进行预付款。 复制销售订单时不会复制它们。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__move_dest_ids
+msgid "Downstream Moves"
+msgstr "下游移动"
+
+#. module: ydx_sale
+#: selection:sale.contract,state:0 selection:sale.order,state:0
+#: selection:sale.return,state:0
+msgid "Draft"
+msgstr "草稿"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__expected_date
+msgid "Expected Date"
+msgstr "期望交货日期"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_contract.py:276
+#: code:addons/ydx_sale/models/sale_return.py:1086
+#, python-format
+msgid "Extra line with %s "
+msgstr "额外其他行 %s."
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__fiscal_position_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__fiscal_position_id
+msgid "Fiscal Position"
+msgstr "税科目调整"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_follower_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_follower_ids
+msgid "Followers"
+msgstr "关注者"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_channel_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "关注者(渠道)"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_partner_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "关注者(业务伙伴)"
+
+#. module: ydx_sale
+#: sql_constraint:sale.return.line:0
+msgid "Forbidden values on non-accountable sale order line"
+msgstr "订单明细行输入内容错误"
+
+#. module: ydx_sale
+#: selection:sale.return,invoice_status:0
+#: selection:sale.return.line,invoice_status:0
+msgid "Fully Invoiced"
+msgstr "已开具全额发票"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "Future Activities"
+msgstr "未来活动"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sales_return_line_filter
+msgid "Group By"
+msgstr "分组"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__history_id
+msgid "History"
+msgstr "历史"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_line_price_history_view_form
+msgid "History Order"
+msgstr "历史订单"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__line_ids
+msgid "History lines"
+msgstr "历史订单明细行"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__message_unread
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__message_unread
+msgid "If checked new messages require your attention."
+msgstr "查看是否有需要留意的新消息。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__message_needaction
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "确认后, 出现提示消息."
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__message_has_error
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "如果勾选此项， 某些消息将会产生传递错误。"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "If the sale is locked, you can not modify it anymore. However, you will still be able to invoice or deliver."
+msgstr "如果一个销售订单已冻结（完成状态），你就不能手动修改它。但你仍然可以开具发票或交付。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__image
+msgid "Image"
+msgstr "图像"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_line__product_image
+msgid "Image of the product variant (Big-sized image of product template if false). It is automatically resized as a 1024x1024px image, with aspect ratio preserved."
+msgstr "产品变体的图像(如果为False,采用大尺寸图像模板). 它保持图像的宽高比,并自动调整图像大小为1024 x 1024px."
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__include_commercial_partner
+#: model:ir.model.fields,help:ydx_sale.field_sale_order_line_price_history__include_commercial_partner
+msgid "Include Commercial Partner"
+msgstr "包含的业务伙伴"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__include_quotations
+#: model:ir.model.fields,help:ydx_sale.field_sale_order_line_price_history__include_quotations
+msgid "Include Quotations"
+msgstr "包含的报价单"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__deposit_account_id
+msgid "Income Account"
+msgstr "收入科目"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Incoming Shipments"
+msgstr "入库"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:804
+#, python-format
+msgid "Invalid token found! Token acquirer %s != %s"
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:807
+#, python-format
+msgid "Invalid token found! Token partner %s != %s"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_stock_location_route
+msgid "Inventory Routes"
+msgstr "库存路线"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__partner_invoice_id
+msgid "Invoice Address"
+msgstr "发票地址"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__invoice_count
+msgid "Invoice Count"
+msgstr "发票数"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__invoice_lines
+msgid "Invoice Lines"
+msgstr "发票行"
+
+#. module: ydx_sale
+#: model:ir.actions.act_window,name:ydx_sale.action_view_sale_return_advance_payment_inv
+msgid "Invoice Order"
+msgstr "开票订单"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sale_return_advance_payment_inv
+msgid "Invoice Sales Return"
+msgstr "销售退货发票"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__invoice_status
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__invoice_status
+msgid "Invoice Status"
+msgstr "发票状态"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__partner_invoice_id
+msgid "Invoice address for current sales return."
+msgstr "销售退货发票."
+
+#. module: ydx_sale
+#: selection:sale.return.advance.payment.inv,advance_payment_method:0
+msgid "Invoiceable lines"
+msgstr "可开票的明细行"
+
+#. module: ydx_sale
+#: selection:sale.return.advance.payment.inv,advance_payment_method:0
+msgid "Invoiceable lines (deduct down payments)"
+msgstr "可开具发票明细 ( 扣除预付定金 )"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:1113
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__qty_invoiced
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+#, python-format
+msgid "Invoiced Quantity"
+msgstr "已开发票数量"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__invoice_ids
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Invoices"
+msgstr "发票"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sale_return_advance_payment_inv
+msgid ""
+"Invoices will be created in draft so that you can review\n"
+"                        them before validation."
+msgstr "草稿发票将被创建，以便于在验证前检查."
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Invoicing"
+msgstr "开票"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_is_follower
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_is_follower
+msgid "Is Follower"
+msgstr "关注者"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__is_shipped
+msgid "Is Shipped"
+msgstr "是否要运送"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__is_downpayment
+msgid "Is a down payment"
+msgstr "是首付款吗？."
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__is_expense
+msgid "Is expense"
+msgstr "可报销"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_line__is_expense
+msgid "Is true if the sales order line comes from an expense or a vendor bills"
+msgstr "此销售订单来源于报销单或供应商帐单"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:1135
+#, python-format
+msgid ""
+"It is forbidden to modify the following fields in a locked order:\n"
+"%s"
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:693
+#, python-format
+msgid "It is not allowed to confirm an order in the following states: %s"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract____last_update
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line____last_update
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history____last_update
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line____last_update
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return____last_update
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv____last_update
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line____last_update
+msgid "Last Modified on"
+msgstr "最后修改日"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__write_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__write_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__write_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__write_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__write_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__write_uid
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__write_uid
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__write_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__write_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__write_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__write_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__write_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__write_date
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "Late Activities"
+msgstr "最近活动"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_legal_person
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_legal_person
+msgid "Legal Person"
+msgstr "法人代表"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Lock"
+msgstr "锁"
+
+#. module: ydx_sale
+#: selection:sale.order,state:0 selection:sale.return,state:0
+msgid "Locked"
+msgstr "已锁定"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr "批次/序列号"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_main_attachment_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "附件"
+
+#. module: ydx_sale
+#: selection:sale.return.line,qty_delivered_method:0
+msgid "Manual"
+msgstr "手动"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_has_error
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_has_error
+msgid "Message Delivery error"
+msgstr "消息递送错误"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_ids
+msgid "Messages"
+msgstr "消息"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__qty_delivered_method
+msgid "Method to update delivered qty"
+msgstr "更新数量的方法"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_res_config_settings__sale_return_double_validation_amount
+#: model:ir.model.fields,help:ydx_sale.field_res_config_settings__so_double_validation_amount
+msgid "Minimum amount for which a double validation is required for sale order"
+msgstr ""
+
+#. module: ydx_sale
+#: sql_constraint:sale.return.line:0
+msgid "Missing required fields on accountable sale order line."
+msgstr "销售订单行缺少必要字段."
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "My Activities"
+msgstr "我的活动"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "My Orders"
+msgstr "我的订单"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sales_return_line_filter
+msgid "My Sales Order Lines"
+msgstr "我的销售订单明细行"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__product_name
+msgid "Name"
+msgstr "名称"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__signed_by
+msgid "Name of the person that signed the SR."
+msgstr ""
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+msgid "Name, TIN, Email, or Reference"
+msgstr "名称, 税号, 邮箱, 或 参考"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:122
+#: code:addons/ydx_sale/models/sale_return.py:416
+#: code:addons/ydx_sale/models/sale_return.py:418
+#: code:addons/ydx_sale/models/sale_return.py:420
+#, python-format
+msgid "New"
+msgstr "新的"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__activity_date_deadline
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "下一活动截止日期"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__activity_summary
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__activity_summary
+msgid "Next Activity Summary"
+msgstr "下一个活动摘要"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__activity_type_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__activity_type_id
+msgid "Next Activity Type"
+msgstr "下一活动类型"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+#: selection:sale.return.line,display_type:0
+msgid "Note"
+msgstr "备注"
+
+#. module: ydx_sale
+#: selection:sale.return,invoice_status:0
+#: selection:sale.return.line,invoice_status:0
+msgid "Nothing to Invoice"
+msgstr "没有要开票的"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_needaction_counter
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_needaction_counter
+msgid "Number of Actions"
+msgstr "操作次数"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_line__customer_lead
+msgid "Number of days between the order confirmation and the shipping of the products to the customer"
+msgstr "订单被确认和产品交付给客户之间的天数"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_has_error_counter
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_has_error_counter
+msgid "Number of error"
+msgstr "错误个数"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__message_needaction_counter
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "需要操作消息数量"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__message_has_error_counter
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "递送错误消息数量"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__message_unread_counter
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__message_unread_counter
+msgid "Number of unread messages"
+msgstr "未读消息数量"
+
+#. module: ydx_sale
+#: model_terms:ir.actions.act_window,help:ydx_sale.action_return_orders
+msgid "Once the quotation is confirmed, it becomes a sales order.<br> You will be able to create an invoice and collect the payment."
+msgstr "一旦报价确认，报价单即变为销售订单。<br>你可以创建一张收据来进行收款。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__require_payment
+msgid "Online Payment"
+msgstr "在线支付"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__require_signature
+msgid "Online Signature"
+msgstr "在线签名"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sales_return_line_filter
+msgid "Order"
+msgstr "订单"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__count
+msgid "Order Count"
+msgstr "订购数量"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__date_order
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__date_order
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__sale_order_date_order
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__date_order
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_line_price_history_view_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "Order Date"
+msgstr "单据日期"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__order_line
+msgid "Order Lines"
+msgstr "订单行"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_tree
+msgid "Order Number"
+msgstr "订单号码"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__order_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__order_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__name
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__order_id
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_line_price_history_view_form
+msgid "Order Reference"
+msgstr "订单关联"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__order_line
+msgid "Order Return Lines"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__state
+msgid "Order Status"
+msgstr "订单状态"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Ordered Qty"
+msgstr "订购数量"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:1109
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__product_uom_qty
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__product_uom_qty
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__product_uom_qty
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+#, python-format
+msgid "Ordered Quantity"
+msgstr "订购数量"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__orderpoint_id
+msgid "Orderpoint"
+msgstr "订货点"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Other Information"
+msgstr "其他信息"
+
+#. module: ydx_sale
+#: selection:sale.contract,activity_state:0
+#: selection:sale.return,activity_state:0
+msgid "Overdue"
+msgstr "逾期"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__partner_id
+msgid "Partner"
+msgstr "业务伙伴"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_address
+msgid "Partner Address"
+msgstr "业务伙伴地址"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__reference
+msgid "Payment Ref."
+msgstr "付款参考."
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__payment_term_id
+msgid "Payment Terms"
+msgstr "付款条款"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__picking_count
+msgid "Picking count"
+msgstr "拣货数"
+
+#. module: ydx_sale
+#: selection:sale.contract,activity_state:0
+#: selection:sale.return,activity_state:0
+msgid "Planned"
+msgstr "已安排"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:502
+#, python-format
+msgid "Please define an accounting sales journal for this company."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:1382
+#, python-format
+msgid "Please define income account for this product: \"%s\" (id:%d) - or for its category: \"%s\"."
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__access_url
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__access_url
+msgid "Portal Access URL"
+msgstr "门户访问网址"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_line_price_history_view_form
+msgid "Price"
+msgstr "价格"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__price_reduce
+msgid "Price Reduce"
+msgstr "降价"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__price_reduce_taxexcl
+msgid "Price Reduce Tax excl"
+msgstr "不含税价"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__price_reduce_taxinc
+msgid "Price Reduce Tax inc"
+msgstr "减税后价格"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__price_unit
+msgid "Price Unit"
+msgstr "单价"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_order_form
+msgid "Price history"
+msgstr "历史价格"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_procurement_group
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__group_id
+msgid "Procurement Group"
+msgstr "补货组"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__product_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__product_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__product_id
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_line_price_history_view_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sales_return_line_filter
+msgid "Product"
+msgstr "产品"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__product_image
+msgid "Product Image"
+msgstr "产品图片"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_line_price_history_view_form
+msgid "Product Qty"
+msgstr "产品数量"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__product_type
+msgid "Product Type"
+msgstr "产品类型"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__product_uom
+msgid "Product Unit of Measure"
+msgstr "产品量度单位"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__product_no_variant_attribute_value_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__product_no_variant_attribute_value_ids
+msgid "Product attribute values that do not create variants"
+msgstr "没有创建变量的产品属性值"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+msgid "Products"
+msgstr "产品"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_line_tree
+msgid "Qty"
+msgstr "数量"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Quantity:"
+msgstr "数量："
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__picking_ids
+msgid "Receptions"
+msgstr "接收"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_tree
+msgid "Reference"
+msgstr "参考"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__origin
+msgid "Reference of the document that generated this sales order request."
+msgstr "生成此销售订单相关的单据."
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Reporting"
+msgstr "报告"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__require_signature
+msgid "Request a online signature to the customer in order to confirm orders automatically."
+msgstr "向客户申请在线签名，以便自动确认订单."
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__require_payment
+msgid "Request an online payment to the customer in order to confirm orders automatically."
+msgstr "向客户申请在线支付，以便自动确认订单."
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:408
+#, python-format
+msgid "Requested date is too soon."
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__move_ids
+msgid "Reservation"
+msgstr "保留"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__activity_user_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__activity_user_id
+msgid "Responsible User"
+msgstr "责任用户"
+
+#. module: ydx_sale
+#: selection:sale.return,state:0
+msgid "Return"
+msgstr "退货"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line__return_lines
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Return Lines"
+msgstr "采购退货明细"
+
+#. module: ydx_sale
+#: model:ir.actions.act_window,name:ydx_sale.action_sale_returned_accout_invoice
+msgid "Return Money"
+msgstr "退货金额"
+
+#. module: ydx_sale
+#: selection:sale.order,state:0
+msgid "Sale"
+msgstr "销售"
+
+#. module: ydx_sale
+#: model:ir.actions.act_window,name:ydx_sale.sale_contract_management_view
+#: model:ir.actions.report,name:ydx_sale.action_report_sale_contract
+#: model:ir.model,name:ydx_sale.model_sale_contract
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__sale_contract_ids
+#: model:ir.ui.menu,name:ydx_sale.menu_sale_contract_management
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_tree
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "Sale Contract"
+msgstr "销售合同"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "Sale Contract #"
+msgstr "销售合同 #"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__sale_contract_approval
+#: model_terms:ir.ui.view,arch_db:ydx_sale.res_config_settings_view_form_inherit
+msgid "Sale Contract Approval"
+msgstr "销售合同审批"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__sale_contract_count
+msgid "Sale Contract Count"
+msgstr "销售合同数量"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_contract_line
+msgid "Sale Contract Line"
+msgstr "销售合同明细"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_order
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__sale_order_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__sale_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__sale_order_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__sale_id
+msgid "Sale Order"
+msgstr "销售订单"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__so_order_approval
+#: model_terms:ir.ui.view,arch_db:ydx_sale.res_config_settings_view_form_inherit
+msgid "Sale Order Approval"
+msgstr "销售订单审批"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__sale_order_count
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__sale_order_count
+msgid "Sale Order Count"
+msgstr "销售订单个数"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__sale_line_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__sale_line_id
+msgid "Sale Order Line"
+msgstr "销售订单行"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+msgid "Sale Order Lines"
+msgstr "销售订单行"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__user_id
+msgid "Sale Representative"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_return
+#: model:ir.model.fields,field_description:ydx_sale.field_procurement_group__sale_return_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__sale_return_ids
+#: model:ir.ui.menu,name:ydx_sale.sale_return_menu
+msgid "Sale Return"
+msgstr "销售退货"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__sale_return_approval
+#: model_terms:ir.ui.view,arch_db:ydx_sale.res_config_settings_view_form_inherit
+msgid "Sale Return Approval"
+msgstr "销售退货审批"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__sale_return_count
+msgid "Sale Return Count"
+msgstr "销售退货数量"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_stock_move__sale_return_line_id
+msgid "Sale Return Line"
+msgstr "销售退货明细"
+
+#. module: ydx_sale
+#: model:ir.ui.menu,name:ydx_sale.sale_returned_money_menu
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "Sale Return Order"
+msgstr "销售退货订单"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history__sale_order_line_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__sale_order_line_id
+msgid "Sale order line"
+msgstr "销售订单行"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_order_line_price_history
+msgid "Sale order line price history"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_order_line_price_history_line
+msgid "Sale order line price history line"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_stock_production_lot__sale_return_count
+msgid "Sale return count"
+msgstr "销售退货数量"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Sales Information"
+msgstr "销售信息"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "销售订单行"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sale_return_calendar
+msgid "Sales Retrun Orders"
+msgstr "销售退货订单"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_stock_picking__sale_return_id
+msgid "Sales Return"
+msgstr "销售退货"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_return_advance_payment_inv
+msgid "Sales Return Advance Payment Invoice"
+msgstr "销售退货发票"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_return_line
+msgid "Sales Return Line"
+msgstr "销售退货明细"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_line_tree
+msgid "Sales Return Lines"
+msgstr "采购退货明细"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "Sales Return Order"
+msgstr "销售退货订单"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_return_line_view_form_readonly
+msgid "Sales Return Order Item"
+msgstr "销售退货"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sales_return_line_filter
+msgid "Sales Return Order Lines ready to be invoiced"
+msgstr ""
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sales_return_line_filter
+msgid "Sales Return Order Lines related to a Sales Return Order of mine"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.actions.act_window,name:ydx_sale.action_return_orders
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_tree
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sale_return_graph
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sale_return_pivot
+msgid "Sales Return Orders"
+msgstr "销售退货"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_stock_production_lot__sale_return_ids
+msgid "Sales Returns"
+msgstr "销售退货"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__team_id
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "Sales Team"
+msgstr "销售团队"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__user_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__salesman_id
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sales_return_line_filter
+msgid "Salesperson"
+msgstr "销售员"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sales_return_line_filter
+msgid "Search Sales Return Order"
+msgstr "搜索销售退货单"
+
+#. module: ydx_sale
+#: selection:sale.return.line,display_type:0
+msgid "Section"
+msgstr "部分"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Section Name (eg. Products, Services)"
+msgstr "章节名称(如：产品，服务)"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__access_token
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__access_token
+msgid "Security Token"
+msgstr "安全令牌"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_stock_location_route__sale_return_selectable
+msgid "Selectable on Sales Order Line"
+msgstr "在销售订单行上可选"
+
+#. module: ydx_sale
+#: selection:sale.order,state:0
+msgid "Send"
+msgstr "发送"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__sequence
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__sequence
+msgid "Sequence"
+msgstr "序号"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_line_price_history_view_form
+msgid "Set price"
+msgstr "设置价格"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
+msgid "Set to Draft"
+msgstr "设为草稿"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Set to Quotation"
+msgstr "设为报价单"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Shipping Information"
+msgstr "送货信息"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "Show all records which has next action date is before today"
+msgstr "显示当前所有的下一次活动记录"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_order_line__last_price1
+msgid "Shows the last sales price of the product for selected customer from the Past two Sales order"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__signature
+msgid "Signature"
+msgstr "签名"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__signature
+msgid "Signature received through the portal."
+msgstr "签名已通过门户网站收到。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__signed_address
+msgid "Signed Address"
+msgstr "签订地址"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__signed_by
+msgid "Signed by"
+msgstr "已签核"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__origin
+msgid "Source Document"
+msgstr "源单据"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_state
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_state
+msgid "State"
+msgstr "省/ 州"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__state
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__state
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__state
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__state
+msgid "Status"
+msgstr "状态"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__activity_state
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"基于活动的状态 \n"
+" 逾期：已经超过截止日期 \n"
+" 现今：活动日期是当天 \n"
+" 计划：未来的活动。"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_stock_move
+msgid "Stock Move"
+msgstr "库存移动"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_stock_rule
+msgid "Stock Rule"
+msgstr "库存规则"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_street
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_street
+msgid "Street"
+msgstr "街道"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_street2
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_street2
+msgid "Street2"
+msgstr "街道 2"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__price_subtotal
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__price_subtotal
+msgid "Subtotal"
+msgstr "小计"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__price_tax
+msgid "Tax"
+msgstr "税率"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__amount_by_group
+msgid "Tax amount by group"
+msgstr "按组分配税额"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__amount_tax
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__tax_id
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__amount_tax
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__tax_id
+#: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
+msgid "Taxes"
+msgstr "税率设置"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_advance_payment_inv__deposit_taxes_id
+msgid "Taxes used for deposits"
+msgstr "用于押金的税金"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_line__display_type
+msgid "Technical field for UX purpose."
+msgstr "UX用途的技術領域。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__default_location_dest_id_usage
+msgid "Technical field used to display the Drop Ship Address"
+msgstr "技术字段用于显示代发货地址"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__note
+msgid "Terms and conditions"
+msgstr "条款和条件"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Terms and conditions... (note: you can setup default ones in the Configuration menu)"
+msgstr "条款和条件......（注意：您可以在“配置”菜单中设置默认值）"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line__last_price1
+msgid "The Last Price"
+msgstr "最近价格"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__so_double_validation_amount
+msgid "The Samllest Number"
+msgstr "最小金额"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__sale_return_double_validation_amount
+msgid "The Smallest Number"
+msgstr "最小金额"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_advance_payment_inv__amount
+msgid "The amount to be invoiced in advance, taxes excluded."
+msgstr "预付款发票金额，不含税。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__analytic_account_id
+msgid "The analytic account related to a sales return."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:409
+#, python-format
+msgid "The commitment date is sooner than the expected date.You may be unable to honor the commitment date."
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__company_country
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__partner_country
+msgid "The full name of the country."
+msgstr "国家地区名称。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__reference
+msgid "The payment communication of this sale order."
+msgstr "此销售订单的付款通信。"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:154
+#, python-format
+msgid "The product used to invoice a down payment should be of type 'Service'. Please use another product or update this product."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:152
+#, python-format
+msgid "The product used to invoice a down payment should have an invoice policy set to \"Ordered quantities\". Please update your deposit product to be able to create a deposit invoice."
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__currency_rate
+msgid "The rate of the currency to the currency of rate 1 applicable at the date of the order"
+msgstr "在订单当天适用的货币跟本位币兑换比率为 1"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:80
+#, python-format
+msgid "The value of the down payment amount must be positive."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:76
+#, python-format
+msgid "There is no income account defined for this product: \"%s\". You may have to install a chart of account from Accounting app, settings menu."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:613
+#: code:addons/ydx_sale/models/sale_return.py:618
+#, python-format
+msgid "There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered."
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__image
+msgid "This field holds the image used as image for the contract, limited to 1024x1024px."
+msgstr "此字段保存用作协定图像的图像，限制为 1024x1024px。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__commitment_date
+msgid "This is the delivery date promised to the customer. If set, the delivery order will be scheduled based on this date rather than product lead times."
+msgstr "这是承诺给客户的交货日期。一经设定后，订单将根据此日期而非产品提前期安排交货。"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__picking_type_id
+msgid "This will determine operation type of incoming shipment"
+msgstr "这将决定进货的操作类型."
+
+#. module: ydx_sale
+#: selection:sale.contract,state:0 selection:sale.order,state:0
+#: selection:sale.return,state:0
+msgid "To Approve"
+msgstr "待批准"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_sales_return_line_filter
+#: selection:sale.return,invoice_status:0
+#: selection:sale.return.line,invoice_status:0
+msgid "To Invoice"
+msgstr "待开票"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__qty_to_invoice
+msgid "To Invoice Quantity"
+msgstr "发票数量"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "To Upsell"
+msgstr "超卖"
+
+#. module: ydx_sale
+#: selection:sale.contract,activity_state:0
+#: selection:sale.return,activity_state:0
+msgid "Today"
+msgstr "今日"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
+msgid "Today Activities"
+msgstr "今天的活动"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__amount_total
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__price_total
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__amount_total
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__price_total
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_line_tree
+msgid "Total"
+msgstr "总计"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__price_tax
+msgid "Total Tax"
+msgstr "税额总计"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_tree
+msgid "Total Tax Included"
+msgstr "含税总金额"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_tree
+msgid "Total Untaxed amount"
+msgstr "不含金额合计"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_tree
+msgid "Total amount"
+msgstr "合计金额"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__transaction_ids
+msgid "Transactions"
+msgstr "交易"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_stock_picking
+msgid "Transfer"
+msgstr "调拨"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__price_unit
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__price_unit
+msgid "Unit Price"
+msgstr "单价"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Unit Price:"
+msgstr "单价:"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__product_uom
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_line_tree
+msgid "Unit of Measure"
+msgstr "单位"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Unlock"
+msgstr "解锁"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_unread
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_unread
+msgid "Unread Messages"
+msgstr "未读消息"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_unread_counter
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "未读消息计数器"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_tree
+msgid "Untaxed"
+msgstr "不含税"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__amount_untaxed
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__amount_untaxed
+msgid "Untaxed Amount"
+msgstr "未税金额"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__untaxed_amount_to_invoice
+msgid "Untaxed Amount To Invoice"
+msgstr "不含税待开票金额"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__untaxed_amount_invoiced
+msgid "Untaxed Invoiced Amount"
+msgstr "未含税的发票金额"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:452
+#, python-format
+msgid "Upsell <a href='#' data-oe-model='%s' data-oe-id='%d'>%s</a> for customer <a href='#' data-oe-model='%s' data-oe-id='%s'>%s</a>"
+msgstr ""
+
+#. module: ydx_sale
+#: selection:sale.return,invoice_status:0
+#: selection:sale.return.line,invoice_status:0
+msgid "Upselling Opportunity"
+msgstr "超卖商机"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__product_custom_attribute_value_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__product_custom_attribute_value_ids
+msgid "User entered custom product attribute values"
+msgstr "用户输入自定义产品属性值"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_res_config_settings__company_currency_id
+msgid "Utility field to express amount currency"
+msgstr "表示货币数量的工具字段"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "Void Transaction"
+msgstr "无效交易"
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_contract.py:340
+#: code:addons/ydx_sale/models/sale_return.py:1519
+#, python-format
+msgid "Warning for %s"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__website_message_ids
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return__website_message_ids
+msgid "Website Messages"
+msgstr "网站消息"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__website_message_ids
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__website_message_ids
+msgid "Website communication history"
+msgstr "网站沟通记录"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__advance_payment_method
+msgid "What do you want to invoice?"
+msgstr "你要开什么发票？"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_order_line_price_history_line__partner_id
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__partner_id
+#: model:ir.model.fields,help:ydx_sale.field_sale_return_line__order_partner_id
+msgid "You can find a customer by its Name, TIN, Email or Internal Reference."
+msgstr "你可以通过它的名字，TIN，EMail或内部参考找到一个客户."
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract__partner_id
+#: model:ir.model.fields,help:ydx_sale.field_sale_contract_line__partner_id
+msgid "You can find a customers by its Name, TIN, Email or Internal Reference."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:320
+#, python-format
+msgid "You can not delete a sent quotation or a confirmed sales return. You must first cancel it."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:1567
+#, python-format
+msgid ""
+"You can not remove an order line once the sales order is confirmed.\n"
+"You should rather set the quantity to 0."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:1120
+#, python-format
+msgid "You cannot change the type of a sale order line. Instead you should delete the current line and create a new line of the proper type."
+msgstr ""
+
+#. module: ydx_sale
+#: model_terms:ir.actions.act_window,help:ydx_sale.sale_contract_management_view
+msgid ""
+"You must define a sale contract for everything you purchase,\n"
+"            whether it's a physical product, a consumable or services."
+msgstr ""
+
+#. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_return.py:893
+#, python-format
+msgid "You must set a Vendor Location for this partner %s"
+msgstr ""
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "cancel"
+msgstr "取消"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_bank
+msgid "company_id.bank"
+msgstr "银行"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_bank_num
+msgid "company_id.bank_num"
+msgstr "银行账号"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_phone
+msgid "company_id.phone"
+msgstr "电话"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_vat
+msgid "company_id.vat"
+msgstr "税号"
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
+msgid "days"
+msgstr "天"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line_price_history_line__history_sale_order_line_id
+msgid "history sale order line"
+msgstr "销售订单历史明细行"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_bank
+msgid "partner_bank"
+msgstr "银行"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_bank_num
+msgid "partner_bank_num"
+msgstr "银行账号"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_vat
+msgid "partner_id.vat"
+msgstr "税号"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_phone
+msgid "partner_phone"
+msgstr "电话"
+
+#. module: ydx_sale
+#: model:ir.actions.act_window,name:ydx_sale.action_orders_details
+msgid "sale.order.line.detail"
+msgstr "销售订单行细节"
+
+#. module: ydx_sale
+#: model:ir.model.fields,help:ydx_sale.field_sale_return__amount_by_group
+msgid "type: [(name, amount, base, formated amount, formated base)]"
+msgstr ""

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ydx_base_ydx_base,ydx_base.ydx_base,model_ydx_base_ydx_base,,1,0,0,0

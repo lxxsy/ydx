@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            string="打印生产单"
+            id="ydxDY_action_report_production_order"
+            model="mrp.production"
+            name="ydx_manufacture.ydx_report_mrporder"
+            file="ydx_manufacture.report.dayin"
+            report_type="qweb-pdf"
+            print_report_name="'Production Order - %s' % object.name"
+        />
+    </data>
+</odoo>

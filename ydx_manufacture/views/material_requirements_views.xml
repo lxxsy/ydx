@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--<record id="mrp_material_requirements_form_view" model="ir.ui.view">-->
+        <!--<field name="name">mrp.material.requirements.form</field>-->
+        <!--<field name="model">mrp.material.requirements</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<form string="Material Requirements Total">-->
+                <!--<sheet>-->
+                    <!--<div class="oe_button_box" name="button_box">-->
+                        <!--<button name="tttt" type="action"-->
+                            <!--class="oe_stat_button" icon="fa-bars" string="Structure &amp; Cost" attrs="{'invisible': [('mrp_material_requirements_line_ids', '=', [])]}"/>-->
+                        <!--<button name="toggle_active" type="object"-->
+                                <!--class="oe_stat_button" icon="fa-archive">-->
+                            <!--<field name="is_purchase" widget="boolean_button"-->
+                                <!--options='{"terminology": "archive"}'/>-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--<group>-->
+                    <!--<group>-->
+                        <!--<field name="product_tmpl_id" context="{'default_type': 'product'}"/>-->
+                        <!--<field name="product_id" groups="product.group_product_variant" context="{'default_type': 'product'}"/>-->
+                        <!--<label for="product_qty" string="Quantity"/>-->
+                        <!--<div class="o_row">-->
+                            <!--<field name="product_qty"/>-->
+                            <!--<field name="product_uom_id" options="{'no_open':True,'no_create':True}" groups="uom.group_uom"/>-->
+                        <!--</div>-->
+
+                    <!--</group>-->
+
+                <!--</group>-->
+                <!--<notebook>-->
+                    <!--<page string="需求明细">-->
+                        <!--<field name="mrp_material_requirements_line_ids" widget="one2many_list" context="{'default_parent_product_tmpl_id': product_tmpl_id}">-->
+                            <!--<tree string="需求明细行" editable="bottom">-->
+                                <!--<field name="sequence" widget="handle"/>-->
+                                <!--<field name="product_id" context="{'default_type': 'product'}"/>-->
+                                <!--<field name="product_qty"/>-->
+                                <!--<field name="parent_product_tmpl_id" invisible="1" />-->
+                                <!--<field name="valid_product_attribute_value_ids" invisible="1"/>-->
+                                <!--<field name="product_uom_id" options="{'no_open':True,'no_create':True}" groups="uom.group_uom"/>-->
+                                <!--<field name="attribute_value_ids" widget="many2many_tags" domain="[('id', 'in', valid_product_attribute_value_ids)]" options="{'no_create': True}" attrs="{'column_invisible': [('parent.product_id', '!=', False)]}" groups="product.group_product_variant"/>-->
+                            <!--</tree>-->
+                        <!--</field>-->
+                    <!--</page>-->
+                <!--</notebook>-->
+                <!--</sheet>-->
+            <!--</form>-->
+        <!--</field>-->
+    <!--</record>-->
+   <!--<record id="mrp_material_requirements_tree_view" model="ir.ui.view">-->
+        <!--<field name="name">mrp.material.requirements.tree</field>-->
+        <!--<field name="model">mrp.material.requirements</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<tree string="Material Requirements" default_order="product_tmpl_id">-->
+                <!--<field name="is_purchase"/>-->
+                <!--<field name="sequence" invisible="1"/>-->
+                <!--<field name="product_tmpl_id"/>-->
+                <!--<field name="product_id" groups="product.group_product_variant"/>-->
+                <!--<field name="product_qty"/>-->
+                <!--<field name="product_uom_id" groups="uom.group_uom"/>-->
+            <!--</tree>-->
+        <!--</field>-->
+    <!--</record>-->
+
+    <!--<record id="view_material_requirements_filter" model="ir.ui.view">-->
+        <!--<field name="name">mrp.material.requirements.select</field>-->
+        <!--<field name="model">mrp.material.requirements</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<search string="Search Material Requirements Total">-->
+                <!--<field name="mrp_material_requirements_line_ids" string="Components"/>-->
+                <!--<field name="product_tmpl_id" string="Product"/>-->
+                <!--<filter string="未采购" name="is_purchase" domain="[('is_purchase','=',False)]"/>-->
+                <!--<separator/>-->
+                <!--<filter string="已采购" name="is_purchase" domain="[('is_purchase', '=', 'True')]"/>-->
+                <!--<group expand="0" string="Group By...">-->
+                    <!--<filter string="Product" name="product" domain="[]" context="{'group_by':'product_tmpl_id'}"/>-->
+                    <!--<filter string='Default Unit of Measure' name="default_unit_of_measure" domain="[]" context="{'group_by' : 'product_uom_id'}"/>-->
+               <!--</group>-->
+            <!--</search>-->
+        <!--</field>-->
+    <!--</record>-->
+
+    <!--<record id="mrp_material_requirements_action" model="ir.actions.act_window">-->
+        <!--<field name="name">Material Requirements</field>-->
+        <!--<field name="type">ir.actions.act_window</field>-->
+        <!--<field name="res_model">mrp.material.requirements</field>-->
+        <!--&lt;!&ndash;<field name="domain">[]</field> &lt;!&ndash; force empty &ndash;&gt;&ndash;&gt;-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">tree,form</field>-->
+        <!--&lt;!&ndash;<field name="search_view_id" ref="view_material_requirements_filter"/>&ndash;&gt;-->
+        <!--<field name="help" type="html">-->
+          <!--<p class="o_view_nocontent_smiling_face">-->
+            <!--Create a bill of materials-->
+          <!--</p><p>-->
+            <!--Bills of materials allow you to define the list of required raw-->
+            <!--materials used to make a finished product; through a manufacturing-->
+            <!--order or a pack of products.-->
+          <!--</p>-->
+        <!--</field>-->
+    <!--</record>-->
+
+    <!--<record id="mrp_material_requirements_lines_tree_view" model="ir.ui.view">-->
+        <!--<field name="name">mrp.material.requirements.line.tree</field>-->
+        <!--<field name="model">mrp.material.requirements.line</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<tree string="Material Requirements Lines" default_order="product_tmpl_id">-->
+                <!--<field name="is_purchase"/>-->
+                <!--<field name="sequence" invisible="1"/>-->
+                <!--<field name="product_id" groups="product.group_product_variant"/>-->
+                <!--<field name="product_qty"/>-->
+                <!--<field name="product_uom_id" groups="uom.group_uom"/>-->
+            <!--</tree>-->
+        <!--</field>-->
+    <!--</record>-->
+
+    <!--<record id="mrp_material_requirements_lines_form_view" model="ir.ui.view">-->
+        <!--<field name="name">mrp.material.requirements.line.form</field>-->
+        <!--<field name="model">mrp.material.requirements.line</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<form string="Material Requirements Lines">-->
+                <!--<sheet>-->
+                <!--<group>-->
+                    <!--<group>-->
+                        <!--<field name="product_tmpl_id" context="{'default_type': 'product'}"/>-->
+                        <!--<field name="product_id" groups="product.group_product_variant" context="{'default_type': 'product'}"/>-->
+                        <!--<label for="product_qty" string="Quantity"/>-->
+                        <!--<div class="o_row">-->
+                            <!--<field name="product_qty"/>-->
+                            <!--<field name="product_uom_id" options="{'no_open':True,'no_create':True}" groups="uom.group_uom"/>-->
+                        <!--</div>-->
+
+                    <!--</group>-->
+
+                <!--</group>-->
+                <!--</sheet>-->
+            <!--</form>-->
+        <!--</field>-->
+    <!--</record>-->
+    <record id="mrp_material_requirements_lines_tree_view" model="ir.ui.view">
+        <field name="name">mrp.material.requirements.lines.tree</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='location_dest_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_uom_qty']" position="before">
+                <field name="origin"/>
+            </xpath>
+            <xpath expr="//field[@name='product_uom_qty']" position="after">
+                <field name="qty_available"/>
+                <field name="virtual_available"/>
+                <field name="reordering_min_qty"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mrp_material_requirements_lines_action" model="ir.actions.act_window">
+        <field name="name">制造物料需求计划</field>
+        <field name="res_model">stock.move</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="domain">[('state','=', 'confirmed'),('purchase_ok', '=', True),('virtual_available', '&lt;', 0)]</field> <!-- force empty -->
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="mrp_material_requirements_lines_tree_view"/>
+        <!--<field name="search_view_id" ref="view_material_requirements_filter"/>-->
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a bill of materials
+          </p><p>
+            Bills of materials allow you to define the list of required raw
+            materials used to make a finished product; through a manufacturing
+            order or a pack of products.
+          </p>
+        </field>
+    </record>
+
+    <!--<menuitem id="mrp_material_menu_planning"-->
+        <!--name="Material Requirements"-->
+        <!--parent="mrp.menu_mrp_root"-->
+        <!--sequence="12"/>-->
+
+    <!--<menuitem id="menu_mrp_material_requirements_action"-->
+        <!--name="Material Requirements Total"-->
+        <!--action="mrp_material_requirements_action"-->
+        <!--parent="mrp_material_menu_planning"-->
+        <!--sequence="10"/>-->
+
+    <menuitem id="menu_mrp_material_requirements_lines_action"
+        name="物料需求计划"
+        action="mrp_material_requirements_lines_action"
+        parent="mrp.mrp_planning_menu_root"
+        sequence="18"/>
+</odoo>

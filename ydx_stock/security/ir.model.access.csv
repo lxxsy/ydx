@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+#stock_delivery_order_id,access.stock.delivery.order,model_stock_delivery_order,,1,1,1,1

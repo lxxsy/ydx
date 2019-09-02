@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_salecontract_document">
+    <t t-call="web.external_layout">
+        <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+        <t t-set="address">
+            <div t-field="o.partner_id"
+            t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+            <p t-if="o.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/></p>
+        </t>
+        <!--<t t-if="o.signed_address">-->
+            <!--<t t-set="information_block">-->
+                <!--<strong>Shipping address:</strong>-->
+                <!--<div t-if="o.signed_address">-->
+                    <!--<div t-field="o.signed_address"-->
+                        <!--t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}' />-->
+                <!--</div>-->
+
+            <!--</t>-->
+        <!--</t>-->
+        <div class="page">
+            <div class="oe_structure"/>
+
+            <h2 t-if="o.state in ['draft', 'to approve', 'done']">Sale Contract #<span t-field="o.name"/></h2>
+            <h2 t-if="o.state == 'cancel'">Cancelled Sale Contract #<span t-field="o.name"/></h2>
+
+            <div id="informations" class="row mt32 mb32">
+                <div t-if="o.name" class="col-3 bm-2">
+                    <strong>Our Order Reference:</strong>
+                    <p t-field="o.name" class="m-0"/>
+                </div>
+                <div t-if="o.date_order" class="col-3 bm-2">
+                    <strong>Order Date:</strong>
+                    <p t-field="o.date_order" class="m-0"/>
+                </div>
+            </div>
+            <div>
+                <p>
+                供需双方在平等、互利，协商一致的原则下，按照下列条款签订本合同：
+                </p>
+                <p>
+                第一条：产品名称、数量、金额：
+                </p>
+            </div>
+            <table class="table table-sm o_main_table">
+                <thead>
+                    <tr>
+                        <th><strong>产品</strong></th>
+                        <!--<th><strong>Taxes</strong></th>-->
+                        <th class="text-right"><strong>Qty</strong></th>
+                        <th class="text-right"><strong>Unit Price</strong></th>
+                        <th class="text-right"><strong>Amount</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="o.order_line" t-as="line">
+                        <td>
+                            <span t-field="line.product_id.display_name"/>
+                        </td>
+                        <!--<td>-->
+                            <!--<span t-esc="', '.join(map(lambda x: x.name, line.taxes_id))"/>-->
+                        <!--</td>-->
+                        <td class="text-right">
+                            <span t-field="line.product_uom_qty"/>
+                            <span t-field="line.product_uom.name" groups="uom.group_uom"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="line.price_unit"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="line.price_subtotal"
+                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="total" class="row justify-content-end">
+                <div class="col-4">
+                    <table class="table table-sm">
+                        <tr class="border-black">
+                            <td><strong>Subtotal</strong></td>
+                            <td class="text-right">
+                                <span t-field="o.amount_untaxed"
+                                    t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Taxes</td>
+                            <td class="text-right">
+                                <span t-field="o.amount_tax"
+                                    t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                        <tr class="border-black o_total">
+                            <td><strong>Total</strong></td>
+                            <td class="text-right">
+                                <span t-field="o.amount_total"
+                                    t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <p>
+                第二条：质量要求及标准：（见第一条技术要求），整机质保一年（损耗品不保）。
+                </p>
+                <p>
+                第三条：质量检验及验收标准：需方对质量如有异议，应在收到货3日内书面提出（汽运以发货日为准，铁路运输以货到站日为准)并列举检验依据，双方协商解决，供方3日内未收到书面异议，即默认为无异议。
+                </p>
+                <p>
+                第四条：运输方式及费用：  物流   运输，货物到达       ，费用由   供方   负担。
+                </p>
+                <p>
+                第五条：结算方式及期限：    3天内发货     。
+                </p>
+                <p>
+                第六条：货物的所有权自（交付全额货款）时起转移，但需方未履行（支付全额货款）义务时，货物仍属于供方所有。
+                </p>
+                <p>
+                第七条：解决合同纠纷：发生合同纠纷，双方友好协商解决，若不成，提交合同签约地仲裁委员会仲裁。
+                </p>
+                <p>
+                第八条：供需双方签字盖章后合同成立，需方预付定金或付全款后本合同生效。
+                </p>
+                <p>
+                第九条：本合同一式两份，由双方法定代表人或委托代理人签字盖章后成立。双方各执一份，具有同等法律效力。注：传真件同样具有同等法律效力，本合同涂改无效。
+                </p>
+                <p>
+                第十条：付款方式：全款发货
+                </p>
+            </div>
+            <div t-if="o.state in ['done']">
+                <img style="position: absolute; left:150px; opacity: 0.8;width:360px;" t-att-src="'data:image/png;base64,%s' % to_text(o.image)"/>
+            </div>
+            <div id="company_informations" class="row mt32 mb32">
+                <div class="col-md-5 ml-auto ">
+                    <ul class="ydx_contract_sign">
+                        <li>甲方（盖章）:</li>
+                        <li><span t-field="o.company_id" class="m-0"/></li>
+                    </ul>
+                    <ul class="ydx_contract_sign">
+                        <li>地址:</li>
+                        <li><span t-field="o.company_address" class="m-0"/></li>
+                    </ul>
+                </div>
+                <div class="col-md-5 ml-auto">
+                    已方（盖章）: <p t-field="o.partner_id" class="m-0"/>
+                    地       址: <p t-field="o.partner_address" class="m-0"/>
+                </div>
+            </div>
+            <div class="oe_structure"/>
+        </div>
+    </t>
+</template>
+
+<template id="report_salecontract">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="ydx_sale.report_salecontract_document" t-lang="o.partner_id.lang"/>
+        </t>
+    </t>
+</template>
+</odoo>

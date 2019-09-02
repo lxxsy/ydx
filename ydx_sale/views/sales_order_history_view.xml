@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>  
+
+       <!-- Extended the sale order line view for add last price fields -->
+       <record id="view_sale_order_line_inherit_sale_history" model="ir.ui.view">
+            <field name="name">view.sale.order.line.inherit.sale.history</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml"> 
+		        <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before"> 
+		            <field name="last_price1"/>
+<!--		            <field name="last_price2"/>-->
+		        </xpath>
+		        <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="before"> 
+		            <field name="last_price1"/>
+<!--		            <field name="last_price2"/>-->
+		        </xpath>
+	        </field>
+	   </record>
+	<record id="view_sale_order_line_inherit_sale_history" model="ir.ui.view">
+            <field name="name">view.sale.order.line.inherit.sale.history</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+		        <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before">
+		            <field name="last_price1"/>
+<!--		            <field name="last_price2"/>-->
+		        </xpath>
+		        <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="before">
+		            <field name="last_price1"/>
+<!--		            <field name="last_price2"/>-->
+		        </xpath>
+	        </field>
+	   </record>
+
+</odoo>

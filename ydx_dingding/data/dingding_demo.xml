@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <data>
+        <record id="ydx_dingding_pourchase_Approval_01" model="dindin.work.record.template">
+            <!--<field name="id">1</field>-->
+            <field name="company_id">1</field>
+            <field name="name">purchase</field>
+            <field name="hostip">123</field>
+            <field name="message_main_attachment_id">33</field>
+            <field name="create_uid">2</field>
+            <field name="create_date">2019-07-09 14:09:55</field>
+            <field name="write_uid">2</field>
+            <field name="write_date">2019-07-09 14:09:55</field>
+        </record>
+
+         <record id="ydx_dingding_pourchase_Approval_02" model="dindin.work.record.template">
+            <!--<field name="id">2</field>-->
+            <field name="company_id">1</field>
+            <field name="name">saleorder</field>
+            <field name="hostip">123</field>
+            <field name="message_main_attachment_id">33</field>
+            <field name="create_uid">2</field>
+            <field name="create_date">2019-07-09 11:09:55</field>
+            <field name="write_uid">2</field>
+            <field name="write_date">2019-07-09 11:09:55</field>
+        </record>
+
+         <record id="ydx_dingding_pourchase_Approval_03" model="dindin.work.record.template">
+            <!--<field name="id">3</field>-->
+            <field name="company_id">1</field>
+            <field name="name">inventory</field>
+            <field name="hostip">123</field>
+            <field name="message_main_attachment_id">33</field>
+            <field name="create_uid">2</field>
+            <field name="create_date">2019-07-09 14:09:55</field>
+            <field name="write_uid">2</field>
+            <field name="write_date">2019-07-09 14:09:55</field>
+        </record>
+
+         <record id="ydx_dingding_pourchase_Approval_04" model="dindin.work.record.template">
+            <!--<field name="id">4</field>-->
+            <field name="company_id">1</field>
+            <field name="name">accountorder</field>
+            <field name="hostip">123</field>
+            <field name="message_main_attachment_id">33</field>
+            <field name="create_uid">2</field>
+            <field name="create_date">2019-07-09 14:09:55</field>
+            <field name="write_uid">2</field>
+            <field name="write_date">2019-07-09 14:09:55</field>
+        </record>
+
+         <record id="ydx_dingding_pourchase_Approval_05" model="dindin.work.record.template">
+            <!--<field name="id">5</field>-->
+            <field name="company_id">1</field>
+            <field name="name">workorder</field>
+            <field name="hostip">123</field>
+            <field name="message_main_attachment_id">313</field>
+            <field name="create_uid">2</field>
+            <field name="create_date">2019-07-09 14:09:55</field>
+            <field name="write_uid">2</field>
+            <field name="write_date">2019-07-09 14:09:55</field>
+        </record>
+
+         <record id="ydx_dingding_pourchase_Approval_06" model="dindin.work.record.template">
+            <!--<field name="id">6</field>-->
+            <field name="company_id">1</field>
+            <field name="name">hr_expense</field>
+            <field name="hostip">123</field>
+            <field name="message_main_attachment_id">33</field>
+            <field name="create_uid">2</field>
+            <field name="create_date">2019-07-09 14:09:55</field>
+            <field name="write_uid">2</field>
+            <field name="write_date">2019-07-09 14:09:55</field>
+        </record>
+
+         <!--<record id="ydx_dingding_pourchase_Approval" model="dindin.work.record.template">-->
+            <!--<field name="id">7</field>-->
+            <!--<field name="company_id">2</field>-->
+            <!--<field name="name">other</field>-->
+            <!--<field name="hostip">123</field>-->
+            <!--<field name="message_main_attachment_id">33</field>-->
+            <!--<field name="create_uid">2</field>-->
+            <!--<field name="create_date">2019-07-09 14:09:55</field>-->
+            <!--<field name="write_uid">2</field>-->
+            <!--<field name="write_date">2019-07-09 14:09:55</field>-->
+        <!--</record>-->
+
+    </data>
+
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+ <record model="ir.module.category" id="ydx_staff_Advisor_group">
+        <field name="name">账单经理</field>
+        <field name="visible" eval="0"/>
+</record>
+
+
+<record model="ir.module.category" id="ydx_staff_Cashier_group">
+        <field name="name">出纳</field>
+        <field name="visible" eval="0"/>
+</record>
+
+<record model="ir.module.category" id="ydx_staff_payable_group">
+        <field name="name">应付</field>
+        <field name="visible" eval="0"/>
+</record>
+
+<record model="ir.module.category" id="ydx_staff_receivable_group">
+        <field name="name">应收</field>
+        <field name="visible" eval="0"/>
+</record>
+
+
+
+
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_material_requirements_compute_wizard" model="ir.ui.view">
+        <field name="name">Run material Requirements Manually</field>
+        <field name="model">material.requirements.compute</field>
+        <field name="arch" type="xml">
+            <form string="Parameters">
+                <p>
+                The stock will be reserved for operations waiting for availability and the reordering rules will be triggered.
+                </p>
+                <footer>
+                    <button name="procure_calculation" string="Run Scheduler" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_material_requirements_compute" model="ir.actions.act_window">
+        <field name="name">Material Requirements Compute</field>
+        <field name="res_model">material.requirements.compute</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!--<menuitem id="menu_material_requirements_compute"-->
+        <!--name="Material Requirements Compute"-->
+        <!--action="action_material_requirements_compute"-->
+        <!--parent="mrp_material_menu_planning"-->
+        <!--sequence="1"/>-->
+</odoo>
