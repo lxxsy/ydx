@@ -8,3 +8,4 @@ from . import purchase_order_inherit
 from . import res_config_setting
 from . import stock
 from . import account_invoice
+from . import product
