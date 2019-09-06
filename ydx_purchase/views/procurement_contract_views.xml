@@ -140,5 +140,6 @@
 
     <menuitem id="menu_procurement_contract_management" name="Purchase Contract"
             parent="purchase.menu_procurement_management"
+              groups="purchase.group_purchase_user"
             action="ydx_purchase.procurement_contract_management_view" sequence="35"/>
 </odoo>

@@ -200,6 +200,7 @@
 				name="Purchase Return"
 				parent="purchase.menu_purchase_root"
 				action="purchase_return_form_action"
+                groups="purchase.group_purchase_user"
 				/>
 	</data>
 </odoo>

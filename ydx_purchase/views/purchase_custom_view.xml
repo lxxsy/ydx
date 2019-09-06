@@ -67,6 +67,7 @@
 		<menuitem
 				id="custom_product_template"
 				name="Custom Product Template"
+				groups="purchase.group_purchase_user"
 				parent="purchase.menu_procurement_management"
 				action="open_purchase_custom_my_list"
 				/>
