@@ -36,10 +36,11 @@
         'views/sales_order_history_view.xml',
         'views/line_pice_history_views.xml',
         'views/res_config_setting_view.xml',
-        'views/sale_order_view.xml',
         'views/sale_contract_view.xml',
 		'views/returned_money_lists.xml',
 		'views/sale_return_views.xml',
+        'views/sale_order_view.xml',
+        'views/sub_sale_views.xml',
 
     ],
     # only loaded in demonstration mode

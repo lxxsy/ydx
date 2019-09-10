@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sub_sale_order_calendar" model="ir.ui.view">
+        <field name="name">sub.sale.order.calendar</field>
+        <field name="model">sub.sale.order</field>
+        <field name="arch" type="xml">
+            <calendar string="Sub Sales Orders" date_start="date_order">
+                <field name="id"/>
+            </calendar>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_sub_sale_order_graph">
+        <field name="name">sub.sale.order.graph</field>
+        <field name="model">sub.sale.order</field>
+        <field name="arch" type="xml">
+            <graph string="Sub Sales Orders">
+                <field name="id"/>
+            </graph>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_sub_sale_order_pivot">
+        <field name="name">sub.sale.order.pivot</field>
+        <field name="model">sub.sale.order</field>
+        <field name="arch" type="xml">
+            <pivot string="Sub Sales Orders">
+                <field name="date_order" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Sales Orders Kanban View  -->
+    <record model="ir.ui.view" id="view_sub_sale_order_kanban">
+        <field name="name">sub.sale.order.kanban</field>
+        <field name="model">sub.sale.order</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_sub_sale_order_tree" model="ir.ui.view">
+        <field name="name">sub.sale.order.tree</field>
+        <field name="model">sub.sale.order</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree string="Sub Sales Orders">
+                <field name="name" string="Order Number"/>
+                <field name="order_id" />
+                <field name="product_id" />
+                <field name="cabinet" />
+                <field name="flat_door" />
+                <field name="sliding_door" />
+                <field name="glass_door" />
+                <field name="swim_door" />
+                <field name="material_use" />
+                <field name="price_total" />
+                <field name="package_num" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sub_sale_order_form" model="ir.ui.view">
+        <field name="name">sub.sale.order.form</field>
+        <field name="model">sub.sale.order</field>
+        <field name="arch" type="xml">
+            <form string="Sub Sales Order" class="o_sale_order">
+            <header>
+
+            </header>
+            <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="product_id"  required="0"/>
+                        <field name="flat_door" />
+                        <field name="glass_door" />
+                        <field name="material_use" />
+                        <field name="package_num" />
+                    </group>
+                    <group>
+                        <field name="order_id" />
+                        <field name="cabinet" />
+                        <field name="sliding_door" />
+                        <field name="swim_door" />
+                        <field name="product_uom_qty" />
+                        <field name="price_unit" />
+                        <field name="price_total" />
+                    </group>
+                </group>
+                <notebook>
+                    <page string="All Connection Metals" name="connection_metal_line">
+                        <field
+                            name="connection_metal_line"
+                            widget="section_and_note_one2many"
+                            mode="tree"
+                        >
+                            <form>
+                                <field name="display_type" invisible="1"/>
+                                <!--<field name="state" invisible="1"/>-->
+                                 <group>
+                                     <field name="cabinet_no"/>
+                                     <field name="product_id"/>
+                                     <field name="product_speci_type"/>
+                                     <field name="product_uom_qty"/>
+                                     <field name="product_uom"/>
+                                     <field name="note"/>
+                                 </group>
+                            </form>
+                            <tree
+                                string="All Connection Metals"
+                                editable="bottom"
+                                decoration-info="(not display_type)"
+                            >
+                                <control>
+                                    <create string="Add a connection metal"/>
+                                    <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
+                                    <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                    <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                                </control>
+                                <field name="display_type" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <!--<field name="state" invisible="1"/>-->
+                                <field name="cabinet_no"/>
+                                <field name="product_id"/>
+                                <field name="product_speci_type"/>
+                                <field name="product_uom_qty"/>
+                                <field name="product_uom"/>
+                                <field name="note"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="All Function Metals" name="function_metal_line">
+                        <field
+                            name="function_metal_line"
+                            widget="section_and_note_one2many"
+                            mode="tree"
+                        >
+                            <form>
+                                <field name="display_type" invisible="1"/>
+                                <!--<field name="state" invisible="1"/>-->
+                                 <group>
+                                     <field name="name"/>
+                                     <field name="product_id"/>
+                                     <field name="product_speci_type"/>
+                                     <field name="product_uom_qty"/>
+                                     <field name="product_uom"/>
+                                     <field name="note"/>
+                                 </group>
+                            </form>
+                            <tree
+                                string="All Function Metals"
+                                editable="bottom"
+                                decoration-info="(not display_type)"
+                            >
+                                <control>
+                                    <create string="Add a function metal"/>
+                                    <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
+                                    <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                    <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                                </control>
+                                <field name="display_type" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <!--<field name="state" invisible="1"/>-->
+                                <field name="product_id"/>
+                                <field name="product_speci_type"/>
+                                <field name="product_uom_qty"/>
+                                <field name="product_uom"/>
+                                <field name="note"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="All Outsources" name="outsource_line">
+                        <field
+                            name="outsource_line"
+                            widget="section_and_note_one2many"
+                            mode="tree"
+                        >
+                            <form>
+                                <field name="display_type" invisible="1"/>
+                                <!--<field name="state" invisible="1"/>-->
+                                 <group>
+                                     <field name="cabinet_no"/>
+                                     <field name="product_id"/>
+                                     <field name="product_speci_type"/>
+                                     <field name="color"/>
+                                     <field name="product_height"/>
+                                     <field name="product_width"/>
+                                     <field name="product_thick"/>
+                                     <field name="product_uom_qty"/>
+                                     <field name="product_uom"/>
+                                     <field name="product_opento"/>
+                                     <field name="note"/>
+                                 </group>
+                            </form>
+                            <tree
+                                string="All Outsources"
+                                editable="bottom"
+                                decoration-info="(not display_type)"
+                            >
+                                <control>
+                                    <create string="Add a outsource"/>
+                                    <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
+                                    <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                    <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                                </control>
+                                <field name="display_type" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <!--<field name="state" invisible="1"/>-->
+                                <field name="cabinet_no"/>
+                                <field name="product_id"/>
+                                <field name="product_speci_type"/>
+                                <field name="color"/>
+                                <field name="product_height"/>
+                                <field name="product_width"/>
+                                <field name="product_thick"/>
+                                <field name="product_uom_qty"/>
+                                <field name="product_uom"/>
+                                <field name="product_opento"/>
+                                <field name="note"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="All Production Parts" name="production_part_line">
+                        <field
+                            name="production_part_line"
+                            widget="section_and_note_one2many"
+                            mode="tree"
+                        >
+                            <form>
+                                <field name="display_type" invisible="1"/>
+                                <!--<field name="state" invisible="1"/>-->
+                                 <group>
+                                    <field name="cabinet_no"/>
+                                    <field name="product_id"/>
+                                    <field name="product_material"/>
+                                    <field name="product_color"/>
+                                    <field name="product_length"/>
+                                    <field name="product_width"/>
+                                    <field name="product_thick"/>
+                                    <field name="material_use"/>
+                                    <field name="material_open_length"/>
+                                    <field name="material_open_width"/>
+                                    <field name="product_uom_qty"/>
+                                    <field name="product_uom"/>
+                                    <field name="band_side"/>
+                                    <field name="barcode"/>
+                                    <field name="note"/>
+                                 </group>
+                            </form>
+                            <tree
+                                string="All Production Parts"
+                                editable="bottom"
+                                decoration-info="(not display_type)"
+                            >
+                                <control>
+                                    <create string="Add a production part"/>
+                                    <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
+                                    <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                    <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                                </control>
+                                <field name="display_type" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <!--<field name="state" invisible="1"/>-->
+                                <field name="cabinet_no"/>
+                                <field name="product_id"/>
+                                <field name="product_material"/>
+                                <field name="product_color"/>
+                                <field name="product_length"/>
+                                <field name="product_width"/>
+                                <field name="product_thick"/>
+                                <field name="material_use"/>
+                                <field name="material_open_length"/>
+                                <field name="material_open_width"/>
+                                <field name="product_uom_qty"/>
+                                <field name="product_uom"/>
+                                <field name="band_side"/>
+                                <field name="barcode"/>
+                                <field name="note"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_sub_orders" model="ir.actions.act_window">
+        <field name="name">Sub Sales Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sub.sale.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+        <!--<field name="search_view_id" ref="sale_order_view_search_inherit_sale"/>-->
+        <field name="context">{}</field>
+        <!--<field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel'))]</field>-->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new sub sale order, the first step of a new sub sale!
+            </p><p>
+                Once the quotation is confirmed, it becomes a sales order.<br/> You will be able to create an invoice and collect the payment.
+            </p>
+        </field>
+    </record>
+
+    <record id="sub_sale_order_action_view_order_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="ydx_sale.view_sub_sale_order_tree"/>
+        <field name="act_window_id" ref="action_sub_orders"/>
+    </record>
+
+    <record id="sub_sale_order_action_view_order_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="ydx_sale.view_sub_sale_order_kanban"/>
+        <field name="act_window_id" ref="action_sub_orders"/>
+    </record>
+
+    <record id="sub_sale_order_action_view_order_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ydx_sale.view_sub_sale_order_form"/>
+        <field name="act_window_id" ref="action_sub_orders"/>
+    </record>
+
+    <record id="sub_sale_order_action_view_order_calendar" model="ir.actions.act_window.view">
+        <field name="sequence" eval="4"/>
+        <field name="view_mode">calendar</field>
+        <field name="view_id" ref="ydx_sale.view_sub_sale_order_calendar"/>
+        <field name="act_window_id" ref="action_sub_orders"/>
+    </record>
+
+    <record id="sub_sale_order_action_view_order_pivot" model="ir.actions.act_window.view">
+        <field name="sequence" eval="5"/>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="ydx_sale.view_sub_sale_order_pivot"/>
+        <field name="act_window_id" ref="action_sub_orders"/>
+    </record>
+
+    <record id="sub_sale_order_action_view_order_graph" model="ir.actions.act_window.view">
+        <field name="sequence" eval="6"/>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="ydx_sale.view_sub_sale_order_graph"/>
+        <field name="act_window_id" ref="action_sub_orders"/>
+    </record>
+
+    <menuitem id="menu_sale_sub_order"
+        name="Sub Orders"
+        action="ydx_sale.action_sub_orders"
+        parent="sale.sale_order_menu"
+        sequence="3" groups="sales_team.group_sale_salesman"/>
+</odoo>

@@ -20,12 +20,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','stock'],
+    'depends': ['base','stock','ydx_base'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'data/data.xml',
+        'wizard/update_package_num.xml',
         'views/menu_stock.xml',
+        'views/stock_picking_views.xml'
+
     ],
     # only loaded in demonstration mode
     'demo': [

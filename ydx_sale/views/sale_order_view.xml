@@ -1,5 +1,16 @@
 <!-- view specific to product.template -->
 <odoo>
+    <!--<record id="sale_order_form_quote_inherit" model="ir.ui.view">-->
+        <!--<field name="name">sale_order_form_quote_inherit</field>-->
+        <!--<field name="model">sale.order</field>-->
+        <!--<field name="priority" eval="8" />-->
+        <!--<field name="inherit_id" ref="sale_management.sale_order_form_quote" />-->
+        <!--<field name="arch" type="xml">-->
+            <!--<xpath expr="//page[@name='sale_order_option_lines']" position="attributes">-->
+                <!--<attribute name="invisible">1</attribute>-->
+            <!--</xpath>-->
+        <!--</field>-->
+    <!--</record>-->
     <record id="sale_order_form_view_inherit" model="ir.ui.view">
         <field name="name">sale_order_form_view_inherit</field>
         <field name="model">sale.order</field>
@@ -42,6 +53,259 @@
                     <field name="sale_return_count" widget="statinfo" string="Sale Return Order"/>
                     <field name='sale_return_ids' invisible="1"/>
                 </button>
+            </xpath>
+            <xpath expr="//page[@name='order_lines']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+             <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                 <field name='install_address' />
+                 <field name='phone' />
+                 <field name='is_install' />
+                 <field name='user_id' />
+                 <field name='designer' />
+                 <field name='spliter' />
+                 <field name='material_use' />
+            </xpath>
+             <xpath expr="//field[@name='payment_term_id']" position="after">
+                 <field name='sale_order_no' />
+                 <field name='factory_order_no' />
+                 <field name='upload_sale_date' />
+                 <field name='quotations_date' />
+                 <field name='pay_date' />
+                 <field name='confirm_date' />
+            </xpath>
+            <xpath expr="//page[@name='order_lines']" position="after">
+                <page string="Sub Sale Orders" name="sub_sale_order_ids">
+                    <field
+                        name="sub_sale_order_ids"
+                        widget="section_and_note_one2many"
+                        mode="tree"
+                    >
+                        <tree
+                            string="Sub Sale Orders"
+                            editable="bottom"
+                            decoration-info="(not display_type)"
+                        >
+                            <control>
+                                <create string="Add a sub sale order"/>
+                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
+                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                            </control>
+                            <field name="display_type" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                            <field name="name" string="Order Number"/>
+                            <field name="product_id" />
+                            <field name="cabinet" />
+                            <field name="flat_door" />
+                            <field name="sliding_door" />
+                            <field name="glass_door" />
+                            <field name="swim_door" />
+                            <field name="material_use" />
+                            <field name="price_total" />
+                            <field name="package_num" />
+                        </tree>
+                    </field>
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <field name="sub_sale_amount_untaxed" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <field name="sub_sale_amount_tax" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                            <label for="sub_sale_amount_total" />
+                        </div>
+                        <field name="sub_sale_amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    </group>
+                    <field name="note" class="oe_inline" placeholder="Terms and conditions... (note: you can setup default ones in the Configuration menu)"/>
+                    <div class="oe_clear"/>
+                </page>
+                <page string="All Connection Metals" name="connection_metal_line">
+                    <field
+                        name="connection_metal_line"
+                        widget="section_and_note_one2many"
+                        mode="tree"
+                    >
+                        <form>
+                            <field name="display_type" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                             <group>
+                                 <field name="cabinet_no"/>
+                                 <field name="product_id"/>
+                                 <field name="product_speci_type"/>
+                                 <field name="product_uom_qty"/>
+                                 <field name="product_uom"/>
+                                 <field name="note"/>
+                             </group>
+                        </form>
+                        <tree
+                            string="All Connection Metals"
+                            editable="bottom"
+                            decoration-info="(not display_type)"
+                        >
+                            <control>
+                                <create string="Add a connection metal"/>
+                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
+                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                            </control>
+                            <field name="display_type" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                            <field name="cabinet_no"/>
+                            <field name="product_id"/>
+                            <field name="product_speci_type"/>
+                            <field name="product_uom_qty"/>
+                            <field name="product_uom"/>
+                            <field name="note"/>
+
+                        </tree>
+                    </field>
+                </page>
+                <page string="All Function Metals" name="function_metal_line">
+                    <field
+                        name="function_metal_line"
+                        widget="section_and_note_one2many"
+                        mode="tree"
+                    >
+                        <form>
+                            <field name="display_type" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                             <group>
+                                 <field name="name"/>
+                                 <field name="product_id"/>
+                                 <field name="product_speci_type"/>
+                                 <field name="product_uom_qty"/>
+                                 <field name="product_uom"/>
+                                 <field name="note"/>
+                             </group>
+                        </form>
+                        <tree
+                            string="All Function Metals"
+                            editable="bottom"
+                            decoration-info="(not display_type)"
+                        >
+                            <control>
+                                <create string="Add a function metal"/>
+                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
+                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                            </control>
+                            <field name="display_type" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="product_speci_type"/>
+                            <field name="product_uom_qty"/>
+                            <field name="product_uom"/>
+                            <field name="note"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="All Outsources" name="outsource_line">
+                    <field
+                        name="outsource_line"
+                        widget="section_and_note_one2many"
+                        mode="tree"
+                    >
+                        <form>
+                            <field name="display_type" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                             <group>
+                                 <field name="cabinet_no"/>
+                                 <field name="product_id"/>
+                                 <field name="product_speci_type"/>
+                                 <field name="color"/>
+                                 <field name="product_height"/>
+                                 <field name="product_width"/>
+                                 <field name="product_thick"/>
+                                 <field name="product_uom_qty"/>
+                                 <field name="product_uom"/>
+                                 <field name="product_opento"/>
+                                 <field name="note"/>
+                             </group>
+                        </form>
+                        <tree
+                            string="All Outsources"
+                            editable="bottom"
+                            decoration-info="(not display_type)"
+                        >
+                            <control>
+                                <create string="Add a outsource"/>
+                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
+                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                            </control>
+                            <field name="display_type" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                            <field name="cabinet_no"/>
+                            <field name="product_id"/>
+                            <field name="product_speci_type"/>
+                            <field name="color"/>
+                            <field name="product_height"/>
+                            <field name="product_width"/>
+                            <field name="product_thick"/>
+                            <field name="product_uom_qty"/>
+                            <field name="product_uom"/>
+                            <field name="product_opento"/>
+                            <field name="note"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="All Production Parts" name="production_part_line">
+                    <field
+                        name="production_part_line"
+                        widget="section_and_note_one2many"
+                        mode="tree"
+                    >
+                        <form>
+                            <field name="display_type" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                            <group>
+                                <field name="cabinet_no"/>
+                                <field name="product_id"/>
+                                <field name="product_material"/>
+                                <field name="product_color"/>
+                                <field name="product_length"/>
+                                <field name="product_width"/>
+                                <field name="product_thick"/>
+                                <field name="material_use"/>
+                                <field name="material_open_length"/>
+                                <field name="material_open_width"/>
+                                <field name="product_uom_qty"/>
+                                <field name="product_uom"/>
+                                <field name="band_side"/>
+                                <field name="barcode"/>
+                                <field name="note"/>
+                            </group>
+                        </form>
+                        <tree
+                            string="All Production Parts"
+                            editable="bottom"
+                            decoration-info="(not display_type)"
+                        >
+                            <control>
+                                <create string="Add a production part"/>
+                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
+                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
+                            </control>
+                            <field name="display_type" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                            <field name="cabinet_no"/>
+                            <field name="product_id"/>
+                            <field name="product_material"/>
+                            <field name="product_color"/>
+                            <field name="product_length"/>
+                            <field name="product_width"/>
+                            <field name="product_thick"/>
+                            <field name="material_use"/>
+                            <field name="material_open_length"/>
+                            <field name="material_open_width"/>
+                            <field name="product_uom_qty"/>
+                            <field name="product_uom"/>
+                            <field name="band_side"/>
+                            <field name="barcode"/>
+                            <field name="note"/>
+                        </tree>
+                    </field>
+                </page>
             </xpath>
         </field>
     </record>

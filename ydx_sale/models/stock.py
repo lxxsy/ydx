@@ -12,6 +12,9 @@ class YdxSaleStockLocationRoute(models.Model):
 class YdxSaleStockMove(models.Model):
     _inherit = "stock.move"
     sale_return_line_id = fields.Many2one('sale.return.line', 'Sale Return Line')
+    sale_connection_metal_id = fields.Many2one('res.connection.metal', 'Sale Connection Metal Line')
+    sale_function_metal_id = fields.Many2one('res.function.metal', 'Sale Function Metal Line')
+    sale_outsource_id = fields.Many2one('res.outsource', 'Sale Outsource Line')
 
     @api.model
     def _prepare_merge_moves_distinct_fields(self):

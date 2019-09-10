@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id='update_package_num_wizard_form' model='ir.ui.view'>
+    <field name='name'>update package num wizard form view</field>
+    <field name='model'>update.package.num.wizard</field>
+    <field name='arch' type='xml'>
+        <form string="Borrow books">
+            <sheet>
+                <group>
+                    <field name='picking_id' readonly="True"/>
+                    <field name='metal_package_num'/>
+                </group>
+            </sheet>
+            <group string="Sub Sale Orders">
+                <field name="line_ids" nolabel="1">
+                    <tree editable="bottom" create="false" delete="false">
+                        <field name="name" readonly="True"/>
+                        <field name="package_num"/>
+                    </tree>
+                </field>
+            </group>
+            <footer>
+                <button string='Confirm' name='update_package_num' class='btn-primary' type='object'/>
+                <button string='Cancel' class='btn-default' special='cancel'/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<act_window id="action_wizard_update_package_num" name="Update Package" res_model="update.package.num.wizard" view_mode="form" target="new" />
+</odoo>

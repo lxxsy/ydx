@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_connection_metal" model="ir.sequence">
+            <field name="name">Connection Metal</field>
+            <field name="code">res.connection.metal</field>
+            <field name="prefix">SCM</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_function_metal" model="ir.sequence">
+            <field name="name">Function Metal</field>
+            <field name="code">res.function.metal</field>
+            <field name="prefix">SFM</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_outsource" model="ir.sequence">
+            <field name="name">Outsource</field>
+            <field name="code">res.outsource</field>
+            <field name="prefix">SOS</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_production_part" model="ir.sequence">
+            <field name="name">Production Part</field>
+            <field name="code">res.production.part</field>
+            <field name="prefix">SPP</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

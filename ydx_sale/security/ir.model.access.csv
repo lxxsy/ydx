@@ -3,3 +3,4 @@ sale_contract_id,access.sale.contract,model_sale_contract,sales_team.group_sale_
 sale_contract_line_id,access.sale.contract.line,model_sale_contract_line,sales_team.group_sale_salesman,1,1,1,1
 sale_return_id,access.sale.return.product,model_sale_return,sales_team.group_sale_salesman,1,1,1,1
 sale_return_line_id,access.sale.return.line,model_sale_return_line,sales_team.group_sale_salesman,1,1,1,1
+sub_sale_order_id,access.sub.sale.order,model_sub_sale_order,sales_team.group_sale_salesman,1,1,1,1

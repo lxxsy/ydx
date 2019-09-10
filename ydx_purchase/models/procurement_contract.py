@@ -6,7 +6,6 @@ from odoo.addons import decimal_precision as dp
 from odoo.exceptions import UserError
 from ydxaddons.ydx_base.models import tools
 
-
 class ProcurementContract(models.Model):
     _name = 'purchase.procurement.contract'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
