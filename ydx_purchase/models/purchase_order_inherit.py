@@ -14,7 +14,7 @@ class YdxPurchaseOrder(models.Model):
     sale_number = fields.Char(string="Order Number")
     sale_order_number = fields.Char(string="Sale Order Number")
     attachment = fields.Binary(String="Attachment")
-    source_attachment = fields.One2many('sale.order','',String="Source Attachment")
+    source_attachment = fields.Char(String="Source Attachment")
 
     @api.multi
     def action_create_procurement_contract(self):
