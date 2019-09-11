@@ -54,6 +54,13 @@
                     <field name='sale_return_ids' invisible="1"/>
                 </button>
             </xpath>
+	    <xpath expr="//page[@name='other_information']" position="after">
+	    	<page string="Attachment" name="attachment">
+		    <group string="Attachment">
+		        <field name="attachment"/>
+		    </grop>
+		</page>
+	    </xpath>
             <xpath expr="//page[@name='order_lines']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>

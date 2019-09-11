@@ -250,6 +250,11 @@ msgid "Click to create Product Template."
 msgstr "单击以创建产品模板。"
 
 #. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__product_colour
+msgid "Colour"
+msgstr "颜色"
+
+#. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract__company_id
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract_line__company_id
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return__company_id
@@ -529,6 +534,21 @@ msgid "Extra line with %s "
 msgstr ""
 
 #. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__length
+msgid "Finished Length"
+msgstr "成品长度"
+
+#. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__thickness
+msgid "Finished Thickness"
+msgstr "成品厚度"
+
+#. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__width
+msgid "Finished Width"
+msgstr "成品宽度"
+
+#. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract__fiscal_position_id
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return__fiscal_position_id
 msgid "Fiscal Position"
@@ -722,6 +742,11 @@ msgstr "附件"
 #: selection:purchase.return.lines,qty_delivered_method:0
 msgid "Manual"
 msgstr "手动"
+
+#. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__material
+msgid "Material"
+msgstr "材质"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract__message_has_error
@@ -1172,6 +1197,11 @@ msgid "Reference of the sales order or bid sent by the vendor. It's used to do t
 msgstr "销售订单的参照或者供应商发出的投标。当你接收产品的时候被显示在收货单上。主要用来做匹配"
 
 #. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__remarks
+msgid "Remarks"
+msgstr "备注"
+
+#. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return_lines__move_ids
 msgid "Reservation"
 msgstr "保留"
@@ -1217,6 +1247,11 @@ msgstr "退货单发票"
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return_lines__date_planned
 msgid "Scheduled Date"
 msgstr "计划日期"
+
+#. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__band_number
+msgid "Sealing side information"
+msgstr "封边信息"
 
 #. module: ydx_purchase
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.view_purchase_return_filter
@@ -1715,3 +1750,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.report_procurementcontract_document
 msgid "第四条：运输方式及费用：  物流   运输，货物到达       ，费用由   供方   负担。"
 msgstr ""
+
+msgid "Cabinet Number"
+msgstr "订单柜号"

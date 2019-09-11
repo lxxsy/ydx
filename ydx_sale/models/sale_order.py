@@ -248,30 +248,7 @@ class SaleOrder(models.Model):
             order.sale_return_ids = returns
             order.sale_return_count = len(returns)
 
-    @api.depends('state', 'sub_sale_order_ids.invoice_status', 'sub_sale_order_ids.invoice_lines')
-    def _get_invoiced(self):
-        """
-        Compute the invoice status of a SO. Possible statuses:
-        - no: if the SO is not in status 'sale' or 'done', we consider that there is nothing to
-          invoice. This is also the default value if the conditions of no other status is met.
-        - to invoice: if any SO line is 'to invoice', the whole SO is 'to invoice'
-        - invoiced: if all SO lines are invoiced, the SO is invoiced.
-        - upselling: if all SO lines are invoiced or upselling, the status is upselling.
-
-        The invoice_ids are obtained thanks to the invoice lines of the SO lines, and we also search
-        for possible refunds created directly from existing invoices. This is necessary since such a
-        refund is not directly linked to the SO.
-        """
-        # Ignore the status of the deposit product
-        deposit_product_id = self.env['sale.advance.payment.inv']._default_product_id()
-        line_invoice_status_all = [(d['order_id'][0], d['invoice_status']) for d in self.env['sub.sale.order'].read_group([('order_id', 'in', self.ids), ('product_id', '!=', deposit_product_id.id)], ['order_id', 'invoice_status'], ['order_id', 'invoice_status'], lazy=False)]
-        for order in self:
-            invoice_ids = order.sub_sale_order_ids.mapped('invoice_lines').mapped('invoice_id').filtered(lambda r: r.type in ['out_invoice', 'out_refund'])
-            # Search for invoices which have been 'cancelled' (filter_refund = 'modify' in
-            # 'account.invoice.refund')
-            # use like as origin may contains multiple references (e.g. 'SO01, SO02')
-            refunds = invoice_ids.search([('origin', 'like', order.name), ('company_id', '=', order.company_id.id), ('type', 'in', ('out_invoice', 'out_refund'))])
-            invoice_ids |= refunds.filtered(lambda r: order.name in [origin.strip() for origin in r.origin.split(',')])
+    attachment = fields.Binary(String="Attachment")
 
             # Search for refunds as well
             domain_inv = expression.OR([

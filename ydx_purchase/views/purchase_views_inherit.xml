@@ -26,6 +26,34 @@
                     <field name='purchase_return_ids' invisible="1"/>
                 </button>
             </xpath>
+            <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='product_id']" position="before">
+                <field name="cabinet_no"/>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='date_planned']" position="after">
+                <field name="material"/>
+                <field name="product_colour"/>
+                <field name="product_length"/>
+                <field name="width"/>
+                <field name="thickness"/>
+                <field name="band_number"/>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='price_subtotal']" position="after">
+                <field name="remarks"/>
+            </xpath>
+            <xpath expr="//page[@name='purchase_delivery_invoice']" position="after">
+                <page name="attachment" string="Attachment">
+                    <group>
+                        <group name="source" string="Attachment">
+                            <field name="sale_number"/>
+                            <field name="sale_order_number"/>
+                            <field name="source_attachment"/>
+                        </group>
+                        <group name="attachment" string="Aattachment">
+                            <field name="attachment"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
         </field>
     </record>
 <!--attrs="{'invisible':[('purchase_contract_count', '=', 0)]}"-->

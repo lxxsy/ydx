@@ -7,10 +7,14 @@ from odoo import api, fields, models, _
 class YdxPurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    purchase_contract_ids = fields.Many2many('purchase.procurement.contract', compute="_compute_contract", string='Purchase Contract', copy=False, store=True)
-    purchase_contract_count = fields.Integer(compute="_compute_contract", string='Purchase Contract Count', copy=False, default=0, store=True)
-    purchase_return_ids = fields.Many2many('purchase.return', compute="_compute_return", string='Purchase Return Order', copy=False, store=True)
-    purchase_return_count = fields.Integer(compute="_compute_return", string='Purchase Return Count', copy=False, default=0, store=True)
+    purchase_contract_ids = fields.Many2many('purchase.procurement.contract', compute="_compute_contract",string='Purchase Contract', copy=False, store=True)
+    purchase_contract_count = fields.Integer(compute="_compute_contract", string='Purchase Contract Count', copy=False,default=0, store=True)
+    purchase_return_ids = fields.Many2many('purchase.return', compute="_compute_return", string='Purchase Return Order',copy=False, store=True)
+    purchase_return_count = fields.Integer(compute="_compute_return", string='Purchase Return Count', copy=False,default=0, store=True)
+    sale_number = fields.Char(string="Order Number")
+    sale_order_number = fields.Char(string="Sale Order Number")
+    attachment = fields.Binary(String="Attachment")
+    source_attachment = fields.One2many('sale.order','',String="Source Attachment")
 
     @api.multi
     def action_create_procurement_contract(self):
@@ -33,10 +37,11 @@ class YdxPurchaseOrder(models.Model):
 
     @api.multi
     def action_view_contract(self):
-        '''
+
+        """
         This function returns an action that display existing vendor bills of given purchase order ids.
         When only one found, show the vendor bill immediately.
-        '''
+        """
         action = self.env.ref('ydx_purchase.procurement_contract_management_view')
         result = action.read()[0]
         no_create = self.env.context.get('no_create', False)
@@ -81,10 +86,10 @@ class YdxPurchaseOrder(models.Model):
 
     @api.multi
     def action_view_return(self):
-        '''
+        """
         This function returns an action that display existing vendor bills of given purchase order ids.
         When only one found, show the vendor bill immediately.
-        '''
+        """
         action = self.env.ref('ydx_purchase.purchase_return_form_action')
         result = action.read()[0]
         no_create = self.env.context.get('no_create', False)
@@ -137,6 +142,13 @@ class YdxPurchaseOrder(models.Model):
 class YdxPurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
-    contract_lines = fields.One2many('purchase.procurement.contract.line', 'purchase_line_id', string="Contract Lines", readonly=True, copy=False)
-    return_lines = fields.One2many('purchase.return.lines', 'purchase_line_id', string="Return Lines", readonly=True, copy=False)
-
+    contract_lines = fields.One2many('purchase.procurement.contract.line', 'purchase_line_id', string="Contract Lines",readonly=True, copy=False)
+    return_lines = fields.One2many('purchase.return.lines', 'purchase_line_id', string="Return Lines", readonly=True,copy=False)
+    cabinet_no = fields.Char(string='Cabinet Number')
+    material = fields.Char(string="Material")
+    product_colour = fields.Char(string="Colour")
+    product_length = fields.Float(string='Finished Length')
+    width = fields.Float(string='Finished Width')
+    thickness = fields.Float(string='Finished Thickness')
+    band_number = fields.Char(string="Sealing side information")
+    remarks = fields.Text(string="Remarks")
