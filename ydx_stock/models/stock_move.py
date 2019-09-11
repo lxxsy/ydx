@@ -16,3 +16,4 @@ class YdxStockMove(models.Model):
     thickness = fields.Float(string='Finished Thickness')
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
+    picking_type_code = fields.Selection(related='picking_id.picking_type_code',readonly=True)

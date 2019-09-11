@@ -26,7 +26,7 @@
         'views/procurement_contract_views.xml',
         'views/purchase_views_inherit.xml',
         'data/purchase_return_id_ai.xml',
-        'views/purchase_requisition_views_inherit.xml'£¬
+        'views/purchase_requisition_views_inherit.xml'
     ],
 
     "author": "xugang",

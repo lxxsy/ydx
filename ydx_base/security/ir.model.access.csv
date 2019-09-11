@@ -1,6 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_res_connection_metal,access.res.connection.metal,model_res_connection_metal,,1,1,1,1
-access_res_connection_metal,access.res.connection.metal,model_res_connection_metal,,1,1,1,1
 access_res_function_metal,access.res.function.metal,model_res_function_metal,,1,1,1,1
 access_res_outsource,access.res.outsource,model_res_outsource,,1,1,1,1
 access_res_production_part,access.res.production.part,model_res_production_part,,1,1,1,1

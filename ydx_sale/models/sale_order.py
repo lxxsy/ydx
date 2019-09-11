@@ -20,7 +20,8 @@ class SaleOrder(models.Model):
         ('cancel', 'Cancelled'),
     ])
 
-    attachment = fields.Binary(String="Aattachment")
+    attachment = fields.Binary(String="Attachment")
+    purchase_id = fields.One2many('purchase.order', 'sale_id')
 
     sale_contract_ids = fields.Many2many('sale.contract', compute="_compute_contract", string='Sale Contract', copy=False, store=True)
     sale_contract_count = fields.Integer(compute="_compute_contract", string='Sale Contract Count', copy=False, default=0, store=True)
