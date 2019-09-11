@@ -1,0 +1,98 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ydx_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-10 03:05+0000\n"
+"PO-Revision-Date: 2019-09-10 11:06+0800\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__cabinet_no
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__cabinet_no
+msgid "Cabinet Number"
+msgstr "订单柜号"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__product_colour
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__product_colour
+msgid "Colour"
+msgstr "颜色"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__length
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__length
+msgid "Finished Length"
+msgstr "成品长度"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__thickness
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__thickness
+msgid "Finished Thickness"
+msgstr "成品厚度"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__width
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__width
+msgid "Finished Width"
+msgstr "成品宽度"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__material
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__material
+msgid "Material"
+msgstr "材质"
+
+#. module: ydx_stock
+#: model:ir.model,name:ydx_stock.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "产品移动(移库明细)"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__remarks
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__remarks
+msgid "Remarks"
+msgstr "备注"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__band_number
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__band_number
+msgid "Sealing side information"
+msgstr "封边信息"
+
+#. module: ydx_stock
+#: model:ir.model,name:ydx_stock.model_stock_move
+msgid "Stock Move"
+msgstr "库存移动"
+
+#. module: ydx_stock
+#: model:ir.actions.act_window,name:ydx_stock.action_move_outgoing_line
+#: model:ir.ui.menu,name:ydx_stock.menu_outgoing_line
+msgid "交货单明细"
+msgstr ""
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.view_move_tree
+msgid "合作伙伴"
+msgstr ""
+
+#. module: ydx_stock
+#: model:ir.actions.act_window,name:ydx_stock.action_move_incoming_line
+#: model:ir.ui.menu,name:ydx_stock.menu_incoming_line
+msgid "收货单明细"
+msgstr ""
+
+#. module: ydx_stock
+#: model:ir.ui.menu,name:ydx_stock.menu_line
+msgid "明细"
+msgstr ""
