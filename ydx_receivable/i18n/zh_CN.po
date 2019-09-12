@@ -1,0 +1,28 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ydx_receivable
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-12 02:20+0000\n"
+"PO-Revision-Date: 2019-09-12 10:22+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.2\n"
+"Last-Translator: \n"
+"Language: zh_CN\n"
+
+#. module: ydx_receivable
+#: model:ir.model,name:ydx_receivable.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: ydx_receivable
+#: model:ir.model.fields,field_description:ydx_receivable.field_account_invoice__screenshots_proof
+msgid "Screenshots Proof"
+msgstr "截图证明"
