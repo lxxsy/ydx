@@ -44,8 +44,6 @@
                 <page name="attachment" string="Attachment">
                     <group>
                         <group name="source" string="Attachment">
-                            <field name="sale_number"/>
-                            <field name="sale_order_number"/>
                             <field name="source_attachment"/>
                         </group>
                         <group name="attachment" string="Aattachment">

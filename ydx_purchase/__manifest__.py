@@ -12,7 +12,7 @@
     Product_template
     """ ,
 
-    "depends" : ["base", "purchase", "ydx_base",'ps_account_payable','account','stock','ps_account_receivable'],
+    "depends" : ["base", "purchase", "ydx_base",'ps_account_payable','account','stock','ps_account_receivable', 'ydx_stock'],
     "data": [
         'data/purchase_data.xml',
         'views/purchase_custom_view.xml',

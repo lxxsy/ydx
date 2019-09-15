@@ -20,9 +20,6 @@ class SaleOrder(models.Model):
         ('cancel', 'Cancelled'),
     ])
 
-    attachment = fields.Binary(String="Attachment")
-    purchase_id = fields.One2many('purchase.order', 'sale_id')
-
     sale_contract_ids = fields.Many2many('sale.contract', compute="_compute_contract", string='Sale Contract', copy=False, store=True)
     sale_contract_count = fields.Integer(compute="_compute_contract", string='Sale Contract Count', copy=False, default=0, store=True)
     sale_return_ids = fields.Many2many('sale.return', compute="_compute_return", string='Sale Return', copy=False, store=True)
@@ -32,7 +29,6 @@ class SaleOrder(models.Model):
     function_metal_line = fields.One2many('res.function.metal', 'order_id', string='Function Metal Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
     outsource_line = fields.One2many('res.outsource', 'order_id', string='Outsource Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
     production_part_line = fields.One2many('res.production.part', 'order_id', string='Production Part Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
-    purchase_order_ids = fields.One2many('purchase.order', 'sale_order_id', string='Purchase Orders', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
 
     sale_order_no = fields.Char(string='Sale Order No.', required=True)
     factory_order_no = fields.Char(string='Factory Order No.', required=True)
