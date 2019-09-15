@@ -4,17 +4,19 @@
 from odoo import api, fields, models, _
 
 
-class YdxPurchaseOrder(models.Model):
+class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    purchase_contract_ids = fields.Many2many('purchase.procurement.contract', compute="_compute_contract",string='Purchase Contract', copy=False, store=True)
-    purchase_contract_count = fields.Integer(compute="_compute_contract", string='Purchase Contract Count', copy=False,default=0, store=True)
-    purchase_return_ids = fields.Many2many('purchase.return', compute="_compute_return", string='Purchase Return Order',copy=False, store=True)
-    purchase_return_count = fields.Integer(compute="_compute_return", string='Purchase Return Count', copy=False,default=0, store=True)
+    purchase_contract_ids = fields.Many2many('purchase.procurement.contract', compute="_compute_contract", string='Purchase Contract', copy=False, store=True)
+    purchase_contract_count = fields.Integer(compute="_compute_contract", string='Purchase Contract Count', copy=False, default=0, store=True)
+    purchase_return_ids = fields.Many2many('purchase.return', compute="_compute_return", string='Purchase Return Order', copy=False, store=True)
+    purchase_return_count = fields.Integer(compute="_compute_return", string='Purchase Return Count', copy=False, default=0, store=True)
     sale_number = fields.Char(string="Order Number")
     sale_order_number = fields.Char(string="Sale Order Number")
     attachment = fields.Binary(String="Attachment")
-    sale_id = fields.Many2one('sale.order')
+    sale_order_id = fields.Many2one('sale.order', string='Sale Order', index=True, copy=False)
+    sub_sale_order_ids = fields.One2many('purchase.sub.sale.order', 'sale_order_id', string='Purchase Sub Sale Orders', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True, ondelete='cascade')
+
     source_attachment = fields.Binary(related="sale_id.attachment", string="Source Attachment")
 
     @api.multi
@@ -140,7 +142,7 @@ class YdxPurchaseOrder(models.Model):
             order.purchase_return_count = len(return_order)
 
 
-class YdxPurchaseOrderLine(models.Model):
+class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
     contract_lines = fields.One2many('purchase.procurement.contract.line', 'purchase_line_id', string="Contract Lines",readonly=True, copy=False)
@@ -153,3 +155,12 @@ class YdxPurchaseOrderLine(models.Model):
     thickness = fields.Float(string='Finished Thickness')
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
+	
+	def _merge_in_existing_line(self, product_id, product_qty, product_uom, location_id, name, origin, values):
+        if product_id.fuction_type == 'outsource':
+            # if this is defined, this is a dropshipping line, so no
+            # this is to correctly map delivered quantities to the so lines
+            return False
+        return super(PurchaseOrderLine, self)._merge_in_existing_line(
+            product_id=product_id, product_qty=product_qty, product_uom=product_uom,
+            location_id=location_id, name=name, origin=origin, values=values)

@@ -12,6 +12,7 @@ class YdxStockLocationRoute(models.Model):
 class YdxStockMove(models.Model):
     _inherit = "stock.move"
     purchase_reutrn_line_id = fields.Many2one('purchase.return.lines', 'Purchase Return Line')
+    sale_order_id = fields.Many2one('sale.order', 'Sale Order')
 
     @api.model
     def _prepare_merge_moves_distinct_fields(self):
@@ -43,6 +44,12 @@ class YdxStockMove(models.Model):
                 'mail.message_origin_link',
                 values={'self': self.picking_id, 'origin': self.purchase_reutrn_line_id.purchase_return_id},
                 subtype_id=self.env.ref('mail.mt_note').id)
+
+    def _prepare_procurement_values(self):
+        procurement_values = super(YdxStockMove, self)._prepare_procurement_values()
+        if self.sale_order_id:
+            procurement_values['sale_order_id'] = self.sale_order_id.id
+        return procurement_values
 
 
 class YdxProcurementGroup(models.Model):

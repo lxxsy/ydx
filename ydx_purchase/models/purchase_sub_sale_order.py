@@ -3,9 +3,9 @@
 
 from odoo import api, fields, models
 
-class StockSubSaleOrder(models.Model):
-    _name = "stock.sub.sale.order"
-    _description = "Stock Sub Sale Order"
+class PurchaseSubSaleOrder(models.Model):
+    _name = "purchase.sub.sale.order"
+    _description = "Purchase Sub Sale Order"
     _order = 'date_order desc, id desc'
 
     _sql_constraints = [ ('check_uniq_name', 'unique(name)', '子订单编号已存在！')   ]
@@ -29,9 +29,8 @@ class StockSubSaleOrder(models.Model):
     swim_door = fields.Char(string='Swin door')
     package_num = fields.Integer(string='Package Number', copy=False, default=0, required=True)
     outsource_package_num = fields.Integer(string='Outsource Package Number', copy=False, default=0, required=True)
-    picking_id = fields.Many2one('stock.picking', 'Transfer Reference', index=True, states={'done': [('readonly', True)]},ondelete='cascade')
     display_type = fields.Selection([
         ('line_section', "Section"),
         ('line_note', "Note")], default=False, help="Technical field for UX purpose.")
     sub_sale_order_id = fields.Many2one('sub.sale.order', 'Sub Sale Order', index=True, states={'done': [('readonly', True)]})
-
+    sale_order_id = fields.Many2one('sale.order', string='Sale Order', required=True, ondelete='cascade', index=True, copy=False)

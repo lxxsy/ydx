@@ -27,12 +27,17 @@
                 <attribute name="attrs">{'invisible': ['|',('show_operations', '=', False),('picking_type_code', '=', 'outgoing')]}</attribute>
             </xpath>
             <xpath expr="//page[@name='operations']" position="attributes">
-                <attribute name="attrs">{'invisible': ['|',('picking_type_code', '=', 'outgoing')]}</attribute>
+                <attribute name="attrs">{'invisible': [('picking_type_code', '=', 'outgoing')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='backorder_id']" position="after">
                 <field name="metal_package_num" />
+                <field name="is_payall" widget="checkbox"/>
+            </xpath>
+            <xpath expr="//button[@name='button_validate']" position="attributes">
+                <attribute name="attrs">{'invisible': ['|',('show_validate', '=', False),('is_payall', '=', False)]}</attribute>
             </xpath>
             <xpath expr="//button[@name='do_print_picking']" position="before">
+                <button name="button_confirm_payall" attrs="{'invisible': [('is_payall', '=', True)]}" string="Confirm Payall" type="object" groups="account.group_account_user" class="btn-primary"/>
                 <button name="%(action_wizard_update_package_num)d" string="Update Package" type="action" groups="stock.group_stock_user"
                     context="{'default_picking_id': id}"
                 />
@@ -43,6 +48,7 @@
                         <tree string="Sub Sale Orders" editable="bottom">
                             <field name="display_type" invisible="1"/>
                             <field name="state" invisible="1"/>
+                            <field name="sequence" widget="handle"/>
                             <field name="name" string="Order Number"/>
                             <field name="product_id" />
                             <field name="cabinet" />
@@ -62,6 +68,7 @@
                            context="{'picking_type_code': picking_type_code, 'default_picking_id': id, 'form_view_ref':'stock.view_move_picking_form', 'address_in_id': partner_id, 'default_picking_type_id': picking_type_id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}"
                     >
                         <tree decoration-danger="not parent.immediate_transfer and state != 'done' and quantity_done > reserved_availability and show_reserved_availability" decoration-muted="scrapped == True or state == 'cancel' or (state == 'done' and is_locked == True)" string="Stock Moves" editable="bottom">
+                            <field name="sequence" widget="handle"/>
                             <field name="name" invisible="1"/>
                             <field name="date_expected" invisible="1"/>
                             <field name="state" invisible="1" readonly="0"/>
@@ -98,6 +105,7 @@
                            context="{'picking_type_code': picking_type_code, 'default_picking_id': id, 'form_view_ref':'stock.view_move_picking_form', 'address_in_id': partner_id, 'default_picking_type_id': picking_type_id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}"
                     >
                         <tree decoration-danger="not parent.immediate_transfer and state != 'done' and quantity_done > reserved_availability and show_reserved_availability" decoration-muted="scrapped == True or state == 'cancel' or (state == 'done' and is_locked == True)" string="Stock Moves" editable="bottom">
+                            <field name="sequence" widget="handle"/>
                             <field name="name" invisible="1"/>
                             <field name="date_expected" invisible="1"/>
                             <field name="state" invisible="1" readonly="0"/>
@@ -134,6 +142,7 @@
                            context="{'picking_type_code': picking_type_code, 'default_picking_id': id, 'form_view_ref':'stock.view_move_picking_form', 'address_in_id': partner_id, 'default_picking_type_id': picking_type_id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}"
                     >
                         <tree decoration-danger="not parent.immediate_transfer and state != 'done' and quantity_done > reserved_availability and show_reserved_availability" decoration-muted="scrapped == True or state == 'cancel' or (state == 'done' and is_locked == True)" string="Stock Moves" editable="bottom">
+                            <field name="sequence" widget="handle"/>
                             <field name="name" invisible="1"/>
                             <field name="date_expected" invisible="1"/>
                             <field name="state" invisible="1" readonly="0"/>
@@ -169,6 +178,7 @@
                             string="All Production Parts"
                             editable="bottom"
                         >
+                            <field name="sequence" widget="handle"/>
                             <field name="cabinet_no"/>
                             <field name="product_id"/>
                             <field name="product_material"/>

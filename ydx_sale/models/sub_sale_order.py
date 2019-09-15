@@ -137,6 +137,7 @@ class SubSaleOrder(models.Model):
     product_updatable = fields.Boolean(compute='_compute_product_updatable', string='Can Edit Product', readonly=True, default=True)
     product_uom_qty = fields.Float(string='Ordered Quantity', digits=dp.get_precision('Product Unit of Measure'), required=True, default=1.0)
     product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
+    stock_sub_sale_order_id = fields.One2many('stock.sub.sale.order', 'sub_sale_order_id', string='Stock Sub Sale Order')
 
     # Non-stored related field to allow portal user to see the image of the product he has ordered
     product_image = fields.Binary('Product Image', related="product_id.image", store=False, readonly=False)
@@ -342,3 +343,10 @@ class SubSaleOrder(models.Model):
                 line.qty_delivered_manual = line.qty_delivered
             else:
                 line.qty_delivered_manual = 0.0
+
+    # @api.depends('stock_sub_sale_order_id', 'stock_sub_sale_order_id.package_num', 'stock_sub_sale_order_id.outsource_package_num')
+
+    @api.multi
+    def _sync_package_num(self, package_num):
+        for order in self:
+            order.package_num = package_num

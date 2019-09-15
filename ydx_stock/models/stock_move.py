@@ -4,7 +4,7 @@
 from odoo import api, fields, models, _
 
 
-class YdxStockMove(models.Model):
+class StockMove(models.Model):
     _inherit = "stock.move"
 
     product_function_type = fields.Selection(related='product_id.fuction_type', readonly=True)

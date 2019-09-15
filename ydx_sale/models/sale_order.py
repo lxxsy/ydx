@@ -32,6 +32,7 @@ class SaleOrder(models.Model):
     function_metal_line = fields.One2many('res.function.metal', 'order_id', string='Function Metal Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
     outsource_line = fields.One2many('res.outsource', 'order_id', string='Outsource Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
     production_part_line = fields.One2many('res.production.part', 'order_id', string='Production Part Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
+    purchase_order_ids = fields.One2many('purchase.order', 'sale_order_id', string='Purchase Orders', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
 
     sale_order_no = fields.Char(string='Sale Order No.', required=True)
     factory_order_no = fields.Char(string='Factory Order No.', required=True)
@@ -82,7 +83,8 @@ class SaleOrder(models.Model):
             'sliding_door': sub_sale_order.sliding_door,
             'glass_door': sub_sale_order.glass_door,
             'swim_door': sub_sale_order.swim_door,
-            'picking_id': self.picking_ids.id
+            'picking_id': self.picking_ids.id,
+            'sub_sale_order_id':sub_sale_order.id
         }
         return move_values
 

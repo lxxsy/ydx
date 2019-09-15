@@ -14,8 +14,9 @@
             </sheet>
             <group string="Sub Sale Orders">
                 <field name="line_ids" nolabel="1">
-                    <tree editable="bottom" create="false" delete="false">
-                        <field name="name" readonly="True"/>
+                    <!--create="false" readonly="True"-->
+                    <tree editable="bottom"  delete="false">
+                        <field name="name" />
                         <field name="package_num"/>
                     </tree>
                 </field>
