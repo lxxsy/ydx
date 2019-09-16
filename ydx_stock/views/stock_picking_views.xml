@@ -6,22 +6,8 @@
         <field name="inherit_id" ref="stock.view_picking_form" />
         <field eval="12" name="priority"/>
         <field name="arch" type="xml">
-            <xpath expr="//form/sheet/notebook/page[@name='operations']/field/tree/field[@name='product_id']" position="before">
-                <field name="picking_type_code" invisible="1"/>
-                <field name="cabinet_no" attrs="{'invisible': [('picking_type_code', '=', 'incoming')]}"/>
-            </xpath>
-            <xpath expr="//form/sheet/notebook/page[@name='operations']/field/tree/field[@name='product_id']" position="after">
-                <field name="picking_type_code" invisible="1"/>
-                <field name="material" attrs="{'invisible': [('picking_type_code', '=', 'incoming')]}"/>
-                <field name="product_colour" attrs="{'invisible': [('picking_type_code', '=', 'incoming')]}"/>
-                <field name="length"/>
-                <field name="width"/>
-                <field name="thickness"/>
-                <field name="band_number" attrs="{'invisible': [('picking_type_code', '=', 'incoming')]}"/>
-            </xpath>
             <xpath expr="//form/sheet/notebook/page[@name='operations']/field/tree/field[@name='product_uom']" position="after">
-                <field name="picking_type_code" invisible="1"/>
-                <field name="remarks" attrs="{'invisible': [('picking_type_code', '=', 'incoming')]}"/>
+                <field name="remarks"/>
             </xpath>
             <xpath expr="//page[@name='detailed_operations']" position="attributes">
                 <attribute name="attrs">{'invisible': ['|',('show_operations', '=', False),('picking_type_code', '=', 'outgoing')]}</attribute>
@@ -61,7 +47,7 @@
                         </tree>
                     </field>
                 </page>
-                <page string="Function metals">
+                <page string="Function metals" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}">
                     <field name="id" invisible="1"/>
                     <field name="immediate_transfer" invisible="1"/>
                     <field name="fmetals_move_ids_without_package" attrs="{'readonly': ['|', '&amp;', ('show_operations', '=', True), '|', ('is_locked', '=', True), ('state', '=', 'done'), '&amp;', ('state', '=', 'done'), ('is_locked', '=', True)]}"
@@ -98,7 +84,7 @@
                     <field name="package_level_ids" context="{'default_location_id': location_id, 'default_location_dest_id': location_dest_id}" attrs="{'readonly': [('state', '=', 'done')], 'invisible': ['|', ('picking_type_entire_packs', '=', False), ('show_operations', '=', True)]}" />
                     <button class="oe_highlight" name="put_in_pack" type="object" string="Put in Pack" attrs="{'invisible': [('state', 'in', ('draft', 'done', 'cancel'))]}" groups="stock.group_tracking_lot"/>
                 </page>
-                <page string="Connection metals">
+                <page string="Connection metals" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}">
                     <field name="id" invisible="1"/>
                     <field name="immediate_transfer" invisible="1"/>
                     <field name="cmetals_move_ids_without_package" attrs="{'readonly': ['|', '&amp;', ('show_operations', '=', True), '|', ('is_locked', '=', True), ('state', '=', 'done'), '&amp;', ('state', '=', 'done'), ('is_locked', '=', True)]}"
@@ -159,20 +145,28 @@
                             <field name="additional" invisible="1"/>
                             <field name="has_move_lines" invisible="1"/>
                             <field name="is_locked" invisible="1"/>
+                            <field name="cabinet_no"/>
                             <field name="product_id" required="1" attrs="{'readonly': ['|', '&amp;', ('state', '!=', 'draft'), ('additional', '=', False), ('has_move_lines', '=', True)]}"/>
                             <field name="is_initial_demand_editable" invisible="1"/>
                             <field name="is_quantity_done_editable" invisible="1"/>
+                            <field name="material"/>
+                            <field name="product_colour"/>
+                            <field name="length"/>
+                            <field name="width"/>
+                            <field name="thickness"/>
+                            <field name="band_number"/>
                             <field name="product_uom_qty" string="Initial Demand" attrs="{'column_invisible': ['&amp;',('parent.immediate_transfer', '=', True), ('parent.is_locked', '=', True)], 'readonly': [('is_initial_demand_editable', '=', False)]}"/>
                             <field name="reserved_availability" string="Reserved" attrs="{'column_invisible': (['|','|', ('parent.state','=', 'done'), ('parent.picking_type_code', '=', 'incoming'),'&amp;',('parent.immediate_transfer', '=', True), ('parent.is_locked', '=', True)])}"/>
                             <field name="quantity_done" string="Done" attrs="{'readonly': [('is_quantity_done_editable', '=', False)]}"/>
                             <field name="product_uom" attrs="{'readonly': [('state', '!=', 'draft'), ('additional', '=', False)]}" options="{'no_open': True, 'no_create': True}" string="Unit of Measure" groups="uom.group_uom"/>
+                            <field name="remarks"/>
                             <button name="action_show_details" string="Register lots, packs, location" type="object" icon="fa-list" attrs="{'invisible': [('show_details_visible', '=', False)]}" options='{"warn": true}'/>
                         </tree>
                     </field>
                     <field name="package_level_ids" context="{'default_location_id': location_id, 'default_location_dest_id': location_dest_id}" attrs="{'readonly': [('state', '=', 'done')], 'invisible': ['|', ('picking_type_entire_packs', '=', False), ('show_operations', '=', True)]}" />
                     <button class="oe_highlight" name="put_in_pack" type="object" string="Put in Pack" attrs="{'invisible': [('state', 'in', ('draft', 'done', 'cancel'))]}" groups="stock.group_tracking_lot"/>
                 </page>
-                <page string="Production Parts">
+                <page string="Production Parts" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}">
                     <field name="stock_production_part_ids">
                         <tree
                             string="All Production Parts"

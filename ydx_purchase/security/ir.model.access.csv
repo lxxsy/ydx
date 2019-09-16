@@ -4,4 +4,5 @@ purchase_procurement_contract_id,access.purchase.procurement.contract,model_purc
 purchase_procurement_contract_line_id,access.purchase.procurement.contract.line,model_purchase_procurement_contract_line,,1,1,1,1
 purchase_return_id,access.purchase.return.product,model_purchase_return,,1,1,1,1
 purchase_return_lines_id,access.purchase.return.lines,model_purchase_return_lines,,1,1,1,1
+purchase_sub_sale_order_id,access.purchase.sub.sale.order,model_purchase_sub_sale_order,,1,1,1,1
 purchase_custom_lines_id,access.purchase.custom.lines,model_purchase_custom_lines,,1,1,1,1

@@ -10,3 +10,4 @@ class PurchaseOrder(models.Model):
     sale_order_id = fields.Many2one('sale.order', string='Sale Order', index=True, copy=False)
     source_attachment = fields.Binary(related="sale_order_id.attachment", string="Source Attachment")
 
+

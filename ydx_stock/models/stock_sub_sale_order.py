@@ -8,7 +8,7 @@ class StockSubSaleOrder(models.Model):
     _description = "Stock Sub Sale Order"
     _order = 'date_order desc, id desc'
 
-    _sql_constraints = [ ('check_uniq_name', 'unique(name)', '子订单编号已存在！')   ]
+    # _sql_constraints = [ ('check_uniq_name', 'unique(name)', '子订单编号已存在！')   ]
     state = fields.Selection([
         ('draft', 'Quotation'),
         ('sent', 'Quotation Sent'),
@@ -33,5 +33,6 @@ class StockSubSaleOrder(models.Model):
     display_type = fields.Selection([
         ('line_section', "Section"),
         ('line_note', "Note")], default=False, help="Technical field for UX purpose.")
-    sub_sale_order_id = fields.Many2one('sub.sale.order', 'Sub Sale Order', index=True, states={'done': [('readonly', True)]})
+    sale_order_id = fields.Integer(string='Sale Order Id')
+    sub_sale_order_id = fields.Integer(string='Sale Order Id')
 

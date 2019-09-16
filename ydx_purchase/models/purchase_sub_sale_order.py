@@ -32,3 +32,6 @@ class PurchaseSubSaleOrder(models.Model):
     display_type = fields.Selection([
         ('line_section', "Section"),
         ('line_note', "Note")], default=False, help="Technical field for UX purpose.")
+    order_id = fields.Many2one('purchase.order', string='Order Reference', index=True, required=True, ondelete='cascade')
+    sub_sale_order_id = fields.Integer(string='Sub Sale Order Id')
+

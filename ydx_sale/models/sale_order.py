@@ -80,6 +80,7 @@ class SaleOrder(models.Model):
             'glass_door': sub_sale_order.glass_door,
             'swim_door': sub_sale_order.swim_door,
             'picking_id': self.picking_ids.id,
+            'sale_order_id':sub_sale_order.order_id.id,
             'sub_sale_order_id':sub_sale_order.id
         }
         return move_values
@@ -113,7 +114,7 @@ class SaleOrder(models.Model):
 
     def _create_stock_production_part(self, production_part_line):
         for line in production_part_line:
-            data = self._get_sub_sale_order_values(line)
+            data = self._get_stock_production_part(line)
             self.env['stock.production.part'].sudo().create(data)
 
     @api.multi

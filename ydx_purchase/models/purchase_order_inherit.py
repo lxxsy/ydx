@@ -12,6 +12,9 @@ class PurchaseOrder(models.Model):
     purchase_return_ids = fields.Many2many('purchase.return', compute="_compute_return", string='Purchase Return Order', copy=False, store=True)
     purchase_return_count = fields.Integer(compute="_compute_return", string='Purchase Return Count', copy=False, default=0, store=True)
     attachment = fields.Binary(String="Attachment")
+    purchase_sub_sale_line = fields.One2many('purchase.sub.sale.order', 'order_id', string='Order Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True)
+    purchase_type = fields.Selection([('purchase',  'Purchase Order'),
+                                   ('outsource',  'Outsource')], default='purchase')
 
     @api.multi
     def action_create_procurement_contract(self):
@@ -135,6 +138,66 @@ class PurchaseOrder(models.Model):
             order.purchase_return_ids = return_order
             order.purchase_return_count = len(return_order)
 
+    def _prepare_purchase_sub_sale_line_from_line(self, line):
+        data = {
+            'name': line.name,
+            'product_id': line.product_id.id,
+            'cabinet': line.cabinet,
+            'flat_door': line.flat_door,
+            'sliding_door': line.sliding_door,
+            'glass_door': line.glass_door,
+            'swim_door': line.swim_door,
+            'package_num': line.package_num,
+            'outsource_package_num': line.outsource_package_num,
+            'order_id': line.order_id.id,
+            'sub_sale_order_id': line.id
+        }
+
+        return data
+
+    @api.depends('sale_order_id')
+    def _compute_sub_sale_order_line(self):
+        for order in self:
+            new_lines = self.env['purchase.sub.sale.order']
+            sub_order_lines = self.env['sub.sale.order'].sudo().search([('order_id','=', order.sale_order_id.id)])
+            for line in sub_order_lines:
+                data = self._prepare_purchase_sub_sale_line_from_line(line)
+                new_line = new_lines.new(data)
+                new_lines += new_line
+            order.purchase_sub_sale_line = new_lines
+            order.env.context = dict(self.env.context, from_purchase_sub_sale_order_line_change=True)
+
+    @api.model
+    def create(self, vals):
+        pu = super(PurchaseOrder, self).create(vals)
+        pu._compute_sub_sale_order_line()
+        return pu
+
+    def _get_purchase_sub_sale_order_values(self, pick, purchase_sub_sale_line):
+        move_values = []
+        for sub_sale_order in purchase_sub_sale_line:
+            move_value = {
+                'name': sub_sale_order.name,
+                'product_id': sub_sale_order.product_id.id,
+                'cabinet': sub_sale_order.cabinet,
+                'flat_door': sub_sale_order.flat_door,
+                'sliding_door': sub_sale_order.sliding_door,
+                'glass_door': sub_sale_order.glass_door,
+                'swim_door': sub_sale_order.swim_door,
+                'picking_id': pick.id,
+                'sub_sale_order_id':sub_sale_order.sub_sale_order_id
+            }
+            move_values.append(move_value)
+        return move_values
+
+    @api.multi
+    def _create_picking(self):
+        for purchase in self:
+            super(PurchaseOrder, purchase)._create_picking()
+            for pick in purchase.picking_ids:
+                datas = purchase._get_purchase_sub_sale_order_values(pick, purchase.purchase_sub_sale_line)
+                purchase.env['stock.sub.sale.order'].sudo().create(datas)
+
 
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
@@ -149,7 +212,8 @@ class PurchaseOrderLine(models.Model):
     thickness = fields.Float(string='Finished Thickness')
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
-	
+    purchase_type = fields.Selection(related='order_id.purchase_type')
+
     def _merge_in_existing_line(self, product_id, product_qty, product_uom, location_id, name, origin, values):
         if product_id.fuction_type == 'outsource':
             # if this is defined, this is a dropshipping line, so no

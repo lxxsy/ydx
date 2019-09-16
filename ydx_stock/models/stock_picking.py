@@ -14,7 +14,8 @@ class Picking(models.Model):
     sub_sale_order_ids = fields.One2many('stock.sub.sale.order', 'picking_id', string='Sub Sale Orders', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True, ondelete='cascade')
     stock_production_part_ids = fields.One2many('stock.production.part', 'picking_id', string='Stock Production Part', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True, ondelete='cascade')
     is_payall = fields.Boolean(string='Pay All', default=False)
-
+    incoming_type = fields.Selection([('purchase',  'Purchase Order'),
+                                   ('outsource',  'Outsource')], default='purchase')
     @api.multi
     def button_confirm_payall(self):
         for pick in self:

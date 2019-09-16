@@ -17,7 +17,7 @@ class UpdatePackageNum(models.TransientModel):
                 for update_line in pick.line_ids:
                     if pick_line.name == update_line.name:
                         pick_line.update({"package_num":update_line.package_num})
-                        sub_order = self.env['sub.sale.order'].sudo().search([('id', '=', pick_line.sub_sale_order_id.id)])
+                        sub_order = self.env['sub.sale.order'].sudo().search([('id', '=', pick_line.sub_sale_order_id)])
                         sub_order._sync_package_num(update_line.package_num)
 
     def _prepare_return_line_from_so_line(self, line):
