@@ -6,28 +6,162 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-10 03:05+0000\n"
-"PO-Revision-Date: 2019-09-10 11:06+0800\n"
+"POT-Creation-Date: 2019-09-15 08:56+0000\n"
+"PO-Revision-Date: 2019-09-15 17:11+0800\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: zh_CN\n"
+"Language: zh\n"
 "X-Generator: Poedit 2.2.3\n"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__access_warning
+msgid "Access warning"
+msgstr "访问警告"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_needaction
+msgid "Action Needed"
+msgstr "前置操作"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__activity_ids
+msgid "Activities"
+msgstr "活动"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__activity_state
+msgid "Activity State"
+msgstr "活动状态"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "All Production Parts"
+msgstr "所有生产部件"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件数量"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__band_side
+msgid "Band Side"
+msgstr "封边信息"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__barcode
+msgid "Barcode"
+msgstr "条码"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.update_package_num_wizard_form
+msgid "Borrow books"
+msgstr ""
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__cabinet
+msgid "Cabinet"
+msgstr "柜体"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move__cabinet_no
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__cabinet_no
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__cabinet_no
 msgid "Cabinet Number"
 msgstr "订单柜号"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.update_package_num_wizard_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: ydx_stock
+#: selection:stock.sub.sale.order,state:0
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_color
+msgid "Color"
+msgstr "颜色"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move__product_colour
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__product_colour
 msgid "Colour"
 msgstr "颜色"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.update_package_num_wizard_form
+msgid "Confirm"
+msgstr "确认"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Confirm Payall"
+msgstr "确认付款"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Connection metals"
+msgstr "连接五金"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__create_uid
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__create_uid
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line__create_uid
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__create_date
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line__create_date
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__create_date
+msgid "Creation Date"
+msgstr "创建日期"
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_production_part__access_url
+msgid "Customer Portal URL"
+msgstr "客户门户 URL"
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_sub_sale_order__create_date
+msgid "Date on which sales order is created."
+msgstr "销售订单创建日期"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__note
+msgid "Description"
+msgstr "说明"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__display_name
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__display_name
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line__display_name
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__display_type
+msgid "Display Type"
+msgstr "显示类型"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Done"
+msgstr "完成"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move__length
@@ -48,15 +182,318 @@ msgid "Finished Width"
 msgstr "成品宽度"
 
 #. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__flat_door
+msgid "Flat open the door"
+msgstr "平开门"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_follower_ids
+msgid "Followers"
+msgstr "关注者"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "关注者(渠道)"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "关注者(业务伙伴)"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__product_function_type
+msgid "Fuction Type"
+msgstr "功能类型"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Function metals"
+msgstr "功能五金"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__glass_door
+msgid "Glass door"
+msgstr "玻璃门"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__id
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__id
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line__id
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_production_part__message_unread
+msgid "If checked new messages require your attention."
+msgstr "查看是否有需要留意的新消息。"
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_production_part__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "确认后, 出现提示消息."
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_production_part__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "如果勾选此项， 某些消息将会产生传递错误。"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__name
+msgid "Index"
+msgstr "指引"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Initial Demand"
+msgstr "初始需求"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_is_follower
+msgid "Is Follower"
+msgstr "关注者"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part____last_update
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order____last_update
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line____last_update
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard____last_update
+msgid "Last Modified on"
+msgstr "最后修改日"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__write_uid
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__write_uid
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line__write_uid
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard__write_uid
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__write_date
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__write_date
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line__write_date
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: ydx_stock
+#: selection:stock.sub.sale.order,state:0
+msgid "Locked"
+msgstr "锁定"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "附件"
+
+#. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move__material
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__material
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_material
 msgid "Material"
 msgstr "材质"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__material_use
+msgid "Material Use"
+msgstr "材质用途"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_has_error
+msgid "Message Delivery error"
+msgstr "消息递送错误"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_ids
+msgid "Messages"
+msgstr "消息"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard__metal_package_num
+msgid "Metal Package Number"
+msgstr "五金包裹数量"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "下一活动截止日期"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__activity_summary
+msgid "Next Activity Summary"
+msgstr "下一个活动摘要"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__activity_type_id
+msgid "Next Activity Type"
+msgstr "下一活动类型"
+
+#. module: ydx_stock
+#: selection:stock.sub.sale.order,display_type:0
+msgid "Note"
+msgstr "备注"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_needaction_counter
+msgid "Number of Actions"
+msgstr "操作次数"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_has_error_counter
+msgid "Number of error"
+msgstr "错误个数"
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_production_part__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "需要操作消息数量"
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_production_part__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "递送错误消息数量"
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_production_part__message_unread_counter
+msgid "Number of unread messages"
+msgstr "未读消息数量"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__material_open_length
+msgid "Open Length"
+msgstr "成品长度"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__material_open_width
+msgid "Open width"
+msgstr "成品宽度"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line__order_id
+msgid "Order"
+msgstr "订单"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__date_order
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__date_order
+msgid "Order Date"
+msgstr "单据日期"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard__line_ids
+msgid "Order Lines"
+msgstr "订单行"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Order Number"
+msgstr "订单号码"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__name
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line__name
+msgid "Order Reference"
+msgstr "订单关联"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_uom_qty
+msgid "Ordered Quantity"
+msgstr "订购数量"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Outsource"
+msgstr "委外"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__outsource_package_num
+msgid "Outsource Package Number"
+msgstr "外购包裹数量"
+
+#. module: ydx_stock
+#: selection:stock.production.part,activity_state:0
+msgid "Overdue"
+msgstr "逾期"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_picking__metal_package_num
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__package_num
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_line__package_num
+msgid "Package Number"
+msgstr "包裹数量"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_picking__is_payall
+msgid "Pay All"
+msgstr "所有支付"
+
+#. module: ydx_stock
+#: selection:stock.production.part,activity_state:0
+msgid "Planned"
+msgstr "计划"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__access_url
+msgid "Portal Access URL"
+msgstr "门户访问 URL"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_id
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__product_id
+msgid "Product"
+msgstr "产品"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_length
+msgid "Product Length"
+msgstr "成品长度"
 
 #. module: ydx_stock
 #: model:ir.model,name:ydx_stock.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
 msgstr "产品移动(移库明细)"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_thick
+msgid "Product Thick"
+msgstr "产品厚度"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_width
+msgid "Product Width"
+msgstr "产品宽度"
+
+#. module: ydx_stock
+#: model:ir.model,name:ydx_stock.model_stock_production_part
+msgid "Production Part"
+msgstr "生产部件"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Production Parts"
+msgstr "生产部件"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Put in Pack"
+msgstr "放入包裹"
+
+#. module: ydx_stock
+#: selection:stock.sub.sale.order,state:0
+msgid "Quotation"
+msgstr "报价单"
+
+#. module: ydx_stock
+#: selection:stock.sub.sale.order,state:0
+msgid "Quotation Sent"
+msgstr "发送报价单"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Register lots, packs, location"
+msgstr "登记批次，包裹，位置"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move__remarks
@@ -65,15 +502,182 @@ msgid "Remarks"
 msgstr "备注"
 
 #. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Reserved"
+msgstr "已保留"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__activity_user_id
+msgid "Responsible User"
+msgstr "责任用户"
+
+#. module: ydx_stock
+#: selection:stock.sub.sale.order,state:0
+msgid "Sales Order"
+msgstr "销售订单"
+
+#. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move__band_number
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__band_number
 msgid "Sealing side information"
 msgstr "封边信息"
 
 #. module: ydx_stock
+#: selection:stock.sub.sale.order,display_type:0
+msgid "Section"
+msgstr "部分"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__access_token
+msgid "Security Token"
+msgstr "安全令牌"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__sequence
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__sequence
+msgid "Sequence"
+msgstr "序号"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__sliding_door
+msgid "Sliding door"
+msgstr "推拉门"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_speci_type
+msgid "Specification"
+msgstr "规格"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__state
+msgid "Status"
+msgstr "状态"
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_production_part__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"基于活动的状态 \n"
+" 逾期：已经超过截止日期 \n"
+" 现今：活动日期是当天 \n"
+" 计划：未来的活动。"
+
+#. module: ydx_stock
 #: model:ir.model,name:ydx_stock.model_stock_move
 msgid "Stock Move"
 msgstr "库存移动"
+
+#. module: ydx_stock
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Stock Moves"
+msgstr "库存移动"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_picking__stock_production_part_ids
+msgid "Stock Production Part"
+msgstr "生产部件"
+
+#. module: ydx_stock
+#: model:ir.model,name:ydx_stock.model_stock_sub_sale_order
+msgid "Stock Sub Sale Order"
+msgstr "子销售订单"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_picking__cmetals_move_ids_without_package
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_picking__fmetals_move_ids_without_package
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_picking__outsource_move_ids_without_package
+msgid "Stock moves not in package"
+msgstr "库存移动不在包裹里"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__sub_sale_order_id
+msgid "Sub Sale Order"
+msgstr "子销售订单"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_picking__sub_sale_order_ids
+#: model_terms:ir.ui.view,arch_db:ydx_stock.update_package_num_wizard_form
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Sub Sale Orders"
+msgstr "子销售订单"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__swim_door
+msgid "Swin door"
+msgstr "泳黑门"
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_sub_sale_order__display_type
+msgid "Technical field for UX purpose."
+msgstr "UX用途的技術領域。"
+
+#. module: ydx_stock
+#: selection:stock.production.part,activity_state:0
+msgid "Today"
+msgstr "今日"
+
+#. module: ydx_stock
+#: model:ir.model,name:ydx_stock.model_stock_picking
+msgid "Transfer"
+msgstr "调拨"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__picking_id
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__picking_id
+#: model:ir.model.fields,field_description:ydx_stock.field_update_package_num_wizard__picking_id
+msgid "Transfer Reference"
+msgstr "调拨参照"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__picking_type_code
+msgid "Type of Operation"
+msgstr "作业的类型"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_uom
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Unit of Measure"
+msgstr "单位"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_unread
+msgid "Unread Messages"
+msgstr "未读消息"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "未读消息计数器"
+
+#. module: ydx_stock
+#: model:ir.actions.act_window,name:ydx_stock.action_wizard_update_package_num
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Update Package"
+msgstr ""
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__website_message_ids
+msgid "Website Messages"
+msgstr "网站消息"
+
+#. module: ydx_stock
+#: model:ir.model.fields,help:ydx_stock.field_stock_production_part__website_message_ids
+msgid "Website communication history"
+msgstr "网站沟通记录"
+
+#. module: ydx_stock
+#: model:ir.model,name:ydx_stock.model_update_package_num_line
+msgid "update.package.num.line"
+msgstr ""
+
+#. module: ydx_stock
+#: model:ir.model,name:ydx_stock.model_update_package_num_wizard
+msgid "update.package.num.wizard"
+msgstr ""
 
 #. module: ydx_stock
 #: model:ir.actions.act_window,name:ydx_stock.action_move_outgoing_line
@@ -84,6 +688,11 @@ msgstr ""
 #. module: ydx_stock
 #: model_terms:ir.ui.view,arch_db:ydx_stock.view_move_tree
 msgid "合作伙伴"
+msgstr ""
+
+#. module: ydx_stock
+#: sql_constraint:stock.sub.sale.order:0
+msgid "子订单编号已存在！"
 msgstr ""
 
 #. module: ydx_stock

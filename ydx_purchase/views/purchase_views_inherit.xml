@@ -46,7 +46,7 @@
                         <group name="source" string="Attachment">
                             <field name="source_attachment"/>
                         </group>
-                        <group name="attachment" string="Aattachment">
+                        <group name="attachment" string="Attachment">
                             <field name="attachment"/>
                         </group>
                     </group>

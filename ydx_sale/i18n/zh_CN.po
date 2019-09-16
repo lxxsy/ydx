@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 09:56+0000\n"
-"PO-Revision-Date: 2019-09-11 17:58+0800\n"
+"POT-Creation-Date: 2019-09-15 07:35+0000\n"
+"PO-Revision-Date: 2019-09-15 16:55+0800\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -144,13 +144,13 @@ msgstr "活动状态"
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a connection metal"
-msgstr ""
+msgstr "增加连接五金"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a function metal"
-msgstr ""
+msgstr "增加功能五金"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
@@ -163,7 +163,7 @@ msgstr "增加备注"
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a outsource"
-msgstr ""
+msgstr "增加委外"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
@@ -174,7 +174,7 @@ msgstr "添加产品"
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a production part"
-msgstr ""
+msgstr "增加生产部件"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
@@ -186,7 +186,7 @@ msgstr "添加部分"
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 msgid "Add a sub sale order"
-msgstr ""
+msgstr "增加子销售订单"
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_contract__company_state
@@ -204,25 +204,25 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "All Connection Metals"
-msgstr ""
+msgstr "所有五金"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "All Function Metals"
-msgstr ""
+msgstr "所有功能五金"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "All Outsources"
-msgstr ""
+msgstr "所有委外"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "All Production Parts"
-msgstr ""
+msgstr "所有生产部件"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__amount_undiscounted
@@ -305,7 +305,7 @@ msgstr "已授权的交易"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__cabinet
 msgid "Cabinet"
-msgstr ""
+msgstr "柜"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__product_updatable
@@ -427,13 +427,13 @@ msgstr "确认日期"
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_res_connection_metal
 msgid "Connection Metal"
-msgstr ""
+msgstr "连接五金"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__connection_metal_line
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__connection_metal_line
 msgid "Connection Metal Lines"
-msgstr ""
+msgstr "连接五金明细"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_contact
@@ -764,7 +764,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__factory_order_no
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__phone
 msgid "Factory Order No."
-msgstr ""
+msgstr "制造订单"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__fiscal_position_id
@@ -775,7 +775,7 @@ msgstr "税科目调整"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__flat_door
 msgid "Flat open the door"
-msgstr ""
+msgstr "平开门"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_follower_ids
@@ -813,13 +813,13 @@ msgstr "已开具全额发票"
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_res_function_metal
 msgid "Function Metal"
-msgstr ""
+msgstr "功能五金"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__function_metal_line
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__function_metal_line
 msgid "Function Metal Lines"
-msgstr ""
+msgstr "功能五金明细"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
@@ -829,7 +829,7 @@ msgstr "未来活动"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__glass_door
 msgid "Glass door"
-msgstr ""
+msgstr "玻璃门"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_order_filter
@@ -926,7 +926,7 @@ msgstr "入库"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__install_address
 msgid "Install Address"
-msgstr ""
+msgstr "公司地址"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/models/sale_return.py:804
@@ -1151,7 +1151,7 @@ msgstr "手动"
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__material_use
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__material_use
 msgid "Material Use"
-msgstr ""
+msgstr "材质用途"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_has_error
@@ -1175,7 +1175,6 @@ msgstr "更新数量的方法"
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_res_config_settings__sale_return_double_validation_amount
-#: model:ir.model.fields,help:ydx_sale.field_res_config_settings__so_double_validation_amount
 msgid "Minimum amount for which a double validation is required for sale order"
 msgstr ""
 
@@ -1366,7 +1365,7 @@ msgstr "订单关联"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__order_line
 msgid "Order Return Lines"
-msgstr ""
+msgstr "退货明细"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__state
@@ -1403,18 +1402,18 @@ msgstr "其他信息"
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_res_outsource
 msgid "Outsource"
-msgstr ""
+msgstr "委外"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__outsource_line
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__outsource_line
 msgid "Outsource Lines"
-msgstr ""
+msgstr "委外明细"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__outsource_package_num
 msgid "Outsource Package Number"
-msgstr ""
+msgstr "外购包裹数量"
 
 #. module: ydx_sale
 #: selection:sale.contract,activity_state:0
@@ -1426,7 +1425,7 @@ msgstr "逾期"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__package_num
 msgid "Package Number"
-msgstr ""
+msgstr "包裹数量"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__partner_id
@@ -1441,7 +1440,7 @@ msgstr "业务伙伴地址"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__pay_date
 msgid "Pay Date"
-msgstr ""
+msgstr "支付日期"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__reference
@@ -1564,18 +1563,28 @@ msgstr "没有创建变量的产品属性值"
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_res_production_part
 msgid "Production Part"
-msgstr ""
+msgstr "生产部件"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__production_part_line
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__production_part_line
 msgid "Production Part Lines"
-msgstr ""
+msgstr "生产部件明细"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
 msgid "Products"
 msgstr "产品"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__purchase_id
+msgid "Purchase"
+msgstr "采购"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__purchase_order_ids
+msgid "Purchase Orders"
+msgstr "采购订单"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_line_tree
@@ -1592,19 +1601,19 @@ msgstr "数量："
 #: selection:res.outsource,state:0 selection:res.production.part,state:0
 #: selection:sub.sale.order,state:0
 msgid "Quotation"
-msgstr ""
+msgstr "报价单"
 
 #. module: ydx_sale
 #: selection:res.connection.metal,state:0 selection:res.function.metal,state:0
 #: selection:res.outsource,state:0 selection:res.production.part,state:0
 #: selection:sub.sale.order,state:0
 msgid "Quotation Sent"
-msgstr ""
+msgstr "发送报价单"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__quotations_date
 msgid "Quotations Date"
-msgstr ""
+msgstr "报价日期"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__picking_ids
@@ -1614,7 +1623,7 @@ msgstr "接收"
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_tree
 msgid "Reference"
-msgstr "参考"
+msgstr "编号"
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_return__origin
@@ -1678,7 +1687,7 @@ msgstr "销售"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_stock_move__sale_connection_metal_id
 msgid "Sale Connection Metal Line"
-msgstr ""
+msgstr "连接五金明细"
 
 #. module: ydx_sale
 #: model:ir.actions.act_window,name:ydx_sale.sale_contract_management_view
@@ -1716,7 +1725,7 @@ msgstr "销售合同明细"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_stock_move__sale_function_metal_id
 msgid "Sale Function Metal Line"
-msgstr ""
+msgstr "功能五金明细"
 
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_sale_order
@@ -1757,12 +1766,12 @@ msgstr "销售订单行"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__sale_order_no
 msgid "Sale Order No."
-msgstr ""
+msgstr "销售订单编号"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_stock_move__sale_outsource_id
 msgid "Sale Outsource Line"
-msgstr ""
+msgstr "委外明细"
 
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_sale_return
@@ -1803,12 +1812,12 @@ msgstr "销售订单行"
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_sale_order_line_price_history
 msgid "Sale order line price history"
-msgstr ""
+msgstr "销售订单历史价格"
 
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_sale_order_line_price_history_line
 msgid "Sale order line price history line"
-msgstr ""
+msgstr "销售订单历史价格明细"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_stock_production_lot__sale_return_count
@@ -1825,7 +1834,7 @@ msgstr "销售信息"
 #: selection:res.outsource,state:0 selection:res.production.part,state:0
 #: selection:sub.sale.order,state:0
 msgid "Sales Order"
-msgstr ""
+msgstr "销售订单"
 
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_sale_order_line
@@ -2007,7 +2016,7 @@ msgstr "已签核"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__sliding_door
 msgid "Sliding door"
-msgstr ""
+msgstr "推拉门"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__origin
@@ -2017,7 +2026,7 @@ msgstr "源文档"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__spliter
 msgid "Spliter"
-msgstr ""
+msgstr "菜单源"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_state
@@ -2071,6 +2080,11 @@ msgid "Stock Rule"
 msgstr "库存规则"
 
 #. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__stock_sub_sale_order_id
+msgid "Stock Sub Sale Order"
+msgstr "子销售订单"
+
+#. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_street
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__partner_street
 msgid "Street"
@@ -2085,7 +2099,7 @@ msgstr "街道 2"
 #. module: ydx_sale
 #: model:ir.ui.menu,name:ydx_sale.menu_sale_sub_order
 msgid "Sub Orders"
-msgstr ""
+msgstr "子销售订单"
 
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_sub_sale_order
@@ -2094,18 +2108,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:ydx_sale.field_res_outsource__sub_order_id
 #: model:ir.model.fields,field_description:ydx_sale.field_res_production_part__sub_order_id
 msgid "Sub Sale Order"
-msgstr ""
+msgstr "子销售订单"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__sub_sale_order_ids
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 msgid "Sub Sale Orders"
-msgstr ""
+msgstr "子销售订单"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Sub Sales Order"
-msgstr ""
+msgstr "子销售订单"
 
 #. module: ydx_sale
 #: model:ir.actions.act_window,name:ydx_sale.action_sub_orders
@@ -2114,7 +2128,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_pivot
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_tree
 msgid "Sub Sales Orders"
-msgstr ""
+msgstr "子销售订单"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__price_subtotal
@@ -2126,7 +2140,7 @@ msgstr "小计"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__swim_door
 msgid "Swin door"
-msgstr ""
+msgstr "泳黑门"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract_line__price_tax
@@ -2205,12 +2219,9 @@ msgid "The Sales Order %s linked to the Analytic Account %s must be validated be
 msgstr ""
 
 #. module: ydx_sale
-#: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__so_double_validation_amount
-msgid "The Samllest Number"
-msgstr "最小金额"
-
-#. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__sale_return_double_validation_amount
+#: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__so_double_validation_amount
+#: model:ir.model.fields,help:ydx_sale.field_res_config_settings__so_double_validation_amount
 msgid "The Smallest Number"
 msgstr "最小金额"
 
