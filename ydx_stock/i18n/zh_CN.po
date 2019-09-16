@@ -657,7 +657,7 @@ msgstr "未读消息计数器"
 #: model:ir.actions.act_window,name:ydx_stock.action_wizard_update_package_num
 #: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
 msgid "Update Package"
-msgstr ""
+msgstr "更新包裹数量"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__website_message_ids

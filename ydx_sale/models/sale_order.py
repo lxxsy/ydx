@@ -37,7 +37,7 @@ class SaleOrder(models.Model):
     pay_date = fields.Datetime(string='Pay Date')
     confirm_date = fields.Datetime(string='Confirm Date')
     install_address = fields.Char(string='Install Address', required=True)
-    phone = fields.Char(string='Factory Order No.', required=True)
+    phone = fields.Char(string='Phone', required=True)
     is_install = fields.Boolean(default=False)
     designer = fields.Char(string='Designer', required=True)
     spliter = fields.Many2one('res.users', string='Spliter', index=True, track_visibility='onchange', track_sequence=2, default=lambda self: self.env.user)

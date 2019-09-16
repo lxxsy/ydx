@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: zh\n"
+"Language: zh_CN\n"
 "X-Generator: Poedit 2.2.3\n"
 
 #. module: ydx_sale
@@ -192,7 +192,7 @@ msgstr "增加子销售订单"
 #: model:ir.model.fields,help:ydx_sale.field_sale_contract__company_state
 #: model:ir.model.fields,help:ydx_sale.field_sale_contract__partner_state
 msgid "Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
-msgstr "管理国家/地区或州省的分类。"
+msgstr "管理国家/州省或地区的分类。"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:165
@@ -204,7 +204,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "All Connection Metals"
-msgstr "所有五金"
+msgstr "所有连接五金"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
@@ -276,7 +276,7 @@ msgstr "审批单"
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 msgid "Are you sure you want to void the authorized transaction? This action can't be undone."
-msgstr "请问您是否确定要取消授权交易吗？此操作经确定后无法撤消。"
+msgstr "是否确定取消授权交易？此操作经确定后无法撤消。"
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_contract_line__sale_id
@@ -305,7 +305,7 @@ msgstr "已授权的交易"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__cabinet
 msgid "Cabinet"
-msgstr "柜"
+msgstr "柜体"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__product_updatable
@@ -405,7 +405,7 @@ msgstr "确认"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__confirm_date
 msgid "Confirm Date"
-msgstr ""
+msgstr "下单日期"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
@@ -648,7 +648,7 @@ msgstr "说明"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__designer
 msgid "Designer"
-msgstr ""
+msgstr "设计师"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__default_location_dest_id_usage
@@ -708,12 +708,12 @@ msgstr ""
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__amount
 msgid "Down Payment Amount"
-msgstr "预收定金总额"
+msgstr "预付定金总额"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_advance_payment_inv__product_id
 msgid "Down Payment Product"
-msgstr "预收定金产品"
+msgstr "预付定金产品"
 
 #. module: ydx_sale
 #: selection:sale.return.advance.payment.inv,advance_payment_method:0
@@ -751,7 +751,7 @@ msgstr "草稿"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__expected_date
 msgid "Expected Date"
-msgstr "期望交货日期"
+msgstr "预计日期"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/models/sale_contract.py:285
@@ -764,7 +764,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__factory_order_no
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__phone
 msgid "Factory Order No."
-msgstr "制造订单"
+msgstr "工厂订单号"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__fiscal_position_id
@@ -926,7 +926,7 @@ msgstr "入库"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__install_address
 msgid "Install Address"
-msgstr "公司地址"
+msgstr "客户地址"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/models/sale_return.py:804
@@ -1013,7 +1013,7 @@ msgstr "发票"
 msgid ""
 "Invoices will be created in draft so that you can review\n"
 "                        them before validation."
-msgstr "草稿发票将被创建，以便于在验证前检查."
+msgstr "草稿发票将被创建，以便于在验证前检查"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
@@ -1030,7 +1030,7 @@ msgstr "关注者"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__is_install
 msgid "Is Install"
-msgstr ""
+msgstr "安装"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__is_shipped
@@ -1041,7 +1041,7 @@ msgstr "是否要运送"
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__is_downpayment
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__is_downpayment
 msgid "Is a down payment"
-msgstr "是首付款吗？."
+msgstr "是首付款吗？"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__is_expense
@@ -1151,7 +1151,7 @@ msgstr "手动"
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__material_use
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__material_use
 msgid "Material Use"
-msgstr "材质用途"
+msgstr "板材用量\平方"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__message_has_error
@@ -1440,17 +1440,22 @@ msgstr "业务伙伴地址"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__pay_date
 msgid "Pay Date"
-msgstr "支付日期"
+msgstr "订货日期"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__reference
 msgid "Payment Ref."
-msgstr "付款参考."
+msgstr "付款参考:"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__payment_term_id
 msgid "Payment Terms"
 msgstr "付款条款"
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__phone
+msgid "Phone"
+msgstr "联系电话"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__picking_count
@@ -1623,7 +1628,7 @@ msgstr "接收"
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_tree
 msgid "Reference"
-msgstr "编号"
+msgstr "参考"
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_return__origin
@@ -1638,12 +1643,12 @@ msgstr "报告"
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_return__require_signature
 msgid "Request a online signature to the customer in order to confirm orders automatically."
-msgstr "向客户申请在线签名，以便自动确认订单."
+msgstr "向客户申请在线签名，以便自动确认订单。 "
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_return__require_payment
 msgid "Request an online payment to the customer in order to confirm orders automatically."
-msgstr "向客户申请在线支付，以便自动确认订单."
+msgstr "向客户申请在线支付，以便自动确认订单。 "
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/models/sale_return.py:408
@@ -2026,7 +2031,7 @@ msgstr "源文档"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__spliter
 msgid "Spliter"
-msgstr "菜单源"
+msgstr "拆单员"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__company_state
@@ -2177,7 +2182,7 @@ msgstr "用于押金的税金"
 #: model:ir.model.fields,help:ydx_sale.field_sale_return_line__display_type
 #: model:ir.model.fields,help:ydx_sale.field_sub_sale_order__display_type
 msgid "Technical field for UX purpose."
-msgstr "UX用途的技術領域。"
+msgstr "UX用途的技术领域。"
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_return__default_location_dest_id_usage
@@ -2448,7 +2453,7 @@ msgstr "未含税的发票金额"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__upload_sale_date
 msgid "Upload Sale Date"
-msgstr ""
+msgstr "传单日期"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/models/sale_return.py:452
@@ -2511,7 +2516,7 @@ msgstr "你要开什么发票？"
 #: model:ir.model.fields,help:ydx_sale.field_sale_return_line__order_partner_id
 #: model:ir.model.fields,help:ydx_sale.field_sub_sale_order__order_partner_id
 msgid "You can find a customer by its Name, TIN, Email or Internal Reference."
-msgstr "你可以通过它的名字，TIN，EMail或内部参考找到一个客户."
+msgstr "你可以通过它的名字，TIN，EMail或内部参考找到一个客户。 "
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_contract__partner_id
@@ -2616,7 +2621,7 @@ msgstr "销售订单行细节"
 #: model:ir.model.fields,help:ydx_sale.field_sale_order__sub_sale_amount_by_group
 #: model:ir.model.fields,help:ydx_sale.field_sale_return__amount_by_group
 msgid "type: [(name, amount, base, formated amount, formated base)]"
-msgstr ""
+msgstr "类型: [(name, amount, base, formated amount, formated base)]"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.report_salecontract_document
