@@ -36,3 +36,8 @@ class StockSubSaleOrder(models.Model):
     sale_order_id = fields.Integer(string='Sale Order Id')
     sub_sale_order_id = fields.Integer(string='Sale Order Id')
 
+    @api.multi
+    def _sync_outsource_package_num(self, outsource_package_num):
+        for order in self:
+            order.outsource_package_num = outsource_package_num
+

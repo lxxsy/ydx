@@ -173,7 +173,7 @@ class PurchaseOrder(models.Model):
         pu._compute_sub_sale_order_line()
         return pu
 
-    def _get_purchase_sub_sale_order_values(self, pick, purchase_sub_sale_line):
+    def _get_stock_sub_sale_order_values(self, pick, purchase_sub_sale_line):
         move_values = []
         for sub_sale_order in purchase_sub_sale_line:
             move_value = {
@@ -195,7 +195,7 @@ class PurchaseOrder(models.Model):
         for purchase in self:
             super(PurchaseOrder, purchase)._create_picking()
             for pick in purchase.picking_ids:
-                datas = purchase._get_purchase_sub_sale_order_values(pick, purchase.purchase_sub_sale_line)
+                datas = purchase._get_stock_sub_sale_order_values(pick, purchase.purchase_sub_sale_line)
                 purchase.env['stock.sub.sale.order'].sudo().create(datas)
 
 

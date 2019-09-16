@@ -28,7 +28,6 @@
                 </button>
             </xpath>
             <xpath expr="//page[@name='products']" position="attributes">
-                <field name="purchase_type" invisible="1"/>
                 <attribute name="attrs">{'invisible': [('purchase_type', '!=', 'purchase')]}</attribute>
             </xpath>
             <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='price_subtotal']" position="after">
@@ -125,8 +124,6 @@
                             <field name="sliding_door" />
                             <field name="glass_door" />
                             <field name="swim_door" />
-                            <field name="package_num" />
-                            <field name="outsource_package_num" />
                         </tree>
                     </field>
                 </page>

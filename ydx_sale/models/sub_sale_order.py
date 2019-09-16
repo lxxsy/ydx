@@ -350,3 +350,8 @@ class SubSaleOrder(models.Model):
     def _sync_package_num(self, package_num):
         for order in self:
             order.package_num = package_num
+
+    @api.multi
+    def _sync_outsource_package_num(self, outsource_package_num):
+        for order in self:
+            order.outsource_package_num = outsource_package_num

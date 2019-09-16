@@ -1,33 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<record id='update_package_num_wizard_form' model='ir.ui.view'>
-    <field name='name'>update package num wizard form view</field>
-    <field name='model'>update.package.num.wizard</field>
-    <field name='arch' type='xml'>
-        <form string="Borrow books">
-            <sheet>
-                <group>
-                    <field name='picking_id' readonly="True"/>
-                    <field name='metal_package_num'/>
+    <record id='update_out_package_num_wizard_form' model='ir.ui.view'>
+        <field name='name'>update out package num wizard form view</field>
+        <field name='model'>update.out.package.num.wizard</field>
+        <field name='arch' type='xml'>
+            <form string="Update Out Package Number">
+                <sheet>
+                    <group>
+                        <field name='picking_id' readonly="True"/>
+                        <field name='metal_package_num'/>
+                    </group>
+                </sheet>
+                <group string="Sub Sale Orders">
+                    <field name="line_ids" nolabel="1">
+                        <!--create="false" readonly="True"-->
+                        <tree editable="bottom"  delete="false">
+                            <field name="name" />
+                            <field name="package_num"/>
+                        </tree>
+                    </field>
                 </group>
-            </sheet>
-            <group string="Sub Sale Orders">
-                <field name="line_ids" nolabel="1">
-                    <!--create="false" readonly="True"-->
-                    <tree editable="bottom"  delete="false">
-                        <field name="name" />
-                        <field name="package_num"/>
-                    </tree>
-                </field>
-            </group>
-            <footer>
-                <button string='Confirm' name='update_package_num' class='btn-primary' type='object'/>
-                <button string='Cancel' class='btn-default' special='cancel'/>
-            </footer>
-        </form>
-    </field>
-</record>
+                <footer>
+                    <button string='Confirm' name='update_package_num' class='btn-primary' type='object'/>
+                    <button string='Cancel' class='btn-default' special='cancel'/>
+                </footer>
+            </form>
+        </field>
+    </record>
 
-<act_window id="action_wizard_update_package_num" name="Update Package" res_model="update.package.num.wizard" view_mode="form" target="new" />
+    <record id='update_in_package_num_wizard_form' model='ir.ui.view'>
+        <field name='name'>update in package num wizard form view</field>
+        <field name='model'>update.in.package.num.wizard</field>
+        <field name='arch' type='xml'>
+            <form string="Update In Package Number">
+                <sheet>
+                    <group>
+                        <field name='picking_id' readonly="True" invisible="1" />
+                    </group>
+                </sheet>
+                <group string="Sub Sale Orders">
+                    <field name="line_ids" nolabel="1">
+                        <!--create="false" readonly="True"-->
+                        <tree editable="bottom"  delete="false">
+                            <field name="name" />
+                            <field name="outsource_package_num"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button string='Confirm' name='update_package_num' class='btn-primary' type='object'/>
+                    <button string='Cancel' class='btn-default' special='cancel'/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_wizard_update_out_package_num" name="Update Package" res_model="update.out.package.num.wizard" view_mode="form" target="new" />
+    <act_window id="action_wizard_update_in_package_num" name="Update Package" res_model="update.in.package.num.wizard" view_mode="form" target="new" />
+
 </odoo>
