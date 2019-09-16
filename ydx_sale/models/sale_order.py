@@ -9,7 +9,7 @@ from odoo.tools.misc import formatLang
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    _sql_constraints = [ ('check_uniq_sale_order', 'unique(sale_order_no)', '订单编号已存在！')   ]
+    _sql_constraints = [ ('check_uniq_sale_order', 'unique(name)', '订单编号已存在！')   ]
     # 元组左边是数据库存的值，右边是显示的字段
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -30,7 +30,6 @@ class SaleOrder(models.Model):
     outsource_line = fields.One2many('res.outsource', 'order_id', string='Outsource Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
     production_part_line = fields.One2many('res.production.part', 'order_id', string='Production Part Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True)
 
-    sale_order_no = fields.Char(string='Sale Order No.', required=True)
     factory_order_no = fields.Char(string='Factory Order No.', required=True)
     upload_sale_date = fields.Datetime(string='Upload Sale Date')
     quotations_date = fields.Datetime(string='Quotations Date')
@@ -94,7 +93,7 @@ class SaleOrder(models.Model):
         move_values = {
             'product_id': production_part_line.product_id.id,
             'product_uom_qty': production_part_line.product_uom_qty,
-            'product_uom': production_part_line.product_uom,
+            'product_uom': production_part_line.product_uom.id,
             'product_speci_type': production_part_line.product_speci_type,
             'cabinet_no': production_part_line.cabinet_no,
             'product_color': production_part_line.product_color,

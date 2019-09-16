@@ -59,9 +59,8 @@ class YdxSaleStockRule(models.Model):
 
     def _get_custom_move_fields(self):
         fields = super(YdxSaleStockRule, self)._get_custom_move_fields()
-        fields += ['sale_return_line_id', 'partner_id']
+        fields += ['sale_return_line_id', 'partner_id', 'cabinet_no', 'material', 'product_colour','width','length', 'thickness', 'remarks', 'product_opento']
         return fields
-
 
 class YdxSaleStockPicking(models.Model):
     _inherit = 'stock.picking'

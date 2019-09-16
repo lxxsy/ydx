@@ -50,8 +50,17 @@ class ResOutsource(models.Model):
             'date_planned': date_planned,
             'warehouse_id': self.order_id.warehouse_id or False,
             'partner_id': self.order_id.partner_shipping_id.id,
-            'sale_order_id': self.order_id.id
+            'sale_order_id': self.order_id.id,
+            'cabinet_no': self.cabinet_no,
+            'material': self.material,
+            'product_colour': self.color,
+            'length': self.product_height,
+            'width': self.product_width,
+            'thickness': self.product_thick,
+            'remarks': self.note,
+            'product_opento': self.product_opento,
         })
+
         for line in self.filtered("order_id.commitment_date"):
             date_planned = fields.Datetime.from_string(line.order_id.commitment_date) - timedelta(days=line.order_id.company_id.security_lead)
             values.update({

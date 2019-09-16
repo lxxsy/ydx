@@ -19,14 +19,14 @@
                 <field name="incoming_type" attrs="{'invisible':[('picking_type_code', '=', 'outgoing')]}"/>
             </xpath>
             <xpath expr="//field[@name='backorder_id']" position="after">
-                <field name="metal_package_num" attrs="{'invisible':[('incoming_type', '!=', 'outsource')]}"/>
-                <field name="is_payall" widget="checkbox" attrs="{'invisible':[('incoming_type', '!=', 'outsource')]}"/>
+                <field name="metal_package_num" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
+                <field name="is_payall" widget="checkbox" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
             </xpath>
             <xpath expr="//button[@name='button_validate']" position="attributes">
                 <attribute name="attrs">{'invisible': ['|',('show_validate', '=', False),('is_payall', '=', False)]}</attribute>
             </xpath>
             <xpath expr="//button[@name='do_print_picking']" position="before">
-                <button name="button_confirm_payall" attrs="{'invisible': [('is_payall', '=', True)]}" string="Confirm Payall" type="object" groups="account.group_account_user" class="btn-primary"/>
+                <button name="button_confirm_payall" attrs="{'invisible': ['|', ('is_payall', '=', True), ('picking_type_code', '!=', 'outgoing')]}" string="Confirm Payall" type="object" groups="account.group_account_user" class="btn-primary"/>
                 <button name="%(action_wizard_update_out_package_num)d" string="Update Package" type="action" groups="stock.group_stock_user"
                     context="{'default_picking_id': id}" attrs="{'invisible': [('picking_type_code', '=', 'incoming')]}"/>
                 <button name="%(action_wizard_update_in_package_num)d" string="Update Package" type="action" groups="stock.group_stock_user"
@@ -126,7 +126,7 @@
                     <field name="package_level_ids" context="{'default_location_id': location_id, 'default_location_dest_id': location_dest_id}" attrs="{'readonly': [('state', '=', 'done')], 'invisible': ['|', ('picking_type_entire_packs', '=', False), ('show_operations', '=', True)]}" />
                     <button class="oe_highlight" name="put_in_pack" type="object" string="Put in Pack" attrs="{'invisible': [('state', 'in', ('draft', 'done', 'cancel'))]}" groups="stock.group_tracking_lot"/>
                 </page>
-                <page string="Outsource" attrs="{'invisible':[('incoming_type', '!=', 'outsource')]}">
+                <page string="Outsource" attrs="{'invisible':['|', ('picking_type_code', '=', 'internal'),('picking_type_code', '=', 'incoming'),('incoming_type', '=', 'purchase')]}">
                     <field name="id" invisible="1"/>
                     <field name="immediate_transfer" invisible="1"/>
                     <field name="outsource_move_ids_without_package" attrs="{'readonly': ['|', '&amp;', ('show_operations', '=', True), '|', ('is_locked', '=', True), ('state', '=', 'done'), '&amp;', ('state', '=', 'done'), ('is_locked', '=', True)]}"
@@ -160,6 +160,7 @@
                             <field name="width"/>
                             <field name="thickness"/>
                             <field name="band_number"/>
+                            <field name="product_opento"/>
                             <field name="product_uom_qty" string="Initial Demand" attrs="{'column_invisible': ['&amp;',('parent.immediate_transfer', '=', True), ('parent.is_locked', '=', True)], 'readonly': [('is_initial_demand_editable', '=', False)]}"/>
                             <field name="reserved_availability" string="Reserved" attrs="{'column_invisible': (['|','|', ('parent.state','=', 'done'), ('parent.picking_type_code', '=', 'incoming'),'&amp;',('parent.immediate_transfer', '=', True), ('parent.is_locked', '=', True)])}"/>
                             <field name="quantity_done" string="Done" attrs="{'readonly': [('is_quantity_done_editable', '=', False)]}"/>

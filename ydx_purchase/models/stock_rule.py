@@ -18,9 +18,25 @@ class StockRule(models.Model):
     def _prepare_purchase_order(self, product_id, product_qty, product_uom, origin, values, partner):
         purchase_order = super(StockRule, self)._prepare_purchase_order(product_id, product_qty, product_uom, origin, values, partner)
         purchase_order['sale_order_id'] = values.get('sale_order_id', False)
+        purchase_order['purchase_type'] = 'outsource'
         return purchase_order
 
     def _get_custom_move_fields(self):
         custom_fields = super(StockRule, self)._get_custom_move_fields()
         custom_fields.append('sale_order_id')
+        custom_fields.append('outsource')
         return custom_fields
+
+    @api.multi
+    def _prepare_purchase_order_line(self, product_id, product_qty, product_uom, values, po, partner):
+        line = super(StockRule, self)._prepare_purchase_order_line(product_id, product_qty, product_uom, values, po, partner)
+        line['cabinet_no'] = values.get('cabinet_no','')
+        line['material'] = values.get('material','')
+        line['product_colour'] = values.get('product_colour','')
+        line['product_length'] = values.get('product_length','')
+        line['width'] = values.get('width','')
+        line['thickness'] = values.get('thickness','')
+        line['remarks'] = values.get('remarks','')
+        line['product_opento'] = values.get('product_opento','')
+
+        return line

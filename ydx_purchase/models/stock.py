@@ -49,6 +49,14 @@ class YdxStockMove(models.Model):
         procurement_values = super(YdxStockMove, self)._prepare_procurement_values()
         if self.sale_order_id:
             procurement_values['sale_order_id'] = self.sale_order_id.id
+        procurement_values['cabinet_no'] = self.cabinet_no
+        procurement_values['material'] = self.material
+        procurement_values['product_colour'] = self.product_colour
+        procurement_values['product_length'] = self.length
+        procurement_values['width'] = self.width
+        procurement_values['thickness'] = self.thickness
+        procurement_values['remarks'] = self.remarks
+        procurement_values['product_opento'] = self.product_opento
         return procurement_values
 
 

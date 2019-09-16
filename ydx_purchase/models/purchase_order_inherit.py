@@ -195,6 +195,7 @@ class PurchaseOrder(models.Model):
         for purchase in self:
             super(PurchaseOrder, purchase)._create_picking()
             for pick in purchase.picking_ids:
+                pick.incoming_type = purchase.purchase_type
                 datas = purchase._get_stock_sub_sale_order_values(pick, purchase.purchase_sub_sale_line)
                 purchase.env['stock.sub.sale.order'].sudo().create(datas)
 
@@ -212,6 +213,10 @@ class PurchaseOrderLine(models.Model):
     thickness = fields.Float(string='Finished Thickness')
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
+    product_opento = fields.Selection([
+        ('left', 'Left'),
+        ('right', 'Right')
+    ], string="Product Opento")
     purchase_type = fields.Selection(related='order_id.purchase_type')
 
     def _merge_in_existing_line(self, product_id, product_qty, product_uom, location_id, name, origin, values):
