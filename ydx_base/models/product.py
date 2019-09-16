@@ -7,4 +7,5 @@ class ProductTemplate(models.Model):
     fuction_type = fields.Selection([('cmetals',  'Connection Metals'),
                                    ('fmetals',  'Function Metals'),
                                    ('outsource', 'Outsource'),
-                                   ('parts', 'Production Parts')])
+                                   ('parts', 'Production Parts'),
+                                     ('finished','Finished'),])

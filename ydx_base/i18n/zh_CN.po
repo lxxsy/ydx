@@ -629,3 +629,7 @@ msgstr "开户银行"
 #: model:ir.model.fields,help:ydx_base.field_res_users__bank_num
 msgid "account bank number"
 msgstr "银行账户"
+
+
+msgid "Finished"
+msgstr "成品"
