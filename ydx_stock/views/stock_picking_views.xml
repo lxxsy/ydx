@@ -22,8 +22,11 @@
                 <field name="metal_package_num" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
                 <field name="is_payall" widget="checkbox" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
             </xpath>
-            <xpath expr="//button[@name='button_validate']" position="attributes">
-                <attribute name="attrs">{'invisible': ['|',('show_validate', '=', False),('is_payall', '=', False)]}</attribute>
+            <xpath expr="//button[@name='button_validate'][hasclass('oe_highlight')]" position="attributes">
+                <attribute name="attrs">{'invisible':['|',('show_validate', '!=', True),('picking_type_code', '=', 'outgoing'),('is_payall', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_validate'][hasclass('o_btn_validate')]" position="attributes">
+                <attribute name="attrs">{'invisible': ['|',('show_validate', '!=', True),('picking_type_code', '=', 'outgoing'),('is_payall', '=', False)]}</attribute>
             </xpath>
             <xpath expr="//button[@name='do_print_picking']" position="before">
                 <button name="button_confirm_payall" attrs="{'invisible': ['|', ('is_payall', '=', True), ('picking_type_code', '!=', 'outgoing')]}" string="Confirm Payall" type="object" groups="account.group_account_user" class="btn-primary"/>
