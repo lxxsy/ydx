@@ -133,7 +133,7 @@ class SubSaleOrder(models.Model):
     outsource_line = fields.One2many('res.outsource', 'sub_order_id', string='Outsource Lines')
     production_part_line = fields.One2many('res.production.part', 'sub_order_id', string='Production Part Lines')
 
-    product_id = fields.Many2one('product.product', string='Product', domain=[('fuction_type', '=', 'finished')], change_default=True, ondelete='restrict')
+    product_id = fields.Many2one('product.product', string='Product', domain=[('fuction_type', '=', 'finished')], change_default=True, ondelete='restrict', required=True)
     product_updatable = fields.Boolean(compute='_compute_product_updatable', string='Can Edit Product', readonly=True, default=True)
     product_uom_qty = fields.Float(string='Ordered Quantity', digits=dp.get_precision('Product Unit of Measure'), required=True, default=1.0)
     product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
