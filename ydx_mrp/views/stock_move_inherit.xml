@@ -11,6 +11,9 @@
             <field name="the_child_orders"/>
             <field name="Base_material"/>
             <field name="plane_materiel"/>
+            <field name="thickness"/>
+            <field name="length"/>
+            <field name="breadth"/>
 
         </xpath>
     </field>

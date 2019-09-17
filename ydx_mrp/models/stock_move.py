@@ -8,6 +8,9 @@ class YdxStockMove(models.Model):
 	the_child_orders = fields.Char(int="the child orders")
 	Base_material = fields.Char(string="Base material")
 	plane_materiel = fields.Char(string="plane materiel")
+	thickness = fields.Float(string="thickness")
+	length = fields.Float(string="Length")
+	breadth = fields.Float(string="breadth")
 
 
 
