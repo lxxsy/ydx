@@ -127,7 +127,7 @@ class SubSaleOrder(models.Model):
     package_num = fields.Integer(string='Package Number', copy=False, default=0, required=True)
     outsource_package_num = fields.Integer(string='Outsource Package Number', copy=False, default=0, required=True)
 
-    order_id = fields.Many2one('sale.order', string='Sale Order', required=True, ondelete='cascade', index=True, copy=False)
+    order_id = fields.Many2one('sale.order', string='Sale Order', required=True, ondelete='cascade', index=True, copy=False, domain=[('state', '=', 'draft')])
     connection_metal_line = fields.One2many('res.connection.metal', 'sub_order_id', string='Connection Metal Lines')
     function_metal_line = fields.One2many('res.function.metal', 'sub_order_id', string='Function Metal Lines')
     outsource_line = fields.One2many('res.outsource', 'sub_order_id', string='Outsource Lines')

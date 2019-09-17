@@ -86,18 +86,13 @@
                         name="sub_sale_order_ids"
                         widget="section_and_note_one2many"
                         mode="tree"
+                        readonly="1"
                     >
                         <tree
                             string="Sub Sale Orders"
                             editable="bottom"
                             decoration-info="(not display_type)"
                         >
-                            <control>
-                                <create string="Add a sub sale order"/>
-                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
-                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
-                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
-                            </control>
                             <field name="display_type" invisible="1"/>
                             <field name="state" invisible="1"/>
                             <field name="sequence" widget="handle"/>
@@ -130,6 +125,7 @@
                         name="connection_metal_line"
                         widget="section_and_note_one2many"
                         mode="tree"
+                        readonly="1"
                     >
                         <form>
                             <field name="display_type" invisible="1"/>
@@ -148,12 +144,6 @@
                             editable="bottom"
                             decoration-info="(not display_type)"
                         >
-                            <control>
-                                <create string="Add a connection metal"/>
-                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
-                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
-                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
-                            </control>
                             <field name="sequence" widget="handle"/>
                             <field name="display_type" invisible="1"/>
                             <field name="state" invisible="1"/>
@@ -172,6 +162,7 @@
                         name="function_metal_line"
                         widget="section_and_note_one2many"
                         mode="tree"
+                        readonly="1"
                     >
                         <form>
                             <field name="display_type" invisible="1"/>
@@ -190,12 +181,6 @@
                             editable="bottom"
                             decoration-info="(not display_type)"
                         >
-                            <control>
-                                <create string="Add a function metal"/>
-                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
-                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
-                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
-                            </control>
                             <field name="sequence" widget="handle"/>
                             <field name="display_type" invisible="1"/>
                             <field name="state" invisible="1"/>
@@ -213,6 +198,7 @@
                         name="outsource_line"
                         widget="section_and_note_one2many"
                         mode="tree"
+                        readonly="1"
                     >
                         <form>
                             <field name="display_type" invisible="1"/>
@@ -237,12 +223,6 @@
                             editable="bottom"
                             decoration-info="(not display_type)"
                         >
-                            <control>
-                                <create string="Add a outsource"/>
-                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
-                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
-                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
-                            </control>
                             <field name="sequence" widget="handle"/>
                             <field name="display_type" invisible="1"/>
                             <field name="state" invisible="1"/>
@@ -265,6 +245,7 @@
                         name="production_part_line"
                         widget="section_and_note_one2many"
                         mode="tree"
+                        readonly="1"
                     >
                         <form>
                             <field name="display_type" invisible="1"/>
@@ -292,12 +273,6 @@
                             editable="bottom"
                             decoration-info="(not display_type)"
                         >
-                            <control>
-                                <create string="Add a production part"/>
-                                <create string="Configure a product" context="{'open_product_configurator': True}" groups="product.group_product_variant"/>
-                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
-                                <create string="Add a note" context="{'default_display_type': 'line_note'}"/>
-                            </control>
                             <field name="sequence" widget="handle"/>
                             <field name="display_type" invisible="1"/>
                             <field name="state" invisible="1"/>
