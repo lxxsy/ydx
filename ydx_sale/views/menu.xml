@@ -15,11 +15,11 @@
     </record>
 
 
-    <menuitem id="ydx_menu_sale_order_details"
-              name="订单明细"
-              parent="sale.sale_order_menu"
-              action="action_orders_details"
-              sequence="2"/>
+    <!--<menuitem id="ydx_menu_sale_order_details"-->
+              <!--name="订单明细"-->
+              <!--parent="sale.sale_order_menu"-->
+              <!--action="action_orders_details"-->
+              <!--sequence="2"/>-->
 <!-- groups="sales_team.group_sale_salesman"-->
 
 

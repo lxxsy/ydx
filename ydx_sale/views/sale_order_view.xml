@@ -11,6 +11,30 @@
             <!--</xpath>-->
         <!--</field>-->
     <!--</record>-->
+    <record id="ydx_sale_view_order_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="priority">2</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="replace">
+                <field name="sub_sale_amount_total" sum="Total Tax Included" widget="monetary"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ydx_sale_view_quotation_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="priority">4</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="replace">
+                <field name="sub_sale_amount_total" sum="Total Tax Included" widget="monetary"/>
+            </xpath>
+        </field>
+    </record>
+
     <record id="sale_order_form_view_inherit" model="ir.ui.view">
         <field name="name">sale_order_form_view_inherit</field>
         <field name="model">sale.order</field>
@@ -92,7 +116,9 @@
                             string="Sub Sale Orders"
                             editable="bottom"
                             decoration-info="(not display_type)"
+                            attrs="{'readonly':[('is_downpayment', '=', False)]}"
                         >
+                            <field name="is_downpayment" invisible="1"/>
                             <field name="display_type" invisible="1"/>
                             <field name="state" invisible="1"/>
                             <field name="sequence" widget="handle"/>
@@ -104,6 +130,8 @@
                             <field name="glass_door" />
                             <field name="swim_door" />
                             <field name="material_use" />
+                            <field name="product_uom_qty" />
+                            <field name="price_unit" />
                             <field name="price_total" />
                             <field name="package_num" />
                             <field name="outsource_package_num" />

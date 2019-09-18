@@ -3,7 +3,9 @@
 from odoo import api, fields, models, _
 from odoo.osv import expression
 from functools import partial
+from odoo.exceptions import UserError
 from odoo.tools.misc import formatLang
+from odoo.tools import float_is_zero
 
 
 class SaleOrder(models.Model):
@@ -61,7 +63,7 @@ class SaleOrder(models.Model):
             if order.state not in ['draft', 'sent']:
                 continue
             if so_order_approval:
-                if order.amount_total < float(so_double_validation_amount):
+                if order.sub_sale_amount_total < float(so_double_validation_amount):
                     order.action_confirm()
                 else:
                     order.state = 'to approve'
@@ -310,6 +312,13 @@ class SaleOrder(models.Model):
                 'invoice_status': invoice_status
             })
 
+    def _force_lines_to_invoice_policy_order(self):
+        for line in self.sub_sale_order_ids:
+            if self.state in ['sale', 'done']:
+                line.qty_to_invoice = line.product_uom_qty - line.qty_invoiced
+            else:
+                line.qty_to_invoice = 0
+
     @api.depends('sub_sale_order_ids','sub_sale_order_ids.price_total', 'sub_sale_order_ids.material_use')
     def _sub_sale_amount_all(self):
         """
@@ -326,7 +335,7 @@ class SaleOrder(models.Model):
                 'sub_sale_amount_untaxed': sub_sale_amount_untaxed,
                 'sub_sale_amount_tax': sub_sale_amount_tax,
                 'sub_sale_amount_total': sub_sale_amount_untaxed + sub_sale_amount_tax,
-                'material_use':material_use_tmp
+                'material_use':material_use_tmp,
             })
 
     def _sub_sale_amount_by_group(self):
@@ -351,6 +360,113 @@ class SaleOrder(models.Model):
                 len(res),
             ) for l in res]
 
+    @api.multi
+    def action_invoice_create(self, grouped=False, final=False):
+        """
+        Create the invoice associated to the SO.
+        :param grouped: if True, invoices are grouped by SO id. If False, invoices are grouped by
+                        (partner_invoice_id, currency)
+        :param final: if True, refunds will be generated if necessary
+        :returns: list of created invoices
+        """
+        inv_obj = self.env['account.invoice']
+        precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
+        invoices = {}
+        references = {}
+        invoices_origin = {}
+        invoices_name = {}
+
+        # Keep track of the sequences of the lines
+        # To keep lines under their section
+        inv_line_sequence = 0
+        for order in self:
+            group_key = order.id if grouped else (order.partner_invoice_id.id, order.currency_id.id)
+
+            # We only want to create sections that have at least one invoiceable line
+            pending_section = None
+
+            # Create lines in batch to avoid performance problems
+            line_vals_list = []
+            # sequence is the natural order of order_lines
+            for line in order.sub_sale_order_ids:
+                if line.display_type == 'line_section':
+                    pending_section = line
+                    continue
+                if float_is_zero(line.qty_to_invoice, precision_digits=precision):
+                    continue
+                if group_key not in invoices:
+                    inv_data = order._prepare_invoice()
+                    invoice = inv_obj.create(inv_data)
+                    references[invoice] = order
+                    invoices[group_key] = invoice
+                    invoices_origin[group_key] = [invoice.origin]
+                    invoices_name[group_key] = [invoice.name]
+                elif group_key in invoices:
+                    if order.name not in invoices_origin[group_key]:
+                        invoices_origin[group_key].append(order.name)
+                    if order.client_order_ref and order.client_order_ref not in invoices_name[group_key]:
+                        invoices_name[group_key].append(order.client_order_ref)
+
+                if line.qty_to_invoice > 0 or (line.qty_to_invoice < 0 and final):
+                    if pending_section:
+                        section_invoice = pending_section.invoice_line_create_vals(
+                            invoices[group_key].id,
+                            pending_section.qty_to_invoice
+                        )
+                        inv_line_sequence += 1
+                        section_invoice[0]['sequence'] = inv_line_sequence
+                        line_vals_list.extend(section_invoice)
+                        pending_section = None
+
+                    inv_line_sequence += 1
+                    inv_line = line.invoice_line_create_vals(
+                        invoices[group_key].id, line.qty_to_invoice
+                    )
+                    inv_line[0]['sequence'] = inv_line_sequence
+                    line_vals_list.extend(inv_line)
+
+            if references.get(invoices.get(group_key)):
+                if order not in references[invoices[group_key]]:
+                    references[invoices[group_key]] |= order
+
+            self.env['account.invoice.line'].create(line_vals_list)
+
+        for group_key in invoices:
+            invoices[group_key].write({'name': ', '.join(invoices_name[group_key]),
+                                       'origin': ', '.join(invoices_origin[group_key])})
+            sale_orders = references[invoices[group_key]]
+            if len(sale_orders) == 1:
+                invoices[group_key].reference = sale_orders.reference
+
+        if not invoices:
+            raise UserError(_('There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
+
+        for invoice in invoices.values():
+            invoice.compute_taxes()
+            if not invoice.invoice_line_ids:
+                raise UserError(_('There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
+            # If invoice is negative, do a refund invoice instead
+            if invoice.amount_total < 0:
+                invoice.type = 'out_refund'
+                for line in invoice.invoice_line_ids:
+                    line.quantity = -line.quantity
+            # Use additional field helper function (for account extensions)
+            for line in invoice.invoice_line_ids:
+                line._set_additional_fields(invoice)
+            # Necessary to force computation of taxes. In account_invoice, they are triggered
+            # by onchanges, which are not triggered when doing a create.
+            invoice.compute_taxes()
+            # Idem for partner
+            so_payment_term_id = invoice.payment_term_id.id
+            fp_invoice = invoice.fiscal_position_id
+            invoice._onchange_partner_id()
+            invoice.fiscal_position_id = fp_invoice
+            # To keep the payment terms set on the SO
+            invoice.payment_term_id = so_payment_term_id
+            invoice.message_post_with_view('mail.message_origin_link',
+                values={'self': invoice, 'origin': references[invoice]},
+                subtype_id=self.env.ref('mail.mt_note').id)
+        return [inv.id for inv in invoices.values()]
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'

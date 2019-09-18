@@ -4,7 +4,7 @@
 from odoo import api, fields, models, _
 from odoo.tools import float_is_zero, float_compare
 from odoo.addons import decimal_precision as dp
-
+from odoo.exceptions import ValidationError
 
 class SubSaleOrder(models.Model):
     _name = "sub.sale.order"
@@ -146,7 +146,7 @@ class SubSaleOrder(models.Model):
         ('line_section', "Section"),
         ('line_note', "Note")], default=False, help="Technical field for UX purpose.")
 
-    invoice_lines = fields.Many2many('account.invoice.line', 'sale_order_line_invoice_rel', 'order_line_id', 'invoice_line_id', string='Invoice Lines', copy=False)
+    invoice_lines = fields.Many2many('account.invoice.line', 'sub_sale_line_invoice_rel', 'sub_sale_line_id', 'invoice_line_id', string='Invoice Lines', copy=False)
     invoice_status = fields.Selection([
         ('upselling', 'Upselling Opportunity'),
         ('invoiced', 'Fully Invoiced'),
@@ -201,6 +201,21 @@ class SubSaleOrder(models.Model):
         'Delivery Lead Time', required=True, default=0.0,
         help="Number of days between the order confirmation and the shipping of the products to the customer", oldname="delay")
 
+    @api.model
+    def create(self,vals):
+        product = self.env['product.product'].sudo().search([('id','=',vals['product_id'])])
+        if not product or product.product_tmpl_id.fuction_type != 'finished':
+            raise ValidationError(_("Produt of function type must be finished!"))
+        return super(SubSaleOrder, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        for ss in self:
+            if "product_id" in vals:
+                product = self.env['product.product'].sudo().search([('id','=',vals.get('product_id', 0))])
+                if not product or product.product_tmpl_id.fuction_type != 'finished':
+                    raise ValidationError(_("Produt of function type must be finished!"))
+            return super(SubSaleOrder, ss).write(vals)
 
     @api.depends('production_part_line')
     def _compute_material_total(self):
@@ -292,6 +307,10 @@ class SubSaleOrder(models.Model):
                 amount_to_invoice = price_subtotal - line.untaxed_amount_invoiced
             line.untaxed_amount_to_invoice = amount_to_invoice
 
+    @api.onchange('product_id')
+    def _add_product_info(self):
+        self.price_unit = self.product_id.product_tmpl_id.list_price
+
     @api.multi
     def _get_delivered_quantity_by_analytic(self, additional_domain):
         """ Compute and write the delivered quantity of current SO lines, based on their related
@@ -350,3 +369,61 @@ class SubSaleOrder(models.Model):
     def _sync_package_num(self, package_num):
         for order in self:
             order.package_num = package_num
+
+    @api.multi
+    def _sync_outsource_package_num(self, outsource_package_num):
+        for order in self:
+            order.outsource_package_num = outsource_package_num
+
+    @api.multi
+    def _prepare_invoice_line(self, qty):
+        """
+        Prepare the dict of values to create the new invoice line for a sales order line.
+
+        :param qty: float quantity to invoice
+        """
+        self.ensure_one()
+        res = {}
+        account = self.product_id.property_account_income_id or self.product_id.categ_id.property_account_income_categ_id
+
+        if not account and self.product_id:
+            raise UserError(_('Please define income account for this product: "%s" (id:%d) - or for its category: "%s".') %
+                (self.product_id.name, self.product_id.id, self.product_id.categ_id.name))
+
+        fpos = self.order_id.fiscal_position_id or self.order_id.partner_id.property_account_position_id
+        if fpos and account:
+            account = fpos.map_account(account)
+
+        res = {
+            'name': self.name,
+            'sequence': self.sequence,
+            'origin': self.order_id.name,
+            'account_id': account.id,
+            'price_unit': self.price_unit,
+            'quantity': qty,
+            'discount': self.discount,
+            'uom_id': self.product_uom.id,
+            'product_id': self.product_id.id or False,
+            'invoice_line_tax_ids': [(6, 0, self.tax_id.ids)],
+            'account_analytic_id': self.order_id.analytic_account_id.id,
+            'analytic_tag_ids': [(6, 0, self.analytic_tag_ids.ids)],
+            'display_type': self.display_type,
+        }
+        return res
+
+    def invoice_line_create_vals(self, invoice_id, qty):
+        """ Create an invoice line. The quantity to invoice can be positive (invoice) or negative
+            (refund).
+
+            :param invoice_id: integer
+            :param qty: float quantity to invoice
+            :returns list of dict containing creation values for account.invoice.line records
+        """
+        vals_list = []
+        precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
+        for line in self:
+            if not float_is_zero(qty, precision_digits=precision) or not line.product_id:
+                vals = line._prepare_invoice_line(qty=qty)
+                vals.update({'invoice_id': invoice_id, 'sub_sale_line_ids': [(6, 0, [line.id])]})
+                vals_list.append(vals)
+        return vals_list
