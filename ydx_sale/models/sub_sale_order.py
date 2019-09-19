@@ -111,7 +111,7 @@ class SubSaleOrder(models.Model):
         ('sale', 'Sales Order'),
         ('done', 'Locked'),
         ('cancel', 'Cancelled'),
-        ], string='Status', readonly=True, copy=False, index=True, track_visibility='onchange', track_sequence=3, default='draft')
+        ],related='order_id.state', string='Status', readonly=True, copy=False, index=True, track_visibility='onchange', track_sequence=3, default='draft')
 
     name = fields.Char(string='Order Reference', required=True)
     sequence = fields.Integer(string='Sequence', default=10)

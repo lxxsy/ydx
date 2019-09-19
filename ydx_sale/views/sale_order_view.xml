@@ -51,6 +51,9 @@
                     attrs="{'invisible': ['|',('delivery_count', '&gt;', 0),('state', 'not in', ['sale', 'done'])]}">
                 </button>
             </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="placeholder">销售订单编号</attribute>
+            </xpath>
             <xpath expr="//button[@name='action_cancel']" position="replace">
                 <button name="action_cancel" states="draft,sent,sale,to approve" type="object" string="cancel"/>
             </xpath>
