@@ -65,7 +65,7 @@ msgstr "附件数量"
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__band_side
 msgid "Band Side"
-msgstr "封边信息"
+msgstr "部件封边"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__barcode
@@ -84,7 +84,7 @@ msgstr "订单柜号"
 #: model:ir.model.fields,field_description:ydx_base.field_res_outsource__color
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__product_color
 msgid "Color"
-msgstr "颜色"
+msgstr "构件颜色"
 
 #. module: ydx_base
 #: model:ir.model,name:ydx_base.model_res_company
@@ -281,12 +281,12 @@ msgstr "附件"
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__product_material
 msgid "Material"
-msgstr "材质"
+msgstr "物料材质"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__material_use
 msgid "Material Use"
-msgstr "材质用途"
+msgstr "物料用量"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_connection_metal__message_has_error
@@ -371,12 +371,12 @@ msgstr "未读消息数量"
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__material_open_length
 msgid "Open Length"
-msgstr "成品长度"
+msgstr "开料长"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__material_open_width
 msgid "Open width"
-msgstr "成品宽度"
+msgstr "开料宽"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_connection_metal__date_order
