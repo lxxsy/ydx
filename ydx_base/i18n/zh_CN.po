@@ -136,7 +136,7 @@ msgstr "客户门户 URL"
 #: model:ir.model.fields,field_description:ydx_base.field_res_outsource__note
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__note
 msgid "Description"
-msgstr "说明"
+msgstr "备注"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_connection_metal__display_name

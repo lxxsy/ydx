@@ -1390,7 +1390,7 @@ msgstr "签订地址"
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_sub_sale_order__sliding_door
 msgid "Sliding door"
-msgstr "滑动门"
+msgstr "推拉门"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return__origin
@@ -1853,3 +1853,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.report_procurementcontract_document
 msgid "第四条：运输方式及费用：  物流   运输，货物到达       ，费用由   供方   负担。"
 msgstr ""
+
+msgid "Order Number"
+msgstr "订单号"
+
+msgid "Product Opento"
+msgstr "开向"
