@@ -12,6 +12,11 @@ class StockRule(models.Model):
         if 'sale_order_id' in values:
             domain += (
                 ('sale_order_id', '=', values['sale_order_id']),
+                ('purchase_type', '=', 'outsource'),
+            )
+        else:
+            domain += (
+                ('purchase_type', '=', 'purchase'),
             )
         return domain
 
