@@ -20,7 +20,7 @@ class YdxSaleAccountInvoiceLine(models.Model):
         string='Sales Return Lines', readonly=True, copy=False)
 
     sub_sale_line_ids = fields.Many2many(
-        'sub.sale.line',
-        'sub_sale_line_invoice_rel',
-        'invoice_line_id', 'sub_sale_line_id',
+        'sub.sale.order',
+        'sub_sale_order_invoice_rel',
+        'invoice_line_id', 'sub_sale_order_id',
         string='Sub Sales Lines', readonly=True, copy=False)

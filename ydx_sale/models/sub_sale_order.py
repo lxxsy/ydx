@@ -146,7 +146,7 @@ class SubSaleOrder(models.Model):
         ('line_section', "Section"),
         ('line_note', "Note")], default=False, help="Technical field for UX purpose.")
 
-    invoice_lines = fields.Many2many('account.invoice.line', 'sub_sale_line_invoice_rel', 'sub_sale_line_id', 'invoice_line_id', string='Invoice Lines', copy=False)
+    invoice_lines = fields.Many2many('account.invoice.line', 'sub_sale_order_invoice_rel', 'sub_sale_order_id', 'invoice_line_id', string='Invoice Lines', copy=False)
     invoice_status = fields.Selection([
         ('upselling', 'Upselling Opportunity'),
         ('invoiced', 'Fully Invoiced'),
@@ -203,15 +203,16 @@ class SubSaleOrder(models.Model):
 
     @api.model
     def create(self,vals):
-        product = self.env['product.product'].sudo().search([('id','=',vals['product_id'])])
-        if not product or product.product_tmpl_id.fuction_type != 'finished':
-            raise ValidationError(_("Produt of function type must be finished!"))
+        if not vals.get('is_downpayment', False):
+            product = self.env['product.product'].sudo().search([('id','=',vals['product_id'])])
+            if not product or product.product_tmpl_id.fuction_type != 'finished':
+                raise ValidationError(_("Produt of function type must be finished!"))
         return super(SubSaleOrder, self).create(vals)
 
     @api.multi
     def write(self, vals):
         for ss in self:
-            if "product_id" in vals:
+            if (not ss.is_downpayment) and ("product_id" in vals):
                 product = self.env['product.product'].sudo().search([('id','=',vals.get('product_id', 0))])
                 if not product or product.product_tmpl_id.fuction_type != 'finished':
                     raise ValidationError(_("Produt of function type must be finished!"))
