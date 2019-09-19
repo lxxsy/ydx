@@ -54,6 +54,30 @@ class BeeServerExcelPasteSetting(models.Model):
                 })
         return res
 
+    @api.model
+    def data_init(self, name, model, model_line, foreign, foreign_line, tag, fields):
+        ydxmodel = self.env['ir.model'].sudo().search([('name','=',model)])
+        ydxmodel_line = self.env['ir.model.fields'].sudo().search([('model_id', '=', ydxmodel.id),('name','=',model_line)])
+        ydxmodel_foregin = self.env['ir.model'].sudo().search([('name','=',foreign)])
+        ydxmodel_foregin_line = self.env['ir.model.fields'].sudo().search([('model_id', '=', ydxmodel_foregin.id),('name','=',foreign_line)])
+
+        if (not ydxmodel) or (not ydxmodel_line) or (not ydxmodel_foregin) or (not ydxmodel_foregin_line):
+            raise UserError('初始化粘贴功能时，模块为空，或模块对应的Many2one的字段为空!')
+
+        data = {
+            'name': name,
+            'model_id':ydxmodel.id,
+            'model_line_field_id':ydxmodel_line.id,
+            'foreign_model_id':ydxmodel_foregin.id,
+            'foreign_model_line_field_id':ydxmodel_foregin_line.id,
+            'tag':tag,
+        }
+        res = self.create(data)
+        for line in res.line_ids:
+            for fd in fields:
+                if line.field_name == fd[0]:
+                    line.table_header = fd[1]
+                    line.is_paste = True
 
 
 class BeeServerExcelPasteSettingLine(models.Model):

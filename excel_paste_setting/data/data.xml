@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!--<record id="excel_paste_setting_data_purchase_01" model="bee.server.excel.paste.setting">-->
+            <!--<field name="id">1</field>-->
+            <!--<field name="name">采购订单</field>-->
+            <!--<field name="model_id"></field> &lt;!&ndash;模型&ndash;&gt;-->
+            <!--<field name="model_line_field_id"></field> &lt;!&ndash;模型的One2many字段&ndash;&gt;-->
+            <!--<field name="foreign_model_id"></field> &lt;!&ndash;明细行模型&ndash;&gt;-->
+            <!--<field name="foreign_model_line_field_id"></field> &lt;!&ndash;明细行模型的Many2one字段&ndash;&gt;-->
+        <!--</record>-->
+        <function model="bee.server.excel.paste.setting" name="data_init">
+            <value>采购订单</value>
+            <value>Purchase Order</value>
+            <value>order_line</value>
+            <value>Purchase Order Line</value>
+            <value>order_id</value>
+            <value>Products</value>
+            <value eval="[
+                ('product_id', '产品'),
+                ('product_qty','数量')
+            ]"/>
+        </function>
+    </data>
+</odoo>
