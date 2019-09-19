@@ -48,6 +48,7 @@ class SaleOrder(models.Model):
     sub_sale_amount_tax = fields.Monetary(string='Taxes', store=True, readonly=True, compute='_sub_sale_amount_all')
     sub_sale_amount_total = fields.Monetary(string='Total', store=True, readonly=True, compute='_sub_sale_amount_all', track_visibility='always', track_sequence=6)
     material_use = fields.Float(compute='_sub_sale_amount_all', string='Material Use', default=0.0, copy=False, store=True)
+    attachment_number = fields.Integer(compute='_compute_attachment_number', string='附件上传')
 
     @api.multi
     def action_approve_order(self):
@@ -467,6 +468,25 @@ class SaleOrder(models.Model):
                 values={'self': invoice, 'origin': references[invoice]},
                 subtype_id=self.env.ref('mail.mt_note').id)
         return [inv.id for inv in invoices.values()]
+
+    @api.multi
+    def _compute_attachment_number(self):
+        """附件上传"""
+        attachment_data = self.env['ir.attachment'].read_group(
+            [('res_field', '=', self.name)], ['res_field'], ['res_field'])
+        attachment = dict((data['res_field'], data['res_field_count']) for data in attachment_data)
+        for expense in self:
+            expense.attachment_number = attachment.get(expense.name, 0)
+
+    @api.multi
+    def action_get_attachment_view(self):
+        """附件上传动作视图"""
+        self.ensure_one()
+        res = self.env['ir.actions.act_window'].for_xml_id('base', 'action_attachment')
+        res['domain'] = [('res_field', '=', self.name)]
+        res['context'] = {'default_res_field': self.name}
+        return res
+
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'

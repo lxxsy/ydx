@@ -77,13 +77,9 @@
                     <field name="sale_return_count" widget="statinfo" string="Sale Return Order"/>
                     <field name='sale_return_ids' invisible="1"/>
                 </button>
-            </xpath>
-            <xpath expr="//page[@name='other_information']" position="after">
-                <page string="Attachment" name="attachment">
-                    <group string="Attachment">
-                        <field name="attachment"/>
-                    </group>
-                </page>
+                <button name="action_get_attachment_view" class="oe_stat_button" icon="fa-book" type="object">
+                  <field name="attachment_number" widget="statinfo" string="附件上传"/>
+                </button>
             </xpath>
             <xpath expr="//page[@name='order_lines']" position="attributes">
                 <attribute name="invisible">1</attribute>

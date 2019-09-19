@@ -26,6 +26,9 @@
                     <field name="purchase_return_count" widget="statinfo" string="Purchase Return Count"/>
                     <field name='purchase_return_ids' invisible="1"/>
                 </button>
+                <button name="action_get_attachment_view" class="oe_stat_button" icon="fa-book" type="object">
+                  <field name="attachment_number" widget="statinfo" string="附件上传"/>
+                </button>
             </xpath>
             <xpath expr="//page[@name='products']" position="attributes">
                 <attribute name="attrs">{'invisible': [('purchase_type', '!=', 'purchase')]}</attribute>
@@ -128,16 +131,6 @@
                             <field name="swim_door" />
                         </tree>
                     </field>
-                </page>
-                <page name="attachment" string="Attachment" attrs="{'invisible': [('purchase_type', '=', 'purchase')]}">
-                    <group>
-                        <group name="source" string="Attachment">
-                            <field name="source_attachment"/>
-                        </group>
-                        <group name="attachment" string="Aattachment">
-                            <field name="attachment"/>
-                        </group>
-                    </group>
                 </page>
             </xpath>
         </field>

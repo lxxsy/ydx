@@ -11,10 +11,11 @@ class PurchaseOrder(models.Model):
     purchase_contract_count = fields.Integer(compute="_compute_contract", string='Purchase Contract Count', copy=False, default=0, store=True)
     purchase_return_ids = fields.Many2many('purchase.return', compute="_compute_return", string='Purchase Return Order', copy=False, store=True)
     purchase_return_count = fields.Integer(compute="_compute_return", string='Purchase Return Count', copy=False, default=0, store=True)
-    attachment = fields.Binary(String="Attachment")
+    attachment_number = fields.Integer(compute='_compute_attachment_number', string='附件上传')
     purchase_sub_sale_line = fields.One2many('purchase.sub.sale.order', 'order_id', string='Order Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True)
     purchase_type = fields.Selection([('purchase',  'Purchase Order'),
                                    ('outsource',  'Outsource')], default='purchase')
+
 
     @api.multi
     def action_create_procurement_contract(self):
@@ -155,7 +156,6 @@ class PurchaseOrder(models.Model):
 
         return data
 
-    @api.depends('sale_order_id')
     def _compute_sub_sale_order_line(self):
         for order in self:
             new_lines = self.env['purchase.sub.sale.order']
@@ -199,6 +199,24 @@ class PurchaseOrder(models.Model):
                 datas = purchase._get_stock_sub_sale_order_values(pick, purchase.purchase_sub_sale_line)
                 purchase.env['stock.sub.sale.order'].sudo().create(datas)
 
+    @api.multi
+    @api.depends("origin")
+    def _compute_attachment_number(self):
+        """附件上传"""
+        attachment_data = self.env['ir.attachment'].read_group(
+            [('res_field', '=', self.origin)], ['res_field'], ['res_field'])
+        attachment = dict((data['res_field'], data['res_field_count']) for data in attachment_data)
+        for expense in self:
+            expense.attachment_number = attachment.get(expense.origin, 0)
+
+    @api.multi
+    def action_get_attachment_view(self):
+        """附件上传动作视图"""
+        self.ensure_one()
+        res = self.env['ir.actions.act_window'].for_xml_id('base', 'action_attachment')
+        res['domain'] = [('res_field', '=', self.origin)]
+        res['context'] = {'default_res_field': self.origin}
+        return res
 
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
