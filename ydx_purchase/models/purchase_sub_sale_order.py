@@ -8,7 +8,7 @@ class PurchaseSubSaleOrder(models.Model):
     _description = "Purchase Sub Sale Order"
     _order = 'date_order desc, id desc'
 
-    _sql_constraints = [ ('check_uniq_name', 'unique(name)', '子订单编号已存在！')   ]
+    # _sql_constraints = [ ('check_uniq_name', 'unique(name)', '子订单编号已存在！')   ]
     state = fields.Selection([
         ('draft', 'Quotation'),
         ('sent', 'Quotation Sent'),
