@@ -9,6 +9,11 @@ class SaleReport(models.Model):
     _inherit = "sale.report"
 
     def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
+        fields['days_to_confirm'] = ", DATE_PART('day', s.confirmation_date::timestamp - s.create_date::timestamp) as days_to_confirm"
+        fields['invoice_status'] = ', s.invoice_status as invoice_status'
+
+        groupby += ', s.invoice_status'
+
         with_ = ("WITH %s" % with_clause) if with_clause else ""
 
         select_ = """
