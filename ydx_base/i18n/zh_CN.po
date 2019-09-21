@@ -462,7 +462,7 @@ msgstr "产品厚度"
 #: model:ir.model.fields,field_description:ydx_base.field_res_outsource__product_width
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__product_width
 msgid "Product Width"
-msgstr "产品宽度"
+msgstr "成品宽度"
 
 #. module: ydx_base
 #: model:ir.model,name:ydx_base.model_res_production_part

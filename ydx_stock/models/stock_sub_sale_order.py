@@ -35,6 +35,7 @@ class StockSubSaleOrder(models.Model):
         ('line_note', "Note")], default=False, help="Technical field for UX purpose.")
     sale_order_id = fields.Integer(string='Sale Order Id')
     sub_sale_order_id = fields.Integer(string='Sale Order Id')
+    picking_type_code = fields.Selection(related='picking_id.picking_type_code',readonly=True)
 
     @api.multi
     def _sync_outsource_package_num(self, outsource_package_num):

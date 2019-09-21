@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-17 01:30+0000\n"
-"PO-Revision-Date: 2019-09-17 09:39+0800\n"
+"POT-Creation-Date: 2019-09-11 09:44+0000\n"
+"PO-Revision-Date: 2019-09-12 10:06+0800\n"
+"Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2\n"
-"Last-Translator: \n"
+"Plural-Forms: \n"
 "Language: zh_CN\n"
+"X-Generator: Poedit 2.2\n"
 
 #. module: ydx_mrp
 #: model:ir.model.fields,field_description:ydx_mrp.field_stock_move__Base_material
@@ -35,7 +35,7 @@ msgstr "订单编号"
 #. module: ydx_mrp
 #: model:ir.model,name:ydx_mrp.model_stock_move
 msgid "Stock Move"
-msgstr ""
+msgstr "库存移动"
 
 #. module: ydx_mrp
 #: model:ir.model.fields,field_description:ydx_mrp.field_stock_move__the_child_orders

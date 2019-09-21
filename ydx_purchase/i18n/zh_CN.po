@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-15 07:18+0000\n"
-"PO-Revision-Date: 2019-09-15 15:34+0800\n"
+"POT-Creation-Date: 2019-09-20 01:31+0000\n"
+"PO-Revision-Date: 2019-09-20 09:35+0800\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: zh\n"
+"Language: zh_CN\n"
 "X-Generator: Poedit 2.2.3\n"
 
 #. module: ydx_purchase
@@ -133,7 +133,7 @@ msgstr "添加采购退货单"
 #: model:ir.model.fields,help:ydx_purchase.field_purchase_procurement_contract__company_state
 #: model:ir.model.fields,help:ydx_purchase.field_purchase_procurement_contract__partner_state
 msgid "Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
-msgstr "管理国家/地区或州省的分类。"
+msgstr "管理国家/地区或地区的分类。"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return_lines__account_analytic_id
@@ -214,7 +214,7 @@ msgstr "账单"
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_sub_sale_order__cabinet
 msgid "Cabinet"
-msgstr "柜"
+msgstr "柜体"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__cabinet_no
@@ -286,7 +286,7 @@ msgstr "公司地址"
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_res_config_settings__company_currency_id
 msgid "Company Currency"
-msgstr "公司币种"
+msgstr "公司货币"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,help:ydx_purchase.field_purchase_return__effective_date
@@ -417,6 +417,11 @@ msgstr "销售订单创建日期"
 #: model:ir.model.fields,help:ydx_purchase.field_purchase_return__confirmation_date
 msgid "Date on which the sales order is confirmed."
 msgstr "销售订单确认日期。"
+
+#. module: ydx_purchase
+#: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
+msgid "Define your terms and conditions ..."
+msgstr "定义你的条款和条件…"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return__picking_type_id
@@ -695,6 +700,11 @@ msgid "Invoice Line"
 msgstr "发票行"
 
 #. module: ydx_purchase
+#: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
+msgid "Invoices and Incoming Shipments"
+msgstr "开票及入向送货"
+
+#. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract__message_is_follower
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return__message_is_follower
 msgid "Is Follower"
@@ -750,6 +760,11 @@ msgstr "最后更新时间"
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.view_purchase_return_filter
 msgid "Late Activities"
 msgstr "逾期活动"
+
+#. module: ydx_purchase
+#: selection:purchase.order.line,product_opento:0
+msgid "Left"
+msgstr "左开门"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract__company_legal_person
@@ -874,6 +889,11 @@ msgid "Note"
 msgstr "备注"
 
 #. module: ydx_purchase
+#: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
+msgid "Notes"
+msgstr "备注"
+
+#. module: ydx_purchase
 #: selection:purchase.return,invoice_status:0
 msgid "Nothing to Bill"
 msgstr "无需开单"
@@ -924,10 +944,16 @@ msgid "Order Date"
 msgstr "单据日期"
 
 #. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order__purchase_sub_sale_line
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract__order_line
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return__purchase_return_line_ids
 msgid "Order Lines"
 msgstr "订单行"
+
+#. module: ydx_purchase
+#: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
+msgid "Order Number"
+msgstr "订单号码"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_custom_lines__order_qty
@@ -938,6 +964,7 @@ msgstr "订单数量"
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract_line__order_id
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return_lines__purchase_return_id
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_sub_sale_order__name
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_sub_sale_order__order_id
 msgid "Order Reference"
 msgstr "订单关联"
 
@@ -951,6 +978,11 @@ msgstr "订货点"
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_return_order_form
 msgid "Other Information"
 msgstr "其他信息"
+
+#. module: ydx_purchase
+#: selection:purchase.order,purchase_type:0
+msgid "Outsource"
+msgstr "委外"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_sub_sale_order__outsource_package_num
@@ -1042,6 +1074,11 @@ msgid "Product Image"
 msgstr "产品图片"
 
 #. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__product_opento
+msgid "Product Opento"
+msgstr "开向"
+
+#. module: ydx_purchase
 #: model:ir.actions.act_window,name:ydx_purchase.open_purchase_custom_my_list
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order__product_template_id
 msgid "Product Template"
@@ -1061,6 +1098,7 @@ msgstr "产品量度单位"
 
 #. module: ydx_purchase
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.procurement_contract_management_form
+#: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_return_order_form
 msgid "Products"
 msgstr "产品"
@@ -1105,6 +1143,7 @@ msgstr "自定义采购模版明细"
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract_line__purchase_id
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return__purchase_order_ids
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return_lines__purchase_id
+#: selection:purchase.order,purchase_type:0
 msgid "Purchase Order"
 msgstr "采购订单"
 
@@ -1112,11 +1151,13 @@ msgstr "采购订单"
 #: model:ir.model,name:ydx_purchase.model_purchase_order_line
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract_line__purchase_line_id
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return_lines__purchase_line_id
+#: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
 msgid "Purchase Order Line"
 msgstr "采购订单行"
 
 #. module: ydx_purchase
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.procurement_contract_management_form
+#: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_return_order_form
 msgid "Purchase Order Lines"
 msgstr "采购订单明细"
@@ -1205,9 +1246,10 @@ msgid "Purchase Sub Sale Order"
 msgstr "子销售订单"
 
 #. module: ydx_purchase
-#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order__sub_sale_order_ids
-msgid "Purchase Sub Sale Orders"
-msgstr "子销售订单"
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order__purchase_type
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__purchase_type
+msgid "Purchase Type"
+msgstr "采购类型"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_procurement_contract_wizard__purchase_order_ids
@@ -1310,8 +1352,11 @@ msgid "Returned Accout Invoice"
 msgstr "退货单发票"
 
 #. module: ydx_purchase
-#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order__sale_order_id
-#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_sub_sale_order__sale_order_id
+#: selection:purchase.order.line,product_opento:0
+msgid "Right"
+msgstr "右开门"
+
+#. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_stock_move__sale_order_id
 msgid "Sale Order"
 msgstr "销售订单"
@@ -1450,7 +1495,12 @@ msgstr "街道 2"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_sub_sale_order__sub_sale_order_id
-msgid "Sub Sale Order"
+msgid "Sub Sale Order Id"
+msgstr "子销售订单"
+
+#. module: ydx_purchase
+#: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
+msgid "Sub Sale Orders"
 msgstr "子销售订单"
 
 #. module: ydx_purchase
@@ -1462,7 +1512,7 @@ msgstr "小计"
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_sub_sale_order__swim_door
 msgid "Swin door"
-msgstr "双向门"
+msgstr "泳黑门"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract_line__price_tax
@@ -1482,7 +1532,7 @@ msgstr "税率设置"
 #. module: ydx_purchase
 #: model:ir.model.fields,help:ydx_purchase.field_purchase_sub_sale_order__display_type
 msgid "Technical field for UX purpose."
-msgstr "UX用途的技術領域。"
+msgstr "UX用途的技术领域。"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,help:ydx_purchase.field_purchase_return__default_location_dest_id_usage
@@ -1859,3 +1909,9 @@ msgstr "订单号"
 
 msgid "Product Opento"
 msgstr "开向"
+
+#. module: ydx_purchase
+#: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order__attachment_number
+#: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
+msgid "附件上传"
+msgstr ""

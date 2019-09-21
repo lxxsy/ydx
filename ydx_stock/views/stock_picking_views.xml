@@ -44,13 +44,14 @@
                             <field name="state" invisible="1"/>
                             <field name="sequence" widget="handle"/>
                             <field name="name" string="Order Number"/>
+                            <field name="picking_type_code" invisible="1"/>
                             <field name="product_id" />
                             <field name="cabinet" />
                             <field name="flat_door" />
                             <field name="sliding_door" />
                             <field name="glass_door" />
                             <field name="swim_door" />
-                            <field name="package_num" />
+                            <field name="package_num" attrs="{'invisible':[('picking_type_code', '=', 'incoming')]}"/>
                             <field name="outsource_package_num" />
                         </tree>
                     </field>

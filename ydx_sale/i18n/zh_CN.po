@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-15 07:35+0000\n"
-"PO-Revision-Date: 2019-09-15 16:55+0800\n"
+"POT-Creation-Date: 2019-09-20 02:39+0000\n"
+"PO-Revision-Date: 2019-09-20 10:41+0800\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -141,26 +141,22 @@ msgid "Activity State"
 msgstr "活动状态"
 
 #. module: ydx_sale
-#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a connection metal"
 msgstr "增加连接五金"
 
 #. module: ydx_sale
-#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a function metal"
 msgstr "增加功能五金"
 
 #. module: ydx_sale
-#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a note"
 msgstr "增加备注"
 
 #. module: ydx_sale
-#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a outsource"
 msgstr "增加委外"
@@ -171,13 +167,11 @@ msgid "Add a product"
 msgstr "添加产品"
 
 #. module: ydx_sale
-#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a production part"
 msgstr "增加生产部件"
 
 #. module: ydx_sale
-#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Add a section"
@@ -192,10 +186,11 @@ msgstr "增加子销售订单"
 #: model:ir.model.fields,help:ydx_sale.field_sale_contract__company_state
 #: model:ir.model.fields,help:ydx_sale.field_sale_contract__partner_state
 msgid "Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
-msgstr "管理国家/州省或地区的分类。"
+msgstr "管理国家/地区或地区的分类。"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:165
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:300
 #, python-format
 msgid "Advance: %s"
 msgstr ""
@@ -266,7 +261,7 @@ msgstr "审批日期"
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 msgid "Approve"
-msgstr "审批"
+msgstr "批准"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_form
@@ -324,7 +319,7 @@ msgstr "取消"
 #: selection:res.connection.metal,state:0 selection:res.function.metal,state:0
 #: selection:res.outsource,state:0 selection:res.production.part,state:0
 #: selection:sale.contract,state:0 selection:sale.order,state:0
-#: selection:sale.return,state:0 selection:sub.sale.order,state:0
+#: selection:sale.return,state:0
 msgid "Cancelled"
 msgstr "已取消"
 
@@ -383,7 +378,7 @@ msgstr "公司地址"
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_res_config_settings__company_currency_id
 msgid "Company Currency"
-msgstr "公司币种"
+msgstr "公司货币"
 
 #. module: ydx_sale
 #: model:ir.model,name:ydx_sale.model_res_config_settings
@@ -391,7 +386,6 @@ msgid "Config Settings"
 msgstr "配置设定"
 
 #. module: ydx_sale
-#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Configure a product"
@@ -660,7 +654,7 @@ msgstr "目标位置类型"
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__discount
 #: model:ir.model.fields,field_description:ydx_sale.field_sub_sale_order__discount
 msgid "Discount (%)"
-msgstr "折扣(%)"
+msgstr "折扣 (%)"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_contract__display_name
@@ -701,6 +695,7 @@ msgstr "完成"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:87
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:222
 #, python-format
 msgid "Down Payment"
 msgstr ""
@@ -727,6 +722,7 @@ msgstr "预收定金(百分比)"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:84
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:219
 #, python-format
 msgid "Down payment of %s%%"
 msgstr ""
@@ -762,7 +758,6 @@ msgstr ""
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__factory_order_no
-#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__phone
 msgid "Factory Order No."
 msgstr "工厂订单号"
 
@@ -946,6 +941,11 @@ msgid "Inventory Routes"
 msgstr "库存路线"
 
 #. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_account_invoice
+msgid "Invoice"
+msgstr "发票"
+
+#. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__partner_invoice_id
 msgid "Invoice Address"
 msgstr "发票地址"
@@ -954,6 +954,11 @@ msgstr "发票地址"
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return__invoice_count
 msgid "Invoice Count"
 msgstr "发票数"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "发票行"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__invoice_lines
@@ -1125,7 +1130,6 @@ msgstr "锁"
 #: selection:res.connection.metal,state:0 selection:res.function.metal,state:0
 #: selection:res.outsource,state:0 selection:res.production.part,state:0
 #: selection:sale.order,state:0 selection:sale.return,state:0
-#: selection:sub.sale.order,state:0
 msgid "Locked"
 msgstr "已锁定"
 
@@ -1477,6 +1481,7 @@ msgstr ""
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/models/sale_return.py:1382
+#: code:addons/ydx_sale/models/sub_sale_order.py:391
 #, python-format
 msgid "Please define income account for this product: \"%s\" (id:%d) - or for its category: \"%s\"."
 msgstr ""
@@ -1604,14 +1609,12 @@ msgstr "数量："
 #. module: ydx_sale
 #: selection:res.connection.metal,state:0 selection:res.function.metal,state:0
 #: selection:res.outsource,state:0 selection:res.production.part,state:0
-#: selection:sub.sale.order,state:0
 msgid "Quotation"
 msgstr "报价单"
 
 #. module: ydx_sale
 #: selection:res.connection.metal,state:0 selection:res.function.metal,state:0
 #: selection:res.outsource,state:0 selection:res.production.part,state:0
-#: selection:sub.sale.order,state:0
 msgid "Quotation Sent"
 msgstr "发送报价单"
 
@@ -1628,7 +1631,7 @@ msgstr "接收"
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_contract_management_tree
 msgid "Reference"
-msgstr "参考"
+msgstr "编号"
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_return__origin
@@ -1830,6 +1833,16 @@ msgid "Sale return count"
 msgstr "销售退货数量"
 
 #. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "销售预付款发票"
+
+#. module: ydx_sale
+#: model:ir.model,name:ydx_sale.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "销售分析报告"
+
+#. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 msgid "Sales Information"
 msgstr "销售信息"
@@ -1837,7 +1850,6 @@ msgstr "销售信息"
 #. module: ydx_sale
 #: selection:res.connection.metal,state:0 selection:res.function.metal,state:0
 #: selection:res.outsource,state:0 selection:res.production.part,state:0
-#: selection:sub.sale.order,state:0
 msgid "Sales Order"
 msgstr "销售订单"
 
@@ -1867,6 +1879,7 @@ msgid "Sales Return Line"
 msgstr "销售退货明细"
 
 #. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_account_invoice_line__sale_return_line_ids
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_line_tree
 msgid "Sales Return Lines"
@@ -2122,6 +2135,11 @@ msgid "Sub Sale Orders"
 msgstr "子销售订单"
 
 #. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_account_invoice_line__sub_sale_line_ids
+msgid "Sub Sales Lines"
+msgstr "子销售订单"
+
+#. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_sub_sale_order_form
 msgid "Sub Sales Order"
 msgstr "子销售订单"
@@ -2259,12 +2277,14 @@ msgstr "此销售订单的付款通信。"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:154
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:289
 #, python-format
 msgid "The product used to invoice a down payment should be of type 'Service'. Please use another product or update this product."
 msgstr ""
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:152
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:287
 #, python-format
 msgid "The product used to invoice a down payment should have an invoice policy set to \"Ordered quantities\". Please update your deposit product to be able to create a deposit invoice."
 msgstr ""
@@ -2276,17 +2296,21 @@ msgstr "在订单当天适用的货币跟本位币兑换比率为 1"
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:80
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:215
 #, python-format
 msgid "The value of the down payment amount must be positive."
 msgstr ""
 
 #. module: ydx_sale
 #: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:76
+#: code:addons/ydx_sale/wizards/sale_make_invoice_advance.py:211
 #, python-format
 msgid "There is no income account defined for this product: \"%s\". You may have to install a chart of account from Accounting app, settings menu."
 msgstr ""
 
 #. module: ydx_sale
+#: code:addons/ydx_sale/models/sale_order.py:443
+#: code:addons/ydx_sale/models/sale_order.py:448
 #: code:addons/ydx_sale/models/sale_return.py:613
 #: code:addons/ydx_sale/models/sale_return.py:618
 #, python-format
@@ -2365,6 +2389,8 @@ msgstr "税额总计"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_tree
+#: model_terms:ir.ui.view,arch_db:ydx_sale.ydx_sale_view_order_tree
+#: model_terms:ir.ui.view,arch_db:ydx_sale.ydx_sale_view_quotation_tree
 msgid "Total Tax Included"
 msgstr "含税总金额"
 
@@ -2721,4 +2747,15 @@ msgstr ""
 #. module: ydx_sale
 #: model_terms:ir.actions.act_window,help:ydx_sale.action_orders_details
 msgid "详细订单"
+msgstr ""
+
+#. module: ydx_sale
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "销售订单编号"
+msgstr ""
+
+#. module: ydx_sale
+#: model:ir.model.fields,field_description:ydx_sale.field_sale_order__attachment_number
+#: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
+msgid "附件上传"
 msgstr ""
