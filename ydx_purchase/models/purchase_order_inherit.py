@@ -203,19 +203,22 @@ class PurchaseOrder(models.Model):
     @api.depends("origin")
     def _compute_attachment_number(self):
         """附件上传"""
+        sources = self.origin if self.origin else self.name
         attachment_data = self.env['ir.attachment'].read_group(
-            [('res_field', '=', self.origin)], ['res_field'], ['res_field'])
+            [('res_field', '=', sources)], ['res_field'], ['res_field'])
         attachment = dict((data['res_field'], data['res_field_count']) for data in attachment_data)
         for expense in self:
-            expense.attachment_number = attachment.get(expense.origin, 0)
+            sources_tmp = expense.origin if expense.origin else expense.name
+            expense.attachment_number = attachment.get(sources_tmp, 0)
 
     @api.multi
     def action_get_attachment_view(self):
         """附件上传动作视图"""
         self.ensure_one()
+        sources = self.origin if self.origin else self.name
         res = self.env['ir.actions.act_window'].for_xml_id('base', 'action_attachment')
-        res['domain'] = [('res_field', '=', self.origin)]
-        res['context'] = {'default_res_field': self.origin}
+        res['domain'] = [('res_field', '=', sources)]
+        res['context'] = {'default_res_field': sources}
         return res
 
 class PurchaseOrderLine(models.Model):
