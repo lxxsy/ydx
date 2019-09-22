@@ -21,7 +21,7 @@ class StockSubSaleOrder(models.Model):
     sequence = fields.Integer(string='Sequence', default=10)
     date_order = fields.Datetime(string='Order Date', required=True, readonly=True, index=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]}, copy=False, default=fields.Datetime.now)
     create_date = fields.Datetime(string='Creation Date', readonly=True, index=True, help="Date on which sales order is created.")
-    product_id = fields.Many2one('product.product', string='Product', domain=[('sale_ok', '=', True)], change_default=True, ondelete='restrict', required=True)
+    product_id = fields.Many2one('product.product', string='Product', domain=[('sale_ok', '=', True), ('fuction_type', '=', 'finished')], change_default=True, ondelete='restrict', required=True)
     cabinet = fields.Char(string='Cabinet')
     flat_door = fields.Char(string='Flat open the door')
     sliding_door = fields.Char(string='Sliding door')
