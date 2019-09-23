@@ -89,6 +89,8 @@ class SaleOrder(models.Model):
 
     def _create_stock_sub_sale_order(self, sub_order_ids):
         for sub_order_id in sub_order_ids:
+            if sub_order_id.is_downpayment:
+                continue
             data = self._get_sub_sale_order_values(sub_order_id)
             self.env['stock.sub.sale.order'].sudo().create(data)
 
