@@ -637,7 +637,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_return_line__name
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 msgid "Description"
-msgstr "说明"
+msgstr "备注"
 
 #. module: ydx_sale
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order__designer

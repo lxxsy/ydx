@@ -486,7 +486,7 @@ msgstr "记录询价单被确认并被转化为采购订单的日期"
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract_line__name
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return_lines__name
 msgid "Description"
-msgstr "说明"
+msgstr "备注"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_return__default_location_dest_id_usage

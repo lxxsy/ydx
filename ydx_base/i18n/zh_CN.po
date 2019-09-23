@@ -435,12 +435,12 @@ msgstr "产品"
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_outsource__product_height
 msgid "Product Height"
-msgstr "产品高度"
+msgstr "成品高"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__product_length
 msgid "Product Length"
-msgstr "成品长度"
+msgstr "成品长"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_outsource__product_opento
