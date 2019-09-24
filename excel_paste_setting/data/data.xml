@@ -64,51 +64,87 @@
 
         <function model="bee.server.excel.paste.setting" name="data_init">
 
-            <value>销售订单</value>
+            <value>所有连接五金</value>
             <value>Sub Sale Order</value>
             <value>connection_metal_line</value>
             <value>Connection Metal</value>
             <value>sub_order_id</value>
-            <value>order</value>
+            <value>connection</value>
 
             <value eval="[
-            ('__last_update','最后修改日'),
-            ('access_token','安全令牌'),
-            ('access_url','门户访问'),
-            ('access_warning','访问警告'),
-            ('activity_date_deadline','下一活动截止日期'),
-            ('activity_state','活动状态'),
-            ('activity_summary','下一个活动摘要'),
-            ('activity_type_id','下一活动类型'),
-            ('activity_user_id','责任用户'),
             ('cabinet_no','订单柜号'),
-            ('create_date','创建时间'),
-            ('create_uid','创建人'),
-            ('date_order','单据日期'),
-            ('display_name','显示名称'),
-            ('display_type','显示类型'),
-            ('id','ID'),
-            ('message_attachment_count','附件数量'),
-            ('message_has_error','消息递送错误'),
-            ('message_has_error_counter','错误个数'),
-            ('message_is_follower','关注者'),
-            ('message_main_attachment_id','附件'),
-            ('message_needaction','前置操作'),
-            ('message_needaction_counter','操作次数'),
-            ('message_unread','未读消息'),
-            ('message_unread_counter','未读消息计数器'),
-            ('name','指引'),
+            ('product_uom_qty','订购数量'),
+            ('product_uom','单位'),
+            ('product_speci_type','规格'),
+            ('product_id','产品'),
             ('note','备注'),
-            ('order_id','订单关联'),
+            ]"/>
+        </function>
+
+
+        <function model="bee.server.excel.paste.setting" name="data_init">
+            <value>所有功能五金</value>
+            <value>Sub Sale Order</value>
+            <value>function_metal_line</value>
+            <value>Function Metal</value>
+            <value>sub_order_id</value>
+            <value>function</value>
+             <value eval="[
+           ('product_id','产品'),
+           ('product_speci_type','规格'),
+           ('product_uom_qty','订购数量'),
+           ('product_uom','单位'),
+           ('note','备注'),
+            ]"/>
+        </function>
+
+        <function model="bee.server.excel.paste.setting" name="data_init">
+            <value>所有委外</value>
+            <value>Sub Sale Order</value>
+            <value>outsource_line</value>
+            <value>Outsource</value>
+            <value>sub_order_id</value>
+            <value>outsource</value>
+
+            <value eval="[
+            ('cabinet_no','订单柜号'),
             ('product_id','产品'),
             ('product_speci_type','规格'),
-            ('product_uom','单位'),
             ('product_uom_qty','订购数量'),
-            ('sequence','序号'),
-            ('state','状态'),
-            ('sub_order_id','子销售订单'),
-            ('write_date','最后更新时间'),
-            ('write_uid','最后更新者'),
+            ('product_uom','单位'),
+            ('note','备注'),
+            ('material','Material'),
+            ('color','构件颜色'),
+            ('product_height','产品高度'),
+            ('product_opento','开向'),
+            ('product_thick','产品厚度'),
+            ('product_width','产品宽度'),
+            ]"/>
+
+        </function>
+        <function model="bee.server.excel.paste.setting" name="data_init">
+            <value>所有生产部件</value>
+            <value>Sub Sale Order</value>
+            <value>production_part_line</value>
+            <value>Production Part</value>
+            <value>sub_order_id</value>
+            <value>Production parts</value>
+            <value eval="[
+            ('cabinet_no','订单柜号'),
+            ('product_id','产品'),
+            ('color','构件颜色'),
+            ('product_thick','产品厚度'),
+            ('product_width','产品宽度'),
+            ('product_uom_qty','订购数量'),
+            ('product_uom','单位'),
+            ('note','备注'),
+            ('band_side','部件封边'),
+            ('barcode','条码'),
+            ('material_open_width','开料宽'),
+            ('material_open_length','开料长'),
+            ('material_use','物料用量'),
+            ('product_length','成品长度'),
+            ('product_material','物料材质'),
             ]"/>
         </function>
     </data>
