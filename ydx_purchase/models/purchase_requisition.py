@@ -17,3 +17,17 @@ class YdxPurchaseRequisitionLine(models.Model):
         ('right', 'Right')
     ], string="Product Opento")
 
+
+    @api.multi
+    def _prepare_purchase_order_line(self, name, product_qty=0.0, price_unit=0.0, taxes_ids=False):
+        res = super(YdxPurchaseRequisitionLine, self)._prepare_purchase_order_line(name, product_qty, price_unit, taxes_ids)
+        res['cabinet_no'] = self.cabinet_no
+        res['material'] = self.material
+        res['product_colour'] = self.product_colour
+        res['product_length'] = self.length
+        res['width'] = self.width
+        res['thickness'] = self. thickness
+        res['band_number'] = self.band_number
+        res['remarks'] = self.remarks
+        res['product_opento'] = self.product_opento
+        return res
