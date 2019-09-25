@@ -1915,3 +1915,7 @@ msgstr "开向"
 #: model_terms:ir.ui.view,arch_db:ydx_purchase.purchase_order_form_view_inherit
 msgid "附件上传"
 msgstr ""
+
+
+msgid "Specification"
+msgstr "规格型号"
