@@ -530,7 +530,7 @@ msgstr "源附件"
 #: model:ir.model.fields,field_description:ydx_base.field_res_outsource__product_speci_type
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__product_speci_type
 msgid "Specification"
-msgstr "规格"
+msgstr "规格型号"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_company__stamp_image

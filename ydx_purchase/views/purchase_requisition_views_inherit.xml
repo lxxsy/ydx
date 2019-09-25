@@ -15,6 +15,7 @@
                 <field name="width"/>
                 <field name="thickness"/>
                 <field name="band_number"/>
+                <field name="product_opento"/>
             </xpath>
             <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='price_unit']" position="after">
                 <field name="remarks"/>

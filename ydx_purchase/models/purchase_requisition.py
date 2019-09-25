@@ -12,4 +12,8 @@ class YdxPurchaseRequisitionLine(models.Model):
     thickness = fields.Float(string='Finished Thickness')
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
+    product_opento = fields.Selection([
+        ('left', 'Left'),
+        ('right', 'Right')
+    ], string="Product Opento")
 
