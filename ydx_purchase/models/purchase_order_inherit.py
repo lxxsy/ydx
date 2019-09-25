@@ -14,7 +14,7 @@ class PurchaseOrder(models.Model):
     attachment_number = fields.Integer(compute='_compute_attachment_number', string='附件上传')
     purchase_sub_sale_line = fields.One2many('purchase.sub.sale.order', 'order_id', string='Order Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True)
     purchase_type = fields.Selection([('purchase',  'Purchase Order'),
-                                   ('outsource',  'Outsource')], default='purchase')
+                                   ('outsource',  'Outsource')], default='purchase',required=True)
 
 
     @api.multi
