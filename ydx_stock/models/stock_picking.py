@@ -7,7 +7,7 @@ from odoo import api, fields, models, _
 class Picking(models.Model):
     _inherit = "stock.picking"
 
-    metal_package_num = fields.Integer(string='Package Number', copy=False)
+    metal_package_num = fields.Integer(string='Metal Package Number', copy=False)
     fmetals_move_ids_without_package = fields.One2many('stock.move', 'picking_id', string="Stock moves not in package", domain=['|',('package_level_id', '=', False), ('picking_type_entire_packs', '=', False)],ondelete='cascade')
     cmetals_move_ids_without_package = fields.One2many('stock.move', 'picking_id', string="Stock moves not in package", domain=['|',('package_level_id', '=', False), ('picking_type_entire_packs', '=', False)], ondelete='cascade')
     outsource_move_ids_without_package = fields.One2many('stock.move', 'picking_id', string="Stock moves not in package", domain=['|',('package_level_id', '=', False), ('picking_type_entire_packs', '=', False)], ondelete='cascade')
