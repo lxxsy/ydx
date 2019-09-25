@@ -708,3 +708,6 @@ msgstr ""
 
 msgid "Product Opento"
 msgstr "开向"
+
+msgid"Incoming Type"
+msgstr"收货类型"
