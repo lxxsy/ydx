@@ -224,7 +224,7 @@ msgstr "如果勾选此项， 某些消息将会产生传递错误。"
 #: model:ir.model.fields,field_description:ydx_base.field_res_outsource__name
 #: model:ir.model.fields,field_description:ydx_base.field_res_production_part__name
 msgid "Index"
-msgstr "指引"
+msgstr "编号"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_connection_metal__message_is_follower

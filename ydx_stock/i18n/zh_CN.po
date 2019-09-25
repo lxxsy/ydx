@@ -242,7 +242,7 @@ msgstr "如果勾选此项， 某些消息将会产生传递错误。"
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__name
 msgid "Index"
-msgstr "指引"
+msgstr "编号"
 
 #. module: ydx_stock
 #: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
