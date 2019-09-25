@@ -59,6 +59,7 @@ class ResOutsource(models.Model):
             'thickness': self.product_thick,
             'remarks': self.note,
             'product_opento': self.product_opento,
+            'product_speci_type': self.product_speci_type
         })
 
         for line in self.filtered("order_id.commitment_date"):
