@@ -16,11 +16,11 @@ class StockMove(models.Model):
     thickness = fields.Float(string='Finished Thickness')
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
-    product_speci_type = fields.Char(string='¹æ¸ñĞÍºÅ')
+    product_speci_type = fields.Char(string=_("è§„æ ¼å‹å·"))
 
 
     product_opento = fields.Selection([
-        ('left', '×ó¿ªÃÅ'),
-        ('right', 'ÓÒ¿ªÃÅ')
-    ], string="¿ªÏò")
+        ('left', _("å·¦å¼€é—¨")),
+        ('right', _("å³å¼€é—¨"))
+    ], string=_("å¼€å‘"))
     picking_type_code = fields.Selection(related='picking_id.picking_type_code',readonly=True)
