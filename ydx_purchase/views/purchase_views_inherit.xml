@@ -16,7 +16,7 @@
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
                 <button type="object"  name="action_view_contract"
                     class="oe_stat_button"
-                    icon="fa-pencil-square-o" >
+                    icon="fa-pencil-square-o" invisible="1">
                     <field name="purchase_contract_count" widget="statinfo" string="Purchase Contract Count"/>
                     <field name='purchase_contract_ids' invisible="1"/>
                 </button>
