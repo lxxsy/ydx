@@ -570,19 +570,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__product_length
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_requisition_line__length
 msgid "Finished Length"
-msgstr "成品长度"
+msgstr "产品长度"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__thickness
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_requisition_line__thickness
 msgid "Finished Thickness"
-msgstr "成品厚度"
+msgstr "产品厚度"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_order_line__width
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_requisition_line__width
 msgid "Finished Width"
-msgstr "成品宽度"
+msgstr "产品宽度"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract__fiscal_position_id

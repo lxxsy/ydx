@@ -6,6 +6,9 @@
         <field name="inherit_id" ref="stock.view_picking_form" />
         <field eval="12" name="priority"/>
         <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page[@name='operations']/field/tree/field[@name='product_id']" position="after">
+                <field name="product_speci_type"/>
+            </xpath>
             <xpath expr="//form/sheet/notebook/page[@name='operations']/field/tree/field[@name='product_uom']" position="after">
                 <field name="remarks"/>
             </xpath>

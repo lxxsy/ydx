@@ -40,7 +40,7 @@ msgstr "活动状态"
 #. module: ydx_stock
 #: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
 msgid "All Production Parts"
-msgstr "所有生产部件"
+msgstr "生产部件"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__message_attachment_count
@@ -167,19 +167,19 @@ msgstr "完成"
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move__length
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__length
 msgid "Finished Length"
-msgstr "成品长度"
+msgstr "产品长度"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move__thickness
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__thickness
 msgid "Finished Thickness"
-msgstr "成品厚度"
+msgstr "产品厚度"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move__width
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_move_line__width
 msgid "Finished Width"
-msgstr "成品宽度"
+msgstr "产品宽度"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__flat_door
@@ -448,7 +448,7 @@ msgstr "产品"
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_length
 msgid "Product Length"
-msgstr "成品长度"
+msgstr "产品长度"
 
 #. module: ydx_stock
 #: model:ir.model,name:ydx_stock.model_stock_move_line
@@ -463,7 +463,7 @@ msgstr "产品厚度"
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_width
 msgid "Product Width"
-msgstr "成品宽度"
+msgstr "产品宽度"
 
 #. module: ydx_stock
 #: model:ir.model,name:ydx_stock.model_stock_production_part
@@ -546,7 +546,7 @@ msgstr "推拉门"
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__product_speci_type
 msgid "Specification"
-msgstr "规格"
+msgstr "规格型号"
 
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_sub_sale_order__state
@@ -711,3 +711,6 @@ msgstr "开向"
 
 msgid"Incoming Type"
 msgstr"收货类型"
+
+msgid"Purchase Order"
+msgstr"采购订单"

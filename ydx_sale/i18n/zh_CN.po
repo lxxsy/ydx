@@ -2759,3 +2759,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ydx_sale.sale_order_form_view_inherit
 msgid "附件上传"
 msgstr ""
+
+msgid "Metal Package Number"
+msgstr "五金包裹数量"
+
+msgid "Material"
+msgstr "物料材质"

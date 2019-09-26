@@ -18,7 +18,7 @@ class ResOutsource(models.Model):
     product_uom_qty = fields.Float(string='Ordered Quantity', digits=dp.get_precision('Product Unit of Measure'), required=True, default=1.0)
     product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
     product_speci_type= fields.Char(string='Specification')
-    material = fields.Char(string="Material")
+    material = fields.Char(string="ŒÔ¡œ≤ƒ÷ ")
     cabinet_no = fields.Char(string='Cabinet Number')
     color = fields.Char(string='Color')
     product_height = fields.Float(string='Product Height', default=0.0)
