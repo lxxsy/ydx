@@ -660,11 +660,11 @@
         </field>
     </record>
 
-    <menuitem
-            id="sale_return_menu"
-            name="Sale Return"
-            parent="sale.sale_menu_root"
-            action="action_return_orders"
-            sequence="3"
-    />
+    <!--<menuitem-->
+            <!--id="sale_return_menu"-->
+            <!--name="Sale Return"-->
+            <!--parent="sale.sale_menu_root"-->
+            <!--action="action_return_orders"-->
+            <!--sequence="3"-->
+    <!--/>-->
 </odoo>

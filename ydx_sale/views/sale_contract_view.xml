@@ -140,8 +140,11 @@
         </field>
     </record>
 
-    <menuitem id="menu_sale_contract_management" name="Sale Contract"
-            parent="sale.sale_order_menu"
-            action="ydx_sale.sale_contract_management_view" sequence="35"/>
+    <!--<menuitem id="menu_sale_contract_management" name="Sale Contract"-->
+            <!--parent="sale.sale_order_menu"-->
+            <!--action="ydx_sale.sale_contract_management_view" sequence="35"-->
+            <!---->
+    <!--/>-->
+
 
 </odoo>
