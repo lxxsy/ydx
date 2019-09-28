@@ -239,6 +239,7 @@ class PurchaseOrderLine(models.Model):
         ('right', 'Right')
     ], string="Product Opento")
     purchase_type = fields.Selection(related='order_id.purchase_type')
+    product_speci_type = fields.Char(string=_('规格型号'))
 
     def _merge_in_existing_line(self, product_id, product_qty, product_uom, location_id, name, origin, values):
         if product_id.fuction_type == 'outsource':

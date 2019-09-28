@@ -8,4 +8,4 @@ class ProductTemplate(models.Model):
                                    ('fmetals',  'Function Metals'),
                                    ('outsource', 'Outsource'),
                                    ('parts', 'Production Parts'),
-                                     ('finished','Finished'),])
+                                     ('finished','³ÉÆ·'),])

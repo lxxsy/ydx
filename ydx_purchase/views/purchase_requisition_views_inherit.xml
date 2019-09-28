@@ -9,6 +9,7 @@
                 <field name="cabinet_no"/>
             </xpath>
             <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='product_id']" position="after">
+                <field name="product_speci_type"/>
                 <field name="material"/>
                 <field name="product_colour"/>
                 <field name="length"/>

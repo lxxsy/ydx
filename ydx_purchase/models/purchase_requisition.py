@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import api, fields, models,_
 
 
 class YdxPurchaseRequisitionLine(models.Model):
@@ -13,10 +13,10 @@ class YdxPurchaseRequisitionLine(models.Model):
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
     product_opento = fields.Selection([
-        ('left', 'Left'),
-        ('right', 'Right')
-    ], string="Product Opento")
-
+        ('left', _('左开门')),
+        ('right', _('右开门'))
+    ], string=_('开向'))
+    product_speci_type = fields.Char(string=_('规格型号'))
 
     @api.multi
     def _prepare_purchase_order_line(self, name, product_qty=0.0, price_unit=0.0, taxes_ids=False):
