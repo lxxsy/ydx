@@ -64,8 +64,8 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//button[@name='action_confirm']" position="after">
-                <button name="action_create_sale_contract" string="Create Sale Contract" type="object" class="oe_highlight" context="{'no_create':True}" />
-                <button name="action_create_sale_return" string="Create Sale Return" type="object" class="oe_highlight" context="{'no_create':True}" />
+                <button name="action_create_sale_contract" string="Create Sale Contract" type="object" class="oe_highlight" context="{'no_create':True}" invisible="1"/>
+                <button name="action_create_sale_return" string="Create Sale Return" type="object" class="oe_highlight" context="{'no_create':True}" invisible="1"/>
             </xpath>
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
                 <button type="object"  name="action_view_contract"

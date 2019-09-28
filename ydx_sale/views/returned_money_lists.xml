@@ -26,11 +26,11 @@
             </field>
         </record>
 
-        <menuitem
-                id="sale_returned_money_menu"
-                name="Sale Return Order"
-                parent="ps_account_receivable.menu_sales_receivable"
-                action="action_sale_returned_accout_invoice"
-        />
+        <!--<menuitem-->
+                <!--id="sale_returned_money_menu"-->
+                <!--name="Sale Return Order"-->
+                <!--parent="ps_account_receivable.menu_sales_receivable"-->
+                <!--action="action_sale_returned_accout_invoice"-->
+        <!--/>-->
     </data>
 </odoo>

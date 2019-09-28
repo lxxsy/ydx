@@ -13,10 +13,10 @@ class YdxPurchaseRequisitionLine(models.Model):
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
     product_opento = fields.Selection([
-        ('left', _('×ó¿ªÃÅ')),
-        ('right', _('ÓÒ¿ªÃÅ'))
-    ], string=_('¿ªÏò'))
-    product_speci_type = fields.Char(string=_('¹æ¸ñĞÍºÅ'))
+        ('left', _('å·¦å¼€é—¨')),
+        ('right', _('å³å¼€é—¨'))
+    ], string=_('å¼€å‘'))
+    product_speci_type = fields.Char(string=_('è§„æ ¼å‹å·'))
 
     @api.multi
     def _prepare_purchase_order_line(self, name, product_qty=0.0, price_unit=0.0, taxes_ids=False):
