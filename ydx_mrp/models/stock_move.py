@@ -4,13 +4,13 @@ from odoo import models, fields
 class YdxStockMove(models.Model):
 	_inherit = "stock.move"
 
-	order_number = fields.Char(strint="order number")
-	the_child_orders = fields.Char(int="the child orders")
+	Order_number = fields.Char(strint="Order_number")
+	The_child_orders = fields.Char(int="The_child_orders")
 	Base_material = fields.Char(string="Base material")
-	plane_materiel = fields.Char(string="plane materiel")
-	thickness = fields.Float(string="thickness")
-	length = fields.Float(string="Length")
-	breadth = fields.Float(string="breadth")
+	Plane_materiel = fields.Char(string="Plane materiel")
+	Thickness = fields.Float(string="Thickness")
+	Length = fields.Float(string="Length")
+	Breadth = fields.Float(string="Breadth")
 
 
 
