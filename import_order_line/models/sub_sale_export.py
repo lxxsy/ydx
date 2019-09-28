@@ -20,6 +20,12 @@ class ExportSubSaleWizard(models.Model):
             value = getattr(tmp_object, attr)
             tmp_object = value
 
+        if attrstring == "product_opento":
+            if value == 'left':
+                value = "左开门"
+            elif value == 'right':
+                value = "右开门"
+
         return value
 
     def _write_data(self, sheet, header_row, data_row, map, data):

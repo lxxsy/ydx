@@ -20,6 +20,11 @@ class ExportPurchaseLineWizard(models.Model):
             value = getattr(tmp_object, attr)
             if isinstance(value, datetime.datetime):
                 value = value.strftime("%Y-%m-%d %H:%M:%S")
+            if attr == "product_opento":
+                if value == 'left':
+                    value = "左开门"
+                elif value == 'right':
+                    value = "右开门"
             tmp_object = value
 
         return value

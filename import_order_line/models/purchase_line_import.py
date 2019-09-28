@@ -70,6 +70,13 @@ class ImportPurchaseLineWizard(models.TransientModel):
                     attrsting = m.get("attribute")
                     is_domain= self._get_domain(attrsting, m_value, product_domain, product_uom_domain, product_taxes_domain)
                     if not is_domain:
+                        if attrsting == "product_opento":
+                            if (m_value == "左开门") or (m_value == "Left"):
+                                m_value = "left"
+                            elif (m_value == "右开门") or (m_value == "Right"):
+                                m_value = "right"
+                            else:
+                                errors.append(u'{sheet}:第{rowvalue}行的开向值，系统中不存在!'.format(sheet=sheet.name, rowvalue=row+1))
                         item[attrsting] = m_value
 
             if product_domain:
