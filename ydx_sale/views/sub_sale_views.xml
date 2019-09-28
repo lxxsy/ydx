@@ -67,7 +67,7 @@
         <field name="name">sub.sale.order.form</field>
         <field name="model">sub.sale.order</field>
         <field name="arch" type="xml">
-            <form string="Sub Sales Order" class="o_sale_order">
+            <form string="Sub Sales Order" class="o_sale_order" duplicate="false" >
             <header>
 
             </header>
