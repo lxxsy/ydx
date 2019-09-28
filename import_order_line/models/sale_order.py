@@ -31,3 +31,4 @@ class SaleOrder(models.Model):
         self.env.context = context
         wizard_id = self.env['import.sale.order.line.wizard'].create(dict(master_id=self.id))
         return wizard_id.wizard_view()
+

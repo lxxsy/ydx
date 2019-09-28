@@ -21,16 +21,21 @@
     'version': '0.2',
     #依赖模组
     # any module necessary for this one to work correctly
-    'depends': ['sale','purchase','stock'],
+    'depends': ['sale','purchase','stock', 'ydx_sale'],
 
     # always loaded
     'data': [
+        'security/ir.model.access.csv',
         'views/sale_view.xml',
         'wizard/import_sale_order_line_wizard_view.xml',
         'views/purchase_view.xml',
+        'views/export_sub_sale_view.xml',
+        'views/import_sub_sale_view.xml',
         'wizard/import_purchase_order_line_wizard_view.xml',
         'views/stock_adjust_view.xml',
         'wizard/import_stock_adjust_order_line_wizard_view.xml',
+        'views/export_purchase_line_view.xml',
+        'views/import_purchase_line_view.xml',
     ],
 
     # only loaded in demonstration mode
