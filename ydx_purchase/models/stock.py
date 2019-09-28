@@ -57,6 +57,7 @@ class YdxStockMove(models.Model):
         procurement_values['thickness'] = self.thickness
         procurement_values['remarks'] = self.remarks
         procurement_values['product_opento'] = self.product_opento
+        procurement_values['product_speci_type'] = self.product_speci_type
         return procurement_values
 
 

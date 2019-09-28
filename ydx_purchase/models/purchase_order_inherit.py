@@ -294,6 +294,7 @@ class PurchaseOrderLine(models.Model):
             'band_number': self.band_number,
             'remarks': self.remarks,
             'product_opento': self.product_opento,
+            'product_speci_type': self.product_speci_type
         }
         diff_quantity = self.product_qty - qty
         if float_compare(diff_quantity, 0.0,  precision_rounding=self.product_uom.rounding) > 0:

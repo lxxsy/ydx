@@ -30,4 +30,5 @@ class YdxPurchaseRequisitionLine(models.Model):
         res['band_number'] = self.band_number
         res['remarks'] = self.remarks
         res['product_opento'] = self.product_opento
+        res['product_speci_type'] = self.product_speci_type
         return res
