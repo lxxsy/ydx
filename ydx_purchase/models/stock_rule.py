@@ -23,7 +23,10 @@ class StockRule(models.Model):
     def _prepare_purchase_order(self, product_id, product_qty, product_uom, origin, values, partner):
         purchase_order = super(StockRule, self)._prepare_purchase_order(product_id, product_qty, product_uom, origin, values, partner)
         purchase_order['sale_order_id'] = values.get('sale_order_id', False)
-        purchase_order['purchase_type'] = 'outsource'
+        if origin.startswith('OP/'):
+            purchase_order['purchase_type'] = 'purchase'
+        else:
+            purchase_order['purchase_type'] = 'outsource'
         return purchase_order
 
     def _get_custom_move_fields(self):
