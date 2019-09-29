@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_factory_no_form" model="ir.ui.view">
+        <field name="name">sale.factory.no.form</field>
+        <field name="model">sale.factory.no</field>
+        <field name="arch" type="xml">
+            <form string="Sale Factory No">
+                <sheet>
+                    <div class="oe_title">
+                        <span class="o_form_label">Sale Factory No</span>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="order_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_factory_no_tree" model="ir.ui.view">
+        <field name="name">sale.factory.no.tree</field>
+        <field name="model">sale.factory.no</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="order_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_factory_no_view" model="ir.actions.act_window">
+        <field name="name">sale.factory.no</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.factory.no</field>
+         <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new sale contract
+          </p><p>
+            You must define a sale contract for everything you purchase,
+            whether it's a physical product, a consumable or services.
+          </p>
+        </field>
+    </record>
+
+    <!--<menuitem id="menu_sale_contract_management" name="Sale Contract"-->
+            <!--parent="sale.sale_order_menu"-->
+            <!--action="ydx_sale.sale_contract_management_view" sequence="35"-->
+            <!---->
+    <!--/>-->
+
+
+</odoo>

@@ -32,7 +32,7 @@ class SaleOrder(models.Model):
     outsource_line = fields.One2many('res.outsource', 'order_id', string='Outsource Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=False, auto_join=True)
     production_part_line = fields.One2many('res.production.part', 'order_id', string='Production Part Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=False, auto_join=True)
 
-    factory_order_no = fields.Char(string='Factory Order No.', required=True)
+    factory_order_no = fields.One2many('sale.factory.no', 'order_id', string='Sale Factory No', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=False)
     upload_sale_date = fields.Datetime(string='Upload Sale Date')
     quotations_date = fields.Datetime(string='Quotations Date')
     pay_date = fields.Datetime(string='Pay Date')
@@ -70,6 +70,10 @@ class SaleOrder(models.Model):
                     order.state = 'to approve'
             else:
                 order.action_confirm()
+            if not order.factory_order_no:
+                self.env['sale.factory.no'].create({
+                    "order_id": order.id
+                })
         return True
 
     def _get_sub_sale_order_values(self, sub_sale_order):

@@ -97,7 +97,7 @@
                  <field name='material_use' />
             </xpath>
              <xpath expr="//field[@name='payment_term_id']" position="after">
-                 <field name='factory_order_no' />
+                 <field name='factory_order_no' widget="many2many_tags" readonly="1"/>
                  <field name='upload_sale_date' />
                  <field name='quotations_date' />
                  <field name='pay_date' />
