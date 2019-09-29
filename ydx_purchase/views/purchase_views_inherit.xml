@@ -10,7 +10,7 @@
                 <field name="product_template_id"/>
             </xpath>
             <xpath expr="//button[@name='action_view_invoice']" position="after">
-                <button name="action_create_procurement_contract" string="Create Procurement Contract" type="object" class="oe_highlight" context="{'no_create':True}" />
+                <button name="action_create_procurement_contract" string="Create Procurement Contract" type="object" class="oe_highlight" context="{'no_create':True}" invisible="1"/>
                 <button name="action_create_return" string="Create Return" type="object" class="oe_highlight" context="{'no_create':True}" attrs="{'invisible': [('state', 'not in', ['to approve','purchase','done'])]}"/>
             </xpath>
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
