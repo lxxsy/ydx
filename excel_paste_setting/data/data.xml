@@ -25,7 +25,6 @@
                 ('cabinet_no','订单柜号'),
                 ('material','材质'),
                 ('name','说明'),
-                ('price_subtotal','小计'),
                 ('price_tax','税率'),
                 ('price_unit','单价'),
                 ('product_colour','颜色'),
@@ -36,7 +35,6 @@
                 ('thickness','成品厚度'),
                 ('width','成品宽度'),
                 ('date_planned','计划日期'),
-                ('account_analytic_id','分析账户')
                 ]"/>
         </function>
 

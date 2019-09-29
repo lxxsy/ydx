@@ -3,6 +3,8 @@ from odoo import fields, models, api
 from odoo.exceptions import UserError
 import base64
 import xlrd
+import time
+
 from ydxaddons.import_order_line.models.purchase_line_base import PURCHASE_SHEET_NAME,PURCHASE_HEADER_ROW,PURCHASE_DATA_BEGIN_ROW,\
      PURCHASE_MAP
 
@@ -46,6 +48,17 @@ class ImportPurchaseLineWizard(models.TransientModel):
     def _seache_by_domain(self, model_name, domain):
         return self.env[model_name].search(domain, limit=1)
 
+    def _is_valid_date(self, strdate):
+        '''判断是否是一个有效的日期字符串'''
+        try:
+            if ":" in strdate:
+                time.strptime(strdate, "%Y-%m-%d %H:%M:%S")
+            else:
+                time.strptime(strdate, "%Y-%m-%d")
+            return True
+        except:
+            return False
+
     def _get_datas(self, sheet, header_row, data_row, data_map, errors):
         tmp_map = []
         for col in range(0, sheet.ncols):
@@ -68,6 +81,9 @@ class ImportPurchaseLineWizard(models.TransientModel):
                 if coln < sheet.ncols:
                     m_value = sheet.cell_value(row, coln)
                     attrsting = m.get("attribute")
+                    if attrsting == "date_planned" and not self._is_valid_date(m_value):
+                        errors.append(u'{sheet}:第{rowvalue}行的计划日期，为空或格式不正确!正确格式：2019-09-09 10:10:10 '.format(sheet=sheet.name, rowvalue=row+1))
+
                     is_domain= self._get_domain(attrsting, m_value, product_domain, product_uom_domain, product_taxes_domain)
                     if not is_domain:
                         if attrsting == "product_opento":

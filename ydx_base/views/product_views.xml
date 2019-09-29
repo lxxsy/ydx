@@ -31,7 +31,8 @@
                 <filter string="连接五金" name="cmetals" domain="[('fuction_type','=','cmetals')]"/>
                 <filter string="功能五金" name="fmetals" domain="[('fuction_type','=','fmetals')]"/>
                 <filter string="生产部件" name="parts" domain="[('fuction_type','=','parts')]"/>
-                <filter string="委外加工" name="finished" domain="[('fuction_type','=','finished')]"/>
+                <filter string="委外加工" name="outsource" domain="[('fuction_type','=','outsource')]"/>
+                <filter string="成品" name="finished" domain="[('fuction_type','=','finished')]"/>
                 <separator/>
             </xpath>
         </field>

@@ -7,12 +7,14 @@ PURCHASE_MAP = (
     {
       "col": 0,
       "attribute": 'cabinet_no',
-      "header": '订单柜号'
+      "header": '订单柜号',
+      "required": 0,
     },
     {
       "col": 1,
       "attribute": 'product_id.name',
-      "header": '产品'
+      "header": '产品',
+      "required": 0,
     },
     {
       "col": 2,

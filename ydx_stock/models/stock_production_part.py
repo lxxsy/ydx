@@ -8,7 +8,7 @@ from odoo.addons import decimal_precision as dp
 class StockProductionPart(models.Model):
     _name = 'stock.production.part'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
-    _description = "Production Part"
+    _description = "Stock Production Part"
     _order = 'id desc'
 
     name = fields.Text(string='Index', required=True, index=True, copy=False, default='New')
