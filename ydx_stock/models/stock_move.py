@@ -18,9 +18,12 @@ class StockMove(models.Model):
     remarks = fields.Text(string="Remarks")
     product_speci_type = fields.Char(string=_("规格型号"))
 
-
     product_opento = fields.Selection([
-        ('left', _("左开门")),
-        ('right', _("右开门"))
+        ('left', _("左开")),
+        ('right', _("右开")),
+        ('twoopen', _('对开')),
+        ('upward', _('上翻')),
+        ('down', _('下翻')),
+        ('noopen', _('不开')),
     ], string=_("开向"))
     picking_type_code = fields.Selection(related='picking_id.picking_type_code',readonly=True)

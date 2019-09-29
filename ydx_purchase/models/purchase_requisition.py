@@ -13,8 +13,12 @@ class YdxPurchaseRequisitionLine(models.Model):
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
     product_opento = fields.Selection([
-        ('left','左开门'),
-        ('right', '右开门')
+        ('left','左开'),
+        ('right', '右开'),
+        ('twoopen', _('对开')),
+        ('upward', _('上翻')),
+        ('down', _('下翻')),
+        ('noopen', _('不开')),
     ], string='开向')
     product_speci_type = fields.Char(string=_('规格型号'))
 

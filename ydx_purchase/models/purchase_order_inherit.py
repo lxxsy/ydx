@@ -236,7 +236,11 @@ class PurchaseOrderLine(models.Model):
     remarks = fields.Text(string="Remarks")
     product_opento = fields.Selection([
         ('left', 'Left'),
-        ('right', 'Right')
+        ('right', 'Right'),
+        ('twoopen', _('对开')),
+        ('upward', _('上翻')),
+        ('down', _('下翻')),
+        ('noopen', _('不开')),
     ], string="Product Opento")
     purchase_type = fields.Selection(related='order_id.purchase_type')
     product_speci_type = fields.Char(string=_('规格型号'))

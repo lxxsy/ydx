@@ -22,9 +22,17 @@ class ExportPurchaseLineWizard(models.Model):
                 value = value.strftime("%Y-%m-%d %H:%M:%S")
             if attr == "product_opento":
                 if value == 'left':
-                    value = "左开门"
+                    value = "左开"
                 elif value == 'right':
-                    value = "右开门"
+                    value = "右开"
+                elif value == 'twoopen':
+                    value = "对开"
+                elif value == 'upward':
+                    value = "上翻"
+                elif value == 'down':
+                    value = "下翻"
+                elif value == 'noopen':
+                    value = "不开"
             tmp_object = value
 
         return value

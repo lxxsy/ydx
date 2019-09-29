@@ -70,10 +70,16 @@ class ImportSubSaleWizard(models.TransientModel):
                     is_domain= self._get_domain(attrsting, m_value, product_domain, product_uom_domain)
                     if not is_domain:
                         if attrsting == "product_opento":
-                            if (m_value == "左开门") or (m_value == "Left"):
+                            if (m_value == "左开") or (m_value == "Left"):
                                 m_value = "left"
-                            elif (m_value == "右开门") or (m_value == "Right"):
+                            elif (m_value == "右开") or (m_value == "Right"):
                                 m_value = "right"
+                            elif m_value == "对开":
+                                m_value = "twoopen"
+                            elif m_value == "上翻":
+                                m_value = "upward"
+                            elif m_value == "不开":
+                                m_value = "noopen"
                             else:
                                 errors.append(u'{sheet}:第{rowvalue}行的开向值，系统中不存在!'.format(sheet=sheet.name, rowvalue=row+1))
 

@@ -26,7 +26,11 @@ class ResOutsource(models.Model):
     product_thick = fields.Float(string='Product Thick', default=0.0)
     product_opento = fields.Selection([
         ('left', 'Left'),
-        ('right', 'Right')
+        ('right', 'Right'),
+        ('twoopen', _('对开')),
+        ('upward', _('上翻')),
+        ('down', _('下翻')),
+        ('noopen', _('不开')),
     ], string="Product Opento")
     note = fields.Text('Description')
 

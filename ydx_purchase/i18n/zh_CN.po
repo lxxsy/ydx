@@ -764,7 +764,7 @@ msgstr "逾期活动"
 #. module: ydx_purchase
 #: selection:purchase.order.line,product_opento:0
 msgid "Left"
-msgstr "左开门"
+msgstr "左开"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_purchase_procurement_contract__company_legal_person
@@ -1354,7 +1354,7 @@ msgstr "退货单发票"
 #. module: ydx_purchase
 #: selection:purchase.order.line,product_opento:0
 msgid "Right"
-msgstr "右开门"
+msgstr "右开"
 
 #. module: ydx_purchase
 #: model:ir.model.fields,field_description:ydx_purchase.field_stock_move__sale_order_id

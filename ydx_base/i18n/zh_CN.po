@@ -261,7 +261,7 @@ msgstr "最后更新时间"
 #. module: ydx_base
 #: selection:res.outsource,product_opento:0
 msgid "Left"
-msgstr "左开门"
+msgstr "左开"
 
 #. module: ydx_base
 #: model:ir.model.fields,field_description:ydx_base.field_res_company__legal_person
@@ -495,7 +495,7 @@ msgstr "责任用户"
 #. module: ydx_base
 #: selection:res.outsource,product_opento:0
 msgid "Right"
-msgstr "右开门"
+msgstr "右开"
 
 #. module: ydx_base
 #: model:ir.model,name:ydx_base.model_sale_order
