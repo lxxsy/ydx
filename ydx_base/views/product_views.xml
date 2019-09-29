@@ -21,4 +21,19 @@
             </xpath>
         </field>
     </record>
+
+    <record id="ydx_product_template_search_view" model="ir.ui.view">
+        <field name="name">product.template.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='services']" position="before">
+                <filter string="连接五金" name="cmetals" domain="[('fuction_type','=','cmetals')]"/>
+                <filter string="功能五金" name="fmetals" domain="[('fuction_type','=','fmetals')]"/>
+                <filter string="生产部件" name="parts" domain="[('fuction_type','=','parts')]"/>
+                <filter string="委外加工" name="finished" domain="[('fuction_type','=','finished')]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
 </odoo>
