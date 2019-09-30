@@ -314,3 +314,17 @@ class PurchaseOrderLine(models.Model):
                 template['product_uom_qty'] = self.product_uom._compute_quantity(diff_quantity, self.product_uom, rounding_method='HALF-UP')
             res.append(template)
         return res
+    
+    @api.model
+    def create(self, values):
+        if not values.get("name"):
+            values["name"] = values.get("product_id")
+        return super(PurchaseOrderLine, self).create(values)
+    
+    @api.multi
+    def write(self, values):
+        for value in values:
+            if "name" in value and not value['name']:
+                value["name"] = value.get("product_id")
+        return super(PurchaseOrderLine, self).write(values)
+                

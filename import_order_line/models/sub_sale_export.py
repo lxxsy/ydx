@@ -7,6 +7,13 @@ from ydxaddons.import_order_line.models.sub_sale_base import OUTSOURCE_SHEET_NAM
      OUTSOURCE_MAP,FMETAL_SHEET_NAME,FMETAL_HEADER_ROW,FMETAL_DATA_BEGIN_ROW,FMETAL_MAP,PRODUCTION_SHEET_NAME,PRODUCTION_HEADER_ROW,\
     PRODUCTION_DATA_BEGIN_ROW,PRODUCTION_MAP,CMETAL_SHEET_NAME,CMETAL_HEADER_ROW,CMETAL_DATA_BEGIN_ROW,CMETAL_MAP
 
+style = xlwt.XFStyle()
+pattern = xlwt.Pattern()
+pattern.pattern = xlwt.Pattern.SOLID_PATTERN
+pattern.pattern_fore_colour = xlwt.Style.colour_map['yellow'] #设置单元格背景色为黄色
+style.pattern = pattern
+
+
 class ExportSubSaleWizard(models.Model):
     _name = 'export.sub.sale.wizard'
 
@@ -19,6 +26,9 @@ class ExportSubSaleWizard(models.Model):
         for attr in attrlist:
             value = getattr(tmp_object, attr)
             tmp_object = value
+
+        if not value:
+            return ""
 
         if attrstring == "product_opento":
             if value == 'left':
@@ -37,7 +47,10 @@ class ExportSubSaleWizard(models.Model):
 
     def _write_data(self, sheet, header_row, data_row, map, data):
         for m in map:
-            sheet.write(header_row, m.get('col'), m.get('header'))
+            if m.get("required"):
+                sheet.write(header_row, m.get('col'), m.get('header'), style=style)
+            else:
+                sheet.write(header_row, m.get('col'), m.get('header'))
 
         for row in range(data_row, len(data)+data_row):
             d = data[row-data_row]

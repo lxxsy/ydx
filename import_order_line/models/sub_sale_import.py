@@ -16,9 +16,9 @@ class ImportSubSaleWizard(models.TransientModel):
     excel_file = fields.Binary(u'Excel文件', filters='*.xls')
     filename = fields.Char(u'filename')
     method = fields.Selection([
-        ('import', 'Import'),
-        ('update', 'Update')
-    ], string="Import Method", default='import', required=True)
+        ('import', '导入数据'),
+        ('update', '更新数据')
+    ], string="操作方式", default='import', required=True)
 
     @api.model
     def default_get(self, fields):
@@ -35,6 +35,8 @@ class ImportSubSaleWizard(models.TransientModel):
         attrlist = attrstring.split('.')
         is_domain = False
         if len(attrlist) == 2:
+            if not value:
+                return is_domain
             is_domain = True
             if attrlist[0] == "product_id":
                 product_domain.append((attrlist[1], '=', value))
@@ -67,6 +69,22 @@ class ImportSubSaleWizard(models.TransientModel):
                 if coln < sheet.ncols:
                     m_value = sheet.cell_value(row, coln)
                     attrsting = m.get("attribute")
+                    attrtype = m.get("type")
+                    try:
+                        if attrtype == 'int':
+                            if m_value:
+                                m_value = int(m_value)
+                            else:
+                                m_value = 0
+                        elif attrtype == 'float':
+                            if m_value:
+                                m_value = float(m_value)
+                            else:
+                                m_value = 0.0
+                    except:
+                        errors.append(u'{sheet}:第{rowvalue}行的[{attr}]数据类型不正确，应该为{type}!'.format(
+                            sheet=sheet.name, rowvalue=row+1, attr=m.get('header'), type=attrtype))
+
                     is_domain= self._get_domain(attrsting, m_value, product_domain, product_uom_domain)
                     if not is_domain:
                         if attrsting == "product_opento":

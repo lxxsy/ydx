@@ -9,81 +9,104 @@ PURCHASE_MAP = (
       "attribute": 'cabinet_no',
       "header": '订单柜号',
       "required": 0,
+      "type": "string"
     },
     {
       "col": 1,
       "attribute": 'product_id.name',
       "header": '产品',
-      "required": 0,
+      "required": 1,
+      "type": "string"
     },
     {
       "col": 2,
-      "attribute": 'name',
-      "header": '说明'
+      "attribute": 'date_planned',
+      "header": '计划日期',
+      "required": 1,
+      "type": "string"
     },
     {
       "col": 3,
-      "attribute": 'date_planned',
-      "header": '计划日期'
+      "attribute": 'material',
+      "header": '材质',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 4,
-      "attribute": 'material',
-      "header": '材质'
+      "attribute": 'product_colour',
+      "header": '颜色',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 5,
-      "attribute": 'product_colour',
-      "header": '颜色'
+      "attribute": 'product_length',
+      "header": '成品长度',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 6,
-      "attribute": 'product_length',
-      "header": '成品长度'
+      "attribute": 'width',
+      "header": '成品宽度',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 7,
-      "attribute": 'width',
-      "header": '成品宽度'
+      "attribute": 'thickness',
+      "header": '成品厚度',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 8,
-      "attribute": 'thickness',
-      "header": '成品厚度'
+      "attribute": 'band_number',
+      "header": '封边信息',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 9,
-      "attribute": 'band_number',
-      "header": '封边信息'
+      "attribute": 'product_qty',
+      "header": '数量',
+      "required": 1,
+      "type": "float"
     },
     {
       "col": 10,
-      "attribute": 'product_qty',
-      "header": '数量'
+      "attribute": 'product_opento',
+      "header": '开向',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 11,
-      "attribute": 'product_opento',
-      "header": '开向'
+      "attribute": 'remarks',
+      "header": '备注',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 12,
-      "attribute": 'remarks',
-      "header": '备注'
+      "attribute": 'price_unit',
+      "header": '单价',
+      "required": 1,
+      "type": "float"
     },
     {
       "col": 13,
-      "attribute": 'price_unit',
-      "header": '单价'
+      "attribute": 'taxes_id.name',
+      "header": '税率',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 14,
-      "attribute": 'taxes_id.name',
-      "header": '税率'
-    },
-    {
-      "col": 15,
       "attribute": 'id',
-      "header": '系统编号'
+      "header": '系统编号',
+      "required": 0,
+      "type": "int"
     },
 )

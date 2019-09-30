@@ -7,6 +7,13 @@ from io import BytesIO
 from ydxaddons.import_order_line.models.purchase_line_base import PURCHASE_SHEET_NAME,PURCHASE_HEADER_ROW,PURCHASE_DATA_BEGIN_ROW,\
      PURCHASE_MAP
 
+style = xlwt.XFStyle()
+pattern = xlwt.Pattern()
+pattern.pattern = xlwt.Pattern.SOLID_PATTERN
+pattern.pattern_fore_colour = xlwt.Style.colour_map['yellow'] #设置单元格背景色为黄色
+style.pattern = pattern
+
+
 class ExportPurchaseLineWizard(models.Model):
     _name = 'export.purchase.line.wizard'
 
@@ -18,28 +25,34 @@ class ExportPurchaseLineWizard(models.Model):
         tmp_object = object
         for attr in attrlist:
             value = getattr(tmp_object, attr)
-            if isinstance(value, datetime.datetime):
-                value = value.strftime("%Y-%m-%d %H:%M:%S")
-            if attr == "product_opento":
-                if value == 'left':
-                    value = "左开"
-                elif value == 'right':
-                    value = "右开"
-                elif value == 'twoopen':
-                    value = "对开"
-                elif value == 'upward':
-                    value = "上翻"
-                elif value == 'down':
-                    value = "下翻"
-                elif value == 'noopen':
-                    value = "不开"
             tmp_object = value
+
+        if not value:
+            return ""
+        if isinstance(value, datetime.datetime):
+            value = value.strftime("%Y-%m-%d %H:%M:%S")
+        if attr == "product_opento":
+            if value == 'left':
+                value = "左开"
+            elif value == 'right':
+                value = "右开"
+            elif value == 'twoopen':
+                value = "对开"
+            elif value == 'upward':
+                value = "上翻"
+            elif value == 'down':
+                value = "下翻"
+            elif value == 'noopen':
+                value = "不开"
 
         return value
 
     def _write_data(self, sheet, header_row, data_row, map, data):
         for m in map:
-            sheet.write(header_row, m.get('col'), m.get('header'))
+            if m.get("required"):
+                sheet.write(header_row, m.get('col'), m.get('header'), style=style)
+            else:
+                sheet.write(header_row, m.get('col'), m.get('header'))
 
         for row in range(data_row, len(data)+data_row):
             d = data[row-data_row]
@@ -48,6 +61,8 @@ class ExportPurchaseLineWizard(models.Model):
                 if not attr:
                     continue
                 value = self._get_attribute(attr,d)
+                if attr == "taxes_id.name" and not value:
+                    value = ''
                 sheet.write(row, m.get('col'), value)
 
     def generate_excel(self, purchase_order_id):

@@ -7,52 +7,72 @@ OUTSOURCE_MAP = (
     {
       "col": 0,
       "attribute": 'product_id.name',
-      "header": '名称'
+      "header": '名称',
+      "required": 1,
+      "type": "string"
     },
     {
       "col": 1,
       "attribute": 'product_speci_type',
-      "header": '门型'
+      "header": '门型',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 2,
       "attribute": 'color',
-      "header": '颜色'
+      "header": '颜色',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 3,
       "attribute": 'product_thick',
-      "header": '厚'
+      "header": '厚',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 4,
       "attribute": 'product_height',
-      "header": '高'
+      "header": '高',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 5,
       "attribute": 'product_width',
-      "header": '宽'
+      "header": '宽',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 6,
       "attribute": 'product_uom_qty',
-      "header": '数量'
+      "header": '数量',
+      "required": 1,
+      "type": "float"
     },
     {
       "col": 7,
       "attribute": 'product_opento',
-      "header": '开向'
+      "header": '开向',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 8,
       "attribute": 'note',
-      "header": '备注'
+      "header": '备注',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 9,
       "attribute": 'id',
-      "header": '系统编号'
+      "header": '系统编号',
+      "required": 0,
+      "type": "int"
     },
 )
 # 功能五金表信息
@@ -63,32 +83,44 @@ FMETAL_MAP = (
     {
       "col": 1,
       "attribute": 'product_id.name',
-      "header": '名称'
+      "header": '名称',
+      "required": 1,
+      "type": "string"
     },
     {
       "col": 2,
       "attribute": 'product_speci_type',
-      "header": '型号'
+      "header": '型号',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 3,
       "attribute": 'product_uom.name',
-      "header": '单位'
+      "header": '单位',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 4,
       "attribute": 'product_uom_qty',
-      "header": '数量'
+      "header": '数量',
+      "required": 1,
+      "type": "float"
     },
     {
       "col": 5,
       "attribute": 'note',
-      "header": '备注'
+      "header": '备注',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 6,
       "attribute": 'id',
-      "header": '系统编号'
+      "header": '系统编号',
+      "required": 0,
+      "type": "int"
     },
 )
 
@@ -100,77 +132,107 @@ PRODUCTION_MAP = (
     {
       "col": 0,
       "attribute": 'cabinet_no',
-      "header": '订单柜号'
+      "header": '订单柜号',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 1,
       "attribute": 'product_id.name',
-      "header": '构件名称'
+      "header": '构件名称',
+      "required": 1,
+      "type": "string"
     },
     {
       "col": 2,
       "attribute": 'product_material',
-      "header": '物料材质'
+      "header": '物料材质',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 3,
       "attribute": 'product_color',
-      "header": '构件颜色'
+      "header": '构件颜色',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 4,
       "attribute": 'product_length',
-      "header": '成品长'
+      "header": '成品长',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 5,
       "attribute": 'product_width',
-      "header": '成品宽'
+      "header": '成品宽',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 6,
       "attribute": 'product_thick',
-      "header": '成品厚'
+      "header": '成品厚',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 7,
       "attribute": 'material_use',
-      "header": '物料用量'
+      "header": '物料用量',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 8,
       "attribute": 'material_open_length',
-      "header": '开料长'
+      "header": '开料长',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 9,
       "attribute": 'material_open_width',
-      "header": '开料宽'
+      "header": '开料宽',
+      "required": 0,
+      "type": "float"
     },
     {
       "col": 10,
       "attribute": 'product_uom_qty',
-      "header": '数量'
+      "header": '数量',
+      "required": 1,
+      "type": "float"
     },
     {
       "col": 11,
       "attribute": 'band_side',
-      "header": '部件封边方式'
+      "header": '部件封边方式',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 12,
       "attribute": 'barcode',
-      "header": '条形码'
+      "header": '条形码',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 13,
       "attribute": 'note',
-      "header": '备注'
+      "header": '备注',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 14,
       "attribute": 'id',
-      "header": '系统编号'
+      "header": '系统编号',
+      "required": 0,
+      "type": "int"
     },
 )
 
@@ -182,56 +244,78 @@ CMETAL_MAP = (
     {
       "col": 0,
       "attribute": 'cabinet_no',
-      "header": '柜号'
+      "header": '柜号',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 1,
       "attribute": 'product_id.name',
-      "header": '名称'
+      "header": '名称',
+      "required": 1,
+      "type": "string"
     },
     {
       "col": 2,
       "attribute": '',
-      "header": 'ERP编码'
+      "header": 'ERP编码',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 3,
       "attribute": '',
-      "header": '品牌'
+      "header": '品牌',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 4,
       "attribute": '',
-      "header": '颜色'
+      "header": '颜色',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 5,
       "attribute": 'product_speci_type',
-      "header": '规格型号'
+      "header": '规格型号',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 6,
       "attribute": '',
-      "header": '拓展属性'
+      "header": '拓展属性',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 7,
       "attribute": 'product_uom_qty',
-      "header": '数量'
+      "header": '数量',
+      "required": 1,
+      "type": "float"
     },
     {
       "col": 8,
       "attribute": 'product_uom.name',
-      "header": '单位'
+      "header": '单位',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 9,
       "attribute": 'note',
-      "header": '备注'
+      "header": '备注',
+      "required": 0,
+      "type": "string"
     },
     {
       "col": 10,
       "attribute": 'id',
-      "header": '系统编号'
+      "header": '系统编号',
+      "required": 0,
+      "type": "int"
     },
 )
