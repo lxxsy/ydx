@@ -96,6 +96,8 @@ class ImportSubSaleWizard(models.TransientModel):
                                 m_value = "twoopen"
                             elif m_value == "上翻":
                                 m_value = "upward"
+                            elif m_value == "下翻":
+                                m_value = "down"
                             elif m_value == "不开":
                                 m_value = "noopen"
                             else:
