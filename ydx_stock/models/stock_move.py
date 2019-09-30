@@ -17,6 +17,10 @@ class StockMove(models.Model):
     band_number = fields.Char(string="Sealing side information")
     remarks = fields.Text(string="Remarks")
     product_speci_type = fields.Char(string=_("规格型号"))
+    order_number = fields.Char(strint="Order number")
+    the_child_orders = fields.Char(int="The child orders")
+    base_material = fields.Char(string="Base material")
+    plane_materiel = fields.Char(string="Plane materiel")
 
     product_opento = fields.Selection([
         ('left', _("左开")),

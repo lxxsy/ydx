@@ -9,6 +9,17 @@
             <xpath expr="//form/sheet/notebook/page[@name='operations']/field/tree/field[@name='product_id']"
                    position="after">
                 <field name="product_speci_type"/>
+                <field name="order_number"/>
+                <field name="the_child_orders"/>
+                <field name="cabinet_no"/>
+                <field name="base_material"/>
+                <field name="plane_materiel"/>
+                <field name="material"/>
+                <field name="product_colour"/>
+                <field name="length"/>
+                <field name="width"/>
+                <field name="thickness"/>
+                <field name="band_number"/>
             </xpath>
             <xpath expr="//form/sheet/notebook/page[@name='operations']/field/tree/field[@name='product_uom']"
                    position="after">
