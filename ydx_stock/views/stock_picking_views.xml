@@ -79,6 +79,21 @@
                             <templates>
                                 <t t-name="kanban-box">
                                     <div>
+                                        <div class="o_dropdown_kanban dropdown">
+                                            <a class="dropdown-toggle o-no-caret btn" role="button"
+                                               data-toggle="dropdown" data-display="static" href="#"
+                                               aria-label="Dropdown menu" title="Dropdown menu">
+                                                <span class="fa fa-ellipsis-v"/>
+                                            </a>
+                                            <div class="dropdown-menu" role="menu">
+                                                <t >
+                                                    <a role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                                                </t>
+                                                <t>
+                                                    <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                                </t>
+                                            </div>
+                                        </div>
                                         <div t-attf-class="o_kanban_card_header">
                                             <div class="o_kanban_card_header_title">
                                                 <div class="o_primary">
@@ -91,7 +106,8 @@
                                         <div class="container o_kanban_card_content">
                                             <div class="row">
                                                 <div class="col-6 o_kanban_primary_left">
-                                                    <div class="row" t-if="record.picking_type_code.raw_value =='outgoing'">
+                                                    <div class="row"
+                                                         t-if="record.picking_type_code.raw_value =='outgoing'">
                                                         <button name="%(action_wizard_update_out_package_num)d"
                                                                 class="btn btn-primary"
                                                                 type="action"
@@ -101,7 +117,8 @@
                                                             Update Package
                                                         </button>
                                                     </div>
-                                                    <div class="row" t-if="record.picking_type_code.raw_value =='incoming'">
+                                                    <div class="row"
+                                                         t-if="record.picking_type_code.raw_value =='incoming'">
                                                         <button name="%(action_wizard_update_in_package_num)d"
                                                                 class="btn btn-primary"
                                                                 type="action"
@@ -113,7 +130,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-6 o_kanban_primary_right">
-                                                    <div class="row" >
+                                                    <div class="row">
                                                         <div class="col-9">
                                                             <a>产品</a>
                                                         </div>
@@ -121,7 +138,8 @@
                                                             <field name="product_id"/>
                                                         </div>
                                                     </div>
-                                                    <div class="row" t-if="record.picking_type_code.raw_value  =='incoming'">
+                                                    <div class="row"
+                                                         t-if="record.picking_type_code.raw_value  =='incoming'">
                                                         <div class="col-9">
                                                             <a>外购包裹数量</a>
                                                         </div>
@@ -129,8 +147,9 @@
                                                             <field name="outsource_package_num"/>
                                                         </div>
                                                     </div>
-                                                    <div class="row" t-if="record.picking_type_code.raw_value =='outgoing'">
-                                                        <div class="col-9" >
+                                                    <div class="row"
+                                                         t-if="record.picking_type_code.raw_value =='outgoing'">
+                                                        <div class="col-9">
                                                             <a>包裹数量</a>
                                                         </div>
                                                         <div>
