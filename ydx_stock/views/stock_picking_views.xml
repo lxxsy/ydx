@@ -33,13 +33,11 @@
                        attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
             </xpath>
             <xpath expr="//button[@name='button_validate'][hasclass('oe_highlight')]" position="attributes">
-                <attribute name="attrs">{'invisible':['|',('show_validate', '!=', True),('picking_type_code', '=',
-                    'outgoing'),('is_payall', '=', False)]}
+                <attribute name="attrs">{'invisible':['|', '|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False),('is_payall', '=', False)]}
                 </attribute>
             </xpath>
             <xpath expr="//button[@name='button_validate'][hasclass('o_btn_validate')]" position="attributes">
-                <attribute name="attrs">{'invisible': ['|',('show_validate', '!=', True),('picking_type_code', '=',
-                    'outgoing'),('is_payall', '=', False)]}
+                <attribute name="attrs">{'invisible':['|','|', ('state', 'not in', ('waiting', 'confirmed')), ('show_validate', '=', False),('is_payall', '=', False)]}
                 </attribute>
             </xpath>
             <xpath expr="//button[@name='do_print_picking']" position="before">
