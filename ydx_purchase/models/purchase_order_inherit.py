@@ -323,8 +323,9 @@ class PurchaseOrderLine(models.Model):
     
     @api.multi
     def write(self, values):
-        for value in values:
-            if "name" in value and not value['name']:
-                value["name"] = value.get("product_id")
+        if "name" in values:
+            for value in values:
+                 if not values.get("name"):
+                    value["name"] = value.get("product_id")
         return super(PurchaseOrderLine, self).write(values)
                 
