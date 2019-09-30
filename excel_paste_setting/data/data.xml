@@ -16,7 +16,7 @@
             <value>order_line</value>
             <value>Purchase Order Line</value>
             <value>order_id</value>
-            <value>Products</value>
+            <value>采购订单</value>
 
             <value eval="[
                 ('product_id', '产品'),
@@ -25,6 +25,7 @@
                 ('cabinet_no','订单柜号'),
                 ('material','材质'),
                 ('name','说明'),
+                ('price_subtotal','小计'),
                 ('price_tax','税率'),
                 ('price_unit','单价'),
                 ('product_colour','颜色'),
@@ -35,6 +36,7 @@
                 ('thickness','成品厚度'),
                 ('width','成品宽度'),
                 ('date_planned','计划日期'),
+                ('account_analytic_id','分析账户')
                 ]"/>
         </function>
 
@@ -45,7 +47,7 @@
             <value>connection_metal_line</value>
             <value>Connection Metal</value>
             <value>sub_order_id</value>
-            <value>connection</value>
+            <value>所有连接五金</value>
 
             <value eval="[
             ('cabinet_no','订单柜号'),
@@ -64,7 +66,7 @@
             <value>function_metal_line</value>
             <value>Function Metal</value>
             <value>sub_order_id</value>
-            <value>function</value>
+            <value>所有功能五金</value>
              <value eval="[
            ('product_id','产品'),
            ('product_speci_type','规格'),
@@ -80,7 +82,7 @@
             <value>outsource_line</value>
             <value>Outsource</value>
             <value>sub_order_id</value>
-            <value>outsource</value>
+            <value>所有委外</value>
 
             <value eval="[
             ('cabinet_no','订单柜号'),
@@ -104,7 +106,7 @@
             <value>production_part_line</value>
             <value>Production Part</value>
             <value>sub_order_id</value>
-            <value>Production parts</value>
+            <value>所有生产部件</value>
             <value eval="[
             ('cabinet_no','订单柜号'),
             ('product_id','产品'),
