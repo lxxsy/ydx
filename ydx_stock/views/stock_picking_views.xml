@@ -115,24 +115,11 @@
                                         <div class="container o_kanban_card_content">
                                             <div class="row">
                                                 <div class="col-6 o_kanban_primary_left">
-                                                    <div class="row"
-                                                         t-if="record.picking_type_code.raw_value =='outgoing'">
-                                                        <button name="%(action_wizard_update_out_package_num)d"
+                                                    <div class="row">
+                                                        <button name="%(action_update_sub_package_num)d"
                                                                 class="btn btn-primary"
                                                                 type="action"
                                                                 groups="stock.group_stock_user"
-                                                                context="{'default_picking_id': id}"
-                                                        >
-                                                            Update Package
-                                                        </button>
-                                                    </div>
-                                                    <div class="row"
-                                                         t-if="record.picking_type_code.raw_value =='incoming'">
-                                                        <button name="%(action_wizard_update_in_package_num)d"
-                                                                class="btn btn-primary"
-                                                                type="action"
-                                                                groups="stock.group_stock_user"
-                                                                context="{'default_picking_id': id}"
                                                         >
                                                             Update Package
                                                         </button>
@@ -141,28 +128,28 @@
                                                 <div class="col-6 o_kanban_primary_right">
                                                     <div class="row">
                                                         <div class="col-9">
-                                                            <a>产品</a>
+                                                            <a >产品:</a>
                                                         </div>
-                                                        <div>
+                                                        <div class="col-9">
                                                             <field name="product_id"/>
                                                         </div>
                                                     </div>
                                                     <div class="row"
-                                                         t-if="record.picking_type_code.raw_value  =='incoming'">
-                                                        <div class="col-9">
-                                                            <a>外购包裹数量</a>
+                                                         t-if="record.picking_type_code.raw_value =='outgoing'">
+                                                        <div role="menuitem" class="col-9">
+                                                            <a>包裹数量:</a>
                                                         </div>
                                                         <div class="col-3">
-                                                            <field name="outsource_package_num"/>
+                                                            <field name="package_num"/>
                                                         </div>
                                                     </div>
                                                     <div class="row"
-                                                         t-if="record.picking_type_code.raw_value =='outgoing'">
+                                                         >
                                                         <div class="col-9">
-                                                            <a>包裹数量</a>
+                                                            <a>外购包裹数量:</a>
                                                         </div>
-                                                        <div>
-                                                            <field name="package_num"/>
+                                                        <div class="col-3">
+                                                            <field name="outsource_package_num"/>
                                                         </div>
                                                     </div>
                                                 </div>
