@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='update_line_package_num_wizard_form' model='ir.ui.view'>
+        <field name='name'>update line package num wizard form view</field>
+        <field name='model'>update.line.package.num.wizard</field>
+        <field name='arch' type='xml'>
+            <form string="更包裹数量">
+                <sheet>
+                    <group>
+                        <field name='picking_id' readonly="True"/>
+                        <field name='package_num'/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string='确定' name='update_package_num' class='btn-primary' type='object'/>
+                    <button string='取消' class='btn-default' special='cancel'/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id='update_line_outsource_package_num_wizard_form' model='ir.ui.view'>
+        <field name='name'>update line outsource package num wizard form view</field>
+        <field name='model'>update.line.outsource.package.num.wizard</field>
+        <field name='arch' type='xml'>
+            <form string="更新外购包裹数量">
+                <sheet>
+                    <group>
+                        <field name='picking_id' readonly="True"/>
+                        <field name='outsource_package_num'/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string='确定' name='update_package_num' class='btn-primary' type='object'/>
+                    <button string='取消' class='btn-default' special='cancel'/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_wizard_update_package_num" name="更新包裹数量" res_model="update.line.package.num.wizard" view_mode="form" target="new" />
+    <act_window id="action_wizard_update_outsource_package_num" name="更新外购包裹数量" res_model="update.line.outsource.package.num.wizard" view_mode="form" target="new" />
+</odoo>

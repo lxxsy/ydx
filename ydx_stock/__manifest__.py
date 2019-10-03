@@ -27,8 +27,9 @@
         'security/ir.model.access.csv',
         'data/data.xml',
         'wizard/update_package_num.xml',
+        'wizard/update_line_package_num.xml',
         'views/menu_stock.xml',
-        'views/stock_picking_views.xml'
+        'views/stock_picking_views.xml',
 
     ],
     # only loaded in demonstration mode

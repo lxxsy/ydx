@@ -58,27 +58,4 @@
 
     <act_window id="action_wizard_update_out_package_num" name="Update Package" res_model="update.out.package.num.wizard" view_mode="form" target="new" />
     <act_window id="action_wizard_update_in_package_num" name="Update Package" res_model="update.in.package.num.wizard" view_mode="form" target="new" />
-
-    <record id='update_sub_package_num' model='ir.ui.view'>
-        <field name='name'>update sub package num</field>
-        <field name='model'>stock.sub.sale.order</field>
-        <field name='arch' type='xml'>
-            <form string="Update Package Number">
-                <field name="picking_type_code" invisible="1"/>
-                <!--<field name="package_num" />-->
-                <!--<field name="outsource_package_num" />-->
-                <!--<field name="package_num" attrs="{'column_invisible':[('picking_type_code', '=', 'incoming')]}"/>-->
-                <!--<field name="outsource_package_num" attrs="{'column_invisible':[('picking_type_code', '=', 'outgoing')]}"/>-->
-                <field name="package_num" if="record.picking_type_code.raw_value =='outgoing'"/>
-                <field name="outsource_package_num" if="record.picking_type_code.raw_value =='incoming'"/>
-                <!--<templates>-->
-                    <!--<t t-name="TableWidget">-->
-                        <!--<field name="outsource_package_num" />-->
-                    <!--</t>-->
-                <!--</templates>-->
-            </form>
-        </field>
-    </record>
-
-    <act_window id="action_update_sub_package_num" name="Update Package" res_model="stock.sub.sale.order" view_mode="form" target="new" />
 </odoo>

@@ -115,13 +115,24 @@
                                         <div class="container o_kanban_card_content">
                                             <div class="row">
                                                 <div class="col-6 o_kanban_primary_left">
-                                                    <div class="row">
-                                                        <button name="%(action_update_sub_package_num)d"
+                                                    <div class="row" t-if="record.picking_type_code.raw_value =='outgoing'">
+                                                        <button name="%(action_wizard_update_package_num)d"
                                                                 class="btn btn-primary"
                                                                 type="action"
+                                                                context="{'default_picking_id': id}"
                                                                 groups="stock.group_stock_user"
                                                         >
-                                                            Update Package
+                                                            更新包裹数量
+                                                        </button>
+                                                    </div>
+                                                    <div class="row" t-if="record.picking_type_code.raw_value =='incoming'">
+                                                        <button name="%(action_wizard_update_outsource_package_num)d"
+                                                                class="btn btn-primary"
+                                                                type="action"
+                                                                context="{'default_picking_id': id}"
+                                                                groups="stock.group_stock_user"
+                                                        >
+                                                            更新外购包裹数量
                                                         </button>
                                                     </div>
                                                 </div>
