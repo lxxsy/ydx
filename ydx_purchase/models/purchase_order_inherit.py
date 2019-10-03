@@ -328,4 +328,13 @@ class PurchaseOrderLine(models.Model):
                  if not values.get("name"):
                     value["name"] = value.get("product_id")
         return super(PurchaseOrderLine, self).write(values)
+
+    @api.onchange('product_id')
+    def onchange_product_id(self):
+        res = super(PurchaseOrderLine, self).onchange_product_id()
+
+        if self.product_id:
+            self.product_speci_type = self.product_id.product_tmpl_id.ps_speci_type
+
+        return res
                 

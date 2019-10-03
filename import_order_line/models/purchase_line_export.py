@@ -13,6 +13,8 @@ pattern.pattern = xlwt.Pattern.SOLID_PATTERN
 pattern.pattern_fore_colour = xlwt.Style.colour_map['yellow'] #设置单元格背景色为黄色
 style.pattern = pattern
 
+datestyle = xlwt.XFStyle()
+datestyle.num_format_str = 'yyyy/mm/dd'
 
 class ExportPurchaseLineWizard(models.Model):
     _name = 'export.purchase.line.wizard'
@@ -29,8 +31,8 @@ class ExportPurchaseLineWizard(models.Model):
 
         if not value:
             return ""
-        if isinstance(value, datetime.datetime):
-            value = value.strftime("%Y-%m-%d %H:%M:%S")
+        # if isinstance(value, datetime.datetime):
+        #     value = value.strftime("%Y/%m/%d")
         if attr == "product_opento":
             if value == 'left':
                 value = "左开"
@@ -63,7 +65,10 @@ class ExportPurchaseLineWizard(models.Model):
                 value = self._get_attribute(attr,d)
                 if attr == "taxes_id.name" and not value:
                     value = ''
-                sheet.write(row, m.get('col'), value)
+                if attr == "date_planned":
+                    sheet.write(row, m.get('col'), value, style=datestyle)
+                else:
+                    sheet.write(row, m.get('col'), value)
 
     def generate_excel(self, purchase_order_id):
         """

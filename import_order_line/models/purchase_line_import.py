@@ -3,7 +3,7 @@ from odoo import fields, models, api
 from odoo.exceptions import UserError
 import base64
 import xlrd
-import time
+from datetime import date
 
 from ydxaddons.import_order_line.models.purchase_line_base import PURCHASE_SHEET_NAME,PURCHASE_HEADER_ROW,PURCHASE_DATA_BEGIN_ROW,\
      PURCHASE_MAP
@@ -31,37 +31,35 @@ class ImportPurchaseLineWizard(models.TransientModel):
         res.update(master_id=active_id)
         return res
 
-    def _get_domain(self, attrstring, value, product_domain, product_uom_domain, product_taxes_domain):
+    def _get_domain(self, item, attrstring, value, product_domain, product_uom_domain, product_taxes_domain):
         attrlist = attrstring.split('.')
         is_domain = False
         if len(attrlist) == 2:
-            if not value:
-                return is_domain
             is_domain = True
             if attrlist[0] == "product_id":
-                product_domain.append((attrlist[1], '=', value))
+                if value == '':
+                    item["product_id"] = value
+                else:
+                    product_domain.append((attrlist[1], '=', value))
+
             elif attrlist[0] == "product_uom":
-                product_uom_domain.append((attrlist[1], '=', value))
+                if value == '':
+                    item["product_uom"] = [(6, 0,[])]
+                else:
+                    product_uom_domain.append((attrlist[1], '=', value))
+
             elif attrlist[0] == "taxes_id":
-                product_taxes_domain.append((attrlist[1], '=', value))
+                if value == '':
+                    item["taxes_id"] = [(6, 0,[])]
+                else:
+                    product_taxes_domain.append((attrlist[1], '=', value))
 
         return is_domain
 
     def _seache_by_domain(self, model_name, domain):
         return self.env[model_name].search(domain, limit=1)
 
-    def _is_valid_date(self, strdate):
-        '''判断是否是一个有效的日期字符串'''
-        try:
-            if ":" in strdate:
-                time.strptime(strdate, "%Y-%m-%d %H:%M:%S")
-            else:
-                time.strptime(strdate, "%Y-%m-%d")
-            return True
-        except:
-            return False
-
-    def _get_datas(self, sheet, header_row, data_row, data_map, errors):
+    def _get_datas(self, excel, sheet, header_row, data_row, data_map, errors):
         tmp_map = []
         for col in range(0, sheet.ncols):
             value = sheet.cell_value(header_row, col)
@@ -95,14 +93,24 @@ class ImportPurchaseLineWizard(models.TransientModel):
                                 m_value = float(m_value)
                             else:
                                 m_value = 0.0
+                        elif attrtype == 'string':
+                            if m_value:
+                                m_value = str(m_value)
+                            else:
+                                m_value = ''
                     except:
                         errors.append(u'{sheet}:第{rowvalue}行的[{attr}]数据类型不正确，应该为{type}!'.format(
                             sheet=sheet.name, rowvalue=row+1, attr=m.get('header'), type=attrtype))
 
-                    if attrsting == "date_planned" and not self._is_valid_date(m_value):
-                        errors.append(u'{sheet}:第{rowvalue}行的计划日期，为空或格式不正确!正确格式：2019-09-09 10:10:10 '.format(sheet=sheet.name, rowvalue=row+1))
+                    if attrsting == "date_planned":
+                        cell = sheet.cell(row,coln)
+                        if (cell.ctype == 3):
+                            date_value = xlrd.xldate_as_tuple(sheet.cell_value(row,coln),excel.datemode)
+                            m_value = date(*date_value[:3]).strftime('%Y/%m/%d')
+                        else:
+                            errors.append(u'{sheet}:第{rowvalue}行的计划日期，为空或格式不正确!'.format(sheet=sheet.name, rowvalue=row+1))
 
-                    is_domain= self._get_domain(attrsting, m_value, product_domain, product_uom_domain, product_taxes_domain)
+                    is_domain= self._get_domain(item, attrsting, m_value, product_domain, product_uom_domain, product_taxes_domain)
                     if not is_domain:
                         if attrsting == "product_opento" and m_value:
                             if (m_value == "左开") or (m_value == "Left"):
@@ -122,6 +130,15 @@ class ImportPurchaseLineWizard(models.TransientModel):
                         item[attrsting] = m_value
 
             if product_domain:
+                if 'product_speci_type' in item:
+                    ps_type = item.get('product_speci_type')
+                    if ps_type:
+                        product_domain.append(('ps_speci_type', '=', ps_type))
+                    else:
+                        product_domain.append('|'),
+                        product_domain.append(('ps_speci_type', '=', False))
+                        product_domain.append(('ps_speci_type', '=', ''))
+
                 product_id = self._seache_by_domain("product.product", product_domain)
                 if not product_id:
                     errors.append(u'{sheet}:第{rowvalue}行的产品名称，系统中不存在!'.format(sheet=sheet.name, rowvalue=row+1))
@@ -163,12 +180,12 @@ class ImportPurchaseLineWizard(models.TransientModel):
 
         if self.excel_file:
             excel = xlrd.open_workbook(file_contents=base64.decodebytes(self.excel_file))
-            outsource_datas = []
+            datas = []
             errors = []
 
             sheet = excel.sheet_by_name(PURCHASE_SHEET_NAME)
             if sheet:
-                datas = self._get_datas(sheet, PURCHASE_HEADER_ROW, PURCHASE_DATA_BEGIN_ROW, PURCHASE_MAP, errors)
+                datas = self._get_datas(excel, sheet, PURCHASE_HEADER_ROW, PURCHASE_DATA_BEGIN_ROW, PURCHASE_MAP, errors)
 
             if errors:
                 raise UserError(u'表中数据有以下问题：\n {errors}'.format(errors='\n'.join(errors)))

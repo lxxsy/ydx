@@ -35,13 +35,18 @@ class ImportSubSaleWizard(models.TransientModel):
         attrlist = attrstring.split('.')
         is_domain = False
         if len(attrlist) == 2:
-            if not value:
-                return is_domain
             is_domain = True
             if attrlist[0] == "product_id":
-                product_domain.append((attrlist[1], '=', value))
+                if value == '':
+                    item["product_id"] = value
+                else:
+                    product_domain.append((attrlist[1], '=', value))
+
             elif attrlist[0] == "product_uom":
-                product_uom_domain.append((attrlist[1], '=', value))
+                if value == '':
+                    item["product_uom"] = [(6, 0,[])]
+                else:
+                    product_uom_domain.append((attrlist[1], '=', value))
 
         return is_domain
 
@@ -81,6 +86,11 @@ class ImportSubSaleWizard(models.TransientModel):
                                 m_value = float(m_value)
                             else:
                                 m_value = 0.0
+                        elif attrtype == 'string':
+                            if m_value:
+                                m_value = str(m_value)
+                            else:
+                                m_value = ''
                     except:
                         errors.append(u'{sheet}:第{rowvalue}行的[{attr}]数据类型不正确，应该为{type}!'.format(
                             sheet=sheet.name, rowvalue=row+1, attr=m.get('header'), type=attrtype))
@@ -106,11 +116,22 @@ class ImportSubSaleWizard(models.TransientModel):
                         item[attrsting] = m_value
 
             if product_domain:
+                if 'product_speci_type' in item:
+                    ps_type = item.get('product_speci_type')
+                    if ps_type:
+                        product_domain.append(('ps_speci_type', '=', ps_type))
+                    else:
+                        product_domain.append('|'),
+                        product_domain.append(('ps_speci_type', '=', False))
+                        product_domain.append(('ps_speci_type', '=', ''))
+
                 product_id = self._seache_by_domain("product.product", product_domain)
                 if not product_id:
                     errors.append(u'{sheet}:第{rowvalue}行的产品名称，系统中不存在!'.format(sheet=sheet.name, rowvalue=row+1))
                 else:
                     item["product_id"] = product_id.id
+                    item['product_uom'] = product_id.product_tmpl_id.uom_po_id.id
+
             if product_uom_domain:
                 product_uom = self._seache_by_domain('uom.uom', product_uom_domain)
                 if not product_uom:
