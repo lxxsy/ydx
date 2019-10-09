@@ -619,7 +619,7 @@ msgstr "交货提前时间"
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_return__partner_shipping_id
 msgid "Delivery address for current sales return."
-msgstr "当前采购订单的交货地址。"
+msgstr "当前销售退货订单的交货地址。"
 
 #. module: ydx_sale
 #: model:ir.model.fields,help:ydx_sale.field_sale_return__expected_date
@@ -1680,7 +1680,7 @@ msgstr "退货"
 #: model:ir.model.fields,field_description:ydx_sale.field_sale_order_line__return_lines
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 msgid "Return Lines"
-msgstr "采购退货明细"
+msgstr "销售退货明细"
 
 #. module: ydx_sale
 #: model:ir.actions.act_window,name:ydx_sale.action_sale_returned_accout_invoice
@@ -1883,7 +1883,7 @@ msgstr "销售退货明细"
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_line_tree
 msgid "Sales Return Lines"
-msgstr "采购退货明细"
+msgstr "销售退货明细"
 
 #. module: ydx_sale
 #: model_terms:ir.ui.view,arch_db:ydx_sale.view_return_form
