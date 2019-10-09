@@ -11,29 +11,6 @@
             <!--</xpath>-->
         <!--</field>-->
     <!--</record>-->
-    <record id="ydx_sale_view_order_tree" model="ir.ui.view">
-        <field name="name">sale.order.tree</field>
-        <field name="model">sale.order</field>
-        <field name="priority">2</field>
-        <field name="inherit_id" ref="sale.view_order_tree" />
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='amount_total']" position="replace">
-                <field name="sub_sale_amount_total" sum="Total Tax Included" widget="monetary"/>
-            </xpath>
-        </field>
-    </record>
-
-    <record id="ydx_sale_view_quotation_tree" model="ir.ui.view">
-        <field name="name">sale.order.tree</field>
-        <field name="model">sale.order</field>
-        <field name="priority">4</field>
-        <field name="inherit_id" ref="sale.view_quotation_tree" />
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='amount_total']" position="replace">
-                <field name="sub_sale_amount_total" sum="Total Tax Included" widget="monetary"/>
-            </xpath>
-        </field>
-    </record>
 
     <record id="sale_order_form_view_inherit" model="ir.ui.view">
         <field name="name">sale_order_form_view_inherit</field>
@@ -354,17 +331,24 @@
         <field name="priority">2</field>
         <field name="inherit_id" ref="sale.view_order_tree" />
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="replace">
+                <field name="sub_sale_amount_total" sum="Total Tax Included" widget="monetary"/>
+            </xpath>
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="spliter"/>
             </xpath>
         </field>
     </record>
+
     <record id="ydx_sale_view_quotation_tree" model="ir.ui.view">
         <field name="name">sale.order.tree</field>
         <field name="model">sale.order</field>
         <field name="priority">4</field>
         <field name="inherit_id" ref="sale.view_quotation_tree" />
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="replace">
+                <field name="sub_sale_amount_total" sum="Total Tax Included" widget="monetary"/>
+            </xpath>
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="spliter"/>
             </xpath>
