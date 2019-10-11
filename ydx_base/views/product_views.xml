@@ -22,6 +22,31 @@
         </field>
     </record>
 
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="name">product.template.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="ps_speci_type" filter_domain="[('ps_speci_type', 'like', raw_value)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ydx_purchase_product_template_kanban_view" model="ir.ui.view">
+        <field name="name">product.template.product.kanban</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//strong[@class='o_kanban_record_title']" position="after">
+                <div name="tags"/>
+                <ul>
+                    <li t-if="record.ps_speci_type.value">规格信息: <field name="ps_speci_type"/></li>
+                </ul>
+            </xpath>
+        </field>
+    </record>
+
     <record id="ydx_product_template_search_view" model="ir.ui.view">
         <field name="name">product.template.search</field>
         <field name="model">product.template</field>
