@@ -11,6 +11,8 @@ class UpdateLinePackageNum(models.TransientModel):
     def update_package_num(self):
         for pick in self:
             pick.picking_id.package_num = pick.package_num
+            sub_order = self.env['sub.sale.order'].sudo().search([('id', '=', pick.picking_id.sub_sale_order_id)])
+            sub_order._sync_package_num(pick.package_num)
 
     @api.onchange('picking_id')
     def _onchange_picking(self):
@@ -28,6 +30,12 @@ class UpdateLineoutsOurcePackageNum(models.TransientModel):
     def update_package_num(self):
         for pick in self:
             pick.picking_id.outsource_package_num = pick.outsource_package_num
+
+            sub_order = self.env['sub.sale.order'].sudo().search([('id', '=', pick.picking_id.sub_sale_order_id)])
+            sub_order._sync_outsource_package_num(pick.outsource_package_num)
+            stock_all_sub_orders = self.env['stock.sub.sale.order'].sudo().search(
+                [('sub_sale_order_id', '=', pick.picking_id.sub_sale_order_id)])
+            stock_all_sub_orders._sync_outsource_package_num(pick.outsource_package_num)
 
     @api.onchange('picking_id')
     def _onchange_picking(self):
