@@ -6,7 +6,8 @@ from odoo.tools.float_utils import float_compare
 
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
-
+    _order = 'name desc, id desc'
+	
     purchase_contract_ids = fields.Many2many('purchase.procurement.contract', compute="_compute_contract", string='Purchase Contract', copy=False, store=True)
     purchase_contract_count = fields.Integer(compute="_compute_contract", string='Purchase Contract Count', copy=False, default=0, store=True)
     purchase_return_ids = fields.Many2many('purchase.return', compute="_compute_return", string='Purchase Return Order', copy=False, store=True)
