@@ -2,22 +2,23 @@
 
 <odoo>  
 
-       <!-- Extended the sale order line view for add last price fields -->
-       <record id="view_sale_order_line_inherit_sale_history" model="ir.ui.view">
-            <field name="name">view.sale.order.line.inherit.sale.history</field>
-            <field name="model">sale.order</field>
-            <field name="inherit_id" ref="sale.view_order_form"/>
-            <field name="arch" type="xml"> 
-		        <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before"> 
-		            <field name="last_price1"/>
-<!--		            <field name="last_price2"/>-->
-		        </xpath>
-		        <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="before"> 
-		            <field name="last_price1"/>
-<!--		            <field name="last_price2"/>-->
-		        </xpath>
-	        </field>
-	   </record>
+       <!--&lt;!&ndash; Extended the sale order line view for add last price fields &ndash;&gt;-->
+       <!--<record id="view_sale_order_line_inherit_sale_history" model="ir.ui.view">-->
+            <!--<field name="name">view.sale.order.line.inherit.sale.history</field>-->
+            <!--<field name="model">sale.order</field>-->
+            <!--<field name="inherit_id" ref="sale.view_order_form"/>-->
+            <!--<field name="arch" type="xml">-->
+		        <!--<xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before"> -->
+		            <!--<field name="last_price1"/>-->
+<!--&lt;!&ndash;		            <field name="last_price2"/>&ndash;&gt;-->
+		        <!--</xpath>-->
+		        <!--<xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="before"> -->
+		            <!--<field name="last_price1"/>-->
+<!--&lt;!&ndash;		            <field name="last_price2"/>&ndash;&gt;-->
+		        <!--</xpath>-->
+	        <!--</field>-->
+	   <!--</record>-->
+
 	<record id="view_sale_order_line_inherit_sale_history" model="ir.ui.view">
             <field name="name">view.sale.order.line.inherit.sale.history</field>
             <field name="model">sale.order</field>
@@ -31,6 +32,11 @@
 		            <field name="last_price1"/>
 <!--		            <field name="last_price2"/>-->
 		        </xpath>
+				<xpath expr="//button[@name='action_quotation_send']" position="before">
+                <button name="%(sale.action_view_sale_advance_payment_inv)d" string="创建发票"
+                    type="action" class="btn-primary"
+                    attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+				</xpath>
 	        </field>
 	   </record>
 
