@@ -210,6 +210,7 @@
                              <group>
                                  <field name="cabinet_no"/>
                                  <field name="product_id"/>
+                                 <field name="product_name"/>
                                  <field name="product_speci_type"/>
                                  <field name="material"/>
                                  <field name="color"/>
@@ -232,6 +233,7 @@
                             <field name="state" invisible="1"/>
                             <field name="cabinet_no"/>
                             <field name="product_id"/>
+                            <field name="product_name"/>
                             <field name="product_speci_type"/>
                             <field name="color"/>
                             <field name="product_height"/>

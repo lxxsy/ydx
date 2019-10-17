@@ -15,6 +15,7 @@ class ResOutsource(models.Model):
     sequence = fields.Integer(string='Sequence', default=10)
     date_order = fields.Datetime(string='Order Date', required=True, readonly=True, index=True, copy=False, default=fields.Datetime.now)
     product_id = fields.Many2one('product.product', string='Product', domain=[('fuction_type', '=', 'outsource')], required=True, change_default=True, ondelete='restrict')
+    product_name = fields.Char(string=_("名称"))
     product_uom_qty = fields.Float(string='Ordered Quantity', digits=dp.get_precision('Product Unit of Measure'), required=True, default=1.0)
     product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
     product_speci_type= fields.Char(string='Specification')

@@ -46,5 +46,6 @@ class StockRule(models.Model):
         line['thickness'] = values.get('thickness','')
         line['remarks'] = values.get('remarks','')
         line['product_opento'] = values.get('product_opento','')
+        line['product_name'] = values.get('product_name','')
         line['product_speci_type'] = values.get('product_speci_type','')
         return line

@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//form/sheet/notebook/page[@name='operations']/field/tree/field[@name='product_id']"
                    position="after">
+                <field name="product_name"/>
                 <field name="product_speci_type"/>
                 <field name="order_number"/>
                 <field name="the_child_orders"/>
@@ -316,6 +317,7 @@
                             <field name="product_id" required="1"
                                    attrs="{'readonly': ['|', '&amp;', ('state', '!=', 'draft'), ('additional', '=', False), ('has_move_lines', '=', True)]}"
                                    domain="[('product_tmpl_id.fuction_type', '=', 'outsource')]"/>
+                            <field name="product_name"/>
                             <field name="is_initial_demand_editable" invisible="1"/>
                             <field name="is_quantity_done_editable" invisible="1"/>
                             <field name="product_speci_type"/>

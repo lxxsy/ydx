@@ -225,6 +225,7 @@ class PurchaseOrder(models.Model):
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
+    product_name = fields.Char(string=_("名称"))
     contract_lines = fields.One2many('purchase.procurement.contract.line', 'purchase_line_id', string="Contract Lines",readonly=True, copy=False)
     return_lines = fields.One2many('purchase.return.lines', 'purchase_line_id', string="Return Lines", readonly=True,copy=False)
     cabinet_no = fields.Char(string='Cabinet Number')
@@ -299,6 +300,7 @@ class PurchaseOrderLine(models.Model):
             'band_number': self.band_number,
             'remarks': self.remarks,
             'product_opento': self.product_opento,
+            'product_name': self.product_name,
             'product_speci_type': self.product_speci_type
         }
         diff_quantity = self.product_qty - qty

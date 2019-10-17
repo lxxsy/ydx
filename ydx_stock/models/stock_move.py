@@ -7,6 +7,7 @@ from odoo import api, fields, models, _
 class StockMove(models.Model):
     _inherit = "stock.move"
 
+    product_name = fields.Char(string=_("名称"))
     product_function_type = fields.Selection(related='product_id.fuction_type', readonly=True)
     cabinet_no = fields.Char(string='Cabinet Number')
     material = fields.Char(string="Material")
