@@ -9,7 +9,7 @@ class ResConnectionMetal(models.Model):
     _name = 'res.connection.metal'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
     _description = "Connection Metal"
-    _order = 'id desc'
+    _order = 'id asc'
 
     name = fields.Text(string='Index', required=True, index=True, copy=False, default='New')
     sequence = fields.Integer(string='Sequence', default=10)

@@ -140,7 +140,7 @@ class SaleOrder(models.Model):
 
     def _get_stock_production_part(self, production_part_line):
         move_values = {
-            'product_id': production_part_line.product_id.id,
+            'product_name': production_part_line.product_name,
             'product_uom_qty': production_part_line.product_uom_qty,
             'product_uom': production_part_line.product_uom.id,
             'product_speci_type': production_part_line.product_speci_type,

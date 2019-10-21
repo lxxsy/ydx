@@ -32,10 +32,10 @@ class PurchaseOrder(models.Model):
         receipt_state = 'not done'
         for order in self:
 
-            if self.invoice_ids.state == 'paid':
-                invoice_ids_amount_total += self.invoice_ids.amount_total
+            if order.invoice_ids.state == 'paid':
+                invoice_ids_amount_total += order.invoice_ids.amount_total
 
-            if self.picking_ids.state == 'done':
+            if order.picking_ids.state == 'done':
                 receipt_state = 'done'
 
             order.update({

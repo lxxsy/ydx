@@ -9,7 +9,7 @@ class ResOutsource(models.Model):
     _name = 'res.outsource'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
     _description = "Outsource"
-    _order = 'id desc'
+    _order = 'id asc'
 
     name = fields.Text(string='Index', required=True, index=True, copy=False, default='New')
     sequence = fields.Integer(string='Sequence', default=10)
@@ -19,6 +19,7 @@ class ResOutsource(models.Model):
     product_uom_qty = fields.Float(string='Ordered Quantity', digits=dp.get_precision('Product Unit of Measure'), required=True, default=1.0)
     product_uom = fields.Many2one('uom.uom', string='Unit of Measure')
     product_speci_type= fields.Char(string='Specification')
+    door_type = fields.Char(string='门型')
     material = fields.Char(string="物料材质")
     cabinet_no = fields.Char(string='Cabinet Number')
     color = fields.Char(string='Color')

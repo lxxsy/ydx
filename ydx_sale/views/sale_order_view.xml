@@ -71,7 +71,6 @@
                  <field name='user_id' />
                  <field name='designer' />
                  <field name='spliter' />
-                 <field name='material_use' />
             </xpath>
              <xpath expr="//field[@name='payment_term_id']" position="after">
                  <field name="is_replenishment"/>
@@ -209,17 +208,14 @@
                             <field name="display_type" invisible="1"/>
                             <field name="state" invisible="1"/>
                              <group>
-                                 <field name="cabinet_no"/>
                                  <field name="product_id"/>
                                  <field name="product_name"/>
-                                 <field name="product_speci_type"/>
-                                 <field name="material"/>
+                                 <field name="door_type"/>
                                  <field name="color"/>
+                                 <field name="product_thick"/>
                                  <field name="product_height"/>
                                  <field name="product_width"/>
-                                 <field name="product_thick"/>
                                  <field name="product_uom_qty"/>
-                                 <field name="product_uom"/>
                                  <field name="product_opento"/>
                                  <field name="note"/>
                              </group>
@@ -232,16 +228,14 @@
                             <field name="sequence" widget="handle"/>
                             <field name="display_type" invisible="1"/>
                             <field name="state" invisible="1"/>
-                            <field name="cabinet_no"/>
                             <field name="product_id"/>
                             <field name="product_name"/>
-                            <field name="product_speci_type"/>
+                            <field name="door_type"/>
                             <field name="color"/>
+                            <field name="product_thick"/>
                             <field name="product_height"/>
                             <field name="product_width"/>
-                            <field name="product_thick"/>
                             <field name="product_uom_qty"/>
-                            <field name="product_uom"/>
                             <field name="product_opento"/>
                             <field name="note"/>
                         </tree>
