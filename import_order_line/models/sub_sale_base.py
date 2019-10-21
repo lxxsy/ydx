@@ -138,9 +138,9 @@ PRODUCTION_MAP = (
     },
     {
       "col": 1,
-      "attribute": 'product_id.name',
+      "attribute": 'product_name',
       "header": '构件名称',
-      "required": 1,
+      "required": 0,
       "type": "string"
     },
     {

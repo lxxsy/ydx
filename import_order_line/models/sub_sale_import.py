@@ -31,7 +31,7 @@ class ImportSubSaleWizard(models.TransientModel):
         res.update(master_id=active_id)
         return res
 
-    def _get_domain(self, attrstring, value, product_domain, product_uom_domain):
+    def _get_domain(self, item, attrstring, value, product_domain, product_uom_domain):
         attrlist = attrstring.split('.')
         is_domain = False
         if len(attrlist) == 2:
@@ -95,7 +95,7 @@ class ImportSubSaleWizard(models.TransientModel):
                         errors.append(u'{sheet}:第{rowvalue}行的[{attr}]数据类型不正确，应该为{type}!'.format(
                             sheet=sheet.name, rowvalue=row+1, attr=m.get('header'), type=attrtype))
 
-                    is_domain= self._get_domain(attrsting, m_value, product_domain, product_uom_domain)
+                    is_domain= self._get_domain(item, attrsting, m_value, product_domain, product_uom_domain)
                     if not is_domain:
                         if attrsting == "product_opento":
                             if (m_value == "左开") or (m_value == "Left"):
@@ -165,21 +165,19 @@ class ImportSubSaleWizard(models.TransientModel):
             cmetal_datas = []
             errors = []
 
-            outsource_sheet = excel.sheet_by_name(OUTSOURCE_SHEET_NAME)
-            if outsource_sheet:
-                outsource_datas = self._get_datas(outsource_sheet, OUTSOURCE_HEADER_ROW, OUTSOURCE_DATA_BEGIN_ROW, OUTSOURCE_MAP, errors)
-
-            fmetal_sheet = excel.sheet_by_name(FMETAL_SHEET_NAME)
-            if fmetal_sheet:
-                fmetal_datas = self._get_datas(fmetal_sheet, FMETAL_HEADER_ROW, FMETAL_DATA_BEGIN_ROW, FMETAL_MAP, errors)
-
-            production_sheet = excel.sheet_by_name(PRODUCTION_SHEET_NAME)
-            if production_sheet:
-                production_datas = self._get_datas(production_sheet, PRODUCTION_HEADER_ROW, PRODUCTION_DATA_BEGIN_ROW, PRODUCTION_MAP, errors)
-
-            cmetal_sheet = excel.sheet_by_name(CMETAL_SHEET_NAME)
-            if cmetal_sheet:
-                cmetal_datas = self._get_datas(cmetal_sheet, CMETAL_HEADER_ROW, CMETAL_DATA_BEGIN_ROW, CMETAL_MAP, errors)
+            for sheet_name in excel.sheet_names():
+                if sheet_name == OUTSOURCE_SHEET_NAME:
+                    outsource_sheet = excel.sheet_by_name(OUTSOURCE_SHEET_NAME)
+                    outsource_datas = self._get_datas(outsource_sheet, OUTSOURCE_HEADER_ROW, OUTSOURCE_DATA_BEGIN_ROW, OUTSOURCE_MAP, errors)
+                elif sheet_name == FMETAL_SHEET_NAME:
+                    fmetal_sheet = excel.sheet_by_name(FMETAL_SHEET_NAME)
+                    fmetal_datas = self._get_datas(fmetal_sheet, FMETAL_HEADER_ROW, FMETAL_DATA_BEGIN_ROW, FMETAL_MAP, errors)
+                elif sheet_name == PRODUCTION_SHEET_NAME:
+                    production_sheet = excel.sheet_by_name(PRODUCTION_SHEET_NAME)
+                    production_datas = self._get_datas(production_sheet, PRODUCTION_HEADER_ROW, PRODUCTION_DATA_BEGIN_ROW, PRODUCTION_MAP, errors)
+                elif sheet_name == CMETAL_SHEET_NAME:
+                    cmetal_sheet = excel.sheet_by_name(CMETAL_SHEET_NAME)
+                    cmetal_datas = self._get_datas(cmetal_sheet, CMETAL_HEADER_ROW, CMETAL_DATA_BEGIN_ROW, CMETAL_MAP, errors)
 
             if errors:
                 raise UserError(u'表中数据有以下问题：\n {errors}'.format(errors='\n'.join(errors)))
