@@ -59,21 +59,34 @@ class SaleOrder(models.Model):
         - phone
 		- install_address
         """
-        # if not self.partner_id:
-        #     self.update({
-        #         'phone': False,
-        #         'install_address': False
-        #     })
-        #     return
-        #
-        # phone = self.partner_id.phone
-        # install_address = self.partner_id.country_id.name + self.partner_id.state_id.name + self.partner_id.city + \
-        #     self.partner_id.zip + self.partner_id.street + self.partner_id.street2
-        # values = {
-        #     'phone': phone,
-        #     'install_address': install_address,
-        # }
-        # self.update(values)
+        if not self.partner_id:
+            self.update({
+                'phone': False,
+                'install_address': False
+            })
+            return
+
+        phone = self.partner_id.phone
+        #判断国家、城市、街道等字段是否为空，为空则不拼接
+        install_address = ""
+
+        if self.partner_id.country_id.name:
+            install_address += self.partner_id.country_id.name
+        if self.partner_id.state_id.name:
+            install_address += self.partner_id.state_id.name
+        if self.partner_id.city:
+            install_address += self.partner_id.city
+        if self.partner_id.zip:
+            install_address += self.partner_id.zip
+        if self.partner_id.street:
+            install_address += self.partner_id.street
+        if self.partner_id.street2:
+            install_address += self.partner_id.street2
+        values = {
+            'phone': phone,
+            'install_address': install_address,
+        }
+        self.update(values)
 
 
     @api.multi
