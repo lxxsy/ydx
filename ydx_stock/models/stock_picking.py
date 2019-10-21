@@ -15,6 +15,8 @@ class Picking(models.Model):
     stock_production_part_ids = fields.One2many('stock.production.part', 'picking_id', string='Stock Production Part', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True, auto_join=True, ondelete='cascade')
     is_payall = fields.Boolean(string='Pay All', default=False)
     incoming_type = fields.Selection([('purchase',  '采购订单'), ('outsource',  '委外')], default='purchase', required=True, string="收货类型")
+    express_info = fields.Char(string='物流快递')
+
     @api.multi
     def button_confirm_payall(self):
         for pick in self:

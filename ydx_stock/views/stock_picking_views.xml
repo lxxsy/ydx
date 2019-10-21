@@ -43,6 +43,7 @@
                 <field name="metal_package_num" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
                 <field name="is_payall" widget="checkbox"
                        attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
+                <field name="express_info" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
             </xpath>
             <xpath expr="//button[@name='button_validate'][hasclass('oe_highlight')]" position="attributes">
                 <attribute name="attrs">{'invisible':['|','|',('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False),'&amp;',('is_payall', '=', False),('picking_type_code', '=','outgoing')]}

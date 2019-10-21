@@ -71,6 +71,7 @@
                  <field name='user_id' />
                  <field name='designer' />
                  <field name='spliter' />
+                 <field name='express_info' />
             </xpath>
              <xpath expr="//field[@name='payment_term_id']" position="after">
                  <field name="is_replenishment"/>
@@ -333,6 +334,9 @@
             </xpath>
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="spliter"/>
+            </xpath>
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="express_info"/>
             </xpath>
         </field>
     </record>

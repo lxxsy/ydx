@@ -50,7 +50,7 @@ class SaleOrder(models.Model):
     sub_sale_amount_total = fields.Monetary(string='Total', store=True, readonly=True, compute='_sub_sale_amount_all', track_visibility='always', track_sequence=6)
     material_use = fields.Float(compute='_sub_sale_amount_all', string='Material Use', default=0.0, copy=False, store=True)
     attachment_number = fields.Integer(compute='_compute_attachment_number', string='附件上传')
-
+    express_info = fields.Char(string='物流快递', compute='_compute_picking_express')
 
     @api.onchange('partner_id')
     def onchange_partner_id_phone_address(self):
@@ -532,6 +532,15 @@ class SaleOrder(models.Model):
         res['domain'] = [('res_field', '=', self.name)]
         res['context'] = {'default_res_field': self.name}
         return res
+
+    @api.depends('picking_ids.express_info')
+    def _compute_picking_express(self):
+        for order in self:
+            express = ''
+            for pick in order.picking_ids:
+                if pick.express_info:
+                    express += pick.express_info
+            order.express_info = express
 
 
 class SaleOrderLine(models.Model):
