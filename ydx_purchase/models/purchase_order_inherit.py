@@ -16,7 +16,32 @@ class PurchaseOrder(models.Model):
     purchase_sub_sale_line = fields.One2many('purchase.sub.sale.order', 'order_id', string='Order Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=True)
     purchase_type = fields.Selection([('purchase',  'Purchase Order'),
                                    ('outsource',  'Outsource')], default='purchase',required=True)
+    receipt_state = fields.Selection([('not done',  _('未收货')),
+                                   ('done',  _('已收货'))], string=_("收货状态"), default='not done',compute='_get_receipt_bill')
+    bill_state = fields.Char(default=_('未付款'), string=_("付款状态"), compute='_get_receipt_bill')
 
+    @api.depends('state', 'picking_ids.state','invoice_ids.state')
+    def _get_receipt_bill(self):
+        """
+        若采购订单状态、收货单状态、付款单状态发生改变时触发方法
+        收货状态默认为not done（未收货），若收货单状态为完成则变为done（已收货）
+        付款状态默认为未付款，若付款单状态为paid（已支付），则统计付款单总计金额凭借为已付款**元。
+        :return: 收货状态的key，付款单付款总计
+        """
+        invoice_ids_amount_total = 0
+        receipt_state = 'not done'
+        for order in self:
+
+            if self.invoice_ids.state == 'paid':
+                invoice_ids_amount_total += self.invoice_ids.amount_total
+
+            if self.picking_ids.state == 'done':
+                receipt_state = 'done'
+
+            order.update({
+                'receipt_state': receipt_state,
+                'bill_state': '已付款'+str(invoice_ids_amount_total)+'元'
+            })
 
     @api.multi
     def action_create_procurement_contract(self):

@@ -50,6 +50,30 @@ class SaleOrder(models.Model):
     material_use = fields.Float(compute='_sub_sale_amount_all', string='Material Use', default=0.0, copy=False, store=True)
     attachment_number = fields.Integer(compute='_compute_attachment_number', string='附件上传')
 
+
+    @api.onchange('partner_id')
+    def onchange_partner_id_phone_address(self):
+        """
+        Update the following fields when the partner is changed:
+        - phone
+		- install_address
+        """
+        if not self.partner_id:
+            self.update({
+                'phone': False,
+                'install_address': False
+            })
+            return
+
+        phone = self.partner_id.phone
+        install_address = self.partner_id.country_id.name + self.partner_id.state_id.name + self.partner_id.city + \
+            self.partner_id.zip + self.partner_id.street + self.partner_id.street2
+        values = {
+            'phone': phone,
+            'install_address': install_address,
+        }
+        self.update(values)
+
     @api.multi
     def action_approve_order(self):
         for order in self:
