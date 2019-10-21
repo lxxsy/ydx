@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="export_stock_picking_wizard_view" model="ir.ui.view">
+            <field name="name">export stock picking wizard</field>
+            <field name="model">export.stock.picking.wizard</field>
+            <field name="arch" type="xml">
+                <form string="导出">
+                    <footer>
+                        <button string="下载" class="btn-primary" name="action_export" type="object"/>
+                        <button string="关闭" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="export_stock_picking_wizard_action"
+            name="导出"
+            src_model="stock.picking"
+            res_model="export.stock.picking.wizard"
+            view_type="form" view_mode="form"
+            target="new"/>
+
+    </data>
+</odoo>
