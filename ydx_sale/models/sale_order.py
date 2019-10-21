@@ -33,6 +33,7 @@ class SaleOrder(models.Model):
     production_part_line = fields.One2many('res.production.part', 'order_id', string='Production Part Lines', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=False, auto_join=True)
 
     factory_order_no = fields.One2many('sale.factory.no', 'order_id', string='Sale Factory No', states={'cancel': [('readonly', True)], 'done': [('readonly', True)]}, copy=False)
+    is_replenishment = fields.Boolean(default=False,string=_("补单"))
     upload_sale_date = fields.Datetime(string='Upload Sale Date')
     quotations_date = fields.Datetime(string='Quotations Date')
     pay_date = fields.Datetime(string='Pay Date')
@@ -58,21 +59,22 @@ class SaleOrder(models.Model):
         - phone
 		- install_address
         """
-        if not self.partner_id:
-            self.update({
-                'phone': False,
-                'install_address': False
-            })
-            return
+        # if not self.partner_id:
+        #     self.update({
+        #         'phone': False,
+        #         'install_address': False
+        #     })
+        #     return
+        #
+        # phone = self.partner_id.phone
+        # install_address = self.partner_id.country_id.name + self.partner_id.state_id.name + self.partner_id.city + \
+        #     self.partner_id.zip + self.partner_id.street + self.partner_id.street2
+        # values = {
+        #     'phone': phone,
+        #     'install_address': install_address,
+        # }
+        # self.update(values)
 
-        phone = self.partner_id.phone
-        install_address = self.partner_id.country_id.name + self.partner_id.state_id.name + self.partner_id.city + \
-            self.partner_id.zip + self.partner_id.street + self.partner_id.street2
-        values = {
-            'phone': phone,
-            'install_address': install_address,
-        }
-        self.update(values)
 
     @api.multi
     def action_approve_order(self):
@@ -94,10 +96,11 @@ class SaleOrder(models.Model):
                     order.state = 'to approve'
             else:
                 order.action_confirm()
-            if not order.factory_order_no:
-                self.env['sale.factory.no'].create({
-                    "order_id": order.id
-                })
+            if self.is_replenishment ==False:
+                if not order.factory_order_no:
+                    self.env['sale.factory.no'].create({
+                        "order_id": order.id
+                    })
         return True
 
     def _get_sub_sale_order_values(self, sub_sale_order):
