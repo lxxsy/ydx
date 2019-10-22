@@ -6,6 +6,9 @@
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field eval="12" name="priority"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="cargo_state" attrs="{'invisible': [('picking_type_code', '=', 'incoming')]}"/>
+            </xpath>
             <xpath expr="//form/sheet/notebook/page[@name='operations']/field/tree/field[@name='product_id']"
                    position="after">
                 <field name="product_name"/>
@@ -54,6 +57,7 @@
                 </attribute>
             </xpath>
             <xpath expr="//button[@name='do_print_picking']" position="before">
+                <field name="cargo_state" invisible="1"/>
                 <button name="button_confirm_payall"
                         attrs="{'invisible': ['|', ('is_payall', '=', True), ('picking_type_code', '!=', 'outgoing')]}"
                         string="Confirm Payall" type="object" groups="account.group_account_user" class="btn-primary"/>
@@ -65,7 +69,8 @@
                         groups="stock.group_stock_user"
                         context="{'default_picking_id': id}"
                         attrs="{'invisible': ['|',('picking_type_code', '=', 'outgoing'), ('incoming_type', '=', 'purchase')]}"/>
-
+                <button name="button_cargo_state" type="object" states="sent" string="备货完成" class="oe_highlight"
+                        id="button_cargo_state" attrs="{'invisible': ['|',('picking_type_code', '=', 'incoming'),('cargo_state','=','done')]}"/>
             </xpath>
             <xpath expr="//page[@name='operations']" position="after">
                 <page string="Sub Sale Orders"
@@ -378,4 +383,17 @@
             </xpath>
         </field>
     </record>
+
+    <record id="ydx_stock_view_picking_tree" model="ir.ui.view">
+        <field name="name">ydx.stock.picking.tree</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="picking_type_code" invisible="1"/>
+                <field name="cargo_state" attrs="{'invisible': [('picking_type_code','=','incoming')]}"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>

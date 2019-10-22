@@ -16,8 +16,15 @@ class Picking(models.Model):
     is_payall = fields.Boolean(string='Pay All', default=False)
     incoming_type = fields.Selection([('purchase',  '采购订单'), ('outsource',  '委外')], default='purchase', required=True, string="收货类型")
     express_info = fields.Char(string='物流快递')
-
+    cargo_state = fields.Selection([('no',  '未完成'), ('done',  '完成')], default='no', required=True, string="备货状态")
     @api.multi
     def button_confirm_payall(self):
         for pick in self:
             pick.is_payall = True
+
+
+    @api.multi
+    def button_cargo_state(self):
+        for order in self:
+            order.write({'cargo_state': 'done'})
+        return True
