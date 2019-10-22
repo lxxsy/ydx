@@ -135,3 +135,59 @@ CMETAL_MAP = (
       "type": "int"
     },
 )
+
+# 生产部件表信息
+PRODUCTION_SHEET_NAME = '测试文件'
+PRODUCTION_HEADER_ROW = 0
+PRODUCTION_DATA_BEGIN_ROW = 1
+PRODUCTION_MAP = (
+    {
+      "col": 0,
+      "attribute": 'product_id.name',
+      "header": '基材',
+      "required": 1,
+      "type": "string"
+    },
+    {
+      "col": 1,
+      "attribute": 'plane_materiel',
+      "header": '面材',
+      "required": 0,
+      "type": "string"
+    },
+    {
+      "col": 2,
+      "attribute": 'thickness',
+      "header": '厚度',
+      "required": 0,
+      "type": "string"
+    },
+    {
+      "col": 3,
+      "attribute": 'length',
+      "header": '长度',
+      "required": 0,
+      "type": "string"
+    },
+    {
+      "col": 4,
+      "attribute": 'width',
+      "header": '宽度',
+      "required": 0,
+      "type": "float"
+    },
+    {
+      "col": 5,
+      "attribute": 'product_uom_qty',
+      "header": '数量',
+      "required": 0,
+      "type": "float"
+    },
+    {
+      "col": 6,
+      "attribute": 'id',
+      "header": '系统编号',
+      "required": 0,
+      "type": "int"
+    },
+)

@@ -4,7 +4,8 @@ import base64
 import xlwt
 from io import BytesIO
 from ydxaddons.import_order_line.models.stock_picking_base import FMETAL_SHEET_NAME,FMETAL_HEADER_ROW,FMETAL_DATA_BEGIN_ROW,FMETAL_MAP,\
-    CMETAL_SHEET_NAME,CMETAL_HEADER_ROW,CMETAL_DATA_BEGIN_ROW,CMETAL_MAP
+    CMETAL_SHEET_NAME,CMETAL_HEADER_ROW,CMETAL_DATA_BEGIN_ROW,CMETAL_MAP,\
+    PRODUCTION_SHEET_NAME,PRODUCTION_HEADER_ROW,PRODUCTION_DATA_BEGIN_ROW,PRODUCTION_MAP
 from odoo.exceptions import UserError
 
 style = xlwt.XFStyle()
@@ -58,7 +59,7 @@ class ExportStockPickingWizard(models.Model):
                 attr = m.get("attribute")
                 if not attr:
                     continue
-                value = self._get_attribute(attr,d)
+                value = str(self._get_attribute(attr,d))
                 sheet.write(row, m.get('col'), value)
 
     def generate_excel(self, picking_id):
@@ -69,15 +70,20 @@ class ExportStockPickingWizard(models.Model):
         """
         workbook = xlwt.Workbook(encoding='utf-8')
 
-        # 写入功能五金工作表
-        fmetal_worksheet = workbook.add_sheet(FMETAL_SHEET_NAME)
-        self._write_data(fmetal_worksheet, FMETAL_HEADER_ROW, FMETAL_DATA_BEGIN_ROW,
-                         FMETAL_MAP, picking_id.fmetals_move_ids_without_package)
+        if picking_id.picking_type_code == 'outgoing':
+            # 写入功能五金工作表
+            fmetal_worksheet = workbook.add_sheet(FMETAL_SHEET_NAME)
+            self._write_data(fmetal_worksheet, FMETAL_HEADER_ROW, FMETAL_DATA_BEGIN_ROW,
+                             FMETAL_MAP, picking_id.fmetals_move_ids_without_package)
 
-        # 写入连接五金工作表
-        cmetal_worksheet = workbook.add_sheet(CMETAL_SHEET_NAME)
-        self._write_data(cmetal_worksheet, CMETAL_HEADER_ROW, CMETAL_DATA_BEGIN_ROW,
-                         CMETAL_MAP, picking_id.cmetals_move_ids_without_package)
+            # 写入连接五金工作表
+            cmetal_worksheet = workbook.add_sheet(CMETAL_SHEET_NAME)
+            self._write_data(cmetal_worksheet, CMETAL_HEADER_ROW, CMETAL_DATA_BEGIN_ROW,
+                             CMETAL_MAP, picking_id.cmetals_move_ids_without_package)
+        else:
+            op_worksheet = workbook.add_sheet(PRODUCTION_SHEET_NAME)
+            self._write_data(op_worksheet, PRODUCTION_HEADER_ROW,PRODUCTION_DATA_BEGIN_ROW,
+                             PRODUCTION_MAP, picking_id.move_ids_without_package)
 
         # save
         buffer = BytesIO()
@@ -89,8 +95,6 @@ class ExportStockPickingWizard(models.Model):
         context = dict(self._context or {})
         active_id = context.get('active_id', []) or []
         picking_id = self.env['stock.picking'].search([('id', '=', active_id)])
-        if picking_id.picking_type_code != 'outgoing':
-            raise  UserError("目前只支持导出交货单！")
         self.file = self.generate_excel(picking_id)
 
         value = dict(

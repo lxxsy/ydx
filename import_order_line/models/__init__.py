@@ -10,3 +10,4 @@ from . import purchase_line_export
 from . import purchase_line_import
 from . import stock_picking_base
 from . import stock_picking_export
+from . import stock_picking_import
