@@ -34,7 +34,6 @@
         'wizards/sale_make_invoice_advance_views.xml',
         'views/sale_designer.xml',
         'views/factory_no_view.xml',
-        'views/menu.xml',
         'views/details_views.xml',
         'views/sales_order_history_view.xml',
         'views/line_pice_history_views.xml',
@@ -44,6 +43,7 @@
 		'views/sale_return_views.xml',
         'views/sale_order_view.xml',
         'views/sub_sale_views.xml',
+        'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
