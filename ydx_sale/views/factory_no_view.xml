@@ -24,7 +24,7 @@
         <field name="name">sale.factory.no.tree</field>
         <field name="model">sale.factory.no</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree editable="bottom">
                 <field name="name"/>
                 <field name="order_id"/>
             </tree>
