@@ -15,6 +15,9 @@
                     <field name="bank_num" />
                     <field name="stamp_image" widget="image" class="oe_avatar"/>
                 </xpath>
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="dealer_id"/>
+                </xpath>
             </field>
         </record>
 
