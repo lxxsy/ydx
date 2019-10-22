@@ -13,3 +13,4 @@ from . import res_function_metal
 from . import res_outsource
 from . import account_invoice
 from . import factory_no
+from . import designer

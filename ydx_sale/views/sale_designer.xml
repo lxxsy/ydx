@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale_designer_form" model="ir.ui.view">
+        <field name="name">sale.designer.form</field>
+        <field name="model">sale.designer</field>
+        <field name="arch" type="xml">
+            <form string="Sale Designer">
+                <sheet>
+                    <div class="oe_title">
+                        <span class="o_form_label">Sale Designer</span>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_designer_tree" model="ir.ui.view">
+        <field name="name">sale.designer.tree</field>
+        <field name="model">sale.designer</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_designer_view" model="ir.actions.act_window">
+        <field name="name">sale.designer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.designer</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                创建一个设计师
+            </p>
+        </field>
+    </record>
+</odoo>

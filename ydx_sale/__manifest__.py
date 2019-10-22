@@ -32,6 +32,7 @@
         'report/sale_contract_templates.xml',
         'wizards/sale_order_line_price_history.xml',
         'wizards/sale_make_invoice_advance_views.xml',
+        'views/sale_designer.xml',
         'views/factory_no_view.xml',
         'views/menu.xml',
         'views/details_views.xml',

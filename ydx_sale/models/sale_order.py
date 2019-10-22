@@ -41,7 +41,8 @@ class SaleOrder(models.Model):
     install_address = fields.Char(string='Install Address', required=True)
     phone = fields.Char(string='Phone', required=True)
     is_install = fields.Boolean(default=False)
-    designer = fields.Char(string='Designer', required=True)
+    # designer = fields.Char(string='Designer', required=True)
+    designer = fields.Many2one('sale.designer', string='Designer', required=True)
     spliter = fields.Many2one('res.users', string='Spliter', index=True, track_visibility='onchange', track_sequence=2, default=lambda self: self.env.user)
 
     sub_sale_amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True, compute='_sub_sale_amount_all', track_visibility='onchange', track_sequence=5)
