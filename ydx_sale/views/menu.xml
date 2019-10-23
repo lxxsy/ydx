@@ -34,4 +34,10 @@
         parent="sale.menu_sale_config"
         sequence="99" groups="sales_team.group_sale_manager"/>
 
+    <menuitem id="ydx_sale_dealer_sale_order"
+        name="订单"
+        action="dealer_sale_order_action"
+        parent="sale.sale_order_menu"
+        sequence="1" groups="ydx_sale.group_sale_dealer"/>
+
 </odoo>
