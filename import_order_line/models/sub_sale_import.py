@@ -143,6 +143,115 @@ class ImportSubSaleWizard(models.TransientModel):
 
         return items
 
+    def _get_cmetal_datas(self, sheet, header_row, data_row, data_map, errors):
+        tmp_map = []
+        name_col = -1
+        total_row = -1
+        sm_row = -1
+        for col in range(0, sheet.ncols):
+            value = sheet.cell_value(header_row, col)
+            for m in data_map:
+                if value == m.get('header'):
+                    if value == "名称":
+                        name_col = col
+                    m['col'] = col
+                    tmp_map.append(m)
+        items = []
+        if name_col < 0:
+            raise UserError("连接五金没有找到列【名称】，名称是必须有的列。")
+
+        for row in range(data_row, sheet.nrows):
+            tmp_value1 = sheet.cell_value(row, name_col)
+            tmp_value2 = sheet.cell_value(row, 0)
+            if "总量" in tmp_value1:
+                total_row = row
+            if "说明" in tmp_value2:
+                sm_row = row
+
+        if (total_row < 0) or (sm_row < 0) or (total_row >= sm_row) or (sm_row > sheet.nrows):
+            raise UserError("连接五金没有找到【总量】或 【说明】，总量和说明是输入内容的定位符,并且说明所在的行必须在总量的下面。")
+
+        for row in range(total_row+1, sm_row):
+            product_domain = []
+            product_uom_domain = []
+            item = dict(
+                order_id = self.master_id.order_id.id,
+                sub_order_id = self.master_id.id,
+            )
+            for m in tmp_map:
+                coln = m.get("col")
+                if coln < sheet.ncols:
+                    m_value = sheet.cell_value(row, coln)
+                    attrsting = m.get("attribute")
+                    attrtype = m.get("type")
+                    try:
+                        if attrtype == 'int':
+                            if m_value:
+                                m_value = int(m_value)
+                            else:
+                                m_value = 0
+                        elif attrtype == 'float':
+                            if m_value:
+                                m_value = float(m_value)
+                            else:
+                                m_value = 0.0
+                        elif attrtype == 'string':
+                            if m_value:
+                                m_value = str(m_value)
+                            else:
+                                m_value = ''
+                    except:
+                        errors.append(u'{sheet}:第{rowvalue}行的[{attr}]数据类型不正确，应该为{type}!'.format(
+                            sheet=sheet.name, rowvalue=row+1, attr=m.get('header'), type=attrtype))
+
+                    is_domain= self._get_domain(item, attrsting, m_value, product_domain, product_uom_domain)
+                    if not is_domain:
+                        if attrsting == "product_opento":
+                            if (m_value == "左开") or (m_value == "Left"):
+                                m_value = "left"
+                            elif (m_value == "右开") or (m_value == "Right"):
+                                m_value = "right"
+                            elif m_value == "对开":
+                                m_value = "twoopen"
+                            elif m_value == "上翻":
+                                m_value = "upward"
+                            elif m_value == "下翻":
+                                m_value = "down"
+                            elif m_value == "不开":
+                                m_value = "noopen"
+                            else:
+                                errors.append(u'{sheet}:第{rowvalue}行的开向值，系统中不存在!'.format(sheet=sheet.name, rowvalue=row+1))
+
+                        item[attrsting] = m_value
+
+            if product_domain:
+                if 'product_speci_type' in item:
+                    ps_type = item.get('product_speci_type')
+                    if ps_type:
+                        product_domain.append(('ps_speci_type', '=', ps_type))
+                    else:
+                        product_domain.append('|'),
+                        product_domain.append(('ps_speci_type', '=', False))
+                        product_domain.append(('ps_speci_type', '=', ''))
+
+                product_id = self._seache_by_domain("product.product", product_domain)
+                if not product_id:
+                    errors.append(u'{sheet}:第{rowvalue}行的产品名称，系统中不存在!'.format(sheet=sheet.name, rowvalue=row+1))
+                else:
+                    item["product_id"] = product_id.id
+                    item['product_uom'] = product_id.product_tmpl_id.uom_po_id.id
+
+            if product_uom_domain:
+                product_uom = self._seache_by_domain('uom.uom', product_uom_domain)
+                if not product_uom:
+                    errors.append(u'{sheet}:第{rowvalue}行的单位名称，系统中不存在!'.format(sheet=sheet.name,rowvalue=row+1))
+                else:
+                    item["product_uom"] = product_uom.id
+
+            items.append(item)
+
+        return items
+
     def _write_datas(self, model_name, line, datas):
         if self.method == "update":
             for data in datas:
@@ -177,7 +286,7 @@ class ImportSubSaleWizard(models.TransientModel):
                     production_datas = self._get_datas(production_sheet, PRODUCTION_HEADER_ROW, PRODUCTION_DATA_BEGIN_ROW, PRODUCTION_MAP, errors)
                 elif sheet_name == CMETAL_SHEET_NAME:
                     cmetal_sheet = excel.sheet_by_name(CMETAL_SHEET_NAME)
-                    cmetal_datas = self._get_datas(cmetal_sheet, CMETAL_HEADER_ROW, CMETAL_DATA_BEGIN_ROW, CMETAL_MAP, errors)
+                    cmetal_datas = self._get_cmetal_datas(cmetal_sheet, CMETAL_HEADER_ROW, CMETAL_DATA_BEGIN_ROW, CMETAL_MAP, errors)
 
             if errors:
                 raise UserError(u'表中数据有以下问题：\n {errors}'.format(errors='\n'.join(errors)))
