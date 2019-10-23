@@ -11,3 +11,6 @@ from . import purchase_line_import
 from . import stock_picking_base
 from . import stock_picking_export
 from . import stock_picking_import
+from . import sale_order_base
+from . import sale_order_export
+from . import sale_order_import

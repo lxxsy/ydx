@@ -38,6 +38,8 @@
         'views/import_purchase_line_view.xml',
         'views/export_stock_picking_view.xml',
         'views/import_stock_picking_view.xml',
+        'views/export_sale_order_view.xml',
+        'views/import_sale_order_view.xml',
     ],
 
     # only loaded in demonstration mode
