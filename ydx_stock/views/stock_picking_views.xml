@@ -363,7 +363,7 @@
                         >
                             <field name="sequence" widget="handle"/>
                             <field name="cabinet_no"/>
-                            <field name="product_id"/>
+                            <field name="product_name"/>
                             <field name="product_material"/>
                             <field name="product_color"/>
                             <field name="product_length"/>
