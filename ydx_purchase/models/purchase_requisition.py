@@ -21,6 +21,7 @@ class YdxPurchaseRequisitionLine(models.Model):
         ('noopen', _('不开')),
     ], string='开向')
     product_speci_type = fields.Char(string=_('规格型号'))
+    product_name = fields.Char(string=_("名称"))
 
     @api.multi
     def _prepare_purchase_order_line(self, name, product_qty=0.0, price_unit=0.0, taxes_ids=False):
