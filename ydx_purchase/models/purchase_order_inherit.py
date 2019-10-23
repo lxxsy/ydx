@@ -31,12 +31,14 @@ class PurchaseOrder(models.Model):
         invoice_ids_amount_total = 0
         receipt_state = 'not done'
         for order in self:
-
-            if order.invoice_ids.state == 'paid':
-                invoice_ids_amount_total += order.invoice_ids.amount_total
-
-            if order.picking_ids.state == 'done':
-                receipt_state = 'done'
+            for invoice in order.invoice_ids:
+                if invoice.state == 'paid':
+                    invoice_ids_amount_total += order.invoice_ids.amount_total
+            receipt_state = 'done'
+            for pick in order.picking_ids:
+                if order.picking_ids.state != 'done':
+                    receipt_state = 'not done'
+                    break
 
             order.update({
                 'receipt_state': receipt_state,
