@@ -32,11 +32,11 @@ class PurchaseOrder(models.Model):
         receipt_state = 'not done'
         for order in self:
             for invoice in order.invoice_ids:
-                if invoice.state == 'paid':
-                    invoice_ids_amount_total += order.invoice_ids.amount_total
+                if invoice.state != 'draft' and invoice.state != 'cancel':
+                    invoice_ids_amount_total = invoice.amount_total - invoice.residual
             receipt_state = 'done'
             for pick in order.picking_ids:
-                if order.picking_ids.state != 'done':
+                if pick.state != 'done':
                     receipt_state = 'not done'
                     break
 
