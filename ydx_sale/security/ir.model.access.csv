@@ -1,3 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_sale_order_dealer,sale.order.dealer,model_sale_order,ydx_sale.group_sale_dealer,1,0,0,0
 access_sale_order_line_dealer,sale.order.line.dealer,model_sale_order_line,ydx_sale.group_sale_dealer,1,0,0,0
 access_stock_picking_dealer,stock.picking.dealer,model_stock_picking,ydx_sale.group_sale_dealer,1,0,0,0
