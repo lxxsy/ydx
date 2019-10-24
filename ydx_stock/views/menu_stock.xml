@@ -35,7 +35,10 @@
         <field name="name">收货单明细</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">stock.move</field>
-        <field name="domain">[('location_id.usage', 'not in', ('internal', 'transit')), ('location_dest_id.usage', 'in',
+        <!--<field name="domain">[('location_id.usage', 'not in', ('internal', 'transit')), ('location_dest_id.usage', 'in',-->
+            <!--('internal', 'transit'))]-->
+        <!--</field>-->
+        <field name="domain">[('location_id.usage', '=', 'supplier'), ('location_dest_id.usage', 'in',
             ('internal', 'transit'))]
         </field>
         <field name="view_type">form</field>
