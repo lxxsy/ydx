@@ -27,6 +27,7 @@
             name="导入"
             src_model="sale.order"
             res_model="import.sale.order.wizard"
+            groups="sales_team.group_sale_salesman"
             view_type="form" view_mode="form"
             target="new"/>
 
