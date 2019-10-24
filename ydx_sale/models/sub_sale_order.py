@@ -79,7 +79,7 @@ class SubSaleOrder(models.Model):
         calculated from the ordered quantity. Otherwise, the quantity delivered is used.
         """
         for line in self:
-            if line.order_id.state in ['sale', 'done']:
+            if line.order_id.state in ['draft', 'sale', 'done']:
                 if line.product_id.invoice_policy == 'order':
                     line.qty_to_invoice = line.product_uom_qty - line.qty_invoiced
                 else:
@@ -207,7 +207,9 @@ class SubSaleOrder(models.Model):
             product = self.env['product.product'].sudo().search([('id','=',vals['product_id'])])
             if not product or product.product_tmpl_id.fuction_type != 'finished':
                 raise ValidationError(_("Produt of function type must be finished!"))
-        return super(SubSaleOrder, self).create(vals)
+        sub_sale = super(SubSaleOrder, self).create(vals)
+        sub_sale._get_to_invoice_qty()
+        return sub_sale
 
     @api.multi
     def write(self, vals):
