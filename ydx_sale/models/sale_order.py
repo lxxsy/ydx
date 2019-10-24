@@ -77,8 +77,8 @@ class SaleOrder(models.Model):
             install_address += self.partner_id.state_id.name
         if self.partner_id.city:
             install_address += self.partner_id.city
-        if self.partner_id.zip:
-            install_address += self.partner_id.zip
+        # if self.partner_id.zip:
+        #     install_address += self.partner_id.zip
         if self.partner_id.street:
             install_address += self.partner_id.street
         if self.partner_id.street2:
