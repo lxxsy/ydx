@@ -25,7 +25,7 @@ class ResProductionPart(models.Model):
     product_length = fields.Float(string='Product Length', default=0.0)
     product_width = fields.Float(string='Product Width', default=0.0)
     product_thick = fields.Float(string='Product Thick', default=0.0)
-    material_use = fields.Float(string='Material Use', default=0.0)
+    material_use = fields.Float(string='Material Use', default=0.0, digits=dp.get_precision('material_use'))
     material_open_length = fields.Float(string='Open Length', default=0.0)
     material_open_width = fields.Float(string='Open width', default=0.0)
     band_side = fields.Char(string='Band Side')

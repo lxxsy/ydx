@@ -28,6 +28,7 @@
         'views/res_inherit_view.xml',
         'views/product_views.xml',
         'data/data.xml',
+        'data/ydx_decimal_precision_inherit_data.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

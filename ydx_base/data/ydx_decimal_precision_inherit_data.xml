@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Precisions -->
+        <record forcecreate="True" id="decimal_material_use" model="decimal.precision">
+            <field name="name">material_use</field>
+            <field name="digits">4</field>
+        </record>
+    </data>
+</odoo>
