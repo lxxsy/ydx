@@ -6,7 +6,6 @@ account_invoice_dealer,access.account.invoice.dealer,model_account_invoice,ydx_s
 purchase_sub_sale_order_dealer,access.sub.sale.order.dealer,model_sub_sale_order,ydx_sale.group_sale_dealer,1,0,0,0
 sale_contract_id,access.sale.contract,model_sale_contract,sales_team.group_sale_salesman,1,1,1,1
 sale_contract_line_id,access.sale.contract.line,model_sale_contract_line,sales_team.group_sale_salesman,1,1,1,1
-sale_designer,access.sale.designer,model_sale_designer,sales_team.group_sale_manager,1,1,1,1
 sale_return_id,access.sale.return.product,model_sale_return,sales_team.group_sale_salesman,1,1,1,1
 sale_return_line_id,access.sale.return.line,model_sale_return_line,sales_team.group_sale_salesman,1,1,1,1
 sub_sale_factory_no_dealer,access.sale.factory.no.dealer,model_sale_factory_no,ydx_sale.group_sale_dealer,1,0,0,0
