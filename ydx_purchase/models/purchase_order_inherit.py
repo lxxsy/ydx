@@ -28,13 +28,14 @@ class PurchaseOrder(models.Model):
         付款状态默认为未付款，若付款单状态为paid（已支付），则统计付款单总计金额凭借为已付款**元。
         :return: 收货状态的key，付款单付款总计
         """
-        invoice_ids_amount_total = 0
-        receipt_state = 'not done'
         for order in self:
+            invoice_ids_amount_total = 0
+            receipt_state = 'done'
             for invoice in order.invoice_ids:
                 if invoice.state != 'draft' and invoice.state != 'cancel':
                     invoice_ids_amount_total = invoice.amount_total - invoice.residual
-            receipt_state = 'done'
+            if not order.picking_ids:
+                receipt_state = 'not done'
             for pick in order.picking_ids:
                 if pick.state != 'done':
                     receipt_state = 'not done'
