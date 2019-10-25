@@ -17,6 +17,7 @@ msgstr ""
 "Language: zh\n"
 "X-Generator: Poedit 2.2.3\n"
 
+
 #. module: ydx_stock
 #: model:ir.model.fields,field_description:ydx_stock.field_stock_production_part__access_warning
 msgid "Access warning"
@@ -714,3 +715,25 @@ msgstr"收货类型"
 
 msgid"Purchase Order"
 msgstr"采购订单"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__plane_materiel
+msgid "Plane materiel"
+msgstr "面材"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__the_child_orders
+msgid "The Child Orders"
+msgstr "子销售订单"
+
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__base_material
+msgid "Base material"
+msgstr "基材"
+
+#. module: ydx_stock
+#: model:ir.model.fields,field_description:ydx_stock.field_stock_move__order_number
+#: model_terms:ir.ui.view,arch_db:ydx_stock.ydx_stock_view_picking_form
+msgid "Order Number"
+msgstr "订单编号"
