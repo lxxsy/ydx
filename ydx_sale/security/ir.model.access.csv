@@ -3,6 +3,7 @@ access_sale_order_dealer,sale.order.dealer,model_sale_order,ydx_sale.group_sale_
 access_sale_order_line_dealer,sale.order.line.dealer,model_sale_order_line,ydx_sale.group_sale_dealer,1,0,0,0
 access_stock_picking_dealer,stock.picking.dealer,model_stock_picking,ydx_sale.group_sale_dealer,1,0,0,0
 account_invoice_dealer,access.account.invoice.dealer,model_account_invoice,ydx_sale.group_sale_dealer,1,0,0,0
+account_invoice_line_dealer,access.account.invoice.line.dealer,model_account_invoice_line,ydx_sale.group_sale_dealer,1,0,0,0
 purchase_sub_sale_order_dealer,access.sub.sale.order.dealer,model_sub_sale_order,ydx_sale.group_sale_dealer,1,0,0,0
 sale_contract_id,access.sale.contract,model_sale_contract,sales_team.group_sale_salesman,1,1,1,1
 sale_contract_line_id,access.sale.contract.line,model_sale_contract_line,sales_team.group_sale_salesman,1,1,1,1

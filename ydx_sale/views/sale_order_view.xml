@@ -555,11 +555,16 @@
         </field>
     </record>
 
-    <record id="dealer_sale_order_action_view_order_tree" model="ir.actions.act_window.view">
-        <field name="sequence" eval="1"/>
-        <field name="view_mode">tree</field>
-        <field name="view_id" ref="view_dealer_sale_order_tree"/>
-        <field name="act_window_id" ref="dealer_sale_order_action"/>
+
+
+    <record id="dealer_sale_order_action" model="ir.actions.act_window">
+        <field name="name">销售订单</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+        <!--<field name="view_id" ref="dealer_sale_order_action_view_order_tree"/>-->
+        <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel')),('picking_ids.cargo_state','=','done')]</field>
     </record>
 
     <record id="dealer_sale_order_action_view_order_form" model="ir.actions.act_window.view">
@@ -569,13 +574,10 @@
         <field name="act_window_id" ref="dealer_sale_order_action"/>
     </record>
 
-    <record id="dealer_sale_order_action" model="ir.actions.act_window">
-        <field name="name">销售订单</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">sale.order</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
-        <field name="view_id" ref="dealer_sale_order_action_view_order_tree"/>
-        <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel'))]</field>
+    <record id="dealer_sale_order_action_view_order_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_dealer_sale_order_tree"/>
+        <field name="act_window_id" ref="dealer_sale_order_action"/>
     </record>
 </odoo>
