@@ -271,6 +271,8 @@ class PurchaseOrderLine(models.Model):
         ('upward', _('上翻')),
         ('down', _('下翻')),
         ('noopen', _('不开')),
+        ('twoopen_and_right', _('对开+右开')),
+        ('twoopen_and_left', _('对开+左开')),
     ], string="Product Opento")
     purchase_type = fields.Selection(related='order_id.purchase_type')
     product_speci_type = fields.Char(string=_('规格型号'))

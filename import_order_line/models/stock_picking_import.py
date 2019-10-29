@@ -107,6 +107,10 @@ class ImportStockPickingWizard(models.TransientModel):
                                 m_value = "down"
                             elif m_value == "不开":
                                 m_value = "noopen"
+                            elif value == 'twoopen_and_right':
+                                value = "对开+右开"
+                            elif value == 'twoopen_and_left':
+                                value = "对开+左开"
                             else:
                                 errors.append(u'{sheet}:第{rowvalue}行的开向值，系统中不存在!'.format(sheet=sheet.name, rowvalue=row+1))
 

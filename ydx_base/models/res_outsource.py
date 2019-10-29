@@ -33,6 +33,8 @@ class ResOutsource(models.Model):
         ('upward', _('上翻')),
         ('down', _('下翻')),
         ('noopen', _('不开')),
+        ('twoopen_and_right', _('对开+右开')),
+        ('twoopen_and_left', _('对开+左开')),
     ], string="Product Opento")
     note = fields.Text('Description')
 

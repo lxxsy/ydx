@@ -46,6 +46,10 @@ class ExportPurchaseLineWizard(models.Model):
                 value = "下翻"
             elif value == 'noopen':
                 value = "不开"
+            elif value == 'twoopen_and_right':
+                value = "对开+右开"
+            elif value == 'twoopen_and_left':
+                value = "对开+左开"
 
         return value
 

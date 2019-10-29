@@ -30,5 +30,7 @@ class StockMove(models.Model):
         ('upward', _('上翻')),
         ('down', _('下翻')),
         ('noopen', _('不开')),
+        ('twoopen_and_right', _('对开+右开')),
+        ('twoopen_and_left', _('对开+左开')),
     ], string=_("开向"))
     picking_type_code = fields.Selection(related='picking_id.picking_type_code',readonly=True)
