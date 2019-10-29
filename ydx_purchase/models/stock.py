@@ -59,6 +59,7 @@ class YdxStockMove(models.Model):
         procurement_values['product_opento'] = self.product_opento
         procurement_values['product_name'] = self.product_name
         procurement_values['product_speci_type'] = self.product_speci_type
+        procurement_values['sub_sale_order_no'] = self.sub_sale_order_no
         return procurement_values
 
 
@@ -73,7 +74,7 @@ class YdxStockRule(models.Model):
 
     def _get_custom_move_fields(self):
         fields = super(YdxStockRule, self)._get_custom_move_fields()
-        fields += ['purchase_line_id', 'partner_id']
+        fields += ['purchase_line_id', 'partner_id', 'sub_sale_order_no']
         return fields
 
 

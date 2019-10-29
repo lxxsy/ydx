@@ -51,6 +51,7 @@ class ResOutsource(models.Model):
             'warehouse_id': self.order_id.warehouse_id or False,
             'partner_id': self.order_id.partner_shipping_id.id,
             'sale_order_id': self.order_id.id,
+            'sub_sale_order_no': self.sub_order_id.name,
             'cabinet_no': self.cabinet_no,
             'material': self.material,
             'product_colour': self.color,

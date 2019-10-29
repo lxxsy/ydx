@@ -48,4 +48,5 @@ class StockRule(models.Model):
         line['product_opento'] = values.get('product_opento','')
         line['product_name'] = values.get('product_name','')
         line['product_speci_type'] = values.get('product_speci_type','')
+        line['sub_sale_order_no'] = values.get('sub_sale_order_no','')
         return line

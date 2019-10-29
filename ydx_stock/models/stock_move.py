@@ -9,6 +9,7 @@ class StockMove(models.Model):
 
     product_name = fields.Char(string=_("名称"))
     product_function_type = fields.Selection(related='product_id.fuction_type', readonly=True)
+    sub_sale_order_no = fields.Char(string="子销售订单")
     cabinet_no = fields.Char(string='Cabinet Number')
     material = fields.Char(string="Material")
     product_colour = fields.Char(string="Colour")

@@ -45,10 +45,11 @@
                             <field name="state" invisible="1"/>
                             <field name="product_type" invisible="1"/>
                             <field name="sequence" widget="handle"/>
+                             <field name="sub_sale_order_no"/>
                              <field name="cabinet_no"/>
                             <field name="product_id" attrs="{'readonly': [('state', 'in', ('purchase', 'to approve','done', 'cancel'))]}" context="{'partner_id':parent.partner_id, 'quantity':product_qty,'uom':product_uom, 'company_id': parent.company_id}" force_save="1"/>
                              <field name="product_name"/>
-                             <field name="date_planned"/>
+                             <!--<field name="date_planned"/>-->
                              <field name="product_speci_type"/>
                              <field name="material"/>
                             <field name="product_colour"/>
