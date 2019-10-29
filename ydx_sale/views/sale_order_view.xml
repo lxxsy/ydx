@@ -112,6 +112,7 @@
                             <field name="material_use" />
                             <field name="product_uom_qty" />
                             <field name="price_unit" />
+                            <field name="discount" />
                             <field name="price_total" />
                             <field name="package_num" />
                             <field name="outsource_package_num" />

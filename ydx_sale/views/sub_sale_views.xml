@@ -91,8 +91,12 @@
                         <field name="sliding_door" />
                         <field name="swim_door" />
                         <field name="product_uom_qty" />
-                        <field name="price_unit" />
-                        <field name="price_total" />
+                        <field name="price_unit" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <label for="discount" groups="sale.group_discount_per_so_line"/>
+                        <div name="discount" groups="sale.group_discount_per_so_line">
+                            <field name="discount" class="oe_inline"/> %%
+                        </div>
+                        <field name="price_total" widget='monetary' options="{'currency_field': 'currency_id'}"/>
                     </group>
                 </group>
                 <notebook>

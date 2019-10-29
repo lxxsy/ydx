@@ -200,6 +200,8 @@ class SubSaleOrder(models.Model):
     customer_lead = fields.Float(
         'Delivery Lead Time', required=True, default=0.0,
         help="Number of days between the order confirmation and the shipping of the products to the customer", oldname="delay")
+    discount = fields.Float(string='Discount (%)', digits=dp.get_precision('Discount'), default=0.0)
+
 
     @api.model
     def create(self,vals):
