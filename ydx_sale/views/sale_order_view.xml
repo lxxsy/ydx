@@ -79,10 +79,10 @@
              <xpath expr="//field[@name='payment_term_id']" position="after">
                  <field name="is_replenishment"/>
                  <field name='factory_order_no' widget="many2many_tags" readonly="1"/>
-                 <field name='upload_sale_date' />
+                 <field name='date_order' string="传单日期"/>
                  <field name='quotations_date' />
                  <field name='pay_date' />
-                 <field name='confirm_date' />
+                 <field name='confirmation_date' string="下单日期"/>
             </xpath>
             <xpath expr="//page[@name='order_lines']" position="after">
                 <page string="Sub Sale Orders" name="sub_sale_order_ids">

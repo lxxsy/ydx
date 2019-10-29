@@ -36,7 +36,7 @@ class SaleOrder(models.Model):
     is_replenishment = fields.Boolean(default=False,string=_("补单"))
     upload_sale_date = fields.Datetime(string='Upload Sale Date')
     quotations_date = fields.Datetime(string='Quotations Date')
-    pay_date = fields.Datetime(string='Pay Date')
+    pay_date = fields.Datetime(string='Pay Date', compute="_get_invoiced")
     confirm_date = fields.Datetime(string='Confirm Date')
     install_address = fields.Char(string='Install Address', required=True)
     phone = fields.Char(string='Phone', required=True)
@@ -359,6 +359,12 @@ class SaleOrder(models.Model):
                 'invoice_ids': invoice_ids.ids + refund_ids.ids,
                 'invoice_status': invoice_status
             })
+            if len(set(invoice_ids.ids + refund_ids.ids)) == 1:
+                order.update({
+                    'pay_date': fields.Datetime.now(),
+                })
+
+
 
     def _force_lines_to_invoice_policy_order(self):
         for line in self.sub_sale_order_ids:
