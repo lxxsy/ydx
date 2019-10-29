@@ -134,14 +134,14 @@ class ImportPurchaseLineWizard(models.TransientModel):
                         item[attrsting] = m_value
 
             if product_domain:
-                if 'product_speci_type' in item:
-                    ps_type = item.get('product_speci_type')
-                    if ps_type:
-                        product_domain.append(('ps_speci_type', '=', ps_type))
-                    else:
-                        product_domain.append('|'),
-                        product_domain.append(('ps_speci_type', '=', False))
-                        product_domain.append(('ps_speci_type', '=', ''))
+                # if 'product_speci_type' in item:
+                #     ps_type = item.get('product_speci_type')
+                #     if ps_type:
+                #         product_domain.append(('ps_speci_type', '=', ps_type))
+                #     else:
+                #         product_domain.append('|'),
+                #         product_domain.append(('ps_speci_type', '=', False))
+                #         product_domain.append(('ps_speci_type', '=', ''))
 
                 product_id = self._seache_by_domain("product.product", product_domain)
                 if not product_id:
