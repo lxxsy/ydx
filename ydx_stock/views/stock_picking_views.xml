@@ -319,6 +319,7 @@
                             <field name="additional" invisible="1"/>
                             <field name="has_move_lines" invisible="1"/>
                             <field name="is_locked" invisible="1"/>
+                            <field name="sub_sale_order_no"/>
                             <field name="cabinet_no"/>
                             <field name="product_id" required="1"
                                    attrs="{'readonly': ['|', '&amp;', ('state', '!=', 'draft'), ('additional', '=', False), ('has_move_lines', '=', True)]}"
