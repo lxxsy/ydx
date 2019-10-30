@@ -136,10 +136,10 @@ class ImportSaleOrderWizard(models.TransientModel):
                                 m_value = "down"
                             elif m_value == "不开":
                                 m_value = "noopen"
-                            elif value == 'twoopen_and_right':
-                                value = "对开+右开"
-                            elif value == 'twoopen_and_left':
-                                value = "对开+左开"
+                            elif m_value == "对开+右开":
+                                m_value = "twoopen_and_right"
+                            elif m_value == "对开+左开":
+                                m_value = "twoopen_and_left"
                             elif m_value == "":
                                 pass
                             else:
