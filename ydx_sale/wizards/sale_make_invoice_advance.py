@@ -195,6 +195,16 @@ class SaleAdvancePaymentInv(models.TransientModel):
     _inherit = "sale.advance.payment.inv"
     _description = "Sales Advance Payment Invoice"
 
+    @api.onchange('advance_payment_method')
+    def onchange_advance_payment_method(self):
+        if self.advance_payment_method == 'percentage':
+            return {'value': {'amount': 0}}
+        elif self.advance_payment_method == 'fixed':
+            sale_obj = self.env['sale.order']
+            order = sale_obj.browse(self._context.get('active_ids'))[0]
+            return {'value': {'amount': order.sub_sale_amount_total}}
+        return {}
+
     @api.multi
     def _create_invoice(self, order, so_line, amount):
         inv_obj = self.env['account.invoice']
