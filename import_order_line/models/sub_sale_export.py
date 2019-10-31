@@ -89,7 +89,7 @@ class ExportSubSaleWizard(models.Model):
                          PRODUCTION_MAP, sub_sale_id.production_part_line)
 
         # 写入连接五金工作表
-        cmetal_worksheet = workbook.add_sheet(CMETAL_SHEET_NAME)
+        cmetal_worksheet = workbook.add_sheet(CMETAL_SHEET_NAME, cell_overwrite_ok=True)
         self._write_data(cmetal_worksheet, CMETAL_HEADER_ROW, CMETAL_DATA_BEGIN_ROW,
                          CMETAL_MAP, sub_sale_id.connection_metal_line)
 
