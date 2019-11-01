@@ -31,7 +31,7 @@
         <record id="sequence_sale_factory_no" model="ir.sequence">
             <field name="name">生产工厂编号</field>
             <field name="code">sale.factory.no</field>
-            <field name="prefix">FN-%(current_year)s%(current_month)s-</field>
+            <field name="prefix">XYJ-%(current_year)s%(current_month)s-</field>
             <field eval="1" name="number_next"/>
             <field eval="1" name="number_increment"/>
             <field eval="False" name="company_id"/>
