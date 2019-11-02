@@ -110,11 +110,11 @@ class SaleOrder(models.Model):
                     order.state = 'to approve'
             else:
                 order.action_confirm()
-            if self.is_replenishment ==False:
-                if not order.factory_order_no:
-                    self.env['sale.factory.no'].create({
-                        "order_id": order.id
-                    })
+            # if order.is_replenishment == False:
+            #     if not order.factory_order_no:
+            #         self.env['sale.factory.no'].create({
+            #             "order_id": order.id
+            #         })
         return True
 
     def _get_sub_sale_order_values(self, sub_sale_order):
@@ -549,6 +549,18 @@ class SaleOrder(models.Model):
                     express += pick.express_info
             order.express_info = express
 
+# class AccountPayment(models.Model):
+#     _inherit = "account.payment"
+#
+#     def action_validate_invoice_payment(self):
+#         super(AccountPayment, self).action_validate_invoice_payment()
+#         name = self.invoice_ids.origin
+#         order = self.env['sale.order'].search([('name', '=', name)])
+#         if order.is_replenishment == False:
+#             if not order.factory_order_no:
+#                 order.env['sale.factory.no'].create({
+#                     "order_id": order.id
+#                 })
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
