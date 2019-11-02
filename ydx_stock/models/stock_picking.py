@@ -17,6 +17,7 @@ class Picking(models.Model):
     incoming_type = fields.Selection([('purchase',  '采购订单'), ('outsource',  '委外')], default='purchase', required=True, string="收货类型")
     express_info = fields.Char(string='物流快递')
     cargo_state = fields.Selection([('no',  '未完成'), ('done',  '完成')], default='no', required=True, string="备货状态")
+    outsource_sale_id = fields.Char(_('委外销售订单'), related='purchase_id.origin')
     @api.multi
     def button_confirm_payall(self):
         for pick in self:
