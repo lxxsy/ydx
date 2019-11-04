@@ -1,52 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="view_sub_sale_order_calendar" model="ir.ui.view">
-        <field name="name">sub.sale.order.calendar</field>
-        <field name="model">sub.sale.order</field>
-        <field name="arch" type="xml">
-            <calendar string="Sub Sales Orders" date_start="date_order">
-                <field name="id"/>
-            </calendar>
-        </field>
-    </record>
-    <record model="ir.ui.view" id="view_sub_sale_order_graph">
-        <field name="name">sub.sale.order.graph</field>
-        <field name="model">sub.sale.order</field>
-        <field name="arch" type="xml">
-            <graph string="Sub Sales Orders">
-                <field name="id"/>
-            </graph>
-        </field>
-    </record>
-    <record model="ir.ui.view" id="view_sub_sale_order_pivot">
-        <field name="name">sub.sale.order.pivot</field>
-        <field name="model">sub.sale.order</field>
-        <field name="arch" type="xml">
-            <pivot string="Sub Sales Orders">
-                <field name="date_order" type="row"/>
-            </pivot>
-        </field>
-    </record>
+    <!--<record id="view_sub_sale_order_calendar" model="ir.ui.view">-->
+        <!--<field name="name">sub.sale.order.calendar</field>-->
+        <!--<field name="model">sub.sale.order</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<calendar string="Sub Sales Orders" date_start="date_order">-->
+                <!--<field name="id"/>-->
+            <!--</calendar>-->
+        <!--</field>-->
+    <!--</record>-->
+    <!--<record model="ir.ui.view" id="view_sub_sale_order_graph">-->
+        <!--<field name="name">sub.sale.order.graph</field>-->
+        <!--<field name="model">sub.sale.order</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<graph string="Sub Sales Orders">-->
+                <!--<field name="id"/>-->
+            <!--</graph>-->
+        <!--</field>-->
+    <!--</record>-->
+    <!--<record model="ir.ui.view" id="view_sub_sale_order_pivot">-->
+        <!--<field name="name">sub.sale.order.pivot</field>-->
+        <!--<field name="model">sub.sale.order</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<pivot string="Sub Sales Orders">-->
+                <!--<field name="date_order" type="row"/>-->
+            <!--</pivot>-->
+        <!--</field>-->
+    <!--</record>-->
 
     <!-- Sales Orders Kanban View  -->
-    <record model="ir.ui.view" id="view_sub_sale_order_kanban">
-        <field name="name">sub.sale.order.kanban</field>
-        <field name="model">sub.sale.order</field>
-        <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile">
-                <field name="name"/>
-            </kanban>
-        </field>
-    </record>
+    <!--<record model="ir.ui.view" id="view_sub_sale_order_kanban">-->
+        <!--<field name="name">sub.sale.order.kanban</field>-->
+        <!--<field name="model">sub.sale.order</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<kanban class="o_kanban_mobile">-->
+                <!--<field name="name"/>-->
+            <!--</kanban>-->
+        <!--</field>-->
+    <!--</record>-->
 
     <record id="view_sub_sale_order_tree" model="ir.ui.view">
         <field name="name">sub.sale.order.tree</field>
         <field name="model">sub.sale.order</field>
         <field name="priority">2</field>
         <field name="arch" type="xml">
-            <tree string="Sub Sales Orders">
+            <tree string="Sub Sales Orders" decoration-bf="message_needaction==True" decoration-muted="state=='cancel'">
                 <field name="is_downpayment" invisible="1"/>
+                <field name="message_needaction" invisible="1"/>
                 <field name="name" string="Order Number"/>
                 <field name="order_id" />
                 <field name="product_id" />
@@ -59,6 +60,7 @@
                 <field name="price_total" />
                 <field name="package_num" />
                 <field name="outsource_package_num" />
+                <field name="state" invisible="1"/>
             </tree>
         </field>
     </record>
@@ -307,7 +309,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">sub.sale.order</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+        <field name="view_mode">tree,form</field>
         <!--<field name="search_view_id" ref="sale_order_view_search_inherit_sale"/>-->
         <field name="context">{}</field>
         <field name="domain">[('is_downpayment', '=', False)]</field>
@@ -328,12 +330,12 @@
         <field name="act_window_id" ref="action_sub_orders"/>
     </record>
 
-    <record id="sub_sale_order_action_view_order_kanban" model="ir.actions.act_window.view">
-        <field name="sequence" eval="2"/>
-        <field name="view_mode">kanban</field>
-        <field name="view_id" ref="ydx_sale.view_sub_sale_order_kanban"/>
-        <field name="act_window_id" ref="action_sub_orders"/>
-    </record>
+    <!--<record id="sub_sale_order_action_view_order_kanban" model="ir.actions.act_window.view">-->
+        <!--<field name="sequence" eval="2"/>-->
+        <!--<field name="view_mode">kanban</field>-->
+        <!--<field name="view_id" ref="ydx_sale.view_sub_sale_order_kanban"/>-->
+        <!--<field name="act_window_id" ref="action_sub_orders"/>-->
+    <!--</record>-->
 
     <record id="sub_sale_order_action_view_order_form" model="ir.actions.act_window.view">
         <field name="sequence" eval="3"/>
@@ -342,26 +344,26 @@
         <field name="act_window_id" ref="action_sub_orders"/>
     </record>
 
-    <record id="sub_sale_order_action_view_order_calendar" model="ir.actions.act_window.view">
-        <field name="sequence" eval="4"/>
-        <field name="view_mode">calendar</field>
-        <field name="view_id" ref="ydx_sale.view_sub_sale_order_calendar"/>
-        <field name="act_window_id" ref="action_sub_orders"/>
-    </record>
+    <!--<record id="sub_sale_order_action_view_order_calendar" model="ir.actions.act_window.view">-->
+        <!--<field name="sequence" eval="4"/>-->
+        <!--<field name="view_mode">calendar</field>-->
+        <!--<field name="view_id" ref="ydx_sale.view_sub_sale_order_calendar"/>-->
+        <!--<field name="act_window_id" ref="action_sub_orders"/>-->
+    <!--</record>-->
 
-    <record id="sub_sale_order_action_view_order_pivot" model="ir.actions.act_window.view">
-        <field name="sequence" eval="5"/>
-        <field name="view_mode">pivot</field>
-        <field name="view_id" ref="ydx_sale.view_sub_sale_order_pivot"/>
-        <field name="act_window_id" ref="action_sub_orders"/>
-    </record>
+    <!--<record id="sub_sale_order_action_view_order_pivot" model="ir.actions.act_window.view">-->
+        <!--<field name="sequence" eval="5"/>-->
+        <!--<field name="view_mode">pivot</field>-->
+        <!--<field name="view_id" ref="ydx_sale.view_sub_sale_order_pivot"/>-->
+        <!--<field name="act_window_id" ref="action_sub_orders"/>-->
+    <!--</record>-->
 
-    <record id="sub_sale_order_action_view_order_graph" model="ir.actions.act_window.view">
-        <field name="sequence" eval="6"/>
-        <field name="view_mode">graph</field>
-        <field name="view_id" ref="ydx_sale.view_sub_sale_order_graph"/>
-        <field name="act_window_id" ref="action_sub_orders"/>
-    </record>
+    <!--<record id="sub_sale_order_action_view_order_graph" model="ir.actions.act_window.view">-->
+        <!--<field name="sequence" eval="6"/>-->
+        <!--<field name="view_mode">graph</field>-->
+        <!--<field name="view_id" ref="ydx_sale.view_sub_sale_order_graph"/>-->
+        <!--<field name="act_window_id" ref="action_sub_orders"/>-->
+    <!--</record>-->
 
     <menuitem id="menu_sale_sub_order"
         name="Sub Orders"
