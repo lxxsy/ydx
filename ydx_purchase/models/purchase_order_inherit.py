@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models, _
 from odoo.tools.float_utils import float_compare
+from odoo.addons import decimal_precision as dp
 
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
@@ -277,6 +278,7 @@ class PurchaseOrderLine(models.Model):
     ], string="Product Opento")
     purchase_type = fields.Selection(related='order_id.purchase_type')
     product_speci_type = fields.Char(string=_('规格型号'))
+    discount = fields.Float(string='折扣(%)', digits=dp.get_precision('Discount'), default=0.0)
 
     def _merge_in_existing_line(self, product_id, product_qty, product_uom, location_id, name, origin, values):
         if product_id.fuction_type == 'outsource':
@@ -372,4 +374,20 @@ class PurchaseOrderLine(models.Model):
             self.product_speci_type = self.product_id.product_tmpl_id.ps_speci_type
 
         return res
-                
+
+    @api.depends('product_qty', 'discount', 'price_unit', 'taxes_id')
+    def _compute_amount(self):
+        for line in self:
+            price = line.price_unit * (1 - (line.discount or 0.0) / 100.0)
+            vals = line._prepare_compute_all_values()
+            taxes = line.taxes_id.compute_all(
+                price,
+                vals['currency_id'],
+                vals['product_qty'],
+                vals['product'],
+                vals['partner'])
+            line.update({
+                'price_tax': sum(t.get('amount', 0.0) for t in taxes.get('taxes', [])),
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })

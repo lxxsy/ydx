@@ -169,6 +169,11 @@ class YdxAccountInvoice(models.Model):
                 invoice.message_post(body=message)
         return result
 
+    def _prepare_invoice_line_from_po_line(self, line):
+        data = super(YdxAccountInvoice, self)._prepare_invoice_line_from_po_line(line)
+        data['discount'] = line.discount
+        return data
+
 
 class YdxAccountInvoiceLine(models.Model):
     """ Override AccountInvoice_line to add the link to the purchase order line it is related to"""

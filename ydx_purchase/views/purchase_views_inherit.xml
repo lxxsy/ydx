@@ -67,6 +67,9 @@
                             <field name="qty_invoiced" attrs="{'column_invisible': [('parent.state', 'not in', ('purchase', 'done'))]}"/>
                             <field name="product_uom" groups="uom.group_uom" attrs="{'readonly': [('state', 'in', ('purchase', 'done', 'cancel'))]}" force_save="1"/>
                             <field name="price_unit"/>
+                            <div name="discount">
+                                <field name="discount" class="oe_inline"/> %%
+                            </div>
                             <field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use','=','purchase')]" context="{'default_type_tax_use': 'purchase', 'search_view_ref': 'account.account_tax_view_search'}" options="{'no_create': True}"/>
                             <field name="price_subtotal" widget="monetary"/>
                         </tree>
@@ -84,6 +87,9 @@
                                             <field name="product_uom" groups="uom.group_uom" class="oe_inline"/>
                                         </div>
                                         <field name="price_unit"/>
+                                        <div name="discount">
+                                            <field name="discount" class="oe_inline"/> %%
+                                        </div>
                                     </group>
                                     <group>
                                         <field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use', '=', 'purchase')]" options="{'no_create': True}"/>
