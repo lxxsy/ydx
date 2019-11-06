@@ -88,7 +88,6 @@
                 <page string="Sub Sale Orders" name="sub_sale_order_ids">
                     <field
                         name="sub_sale_order_ids"
-                        widget="section_and_note_one2many"
                         mode="tree"
                         readonly="1"
                     >
@@ -116,6 +115,9 @@
                             <field name="price_total" />
                             <field name="package_num" />
                             <field name="outsource_package_num" />
+                            <button type="object"  name="display_new_window"
+                                    class="oe_highlight" string="详情">
+                            </button>
                         </tree>
                     </field>
                     <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">

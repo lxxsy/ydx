@@ -432,3 +432,7 @@ class SubSaleOrder(models.Model):
                 vals.update({'invoice_id': invoice_id, 'sub_sale_line_ids': [(6, 0, [line.id])]})
                 vals_list.append(vals)
         return vals_list
+
+    def display_new_window(self):
+        return self.order_id.display_sub_order_window(self.id)
+

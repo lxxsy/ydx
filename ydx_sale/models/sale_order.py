@@ -569,6 +569,18 @@ class SaleOrder(models.Model):
                     express += pick.express_info
             order.express_info = express
 
+    def display_sub_order_window(self, sub_order_id):
+        return {
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'view_id': self.env.ref('ydx_sale.view_sub_sale_order_form').id,
+            'target': 'current',
+            'res_model': 'sub.sale.order',
+            'res_id': sub_order_id,
+            'context': {}
+        }
+
 # class AccountPayment(models.Model):
 #     _inherit = "account.payment"
 #
