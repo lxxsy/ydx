@@ -53,6 +53,25 @@ class SaleOrder(models.Model):
     attachment_number = fields.Integer(compute='_compute_attachment_number', string='附件上传')
     express_info = fields.Char(string='物流快递', compute='_compute_picking_express')
 
+    @api.onchange('name')
+    def onchange_partner(self):
+        if not self.name:
+            self.update({
+                'partner_id': False
+                })
+            return
+        name = str(self.name)
+        names = name[0:3]
+        partner_id = self.env['res.partner'].search([('type', '=', 'contact')])
+        for partner in partner_id:
+            partner_id = partner.id
+            partner_name = str(partner.name)
+            partner_name = partner_name[0:3]
+            if partner_name == names:
+                self.update({
+                    'partner_id': partner_id
+                    })
+                return
     @api.onchange('partner_id')
     def onchange_partner_id_phone_address(self):
         """
