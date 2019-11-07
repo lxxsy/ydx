@@ -191,6 +191,8 @@ class PurchaseOrder(models.Model):
             new_lines = self.env['purchase.sub.sale.order']
             sub_order_lines = self.env['sub.sale.order'].sudo().search([('order_id','=', order.sale_order_id.id)])
             for line in sub_order_lines:
+                if line.is_downpayment:
+                    continue
                 data = self._prepare_purchase_sub_sale_line_from_line(line)
                 new_line = new_lines.new(data)
                 new_lines += new_line
