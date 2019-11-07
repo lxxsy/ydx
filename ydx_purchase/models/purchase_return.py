@@ -345,6 +345,7 @@ class PurchaseReturn(models.Model):
             'product_id': line.product_id.id,
             'price_unit': line.order_id.currency_id._convert(
                 line.price_unit, self.currency_id, line.company_id, self.date_order or fields.Date.today(), round=False),
+            'discount': line.discount,
             'product_qty': line.product_qty,
             'taxes_id': line.taxes_id,
             'name': line.product_id.display_name
@@ -485,6 +486,7 @@ class PurchaseReturnLines(models.Model):
              "  - Stock Moves: the quantity comes from confirmed pickings\n")
     qty_delivered = fields.Float('Delivered Quantity', copy=False, compute='_compute_qty_delivered', inverse='_inverse_qty_delivered', compute_sudo=True, store=True, digits=dp.get_precision('Product Unit of Measure'), default=0.0)
     qty_delivered_manual = fields.Float('Delivered Manually', copy=False, digits=dp.get_precision('Product Unit of Measure'), default=0.0)
+    discount = fields.Float(string='折扣(%)', digits=dp.get_precision('Discount'), default=0.0)
 
     @api.multi
     @api.depends('move_ids.quantity_done')
@@ -532,12 +534,13 @@ class PurchaseReturnLines(models.Model):
             else:
                 line.qty_delivered_manual = 0.0
 
-    @api.depends('product_qty', 'price_unit', 'taxes_id')
+    @api.depends('product_qty', 'discount', 'price_unit', 'taxes_id')
     def _compute_amount(self):
         for line in self:
+            price = line.price_unit * (1 - (line.discount or 0.0) / 100.0)
             vals = line._prepare_compute_all_values()
             taxes = line.taxes_id.compute_all(
-                vals['price_unit'],
+                price,
                 vals['currency_id'],
                 vals['product_qty'],
                 vals['product'],

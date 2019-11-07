@@ -73,6 +73,7 @@
                                     <!--<field name="qty_delivered"/>-->
                                     <field name="product_uom" groups="uom.group_uom" attrs="{'readonly': [('state', 'in', ('return', 'done', 'cancel'))]}" force_save="1"/>
                                     <field name="price_unit"/>
+                                    <field name="discount"/>
                                     <field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use','=','return')]" context="{'default_type_tax_use': 'return', 'search_view_ref': 'account.account_tax_view_search'}" options="{'no_create': True}"/>
                                     <field name="price_subtotal" widget="monetary"/>
                                      <field name="purchase_line_id"  invisible="1"/>

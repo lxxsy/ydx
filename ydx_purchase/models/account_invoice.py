@@ -66,7 +66,7 @@ class YdxAccountInvoice(models.Model):
             'price_unit': line.purchase_return_id.currency_id._convert(
                 line.price_unit, self.currency_id, line.company_id, date or fields.Date.today(), round=False),
             'quantity': qty,
-            'discount': 0.0,
+            'discount': line.discount,
             'account_analytic_id': line.account_analytic_id.id,
             'analytic_tag_ids': line.analytic_tag_ids.ids,
             'invoice_line_tax_ids': invoice_line_tax_ids.ids
