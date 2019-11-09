@@ -92,6 +92,9 @@
                                                               'readonly':[('picking_type_code', '=', 'incoming')],}"/>
                             <!--<field name="package_num" attrs="{'column_invisible':[('picking_type_code', '=', 'incoming')]}"/>-->
                             <field name="outsource_package_num"/>
+                            <field name="glass_door"/>
+                            <field name="sliding_door"/>
+                            <field name="swim_door"/>
                             <templates>
                                 <t t-name="kanban-box">
                                     <div>
@@ -104,9 +107,6 @@
                                             <div class="dropdown-menu" role="menu">
                                                 <t >
                                                     <a role="menuitem" type="edit" class="dropdown-item">编辑</a>
-                                                </t>
-                                                <t>
-                                                    <a role="menuitem" type="delete" class="dropdown-item">删除</a>
                                                 </t>
                                             </div>
                                         </div>
@@ -141,6 +141,15 @@
                                                         >
                                                             更新外购包裹数量
                                                         </button>
+                                                    </div>
+                                                    <div>
+                                                        <a>玻璃门：<field name="glass_door"/></a>
+                                                    </div>
+                                                    <div>
+                                                        <a>推拉门：<field name="sliding_door"/></a>
+                                                    </div>
+                                                    <div>
+                                                        <a>泳黑门：<field name="swim_door"/></a>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 o_kanban_primary_right">
