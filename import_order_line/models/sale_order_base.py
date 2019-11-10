@@ -104,7 +104,7 @@ FMETAL_MAP = (
     {
       "col": 2,
       "attribute": 'product_speci_type',
-      "header": '规格',
+      "header": '型号',
       "required": 0,
       "type": "string"
     },
