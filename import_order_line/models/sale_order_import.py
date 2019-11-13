@@ -69,6 +69,15 @@ class ImportSaleOrderWizard(models.TransientModel):
                 if value == m.get('header'):
                     m['col'] = col
                     tmp_map.append(m)
+        if sheet.name == FMETAL_SHEET_NAME:
+            flag = 1
+            for m in tmp_map:
+                if "型号" == m.get('header'):
+                    flag = 0
+                    break
+            if flag:
+                raise UserError("功能五金表中不存在【型号】这一列，不能导入数据！")
+
         items = []
         sub_sale_id = ''
         for row in range(data_row, sheet.nrows):

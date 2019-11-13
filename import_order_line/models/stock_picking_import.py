@@ -129,7 +129,7 @@ class ImportStockPickingWizard(models.TransientModel):
 
                 product_id = self._seache_by_domain("product.product", product_domain)
                 if not product_id:
-                    errors.append(u'{sheet}:第{rowvalue}行的产品名称，系统中不存在!'.format(sheet=sheet.name, rowvalue=row+1))
+                    errors.append(u'{sheet}:第{rowvalue}行的产品名称，系统中不存在!查询条件:{check}'.format(sheet=sheet.name, rowvalue=row+1, check=product_domain))
                 else:
                     item["product_id"] = product_id.id
                     item['product_uom'] = product_id.product_tmpl_id.uom_po_id.id
@@ -137,7 +137,7 @@ class ImportStockPickingWizard(models.TransientModel):
             if product_uom_domain:
                 product_uom = self._seache_by_domain('uom.uom', product_uom_domain)
                 if not product_uom:
-                    errors.append(u'{sheet}:第{rowvalue}行的单位名称，系统中不存在!'.format(sheet=sheet.name,rowvalue=row+1))
+                    errors.append(u'{sheet}:第{rowvalue}行的单位名称，系统中不存在!查询条件:{check}'.format(sheet=sheet.name,rowvalue=row+1, check=product_uom_domain))
                 else:
                     item["product_uom"] = product_uom.id
 
