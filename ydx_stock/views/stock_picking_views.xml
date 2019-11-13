@@ -399,6 +399,10 @@
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.vpicktree"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <field name="picking_type_code" invisible="1"/>
+                <field name="is_payall" string="确认付款" attrs="{'invisible': [('picking_type_code','!=','outgoing')]}"/>
+            </xpath>
             <xpath expr="//field[@name='state']" position="after">
                 <field name="picking_type_code" invisible="1"/>
                 <field name="cargo_state" attrs="{'invisible': [('picking_type_code','=','incoming')]}"/>
