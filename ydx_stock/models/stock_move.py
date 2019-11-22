@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
-
+from odoo.addons import decimal_precision as dp
 
 class StockMove(models.Model):
     _inherit = "stock.move"
@@ -35,3 +35,4 @@ class StockMove(models.Model):
         ('twoopen_and_left', _('对开+左开')),
     ], string=_("开向"))
     picking_type_code = fields.Selection(related='picking_id.picking_type_code',readonly=True)
+    outsource_quantity = fields.Float(string='数量', digits=dp.get_precision('Product Unit of Measure'))

@@ -60,6 +60,7 @@ class YdxStockMove(models.Model):
         procurement_values['product_name'] = self.product_name
         procurement_values['product_speci_type'] = self.product_speci_type
         procurement_values['sub_sale_order_no'] = self.sub_sale_order_no
+        procurement_values['outsource_quantity'] = self.outsource_quantity
         return procurement_values
 
 

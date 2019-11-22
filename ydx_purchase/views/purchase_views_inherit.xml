@@ -56,6 +56,7 @@
                             <field name="product_length"/>
                             <field name="width" />
                             <field name="thickness" />
+                            <field name="outsource_quantity" string="委外数量"/>
                             <field name="band_number" />
                             <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
                             <field name="account_analytic_id" context="{'default_partner_id':parent.partner_id}" groups="analytic.group_analytic_accounting"/>

@@ -34,50 +34,50 @@ PURCHASE_MAP = (
     },
     {
       "col": 4,
-      "attribute": 'date_planned',
-      "header": '计划日期',
-      "required": 1,
-      "type": "string"
-    },
-    {
-      "col": 5,
       "attribute": 'product_speci_type',
       "header": '规格型号',
       "required": 0,
       "type": "string"
     },
     {
-      "col": 6,
+      "col": 5,
       "attribute": 'material',
       "header": '材质',
       "required": 0,
       "type": "string"
     },
     {
-      "col": 7,
+      "col": 6,
       "attribute": 'product_colour',
       "header": '颜色',
       "required": 0,
       "type": "string"
     },
     {
-      "col": 8,
+      "col": 7,
       "attribute": 'product_length',
       "header": '成品长度',
       "required": 0,
       "type": "float"
     },
     {
-      "col": 9,
+      "col": 8,
       "attribute": 'width',
       "header": '成品宽度',
       "required": 0,
       "type": "float"
     },
     {
-      "col": 10,
+      "col": 9,
       "attribute": 'thickness',
       "header": '成品厚度',
+      "required": 0,
+      "type": "float"
+    },
+    {
+      "col": 10,
+      "attribute": 'outsource_quantity',
+      "header": '委外数量',
       "required": 0,
       "type": "float"
     },

@@ -281,6 +281,7 @@ class PurchaseOrderLine(models.Model):
     purchase_type = fields.Selection(related='order_id.purchase_type')
     product_speci_type = fields.Char(string=_('规格型号'))
     discount = fields.Float(string='折扣(%)', digits=dp.get_precision('Discount'), default=0.0)
+    outsource_quantity = fields.Float(string='数量', digits=dp.get_precision('Product Unit of Measure'))
 
     def _merge_in_existing_line(self, product_id, product_qty, product_uom, location_id, name, origin, values):
         if product_id.fuction_type == 'outsource':
@@ -377,6 +378,7 @@ class PurchaseOrderLine(models.Model):
 
         return res
 
+    @api.multi
     @api.depends('product_qty', 'discount', 'price_unit', 'taxes_id')
     def _compute_amount(self):
         for line in self:
@@ -393,3 +395,12 @@ class PurchaseOrderLine(models.Model):
                 'price_total': taxes['total_included'],
                 'price_subtotal': taxes['total_excluded'],
             })
+
+    # @api.multi
+    # @api.depends('product_qty', 'product_length', 'width')
+    # def _compute_square(self):
+    #     for line in self:
+    #         line.square = (line.product_length/1000)*(line.width/1000)*line.product_qty
+
+
+

@@ -107,14 +107,18 @@ class ResOutsource(models.Model):
                     group_id.write(updated_vals)
 
             values = line._prepare_procurement_values(group_id=group_id)
-            product_qty = line.product_uom_qty - qty
+            outsource_quantity = line.product_uom_qty - qty
 
             procurement_uom = line.product_uom
             quant_uom = line.product_id.uom_id
             get_param = self.env['ir.config_parameter'].sudo().get_param
             if procurement_uom.id != quant_uom.id and get_param('stock.propagate_uom') != '1':
-                product_qty = line.product_uom._compute_quantity(product_qty, quant_uom, rounding_method='HALF-UP')
-                procurement_uom = quant_uom
+                 outsource_quantity = line.product_uom._compute_quantity(outsource_quantity, quant_uom, rounding_method='HALF-UP')
+                 procurement_uom = quant_uom
+            values.update({
+                'outsource_quantity': outsource_quantity
+            })
+            product_qty = (line.product_height/1000)*(line.product_width/1000)*outsource_quantity
 
             try:
                 self.env['procurement.group'].run(line.product_id, product_qty, procurement_uom, line.order_id.partner_shipping_id.property_stock_customer, line.name, line.order_id.name, values)
