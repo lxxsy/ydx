@@ -401,7 +401,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='state']" position="before">
                 <field name="picking_type_code" invisible="1"/>
-                <field name="is_payall" string="确认付款" attrs="{'invisible': [('picking_type_code','!=','outgoing')]}"/>
+                <field name="is_payall" string="确认付款" widget="checkbox" attrs="{'invisible': [('picking_type_code','!=','outgoing')]}"/>
             </xpath>
             <xpath expr="//field[@name='state']" position="after">
                 <field name="picking_type_code" invisible="1"/>
