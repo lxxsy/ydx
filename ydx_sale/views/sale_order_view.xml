@@ -583,4 +583,21 @@
         <field name="view_id" ref="view_dealer_sale_order_tree"/>
         <field name="act_window_id" ref="dealer_sale_order_action"/>
     </record>
+
+    <record id="ydx_view_sale_order_kanban" model="ir.ui.view">
+        <field name="name">sale.order.kanban</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="sub_sale_amount_total"/>
+            </xpath>
+            <xpath expr="//div[@class='o_kanban_record_headings mt4']" position="after">
+                总价：<strong><field name="sub_sale_amount_total" widget="monetary"/></strong>
+            </xpath>
+            <xpath expr="//templates/t/div/div/strong/field[@name='amount_total']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
 </odoo>
