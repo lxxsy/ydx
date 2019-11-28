@@ -8,6 +8,8 @@ from odoo import api, fields, models
 class SaleReport(models.Model):
     _inherit = "sale.report"
 
+    partner_simple_name = fields.Char(string=u'客户简称')
+
     def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
         fields['days_to_confirm'] = ", DATE_PART('day', s.confirmation_date::timestamp - s.create_date::timestamp) as days_to_confirm"
         fields['invoice_status'] = ', s.invoice_status as invoice_status'
@@ -34,6 +36,7 @@ class SaleReport(models.Model):
             s.confirmation_date as confirmation_date,
             s.state as state,
             s.partner_id as partner_id,
+            partner.simple_name as partner_simple_name,
             s.user_id as user_id,
             s.company_id as company_id,
             extract(epoch from avg(date_trunc('day',s.date_order)-date_trunc('day',s.create_date)))/(24*60*60)::decimal(16,2) as delay,
@@ -75,6 +78,7 @@ class SaleReport(models.Model):
             s.date_order,
             s.confirmation_date,
             s.partner_id,
+            partner.simple_name,
             s.user_id,
             s.state,
             s.company_id,

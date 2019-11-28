@@ -8,6 +8,7 @@
             <field name="inherit_id" ref="base.view_partner_form" />
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='phone']" position="before">
+                    <field name="simple_name" />
                     <field name="legal_person" />
                 </xpath>
                 <xpath expr="//field[@name='vat']" position="after">

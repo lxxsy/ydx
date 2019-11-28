@@ -14,3 +14,4 @@ class res_partner_inherit(models.Model):
         "Stamp Image", attachment=True,
         help="This field holds the image used as image for the contract, limited to 1024x1024px.")
     dealer_id = fields.Many2one('res.users', '关联用户',)
+    simple_name = fields.Char(string=u'简称')
