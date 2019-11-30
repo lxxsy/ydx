@@ -581,18 +581,20 @@ class SaleOrder(models.Model):
             'context': {}
         }
 
-# class AccountPayment(models.Model):
-#     _inherit = "account.payment"
-#
-#     def action_validate_invoice_payment(self):
-#         super(AccountPayment, self).action_validate_invoice_payment()
-#         name = self.invoice_ids.origin
-#         order = self.env['sale.order'].search([('name', '=', name)])
-#         if order.is_replenishment == False:
-#             if not order.factory_order_no:
-#                 order.env['sale.factory.no'].create({
-#                     "order_id": order.id
-#                 })
+
+class AccountPayment(models.Model):
+    _inherit = "account.payment"
+
+    def action_validate_invoice_payment(self):
+        super(AccountPayment, self).action_validate_invoice_payment()
+        if self.partner_type == 'customer':
+            name = self.invoice_ids.origin
+            order = self.env['sale.order'].search([('name', '=', name)])
+            if not order.is_replenishment and not order.factory_order_no and order:
+                order.env['sale.factory.no'].create({
+                    "order_id": order.id
+                })
+
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
