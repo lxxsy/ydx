@@ -326,6 +326,9 @@
             <xpath expr="//filter[@name='my_sale_orders_filter']" position="replace">
                 <filter string="我的订单" domain="['|', ('user_id','=',uid), ('spliter','=',uid)]" name="my_sale_orders_filter"/>
             </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="filter_domain">['|',('name','ilike',self),('client_order_ref','ilike',self)]</attribute>
+            </xpath>
         </field>
     </record>
 
