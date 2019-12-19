@@ -5,18 +5,6 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='inventory']" position="after">
-                <page string="Relevant Document" name="relevant_document">
-                    <field name="attachment_id">
-                        <tree string="Relevant Document">
-                            <field name="name"/>
-                            <button type="object" name="display_ir_attachment_window"
-                                    class="oe_highlight" string="Details">
-                            </button>
-                        </tree>
-                    </field>
-                </page>
-            </xpath>
             <xpath expr="//label[@for='standard_price']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
@@ -29,5 +17,15 @@
         </field>
     </record>
 
+    <record id="view_product_supplier_inherit_inherit" model="ir.ui.view">
+        <field name="name">view.product.supplier.inherit.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="purchase.view_product_supplier_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='purchase_method']" position="after">
+                <field name="standard_price"/>
+            </xpath>
+        </field>
+    </record>
 
 </odoo>
