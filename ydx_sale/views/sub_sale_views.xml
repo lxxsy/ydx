@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- demo -->
-	<!-- demo1 -->
+    <!-- demo1 -->
     <!--<record id="view_sub_sale_order_calendar" model="ir.ui.view">-->
         <!--<field name="name">sub.sale.order.calendar</field>-->
         <!--<field name="model">sub.sale.order</field>-->
