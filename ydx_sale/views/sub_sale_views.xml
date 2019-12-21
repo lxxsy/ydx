@@ -364,7 +364,7 @@
         <!--<field name="view_id" ref="ydx_sale.view_sub_sale_order_graph"/>-->
         <!--<field name="act_window_id" ref="action_sub_orders"/>-->
     <!--</record>-->
-    <!-- demo4 -->
+
     <menuitem id="menu_sale_sub_order"
         name="Sub Orders"
         action="ydx_sale.action_sub_orders"
@@ -372,5 +372,5 @@
         sequence="2" groups="sales_team.group_sale_salesman"/>
     <!-- demo -->
     <!-- demo1 -->
-    
+    <!-- demo3 -->
 </odoo>
