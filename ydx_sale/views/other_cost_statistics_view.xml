@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Other Cost Statistics -->
+    <record id="other_cost_statistics_action" model="ir.actions.act_window">
+        <field name="name">Other Cost Statistics</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">other.cost.statistics</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create New Other Cost Statistics!
+            </p>
+        </field>
+    </record>
+    <menuitem id="other_cost_statistics_menu"
+              name="other cost statistics"
+              parent="sale.sale_order_menu"
+              sequence="5"
+              groups="sales_team.group_sale_salesman"
+              action="ydx_sale.other_cost_statistics_action"/>
+
+    <record id="view_other_cost_statistics_tree" model="ir.ui.view">
+        <field name="name">other.cost.statistics.tree</field>
+        <field name="model">other.cost.statistics</field>
+        <field name="arch" type="xml">
+            <tree string="Other Cost Statistics">
+                <field name="name" string="Other Cost"/>
+                <field name="sale_order_id" string="Sale Order"/>
+                <field name="create_date" string="Create Date"/>
+                <field name="cost_subtotal"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_other_cost_statistics_form" model="ir.ui.view">
+        <field name="name">other.cost.statistics.form</field>
+        <field name="model">other.cost.statistics</field>
+        <field name="arch" type="xml">
+            <form string="Other Cost Statistics" duplicate="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="sale_order_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Cost Details" name="cost_details_ids">
+                            <field name="cost_details_ids" widget="section_and_note_one2many" mode="tree">
+                                <tree string="Cost Details" editable="bottom">
+                                    <control>
+                                        <create string="Add a Cost Details"/>
+                                    </control>
+                                    <field name="other_cost_categories_id"/>
+                                    <field name="note"/>
+                                    <field name="cost"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right" colspan="2">
+                                <field name="cost_subtotal" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Other Cost Categories -->
+    <record id="other_cost_categories_action" model="ir.actions.act_window">
+        <field name="name">Other Cost Categories</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">other.cost.categories</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create New Other Cost Categories!
+            </p>
+        </field>
+    </record>
+    <menuitem id="other_cost_categories_menu"
+              name="Other Cost Categories"
+              parent="sale.menu_sale_config"
+              sequence="100"
+              groups="sales_team.group_sale_salesman"
+              action="ydx_sale.other_cost_categories_action"/>
+
+    <record id="view_other_cost_categories_tree" model="ir.ui.view">
+        <field name="name">other.cost.categories.tree</field>
+        <field name="model">other.cost.categories</field>
+        <field name="arch" type="xml">
+            <tree string="Other Cost Categories" editable="bottom">
+                <field name="name"/>
+                <field name="create_date" string="Create Date"/>
+                <field name="write_date" string="Write Date"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

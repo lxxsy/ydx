@@ -14,3 +14,4 @@ from . import res_outsource
 from . import account_invoice
 from . import factory_no
 from . import designer
+from . import other_cost_statistics

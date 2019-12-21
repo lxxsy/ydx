@@ -43,6 +43,7 @@
 		'views/sale_return_views.xml',
         'views/sale_order_view.xml',
         'views/sub_sale_views.xml',
+        'views/other_cost_statistics_view.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
