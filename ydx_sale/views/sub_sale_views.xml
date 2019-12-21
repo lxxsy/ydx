@@ -370,6 +370,4 @@
         action="ydx_sale.action_sub_orders"
         parent="sale.sale_order_menu"
         sequence="2" groups="sales_team.group_sale_salesman"/>
-    <!-- demo -->
-    <!-- demo1 -->
 </odoo>
